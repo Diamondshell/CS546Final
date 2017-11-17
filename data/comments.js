@@ -30,32 +30,32 @@ const exported_methods = {
         return data;
     },
     async getCommentsByUserId ( userId ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `getCommentById: Expected a string but received a ${typeof ( id )}`;
+        if ( typeof ( userId ) !== 'string' ) {
+            throw `getCommentsByUserId: Expected a string but received a ${typeof ( userId )}`;
         }
         const commentCollection = await comments();
         const data = await commentCollection.find ( { userId: userId } ).toArray();
         return data;
     },
     async removeCommentsByUserId ( userId ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `removeCommentById: Expected a string but received a ${typeof(id)}`;
+        if ( typeof ( userId ) !== 'string' ) {
+            throw `removeCommentsByUserId: Expected a string but received a ${typeof(userId)}`;
         }
         const commentCollection = await comments();
         let data = await commentCollection.remove ( { userId: userId } );
         return data;
     },
     async getCommentsByRecipeId ( recipeId ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `getCommentById: Expected a string but received a ${typeof ( id )}`;
+        if ( typeof ( recipeId ) !== 'string' ) {
+            throw `getCommentsByRecipeId: Expected a string but received a ${typeof ( recipeId )}`;
         }
         const commentCollection = await comments();
         const data = await commentCollection.find ( { recipeId: recipeId } ).toArray();
         return data;
     },
     async removeCommentsByRecipeId ( recipeId ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `removeCommentById: Expected a string but received a ${typeof(id)}`;
+        if ( typeof ( recipeId ) !== 'string' ) {
+            throw `removeCommenstByRecipeId: Expected a string but received a ${typeof(recipeId)}`;
         }
         const commentCollection = await comments();
         let data = await commentCollection.remove ( { recipeId: recipeId } );
@@ -71,15 +71,19 @@ const exported_methods = {
         if ( typeof ( comment ) !== 'string' ) {
             throw `createComment: Expected a string but received a ${typeof ( comment )}`;
         }
-
         comBody = {};
+        comBody._id = uuidv1();
         comBody.userId = userId;
         comBody.recipeId = recipeId;
         comBody.comment = comment;
-
         const commentCollection = await comments();
         const data = await commentCollection.insertOne ( comBody );
         return comBody;
+    },
+    async empty () {
+        const commentCollection = await comments();
+        const data = await commentCollection.remove({});
+        return data;
     }
 };
 
