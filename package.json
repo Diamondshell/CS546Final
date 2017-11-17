@@ -1,0 +1,20 @@
+{
+  "name": "cs546final",
+  "version": "1.0.0",
+  "description": "Final Submission for CS546",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "testdb": "node testdb.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diamondshell/CS546Final.git"
+  },
+  "author": "Thomas Pyle, Mark Knapp, Jack Kraszewski, Justin Barish, Zach Hackett",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Diamondshell/CS546Final/issues"
+  },
+  "homepage": "https://github.com/Diamondshell/CS546Final#readme"
+}
