@@ -1,0 +1,41 @@
+//////////////////////// Favorite Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+getFavoriteById(string:id)
+    Returns a favorite with the given id
+removeFavoriteById(string:id)
+    Removes the favorite with the given id
+
+getFavoritesByUserId(string:userId)
+    Returns all favorites made by the user with this userid
+removeFavoritesByUserId(string:userId)
+    Removes all favorites from the given user
+
+getFavoritesByRecipeId(string:recipeId)
+    Returns all favorites for the given recipeId
+removeFavoritesByRecipeId(string:recipeId)
+    Removes all favorites for the given recipeId
+
+createFavorite(string:userId, string:recipeId)
+    Creates a favorite with the given userId and the given recipeId. Will return the created favorite.
+
+//////////////////////// Comment Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+getCommentById(string:id)
+    Returns a comment with the given id
+updateCommentById(string:id, string:comment)
+    Updates a comment with the given id and returns the updated comment
+removeCommentById(string:id)
+    Removes the comment with the given id
+
+getCommentsByUserId(string:userId)
+    Returns all comments made by the user with this userid
+removeCommentsByUserId(string:userId)
+    Removes all comments from the given user
+
+getCommentsByRecipeId(string:recipeId)
+    Returns all comments for the given recipeId
+removeCommentsByRecipeId(string:recipeId)
+    Removes all comments for the given recipeId
+
+createComment(string:userId, string:recipeId, string:comment)
+    Creates a comment with the given userId and the given recipeId. Will return the created comment.
