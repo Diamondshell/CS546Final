@@ -1,7 +1,7 @@
 var data = require ( "./data" );
 const comments = data.comments;
 
-function main() {
+async function main() {
     console.log("Comment Tests");
     let t1 = await comments.createComment("a","b","lol");
     console.log("Testing Create: " + t1);
@@ -10,3 +10,5 @@ function main() {
     let t3 = await comments.removeCommentById(t1._id);
     console.log("Testing Remove: " + t3);
 }
+
+main();

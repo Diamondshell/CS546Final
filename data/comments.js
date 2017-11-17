@@ -1,4 +1,5 @@
-const comments = mongoCollections.comments;
+const mongoCollections = require("../config/mongoCollections");
+const comments = mongoCollections.commentItems;
 const uuidv1 = require ( "uuid/v1" );
 
 const exported_methods = {
