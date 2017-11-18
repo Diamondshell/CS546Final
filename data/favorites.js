@@ -58,6 +58,13 @@ const exported_methods = {
         if ( typeof ( recipeId ) !== 'string' ) {
             throw `createFavorite: Expected a string recipeId but received a ${typeof(recipeId)}`;
         }
+        let ret = {};
+        ret._id = uuidv1();
+        ret.userId = userId;
+        ret.recipeId = recipeId;
+        const favoriteData = await favorites();
+        const data = await favoriteData.insertOne ( ret );
+        return ret;
     }
 }
 

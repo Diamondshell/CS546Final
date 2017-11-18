@@ -19,6 +19,8 @@ const exported_methods = {
         update.comment = comment;
         const commentCollection = await comments();
         await commentCollection.updateOne ( { _id: id }, { $set: update } );
+
+        return await exported_methods.getCommentById ( id );
         
     },
     async removeCommentById ( id ) {
