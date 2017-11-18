@@ -63,13 +63,13 @@ const exported_methods = {
     },
     async createComment ( userId, recipeId, comment ) {
         if ( typeof ( userId ) !== 'string' ) {
-            throw `createComment: Expected a string but received a ${typeof ( userId )}`;
+            throw `createComment: Expected a string userId but received a ${typeof ( userId )}`;
         }
         if ( typeof ( recipeId ) !== 'string' ) {
-            throw `createComment: Expected a string but received a ${typeof ( recipeId )}`;
+            throw `createComment: Expected a string recipeId but received a ${typeof ( recipeId )}`;
         }
         if ( typeof ( comment ) !== 'string' ) {
-            throw `createComment: Expected a string but received a ${typeof ( comment )}`;
+            throw `createComment: Expected a string comment but received a ${typeof ( comment )}`;
         }
         comBody = {};
         comBody._id = uuidv1();
