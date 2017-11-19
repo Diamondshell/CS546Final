@@ -65,6 +65,11 @@ const exported_methods = {
         const favoriteData = await favorites();
         const data = await favoriteData.insertOne ( ret );
         return ret;
+    },
+    async empty () {
+        const favoriteCollection = await favorites();
+        const data = await favoriteCollection.remove({});
+        return data;
     }
 }
 
