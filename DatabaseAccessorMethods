@@ -1,4 +1,88 @@
+//////////////////////// User Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+Users contain relevant information for each user
+Sample User:
+{_id: “asjkd8sad9as9”
+ password: “sjaf9i2lcj09aic;szk39j2”,
+ username: “Food Eater 9000”,
+ email: “foo9000@eater.com”,
+ description: “I like to eat food. 9000 food.”}
+
+getUserById(string:id)
+    Returns the matching user
+updateUserById(string:id,string:password,string:username,string:email,string:description)
+    Updates the user with the given information
+removeUserById(string:id)
+    Removes user and all ratings/favorites/comments made by that user
+
+createUser(string:password,string:username,string:email,string:description)
+    Creates a user with the given id
+
+//////////////////////// Recipe Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+Recipes will keep track of all if the information for a given recipe
+Sample Recipe:
+{_id: “jad9wjasod92ii0”,
+ name: “Ketchup Fudge”,
+ price: 6.57,
+ cookTime: 25,
+ appliances: [“Blender”, “Microwave”],
+ popularity: -5,
+ tags: [“What”, “Fudge”, “Unusual”],
+ ingredients: [“White Chocolate Chips”, “Ketchup”, “Maple Syrup”],
+ steps: [“Lose all sense of self”, “Make this”]}
+
+getRecipeById(string:id)
+    Returns a Recipe with the given id
+updateRecipeById(string:id,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
+    Updates a recipe with the given information
+removeRecipeById(string:id)
+    Removes the recipe with the given id, will also remove all comments/ratings/favorites for that recipe
+
+getRecipesByFilter(Object:filter)
+    Returns all recipes matching on the given filter
+
+Filter is TBD
+
+createRecipe(string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
+    Creates a recipe with the given information
+
+//////////////////////// Rating Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+Ratings are defined as a score 1-5 given by a user to a recipe.
+Sample rating:
+{_id:"asdjja92ckalkd",
+ userId:"asdhja92calxkjc",
+ recipeId:"asd82ujcncd",
+ rating:5}
+
+getRatingById(string:id)
+    Returns a Rating with the given id
+updateRatingById(string:id,int:rating)
+    Updates the given Rating with a new value
+removeRatingById(string:id)
+    Removes a Rating with the given id
+
+getRatingsByUserId(string:userId)
+    Returns Ratings made by a given user
+removeRatingsByUserId(string:userId)
+    Removes all ratings made by a given user
+
+getRatingsByRecipeId(string:userId)
+    Returns Ratings made on a given recipe
+removeRatingsByRecipeId(string:userId)
+    Removes all ratings made on a given recipe
+
+createRating(string:userId,string:recipeId,int:rating)
+    Creates a rating by the given user for the given recipe with the value rating
+
 //////////////////////// Favorite Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+A Favorite indicates that a user has favorited this recipe.
+Sample Favorite:
+{_id:"ashdjkad",
+ userId:"adjajsdklcsm",
+ recipeId:"asdlackm;da"}
 
 getFavoriteById(string:id)
     Returns a favorite with the given id
@@ -19,6 +103,13 @@ createFavorite(string:userId, string:recipeId)
     Creates a favorite with the given userId and the given recipeId. Will return the created favorite.
 
 //////////////////////// Comment Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
+
+A comment is made by a user on a recipe
+Sample Comment:
+{_id:"asdac8i3j",
+ userId:"asdj29kaklsc,",
+ recipeId:"asdjlskcklas",
+ comment:"I recommend using an egg in addition to the regular ingredients"}
 
 getCommentById(string:id)
     Returns a comment with the given id
