@@ -49,7 +49,7 @@ const exported_methods = {
         const userCollection = await users();
         const data = userCollection.updateOne ( { _id: id }, { $set: updateInfo } );
 
-        return exported_methods.getUserById ( id );
+        return await exported_methods.getUserById ( id );
     },
     async removeUserById ( id ) {
         if ( typeof ( id ) ) {
@@ -76,15 +76,20 @@ const exported_methods = {
         }
 
         ret = {};
-        ret._id= uuidv1();
-        ret.password= password,
-        ret.username= username,
-        ret.email= email,
-        ret.description= description
+        ret._id = uuidv1();
+        ret.password = password;
+        ret.username = username;
+        ret.email = email;
+        ret.description = description;
 
         const userCollection = await users();
         const data = await userCollection.insertOne ( ret );
         return ret;
+    },
+    async empty() {
+        const userCollection = await users();
+        const data = await userCollection.remove({});
+        return data;
     }
 };
 
