@@ -42,7 +42,8 @@ removeRecipeById(string:id)
 getRecipesByFilter(Object:filter)
     Returns all recipes matching on the given filter
 
-Filter is TBD
+Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
+If you don't like that, let me know.
 
 createRecipe(string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
     Creates a recipe with the given information

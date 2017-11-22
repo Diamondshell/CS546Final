@@ -99,7 +99,12 @@ const exported_methods = {
         return data;
     },
     async getRecipesByFilter ( filter ) {
-        throw `getRecipeByFilter: Not yet implemented`;
+        if ( typeof ( filter ) !== 'object' ){
+            throw `getRecipeByFilter: Not yet implemented`;
+        }
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find ( filter ).toArray();
+        return data;
     },
     async createRecipe ( name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
         if ( typeof ( name ) !== 'string' ) {
