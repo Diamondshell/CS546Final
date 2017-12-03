@@ -1,0 +1,25 @@
+.card {
+    margin:15px;
+}
+.cards {
+    display:block;
+    float:none;
+    clear:both;
+}
+li{
+    list-style: none;
+    float: left;
+    width: calc(33% - 30px);
+}
+@media (max-width: 600px) {
+    li { 
+        width: calc(50% - 30px);
+    }
+ }
+ 
+ @media (max-width: 500px) {
+    li { 
+       float: none;
+       width: 100%;
+    }
+ }

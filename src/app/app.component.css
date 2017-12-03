@@ -1,0 +1,218 @@
+
+#wrapper {
+    max-width: 1300px;
+    min-width: 300px;
+    margin: 0px auto;
+    width:100%;
+    padding:0px;
+    border:none;
+    background-color: #e8eef2;
+    text-align: center;
+    position: relative;
+   
+    
+}
+#logo{
+    width: 300px;
+    height: 50px;
+}
+header{
+   
+    overflow: hidden;
+    width:100%;
+    background-color: #77b6ea;
+    display:block;
+    
+   
+   
+}
+nav{
+    padding:0px  15px;
+}
+hr {
+    width: 60%;
+}
+.signIn {
+    background-color: #a2abaa;
+    text-align: right;
+    display: block;
+    margin:0px;
+     overflow: hidden;
+    padding: 10px;
+}
+
+h1{
+    font-size:2em;
+    
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #77b6ea;
+}
+
+li {
+    float: left;
+    
+}
+
+li p {
+    background-color: #e8eef2;
+    cursor: default;
+    text-align: center;
+}
+
+
+
+li p, li input {
+    display: block;
+    color: black;
+  
+    text-decoration: none;
+    padding: 14px 16px;
+    
+}
+@media (max-width: 500px) {
+    li.logo{
+        width: 100%;
+    }
+}
+/* Change the link color to #111 (black) on hover */
+li p:hover {
+    background-color:  #c7d3dd;
+}
+
+li.searchText{
+    margin: 0px;
+    margin-left:10px;
+    width:40%;
+    padding: 15px;
+}
+li.searchText input {
+  /*  width: calc(90% - 10px);*/
+  width: 100%;
+}
+
+li.search {
+    margin: 0px;
+    text-align: left;
+
+}
+
+li.browse{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+.so{
+    display: none;
+
+}
+.signIn button{
+    border:none;
+    padding: 6px 15px;
+    border-radius: 6px;
+    outline: none;
+}
+.signIn button:hover {
+    background-color:  #c7d3dd;
+   
+}
+/*
+nav{
+    width: 100%;
+    background-color: #77b6ea;
+}
+
+nav  ul {
+  
+    list-style-type: none;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    margin-top:0px;
+    padding: 0;
+    background-color: #77b6ea;
+    display: inline-block;  
+
+    width: 100%;
+}
+ header li {
+    float: left;
+    margin-top:5px;
+    margin:10px;
+    overflow:hidden;
+}
+
+li.searchText{
+    margin: 0px;
+    margin-left:10px;
+    width:40%;
+   
+}
+li.search {
+    margin: 0px;
+    text-align: left;
+
+}
+
+li.browse{
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+
+ li p , li input{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 100%;
+    background-color:  #e8eef2;
+   border-color: #e8eef2;
+   outline:none;
+   border: none;
+   
+  
+ }
+ li p:hover{
+    border-radius: 5px;
+    background-color: black;
+
+}*/
+/*
+li p, li input{
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    width: 100%;
+       
+    }
+  */
+.card-layout {
+   display: block;
+   width: 100%;
+   position: relative;
+}
+footer {
+    background-color: #a2abaa;
+    display:block;
+    float:none;
+    clear:both;
+    margin-top: 50px;
+    padding: 25px;
+}
+footer.footerInfo {
+    display:block;
+    float:none;
+    clear:both;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    background-color: #a2abaa;
+}
