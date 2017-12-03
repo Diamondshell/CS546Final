@@ -22,11 +22,11 @@
     "url": "https://github.com/Diamondshell/CS546Final/issues"
   },
   "homepage": "https://github.com/Diamondshell/CS546Final#readme",
-   "private": true,
+  "private": true,
   "dependencies": {
     "mongo-db": "^1.0.2",
     "uuid": "^3.1.0",
-     "@angular/animations": "^5.0.0",
+    "@angular/animations": "^5.0.0",
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",
@@ -61,5 +61,3 @@
     "typescript": "~2.4.2"
   }
 }
-
-

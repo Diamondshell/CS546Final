@@ -8,6 +8,7 @@ import {Recipe} from '../recipe';
 export class CardComponent implements OnInit {
 
   @Input() recipe: Recipe;
+  @Input() editting: Boolean;
   constructor() { }
   onSelect():void {
     //view card

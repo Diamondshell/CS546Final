@@ -1,0 +1,12 @@
+.card-layout {
+    display: block;
+    width: 100%;
+    position: relative;
+ }
+ h1{
+    font-size:2em;
+    
+}
+hr {
+    width: 60%;
+}

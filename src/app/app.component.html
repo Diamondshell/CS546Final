@@ -2,10 +2,9 @@
 <div id = "wrapper">
 <header>
     <div class = "signIn">
-         <button title = "Sign In" (click)="signIn()" class="si">Sign In <i class = "fa fa-sign-in"></i></button>
-        
-          <button title = "Sign Out" (click)="signOut()" class = "so">Sign Out <i class = "fa fa-sign-out"></i></button>
-     
+      <button title = "Sign In" (click)="signIn()" class="si">Sign In <i class = "fa fa-sign-in"></i></button>
+      <a href="#" class="user">hello</a>
+      <button title = "Sign Out" (click)="signOut()" class = "so">Sign Out <i class = "fa fa-sign-out"></i></button>
     </div>
     
     <nav>
@@ -18,23 +17,19 @@
       <li class = "random"><p title = "Random Recipe" (click)="random()">Random Recipe</p></li>
        </ul>
     </nav>
-
 </header>
+<!--<app-home></app-home>-->
+<app-filterpane></app-filterpane>
 
-<section class = "card-layout">
-  <h1>Trending Recipes:</h1>
-  <hr>
-   <app-card-layout></app-card-layout>
-</section>
 <footer>
   <div class = "footerInfo">
     <i class = "fa fa-copyright"> 2017 Bon Appetelli</i>
     <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>
   
     <div id = "socialMedia">
-      <a href="https://www.facebook.com"><i class = "fa fa-facebook-square"></i></a>
-      <a href="https://www.twitter.com"><i class = "fa fa-twitter-square"></i></a>
-      <a href="https://www.instagram.com"><i class = "fa fa-instagram"></i></a>
+      <a href="https://www.facebook.com" title="facebook"><i class = "fa fa-facebook-square"></i></a>
+      <a href="https://www.twitter.com" title= "twitter"><i class = "fa fa-twitter-square"></i></a>
+      <a href="https://www.instagram.com" title="instagram"><i class = "fa fa-instagram"></i></a>
     </div>
   </div>
 </footer>

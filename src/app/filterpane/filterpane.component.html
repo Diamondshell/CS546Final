@@ -1,0 +1,6 @@
+<aside>
+  <li *ngFor="let f of filters">
+    <input type="checkbox" id="checkbox" name={{f.name}}/>
+    <label for={{f.name}}>{{f.text}}</label>
+  </li>
+</aside>

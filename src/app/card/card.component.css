@@ -40,7 +40,7 @@ button{
     font-size: 1.25em;
     display: none;
 }
-.card:hover button{
+.card:hover .edit-options button{
     display: block;
 }
 .card:hover{

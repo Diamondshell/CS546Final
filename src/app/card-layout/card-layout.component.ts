@@ -19,6 +19,7 @@ export class CardLayoutComponent implements OnInit {
    {name: "Salads", content: "How To Make"},
    {name: "Salads", content: "How To Make"},
  ]
+ @Input() editting: Boolean;
   constructor() { }
 
   ngOnInit() {
