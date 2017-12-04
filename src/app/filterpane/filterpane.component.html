@@ -1,6 +1,19 @@
 <aside>
-  <li *ngFor="let f of filters">
-    <input type="checkbox" id="checkbox" name={{f.name}}/>
-    <label for={{f.name}}>{{f.text}}</label>
-  </li>
+  <div class="bar">
+    <h2>Filters</h2>
+  
+    <ul> 
+        <li *ngFor="let f of filters" class = "filter-group">
+          <h3>{{f.section_text}}</h3>
+          <ul>
+              <li *ngFor="let fi of f.values" class = "filters">
+                <input type="checkbox" id={{fi.name}} name={{fi.name}}>
+                <label for={{fi.name}}>{{fi.text}}</label>
+              </li>
+          </ul>
+        </li>
+      </ul>
+   
+  </div>
 </aside>
+

@@ -5,3 +5,18 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     
 }
+app-filterpane{
+    display: block;
+    float:left;
+    width: 200px;
+   /* background-color: rgb(255, 249, 249);*/
+   background-color:#edc86a60;
+   margin-top:30px; 
+   margin-left: 10px;
+   border-radius: 10px 0px 10px 0px;
+   
+}app-card-layout{
+    display:block;
+    float:left;
+    width: calc(100% - 210px);
+}

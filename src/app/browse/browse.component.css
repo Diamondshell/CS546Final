@@ -1,0 +1,23 @@
+
+app-filterpane:hover{
+    display:block;
+}
+
+@media (max-width: 500px) {
+
+   app-filterpane{
+   /* white-space: nowrap;*/
+    overflow:hidden;
+  
+    float:none;
+    clear:both;
+
+    display:block;
+    width:100%;
+   }
+  
+
+   app-card-layout{
+       width: 100%;
+   }
+ }

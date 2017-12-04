@@ -11,13 +11,16 @@ li{
     float: left;
     width: calc(33% - 30px);
 }
-@media (max-width: 600px) {
+ul{
+    padding: 0px;
+}
+@media (max-width: 900px) {
     li { 
         width: calc(50% - 30px);
     }
  }
  
- @media (max-width: 500px) {
+ @media (max-width: 650px) {
     li { 
        float: none;
        width: 100%;

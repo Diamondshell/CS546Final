@@ -29,9 +29,7 @@ header{
 nav{
     padding:0px  15px;
 }
-hr {
-    width: 60%;
-}
+
 .signIn {
     background-color: #a2abaa;
     text-align: right;
@@ -41,10 +39,7 @@ hr {
     padding: 4px;
 }
 
-h1{
-    font-size:2em;
-    
-}
+
 ul {
     list-style-type: none;
     margin: 0;
@@ -74,11 +69,15 @@ li p, li input {
     padding: 14px 16px;
     
 }
-@media (max-width: 500px) {
+@media (max-width: 575px) {
     li.logo{
         width: 100%;
     }
+    li.searchText {
+        width: calc(90% - 60px) !important;
+    }
 }
+
 /* Change the link color to #111 (black) on hover */
 li p:hover {
     background-color:  #c7d3dd;
@@ -206,11 +205,7 @@ li p, li input{
        
     }
   */
-.card-layout {
-   display: block;
-   width: 100%;
-   position: relative;
-}
+
 footer {
     background-color: #a2abaa;
     display:block;

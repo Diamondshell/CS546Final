@@ -1,0 +1,40 @@
+aside {
+    float: left;
+    width: 100%;
+    text-align: left;
+}
+li {
+    list-style: none;
+}
+ul {
+    padding-left: 3px;
+}
+@media (max-width: 500px) {
+    .filter-group {
+        width:calc(50% - 30px);
+        float:left;
+        display:none;
+        z-index: 1;
+
+    }
+    aside:hover .filter-group{
+        display:block;
+    }
+
+}
+h2, h3{
+    font-size: 1.1em;
+}
+.bar{
+    text-align: center;
+    margin-top: 10px;
+    font-size:1.1em;
+    display:block;
+    width: 100%;
+}
+.filter-group{
+   border-radius: 10px;
+    margin: 5px 2px;
+    padding:5px;
+    background-color: rgb(255, 241, 241);
+}
