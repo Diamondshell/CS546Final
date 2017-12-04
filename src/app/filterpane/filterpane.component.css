@@ -15,12 +15,10 @@ ul {
         float:left;
         display:none;
         z-index: 1;
-
     }
     aside:hover .filter-group{
         display:block;
     }
-
 }
 h2, h3{
     font-size: 1.1em;

@@ -32,7 +32,11 @@ export class FilterpaneComponent implements OnInit {
     ]}
   ];
   constructor() { }
-
+  onCheck(e, fi): void{
+    if(e.target.checked){
+      console.log(fi);
+    }
+  }
   ngOnInit() {
   }
 
