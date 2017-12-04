@@ -24,6 +24,7 @@ ul {
 }
 h2, h3{
     font-size: 1.1em;
+    text-align: center;
 }
 .bar{
     text-align: center;
@@ -37,4 +38,8 @@ h2, h3{
     margin: 5px 2px;
     padding:5px;
     background-color: rgb(255, 241, 241);
+    text-align: left;
+    overflow:auto;
+    height:140px;
+    font-size:.8em;
 }
