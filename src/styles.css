@@ -4,7 +4,7 @@ body{
     padding:0px;
     margin:0px;
     background-color: #f0f6fa;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Palanquin;
     
 }
 app-filterpane{
@@ -22,4 +22,9 @@ app-filterpane{
     display:block;
     float:left;
     width: calc(100% - 210px);
+}
+
+@font-face {
+  font-family: Palanquin;
+  src: url(assets/palanquin/palanquin-thin.ttf);
 }

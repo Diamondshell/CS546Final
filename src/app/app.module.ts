@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { FilterpaneComponent } from './filterpane/filterpane.component';
 import { BrowseComponent } from './browse/browse.component';
 import { SigninModalComponent } from './signin-modal/signin-modal.component';
+import { UserNavComponent } from './user-nav/user-nav.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { SigninModalComponent } from './signin-modal/signin-modal.component';
     HomeComponent,
     FilterpaneComponent,
     BrowseComponent,
-    SigninModalComponent
+    SigninModalComponent,
+    UserNavComponent
   ],
   imports: [
     BrowserModule,

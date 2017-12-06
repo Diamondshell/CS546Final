@@ -1,13 +1,9 @@
 <div id = "wrapper">
 <header>
-    <div class = "signIn">
-      <button title="Sign In" (click)="signIn()" class="si">Sign In <i class = "fa fa-sign-in"></i></button>
-
+    <nav>
+      <button title="Sign In" (click)="signIn()" class="signIn">Sign In <i class = "fa fa-sign-in"></i></button>
       <a href="#" class="user">hello</a>
       <button title = "Sign Out" (click)="signOut()" class = "so">Sign Out <i class = "fa fa-sign-out"></i></button>
-    </div>
-    
-    <nav>
       <ul>
       <li class= "logo"><img id= "logo" src = "assets/handsforhire.png" alt = "logo" ></li>
         
@@ -16,14 +12,17 @@
       <li class = "browse"><p title = "Browse" (click)="browse()">Browse</p></li>
       <li class = "random"><p title = "Random Recipe" (click)="random()">Random Recipe</p></li>
        </ul>
+
     </nav>
 </header>
 
+<app-user-nav></app-user-nav>
 <app-browse></app-browse>
+
 
 <footer>
   <div class = "footerInfo">
-    <i class = "fa fa-copyright"> 2017 Bon Appetelli</i>
+    <i class = "fa fa-copyright"></i> 2017 Bon Appetelli
     <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>
   
     <div id = "socialMedia">
