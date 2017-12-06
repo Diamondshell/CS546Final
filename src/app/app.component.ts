@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { SigninModalComponent } from './signin-modal/signin-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +9,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  dialogRef: MatDialogRef<SigninModalComponent>;
+
+  constructor(public dialog: MatDialog){
+  }
+
+  signIn(){
+  	this.dialogRef = this.dialog.open(SigninModalComponent);
+  	this.dialogRef.afterClosed().subscribe((result) => {
+  		console.log(result);
+  	});
+  }
 }
