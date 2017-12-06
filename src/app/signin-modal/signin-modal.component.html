@@ -1,12 +1,55 @@
+<div id="container">
+	<div id="wrapper">
+		<div id="sign-in">
+			<form>
+			  <mat-form-field title="Username" class="input">
+			    <input matInput placeholder="Username" value="">
+			  </mat-form-field>
+			  <br>
+			  <mat-form-field title="Password" class="input">
+			  	<input matInput placeholder="Password" type="password">
+			  </mat-form-field>
+			  <br>
+			  <button mat-raised-button class="submit" type="submit" value="Sign-In">Sign-In</button>
+			</form>
 
-<form>
-  <mat-form-field title="Username" class="username">
-    <input matInput placeholder="Username" value="">
-  </mat-form-field>
-  <br>
-  <mat-form-field title="Password" class="password">
-  	<input matInput placeholder="Password" type="password">
-  </mat-form-field>
-  <br>
-  <input mat-raised-button class="submit pull-right" type="submit" value="Sign-In">
-</form>
+			<footer class="footer">
+				<p class="change_link">
+					Not a member yet?
+					<span (click)="register()" id="to_register">Join us</span>
+				</p>
+			</footer>
+		</div>
+
+		<div id="register">
+	    <form>
+        <mat-form-field>
+          <input matInput required="required" placeholder="Username">
+        </mat-form-field>
+        <p>
+        	<mat-form-field>
+        		<input matInput required="required" type="email" placeholder="Email Address">
+        	</mat-form-field>
+        </p>
+	      <p>
+	        <mat-form-field class="demo-full-width">
+	          <input matInput required="required" type="password" placeholder="Password">
+	        </mat-form-field>
+	        <mat-form-field class="password">
+	        	<input matInput required="required" type="password" placeholder="Confirm Password">
+	        </mat-form-field>
+	      </p>
+	      <button mat-raised-button class="submit" type="submit" value="Register!">Register!</button>
+	    </form>
+
+	    <footer class="footer">
+	    	<p class="change_link">
+	    		Already a member?
+	    		<span (click)="login()" id="to_login">Login</span>
+	    	</p>
+	    </footer>
+		</div>
+	</div>
+</div>
+
+<!-- Username, email, password, description -->
