@@ -1,7 +1,7 @@
 const mongoCollections = require ( "../config/mongoCollections" );
 const users = mongoCollections.userItems;
 const uuidv1 = require ( "uuid/v1" );
-const data = require ( "../data" );
+let data = require ( "../data" );
 const commentData = data.comments;
 const ratingData = data.ratings;
 const favoriteData = data.favorites;
