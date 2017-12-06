@@ -120,7 +120,7 @@ li.browse{
     color: rgb(0, 0, 0);
     text-decoration: none;
     border-bottom: 1px dashed rgb(104, 103, 103);
-    display:none;
+    display:block;
 }
 .signIn a:hover {
     color: rgb(46, 45, 45);

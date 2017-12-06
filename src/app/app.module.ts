@@ -1,16 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatDialogModule } from '@angular/material/dialog';
-import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material';
-import { MatToolbarModule } from '@angular/material';
-import { MatIconModule } from '@angular/material';
-import { MatCardModule } from '@angular/material';
-import { MatSelectModule } from '@angular/material';
-import { MatOptionModule } from '@angular/material';
-import { MatButtonToggleModule } from '@angular/material';
-import {  } from '@angular/material';
+import { MatDialogModule, MatInputModule, MatButtonModule, MatFormFieldModule, MatToolbarModule, MatIconModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
