@@ -28,3 +28,7 @@ app-filterpane{
   font-family: Palanquin;
   src: url(assets/palanquin/palanquin-thin.ttf);
 }
+
+app-root{
+  position: relative;
+}
