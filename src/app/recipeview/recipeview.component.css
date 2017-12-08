@@ -1,0 +1,209 @@
+section{
+    background-color:rgb(255, 249, 249);
+    width:90%;
+    margin: 10px auto;
+    border-radius: 10px 0px 10px 0px;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 5px 10px 50px grey;
+}
+section{
+    position: relative;
+}
+h1{
+    font-size: 2em;
+}
+h2{
+    text-align: left;
+}
+article{
+    padding:10px;
+}
+#top ul{
+    list-style: none;
+}
+.lower ul{
+  text-align: left;
+}
+#des{
+    text-align: left;
+}
+#left-pane{
+    position: relative;
+    display:block;
+    float: left;
+    width:calc(65% - 20px);
+    
+}
+#left-pane > p {
+    text-align: center;
+    float: none;
+    margin-top: 20px;
+}
+.bottom-right {
+    position: relative;
+    display:block;
+    float:left;
+    width:calc(50% - 20px);
+}
+.bottom-left{
+    position: relative;
+    display:block;
+    float: left;
+    width:calc(50% - 20px);
+    
+}
+#right-pane {
+    position: relative;
+    display:block;
+    float:left;
+    width:calc(35% - 20px);
+}
+
+.bottom-center{
+    clear:both;
+    position: relative;
+    display:block;
+    width:100%;
+
+}
+.recipe-details p{
+    float:left;
+    display:block;
+    margin:0px 5px;
+    text-align:center;
+    width: calc(33% - 15px);
+    border-right: 1px solid gray;
+   
+    
+}
+.recipe-details p:last-child{
+    border-right: none;
+}
+.recipe-details{
+  
+    text-align: center;
+    width: 100%;
+   
+}
+.recipe-details{
+    margin-top: 20px;
+}
+#left-pane ul{
+    clear:both;
+    width:100%;
+    display:block;
+    padding:0px;
+
+}
+.float-clear{
+    clear:both;
+}
+.rating li {
+    float:left;
+
+}
+.rating i{
+    font-size: 22px;
+    color: gray;
+}
+.rating{
+    width:120px;;    
+    display:block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.rating i.checked {
+    float:left;
+    color: orange;
+}
+ol{
+    text-align: left;
+}
+.tags ul{
+    list-style: none;
+}
+.tags li{
+    float: left;
+    display: block;
+    margin: 0px 0px 0px 10px;
+}
+.tags p{
+    float: left;
+    display: block;
+    margin: 0px;
+}
+.ratings ul{
+    list-style: none;
+    height: 100%;
+    padding: 0px;
+}
+.ratings{
+    cursor: default;
+    padding:0px;
+    margin: 0 auto;
+    height: auto;
+    display: block;
+}
+.ratings ul{
+    width: auto;
+    background-color: #e8eef2;
+    overflow: hidden;
+    height:60px;
+}
+.ratings ul > div{
+    display:inline-block;
+    width: calc( 33% - 10px);
+    height:100%;
+}
+.ratings li{
+    display: block ;
+    text-align: center ;
+    margin: 0px 5px;
+    background-color:none;
+    padding: 10px;
+
+ 
+ 
+
+}
+
+.ratings div:hover {
+    background-color: #c7d3dd;
+}
+@media (max-width: 700px) {
+   article{
+       display: none;
+      width: 100% !important;
+      float: none;
+   }
+}
+img{
+    width:100%;
+    height:auto;
+}
+@media print{
+    section{
+        position: absolute;
+        background-color:rgb(255, 255, 255);
+        width:90%;
+        margin: 10px auto;
+        border-radius:  0px;
+        padding: 10px;
+        position: relative;
+        overflow: hidden;
+        box-shadow:none;
+    }
+    .ratings{
+        display:none;
+    }
+    article{
+       width: 100%;
+       clear:both;
+    }
+
+
+}

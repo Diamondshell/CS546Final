@@ -8,6 +8,7 @@ import { CardLayoutComponent } from './card-layout/card-layout.component';
 import { HomeComponent } from './home/home.component';
 import { FilterpaneComponent } from './filterpane/filterpane.component';
 import { BrowseComponent } from './browse/browse.component';
+import { RecipeviewComponent } from './recipeview/recipeview.component';
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { BrowseComponent } from './browse/browse.component';
     CardLayoutComponent,
     HomeComponent,
     FilterpaneComponent,
-    BrowseComponent
+    BrowseComponent,
+    RecipeviewComponent
   ],
   imports: [
     BrowserModule
