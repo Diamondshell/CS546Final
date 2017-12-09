@@ -20,7 +20,6 @@ app-browse {
     height: 50px;
 }
 header{
-   
     overflow: hidden;
     width:100%;
     background-color: #77b6ea;
@@ -31,15 +30,6 @@ header{
 }
 nav{
     padding:0px  15px;
-}
-
-.signIn {
-    background-color: #a2abaa;
-    text-align: right;
-    display: block;
-    margin:0px;
-     overflow: hidden;
-    padding: 4px;
 }
 
 
@@ -113,26 +103,44 @@ li.browse{
     display: none;
 
 }
-.signIn button{
+.signIn{
     border:none;
     padding: 6px 15px;
     border-radius: 6px;
     outline: none;
+    float: right;
+    margin-top: 5px;
 }
-.signIn a {
+.user{
     color: rgb(0, 0, 0);
     text-decoration: none;
     border-bottom: 1px dashed rgb(104, 103, 103);
     display:none;
 }
-.signIn a:hover {
+.user:hover {
     color: rgb(46, 45, 45);
     text-decoration: none;
     border-bottom: 1px dashed rgb(104, 103, 103);
 }
-.signIn button:hover {
+.signIn:hover {
     background-color:  #c7d3dd;
    
+}
+app-user-nav {
+    position: absolute;
+    text-align: left;
+    display: block;
+    height: 100%;
+    background-size: contain;
+    left: 0;
+}
+.body_wrapper {
+    margin: 0;
+    overflow: hidden;
+}
+
+.searchBar {
+    height: 27px;
 }
 /*
 nav{
@@ -210,7 +218,7 @@ li p, li input{
   */
 
 footer {
-    background-color: #a2abaa;
+    background-color: #77b6ea;
     display:block;
     float:none;
     clear:both;
@@ -219,7 +227,7 @@ footer {
 }
 footer.footerInfo {
 
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Palanquin;
     display:block;
     float:none;
     clear:both;
