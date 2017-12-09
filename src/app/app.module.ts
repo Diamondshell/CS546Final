@@ -11,6 +11,10 @@ import { FilterpaneComponent } from './filterpane/filterpane.component';
 import { BrowseComponent } from './browse/browse.component';
 import { SigninModalComponent } from './signin-modal/signin-modal.component';
 import { UserNavComponent } from './user-nav/user-nav.component';
+import { ProfileComponent } from './profile/profile.component';
+import { UserRecipesComponent } from './user-recipes/user-recipes.component';
+import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
+import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-modal.component';
 
 
 @NgModule({
@@ -22,7 +26,11 @@ import { UserNavComponent } from './user-nav/user-nav.component';
     FilterpaneComponent,
     BrowseComponent,
     SigninModalComponent,
-    UserNavComponent
+    UserNavComponent,
+    ProfileComponent,
+    UserRecipesComponent,
+    SavedRecipesComponent,
+    CreateRecipeModalComponent
   ],
   imports: [
     BrowserModule,
@@ -38,7 +46,7 @@ import { UserNavComponent } from './user-nav/user-nav.component';
     BrowserAnimationsModule,
     MatFormFieldModule
   ],
-  entryComponents: [SigninModalComponent],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

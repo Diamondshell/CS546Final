@@ -135,6 +135,10 @@ app-user-nav {
     margin: 0;
     overflow: hidden;
 }
+
+.searchBar {
+    height: 27px;
+}
 /*
 nav{
     width: 100%;
