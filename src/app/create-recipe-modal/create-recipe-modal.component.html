@@ -1,0 +1,52 @@
+<div id="createRecipeForm">
+	<h1 mat-dialog-title>New Recipe</h1>
+	<form>
+		<table>
+			<tr>
+			  <mat-form-field title="RecipeName" class="input">
+			    <input matInput placeholder="Recipe Name" value="">
+			  </mat-form-field>
+			</tr>
+			<tr>
+			  <mat-form-field title="Description" class="input">
+			  	<textarea matInput matTextAreaAutosize placeholder="Description" type="password"></textarea>
+			  </mat-form-field>
+			</tr>
+			<tr>
+				<mat-form-field title="Ingredients" class="input">
+					<textarea matInput matTextAreaAutosize placeholder="Ingredients (comma separated list)"></textarea>
+				</mat-form-field>
+			</tr>
+			<tr>
+				<mat-form-field title="Appliances" class="input">
+					<textarea matInput matTextAreaAutosize placeholder="Appliances needed (comma separated list)"></textarea>
+				</mat-form-field>
+			</tr>
+			<tr>
+				<mat-form-field title="Cost" class="input">
+					<input matInput placeholder="Estimate cost to make" type="number" value="">
+				</mat-form-field>
+			</tr>
+			<tr>
+				<mat-form-field title="Time" class="input">
+					<input matInput placeholder="Time to make (in minutes)" type="number" value="">
+				</mat-form-field>
+			</tr>
+			<tr>
+				<mat-form-field title="Tags" class="input">
+					<input matInput placeholder="Tags (comma separated list)" type="text" value="">
+				</mat-form-field>
+			</tr>
+			<tr id="stepsTr">
+				<mat-label>Directions:</mat-label>
+				<mat-form-field title="Steps" class="directions">
+					<textarea matInput matTextareaAutosize placeholder="Put each step on its own line." type="text" class="taDirections" value=""></textarea>
+				</mat-form-field>
+			</tr>
+	  	<button mat-raised-button class="submit" type="submit" value="Sign-In">Create Recipe!</button>
+		</table>
+	</form>
+</div>
+
+
+<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->

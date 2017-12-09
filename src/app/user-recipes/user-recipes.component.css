@@ -1,0 +1,15 @@
+.createRecipe{
+	float: right;
+	margin-right: 10px;
+  border:none;
+  padding: 6px 15px;
+  border-radius: 6px;
+  outline: none;
+  float: right;
+  margin-top: 5px;
+}
+
+.createRecipe:hover {
+    background-color:  #c7d3dd;
+   
+}
