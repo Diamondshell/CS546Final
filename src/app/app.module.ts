@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
+import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatListModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
@@ -24,6 +24,8 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
 import {DataService} from './data.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { RateModalComponent } from './rate-modal/rate-modal.component';
+import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { RateModalComponent } from './rate-modal/rate-modal.component';
     SavedRecipesComponent,
     CreateRecipeModalComponent,
     ProfileLayoutComponent,
-    RateModalComponent
+    RateModalComponent,
+    RandomRecipeModalComponent,
+    PageNotFoundComponent
 
   ],
   imports: [
@@ -57,6 +61,7 @@ import { RateModalComponent } from './rate-modal/rate-modal.component';
     MatIconModule,
     MatOptionModule,
     MatSelectModule,
+    MatListModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -64,7 +69,7 @@ import { RateModalComponent } from './rate-modal/rate-modal.component';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
