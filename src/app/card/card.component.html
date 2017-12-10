@@ -1,17 +1,19 @@
 
-<section class="card" (click)="onSelect()">
-  <header>
-    <h2>{{recipe.name}}</h2>
-  </header>
+<a routerLink="/recipe/{{recipe.id}}">
+    <section class="card" (click)="onSelect()">
+    <header>
+        <h2>{{recipe.name}}</h2>
+    </header>
 
-  <div class = "main-content">
-      <p>{{recipe.content}}</p>
-  </div>
-  <div [class.edit-options] = "editting">
-      <button title = "Edit recipe" id = "edit"><i class="fa fa-pencil"></i></button>
-      <button title = "Delete recipe" id = "edit"><i class="fa fa-trash-o"></i></button>
-  </div>
-  <footer>
-      <p>Rating:</p>
-  </footer>
-</section>
+    <div class = "main-content">
+        <p>{{recipe.content}}</p>
+    </div>
+    <div [class.edit-options] = "editting">
+        <button title = "Edit recipe" id = "edit"><i class="fa fa-pencil"></i></button>
+        <button title = "Delete recipe" id = "edit"><i class="fa fa-trash-o"></i></button>
+    </div>
+    <footer>
+        <p>Rating:</p>
+    </footer>
+    </section>
+</a>

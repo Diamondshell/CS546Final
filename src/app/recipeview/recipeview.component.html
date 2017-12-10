@@ -23,7 +23,7 @@
     <div class = "float-clear"></div>
     <div class = "ratings">
       <ul>
-        <div (click)="rate()"><li title = "Rate this Recipe" id="rate" >Rate This Recipe</li></div>
+        <div (click)="displayRateModal()"><li title = "Rate this Recipe" id="rate" >Rate This Recipe</li></div>
         <div (click)="print()"><li  title = "Print this Recipe" id="print">Print</li>  </div>
         <div (click)="save()"><li  title = "Save this Recipe as a Favorite" id="save" >Save To Favorites</li></div>
         
@@ -78,6 +78,23 @@
       </div>
       <div class = "float-clear"></div>
   </article>
-  <div class = "float-clear"></div>
+ 
+ <div class = "float-clear"></div>
+  <hr>
+  <article class = "comments">
+    <header>
+        <h2>Comments:</h2>
+        <button class="newcomment" (click)="show()">Add Comment</button>    
+    </header>
+    <div class = "float-clear"></div>
+    <ul>
+      <li *ngFor="let c of recipe.Comments">
+        <div>
+          <h3>{{c.username}}</h3>  
+          <p>{{c.Comment}}</p>
+        </div>
+      </li>
+    </ul>
+  </article>
 </section>
 <div class = "float-clear"></div>

@@ -97,7 +97,38 @@ app.get('/recipes', async function(req, res) {
 app.get('/recipes/:id', async function(req, res) {
     //try to get recipe with specified id
     try{
-        let getRecipe = await recipe.getRecipe(req.params.id);
+        let getRecipe = await recipe.getRecipeById(req.params.id);
+        
+        //send status and response
+        res.status(200);
+        res.send(getRecipe);
+    }catch(error) {
+        //handle error
+        res.status(404).json({error: "Recipe not found"});
+    }
+});
+
+//GET recipes/filter route, responds with recipes that match filter
+app.get('/recipes/filter', async function(req, res) {
+    //check and get filter
+    let filter = {};
+   
+    if(req.body.hasOwnProperty("filter")) {
+        //check if filter is an object
+        if(typeof req.body.filter == 'object') {
+            filter = req.body.filter;
+        }else {
+            res.status(400).json({error: "Bad Request: requires filter to be an object"});
+            return;
+        }
+    }else {
+        res.status(400).json({error: "Bad Request: requires a filter"});
+        return;
+    }
+
+    //try to get recipes with specified filter
+    try{
+        let getRecipe = await recipe.getRecipesByFilter(filter);
         
         //send status and response
         res.status(200);
@@ -111,35 +142,113 @@ app.get('/recipes/:id', async function(req, res) {
 //POST recipes route, creates a recipe with the supplied data in the request body, returns new recipe
 app.post('/recipes', async function(req, res) {
     //check and get parameters
-    let title = "";
+    let name = "";
+    let price = 0;
+    let cookTime = 0;
+    let appliances = [];
+    let popularity = 0;
+    let tags = [];
     let ingredients = [];
     let steps = [];
-    //check for title
-    if(req.body.hasOwnProperty("title")) {
-        //check if title is a string
-        if(typeof req.body.title == 'string') {
-            title = req.body.title;
+
+    //check for name
+    if(req.body.hasOwnProperty("name")) {
+        //check if name is a string
+        if(typeof req.body.name == 'string') {
+            name = req.body.name;
         }else {
-            res.status(400).json({error: "Bad Request: requires title to be a string and ingredients and steps to be lists"});
+            res.status(400).json({error: "Bad Request: requires name to be a string"});
             return;
         }
     }else {
-        res.status(400).json({error: "Bad Request: requires a title, ingredients, and steps"});
+        res.status(400).json({error: "Bad Request: requires a title"});
         return;
     }
+
+    //check for price
+    if(req.body.hasOwnProperty("price")) {
+	//check if price is a number
+	if(typeof req.body.price == 'number') {
+	    price = req.body.price;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires price to be a number"});
+	    return;
+	}
+    }else {
+	res.status(400).json({error: "Bad Request: requires a price"});
+	return;
+    }
+
+    //check for cookTime
+    if(req.body.hasOwnProperty("cookTime")) {
+	//check if cookTime is a number
+	if(typeof req.body.cookTime == 'number') {
+	    cookTime = req.body.cookTime;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires cookTime to be a number"});
+	    return;
+	}
+    }else {
+	res.status(400).json({error: "Bad Request: requires a cookTime"});
+	return;
+    }
+
+    //check for appliances 
+    if(req.body.hasOwnProperty("appliances")) {
+        //check if appliances is a list
+        if(typeof req.body.appliances == 'object') {
+            appliances = req.body.appliances;
+        }else {
+            res.status(400).json({error: "Bad Request: requires appliances to be a list"});
+            return;
+        }
+    }else {
+        res.status(400).json({error: "Bad Request: requires a list of appliances"});
+        return;
+    }
+
+    //check for popularity
+    if(req.body.hasOwnProperty("popularity")) {
+	//check if popularity is a number
+	if(typeof req.body.popularity == 'number') {
+	    popularity = req.body.popularity;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires popularity to be a number"});
+	    return;
+	}
+    }else {
+	res.status(400).json({error: "Bad Request: requires a popularity"});
+	return;
+    }
+
+    //check for tags
+    if(req.body.hasOwnProperty("tags")) {
+        //check if tags is a list
+        if(typeof req.body.tags == 'object') {
+            tags = req.body.tags;
+        }else {
+            res.status(400).json({error: "Bad Request: requires tags to be a list"});
+            return;
+        }
+    }else {
+        res.status(400).json({error: "Bad Request: requires a list of tags"});
+        return;
+    }
+
     //check for ingredients
     if(req.body.hasOwnProperty("ingredients")) {
         //check if ingredients is a list
         if(typeof req.body.ingredients == 'object') {
             ingredients = req.body.ingredients;
         }else {
-            res.status(400).json({error: "Bad Request: requires title to be a string and ingredients and steps to be lists"});
+            res.status(400).json({error: "Bad Request: requires ingredients to be a list"});
             return;
         }
     }else {
-        res.status(400).json({error: "Bad Request: Get requires a title, ingredients, and steps"});
+        res.status(400).json({error: "Bad Request: requires a list of ingredients"});
         return;
     }
+
     //check for steps
     if(req.body.hasOwnProperty("steps")) {
         //check if steps is a list
@@ -156,7 +265,7 @@ app.post('/recipes', async function(req, res) {
     
     //try to add recipe to database
     try {
-        let newRecipe = await recipe.createRecipe(title, ingredients, steps);
+        let newRecipe = await recipe.createRecipe(name, price, cookTime, appliances, popularity, tags, ingredients, steps);
         
         //send status and response
         res.status(200);
@@ -170,47 +279,122 @@ app.post('/recipes', async function(req, res) {
 //PUT recipes/:id route, updates the specified recipe with only the supplied changes, returns updated recipe
 app.put('/recipes/:id', async function(req, res) {
     //check for and get parameters
-    let title = "";
+    let name = "";
+    let price = 0;
+    let cookTime = 0;
+    let appliances = [];
+    let popularity = 0;
+    let tags = [];
     let ingredients = [];
     let steps = [];
-    let changes = [0, 0, 0];
-    //check for title
-    if(req.body.hasOwnProperty('title')) {
-        //check if title is a string
-        if(typeof req.body.title == 'string') {
-            title = req.body.title;
-            changes[0] = 1;
+
+    //check for name
+    if(req.body.hasOwnProperty('name')) {
+        //check if name is a string
+        if(typeof req.body.name == 'string') {
+            name = req.body.name;
         }else {
-            res.status(400).json({error: "Bad Request: requires title to be a string"});
+            res.status(400).json({error: "Bad Request: requires name to be a string"});
             return;
         }
+    }else {
+	name = undefined;
     }
+
+    //check for price
+    if(req.body.hasOwnProperty("price")) {
+	//check if price is a number
+	if(typeof req.body.price == 'number') {
+	    price = req.body.price;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires price to be a number"});
+	    return;
+	}
+    }else {
+	price = undefined;
+    }
+
+    //check for cookTime
+    if(req.body.hasOwnProperty("cookTime")) {
+	//check if cookTime is a number
+	if(typeof req.body.cookTime == 'number') {
+	    cookTime = req.body.cookTime;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires cookTime to be a number"});
+	    return;
+	}
+    }else {
+	cookTime = undefined;
+    }
+
+    //check for appliances 
+    if(req.body.hasOwnProperty("appliances")) {
+        //check if appliances is a list
+        if(typeof req.body.appliances == 'object') {
+            appliances = req.body.appliances;
+        }else {
+            res.status(400).json({error: "Bad Request: requires appliances to be a list"});
+            return;
+        }
+    }else {
+        appliances = undefined;
+    }
+
+    //check for popularity
+    if(req.body.hasOwnProperty("popularity")) {
+	//check if popularity is a number
+	if(typeof req.body.popularity == 'number') {
+	    popularity = req.body.popularity;
+	}else {
+	    res.status(400).json({error: "Bad Request: requires popularity to be a number"});
+	    return;
+	}
+    }else {
+	popularity = undefined;
+    }
+
+    //check for tags
+    if(req.body.hasOwnProperty("tags")) {
+        //check if tags is a list
+        if(typeof req.body.tags == 'object') {
+            tags = req.body.tags;
+        }else {
+            res.status(400).json({error: "Bad Request: requires tags to be a list"});
+            return;
+        }
+    }else {
+        tags = undefined;
+    }
+
     //check for ingredients
-    if(req.body.hasOwnProperty('ingredients')) {
+    if(req.body.hasOwnProperty("ingredients")) {
         //check if ingredients is a list
         if(typeof req.body.ingredients == 'object') {
             ingredients = req.body.ingredients;
-            changes[1] = 1;
         }else {
-            res.status(400).json({error: "Bad Request: requries ingredients to be a list"});
+            res.status(400).json({error: "Bad Request: requires ingredients to be a list"});
             return;
         }
+    }else {
+        ingredients = undefined;
     }
+
     //check for steps
-    if(req.body.hasOwnProperty('steps')) {
+    if(req.body.hasOwnProperty("steps")) {
         //check if steps is a list
         if(typeof req.body.steps == 'object') {
-            steps = req.body.steps;
-            changes[2] = 1;
+            steps = req.body.steps;  
         }else {
-            res.status(400).json({error: "Bad Request: requries steps to be a list"});   
+            res.status(400).json({error: "Bad Request: requires title to be a string and ingredients and steps to be lists"});
             return;
-        }
+        } 
+    }else {
+        steps = undefined;
     }
     
     //try to update recipe
     try {
-        let updRecipe = await recipe.updateRecipe(req.params.id, title, ingredients, steps, changes);
+        let updRecipe = await recipe.updateRecipeById(req.params.id, name, price, cookTime, appliances, popularity, tags, ingredients, steps);
     
         //send status and response
         res.status(200);
@@ -225,7 +409,7 @@ app.put('/recipes/:id', async function(req, res) {
 app.delete('/recipes/:id', async function(req, res) {
     //try to delete recipe
     try{
-        let delRecipe = await recipe.deleteRecipe(req.params.id);
+        let delRecipe = await recipe.removeRecipesById(req.params.id);
         
         //send status and response
         let retVal = { "status": "Recipe with id: " + req.params.id + " deleted succesfully" };

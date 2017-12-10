@@ -1,7 +1,9 @@
 import { Component, OnInit,HostListener , Input} from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { RecipeDetail } from '../recipeDetails';
 import { DataService } from '../data.service';
+import { MatDialog, MatDialogRef } from '@angular/material';
+import { RateModalComponent } from '../rate-modal/rate-modal.component';
 
 @Component({
   selector: 'app-recipeview',
@@ -9,7 +11,9 @@ import { DataService } from '../data.service';
   styleUrls: ['./recipeview.component.css']
 })
 export class RecipeviewComponent implements OnInit {
-  @Input() id: number;
+
+  dialogRef: MatDialogRef<RateModalComponent>;
+
   recipe:RecipeDetail;
      numChecked=[];
      numUnChecked=[];
@@ -21,14 +25,23 @@ export class RecipeviewComponent implements OnInit {
     this.dataService.getRecipeById(id)
     .subscribe(recipeDetail=>this.recipe=recipeDetail);
   }
-  constructor(private dataService:DataService) { }
+  constructor( private route: ActivatedRoute, 
+    private dataService:DataService, public dialog: MatDialog) { }
 
   ngOnInit() {
-    this.getRecipeById(this.id);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.getRecipeById(id);
 
     this.numChecked = new Array(this.recipe.Rating);
     this.numUnChecked = new Array(5-this.recipe.Rating);
   
+  }
+
+  displayRateModal(){
+    this.dialogRef = this.dialog.open(RateModalComponent, {width: '600px'});
+    this.dialogRef.afterClosed().subscribe((result) => {
+      console.log(result);
+    });
   }
  
 }

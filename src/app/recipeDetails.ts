@@ -1,3 +1,4 @@
+import {Comment} from './comments';
 export class RecipeDetail {
   Name: string;
   Description:string;
@@ -10,4 +11,5 @@ export class RecipeDetail {
   Tags: string[];
   Ingredients: string[];
   Steps: string[];
+  Comments: Comment[];
 };

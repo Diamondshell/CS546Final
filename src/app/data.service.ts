@@ -14,16 +14,16 @@ export class DataService {
   constructor(/*private _http: Http*/) { }
 
   getAllRecipes():Observable<Recipe[]>{
-    // return this._http.get("/").map(result => this.result = result.json().data);
-    return of(recipes);
+    //return this._http.get("/").map(result => this.result = result.json().data);
+     return of(recipes);
   }
 
   getCurrentUser():Observable<User>{
-    // return this._http.get("/").map(result => this.result = result.json().data);
+    //return this._http.get("/").map(result => this.result = result.json().data);
     return of(profileInfo);
   }
   getRecipeById(id):Observable<RecipeDetail>{
-    // return this._http.get("/", id).map(result => this.result = result.json().data);
+    //return this._http.get("/", id).map(result => this.result = result.json().data);
     return of(recipeDetail);
   }
   updateUserInfo(changed){

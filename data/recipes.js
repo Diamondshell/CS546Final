@@ -6,20 +6,19 @@ const commentData = data.comments;
 const ratingData = data.ratings;
 const favoriteData = data.favorites;
 
-function isArrayType ( arr, type ) {
-    let c = Array.isArray ( arr );
-    if ( c ) {
-        let i = 0;
-        for ( i = 0; i < arr.length; i++ ) {
-            if ( typeof ( arr[i] ) !== type ) {
-                return false;
-            }
-        }
-    }
-    return c;
-}
-
 const exported_methods = {
+    /**
+     * Gets all recipes
+     */
+    async getAllRecipes ( ) {
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find ( {} ).toArray();
+        return data;
+    },
+    /**
+     * Gets a given recipe
+     * @param {string} id The recipe id
+     */
     async getRecipeById ( id ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `getRecipeById: Expected a string but received a ${typeof(id)}`;
@@ -28,7 +27,20 @@ const exported_methods = {
         const data = await recipeCollection.findOne ( { _id: id } );
         return data;
     },
-    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+    /**
+     * Updates the given recipe with any number of values
+     * @param {string} id The id of the recipe
+     * @param {string|undefined} name A new recipe name
+     * @param {number|undefined} price A new price name
+     * @param {number|undefined} cookTime A new cooktime
+     * @param {Array<string>|undefined} appliances A new list of appliances
+     * @param {number|undefined} popularity A new popularity
+     * @param {Array<string>|undefined} tags A new list of tags
+     * @param {Array<string>|undefined} ingredients A new list of ingredients
+     * @param {Array<string>|undefined} steps A new list of steps
+     * @param {string|undefined} imgpath A new imagepath
+     */
+    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `updateRecipeById: Expected a string id, received a ${typeof(id)}`;
         }
@@ -41,14 +53,14 @@ const exported_methods = {
             update.name = name;
         }
         if ( price ) {
-            if ( typeof ( price ) !== 'string' ) {
-                throw `updateRecipeById: Expected a string price, but received a ${typeof(price)}`;
+            if ( typeof ( price ) !== 'number' ) {
+                throw `updateRecipeById: Expected a number price, but received a ${typeof(price)}`;
             }
             update.price = price;
         }
         if ( cookTime ) {
-            if ( typeof ( cookTime ) !== 'string' ) {
-                throw `updateRecipeById: Expected a string cookTime, but received a ${typeof(cookTime)}`;
+            if ( typeof ( cookTime ) !== 'number' ) {
+                throw `updateRecipeById: Expected a number cookTime, but received a ${typeof(cookTime)}`;
             }
             update.cookTime = cookTime;
         }
@@ -82,11 +94,21 @@ const exported_methods = {
             }
             update.steps = steps;
         }
+        if ( imgpath ) {
+            if ( typeof ( imgpath ) !== 'string' ) {
+                throw `updateRecipeById: Expected a string imgpath, but received a ${typeof(imgpath)}`;
+            }
+            update.imgpath = imgpath;
+        }
 
         const recipeCollection = await recipes();
         const data = await recipeCollection.updateOne ( { _id: id }, { $set: ret } );
         return await exported_methods.getRecipeById( id );
     },
+    /**
+     * Removes a given recipe
+     * @param {string} id The id of the recipe to remove
+     */
     async removeRecipeById ( id ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `removeRecipeById: Expected a string but received a ${typeof(id)}`;
@@ -98,6 +120,10 @@ const exported_methods = {
         const data = await recipeCollection.removeOne ( { _id: id } );
         return data;
     },
+    /**
+     * Gets all recipes matching a given filter
+     * @param {!Object} filter The filter to match on
+     */
     async getRecipesByFilter ( filter ) {
         if ( typeof ( filter ) !== 'object' ){
             throw `getRecipeByFilter: Not yet implemented`;
@@ -106,6 +132,10 @@ const exported_methods = {
         const data = await recipeCollection.find ( filter ).toArray();
         return data;
     },
+    /**
+     * Gets all recipes made by a given user
+     * @param {string} userid The username to look for
+     */
     async getRecipesByUserId ( userid ) {
         if ( typeof ( userid ) !== 'string' ) {
             throw `getRecipesByUserId: Expected a string userid, but received a ${typeof(userid)}`;
@@ -114,6 +144,10 @@ const exported_methods = {
         const data = await recipeCollection.find ( { userid: userid } ).toArray();
         return data;
     },
+    /**
+     * Removes all users by a given username
+     * @param {string} userid The username to remove on
+     */
     async removeRecipesByUserId ( userid ) {
         if ( typeof ( userid ) !== 'string' ) {
             throw `removeRecipesByUserId: Expected a string userid, but received a ${typeof(userid)}`;
@@ -122,7 +156,20 @@ const exported_methods = {
         let data = await recipeCollection.remove ( { userid: userid } );
         return data;
     },
-    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+    /**
+     * Creates a recipe with the given fields
+     * @param {string} userid The username of the user who created it
+     * @param {string} name The name of the recipe
+     * @param {number} price The price to make the recipe
+     * @param {number} cookTime The time needed prepare it (in minutes)
+     * @param {Array<string>} appliances The appliances need to prepare it
+     * @param {number} popularity The popularity of the recipe
+     * @param {Array<string>} tags The tags attached to the recipe
+     * @param {Array<string>} ingredients The ingredients needed to make the recipe
+     * @param {Array<string>} steps The steps to make the recipe
+     * @param {string} imgpath The Path for the image associated with this recipe
+     */
+    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( userid ) !== 'string' ) {
             throw `createRecipe: Expected a string userid, but received a ${typeof(userid)}`;
         }
@@ -150,6 +197,9 @@ const exported_methods = {
         if ( typeof ( steps ) !== 'object' ) {
             throw `createRecipe: Expected an array steps, but received a ${typeof(steps)}`;
         }
+        if ( typeof ( imgpath ) !== 'string' ) {
+            throw `createRecipe: Expected a string imgpath, but received a ${typeof ( imgpath )}`;
+        }
 
         ret = {};
         ret._id = uuidv1();
@@ -162,11 +212,15 @@ const exported_methods = {
         ret.tags = tags;
         ret.ingredients = ingredients;
         ret.steps = steps;
+        ret.imgpath = imgpath;
 
         const recipeCollection = await recipes();
         const data = await recipeCollection.insertOne ( ret );
         return ret;
     },
+    /**
+     * Empties the recipe collection. Does not ensure deletion cascade.
+     */
     async empty () {
         const recipeCollection = await recipes();
         const data = await recipeCollection.remove({});
