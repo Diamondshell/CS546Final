@@ -13,13 +13,13 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const connection = require('/config/mongoConnection');
-const comments = require('/data/comments.js');
-const favorites = require('/data/favorites.js');
-const index = require('/data/index.js');
-const ratings = require('/data/ratings.js');
-const recipe = require('/data/recipes.js');
-const users = require('/data/users.js');
+const connection = require('./config/mongoConnection.js');
+const comments = require('./data/comments.js');
+const favorites = require('./data/favorites.js');
+const index = require('./data/index.js');
+const ratings = require('./data/ratings.js');
+const recipe = require('./data/recipes.js');
+const users = require('./data/users.js');
 const uuid = require('uuid4');
 const bcrypt = require('bcrypt');
 
@@ -33,15 +33,37 @@ app.use(bodyParser.json());
 //provide static files to express
 app.use('/static', express.static(__dirname + '/static'));
 
+// Angular DIST output folder
+app.use(express.static(path.join(__dirname, 'dist')));
+
 //Middleware
 // add authentication here
+app.post('/login', async function(req, res) {
+    username = req.body.username;
+    password = req.body.password;
+    userData = await users.getUserById(username);
 
-//server routes
+    const validated = await bcrypt.compare(password, userData.password).then(function(res) {
+        return res;
+    });
+
+    if (validated) {
+        //If valid, create a validated cookie that holds the username also for use in displaying data later
+        res.cookie('validated', user.username, {maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
+        //Send something back when validated
+    }
+    else {
+        //Send something back when the user isn't validated
+    }
+});
+
+//server routes 
 
 //get / route, does blank
 app.get('/', function(req, res) {
     //do stuff
-}
+    res.sendFile(path.join(__dirname, 'src/index.html'));
+});
 
 
 //a route that on a get, returns json, for each recipe content, name, and id
