@@ -13,13 +13,13 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const connection = require('/config/mongoConnection');
-const comments = require('/data/comments.js');
-const favorites = require('/data/favorites.js');
-const index = require('/data/index.js');
-const ratings = require('/data/ratings.js');
-const recipe = require('/data/recipes.js');
-const users = require('/data/users.js');
+const connection = require('./config/mongoConnection.js');
+const comments = require('./data/comments.js');
+const favorites = require('./data/favorites.js');
+const index = require('./data/index.js');
+const ratings = require('./data/ratings.js');
+const recipe = require('./data/recipes.js');
+const users = require('./data/users.js');
 const uuid = require('uuid4');
 const bcrypt = require('bcrypt');
 
@@ -32,6 +32,9 @@ app.use(bodyParser.json());
 
 //provide static files to express
 app.use('/static', express.static(__dirname + '/static'));
+
+// Angular DIST output folder
+app.use(express.static(path.join(__dirname, 'dist')));
 
 //Middleware
 // add authentication here
@@ -54,12 +57,13 @@ app.post('/login', async function(req, res) {
     }
 });
 
-//server routes
+//server routes 
 
 //get / route, does blank
 app.get('/', function(req, res) {
     //do stuff
-}
+    res.sendFile(path.join(__dirname, 'src/index.html'));
+});
 
 
 //a route that on a get, returns json, for each recipe content, name, and id
