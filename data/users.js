@@ -1,7 +1,7 @@
 const mongoCollections = require ( "../config/mongoCollections" );
 const users = mongoCollections.userItems;
 const uuidv1 = require ( "uuid/v1" );
-const data = require ( "../data" );
+let data = require ( "../data" );
 const commentData = data.comments;
 const ratingData = data.ratings;
 const favoriteData = data.favorites;
@@ -61,18 +61,18 @@ const exported_methods = {
         await favoriteData.removeFavoritesByUserId ( id );
         return await userCollection.removeOne ( { _id: id } );
     },
-    async createRecipe ( password, username, email, description ) {
+    async createUser ( password, username, email, description ) {
         if ( typeof ( password ) !== 'string' ) {
-            throw `createRecipe: Expected a string password, but received a ${typeof(password)}`;
+            throw `createUser: Expected a string password, but received a ${typeof(password)}`;
         }
         if ( typeof ( username ) !== 'string' ) {
-            throw `createRecipe: Expected a string username, but received a ${typeof(username)}`;
+            throw `createUser: Expected a string username, but received a ${typeof(username)}`;
         }
         if ( typeof ( email ) !== 'string' ) {
-            throw `createRecipe: Expected a string email, but received a ${typeof(email)}`;
+            throw `createUser: Expected a string email, but received a ${typeof(email)}`;
         }
         if ( typeof ( description ) !== 'string' ) {
-            throw `createRecipe: Expected a string description, but received a ${typeof(description)}`;
+            throw `createUser: Expected a string description, but received a ${typeof(description)}`;
         }
 
         ret = {};
