@@ -38,8 +38,9 @@ const exported_methods = {
      * @param {Array<string>|undefined} tags A new list of tags
      * @param {Array<string>|undefined} ingredients A new list of ingredients
      * @param {Array<string>|undefined} steps A new list of steps
+     * @param {string|undefined} imgpath A new imagepath
      */
-    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, step, imgpath ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `updateRecipeById: Expected a string id, received a ${typeof(id)}`;
         }
@@ -92,6 +93,12 @@ const exported_methods = {
                 throw `updateRecipeById: Expected a string steps, but received a ${typeof(steps)}`;
             }
             update.steps = steps;
+        }
+        if ( imgpath ) {
+            if ( typeof ( imgpath ) !== 'string' ) {
+                throw `updateRecipeById: Expected a string imgpath, but received a ${typeof(imgpath)}`;
+            }
+            update.imgpath = imgpath;
         }
 
         const recipeCollection = await recipes();
@@ -160,8 +167,9 @@ const exported_methods = {
      * @param {Array<string>} tags The tags attached to the recipe
      * @param {Array<string>} ingredients The ingredients needed to make the recipe
      * @param {Array<string>} steps The steps to make the recipe
+     * @param {string} imgpath The Path for the image associated with this recipe
      */
-    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( userid ) !== 'string' ) {
             throw `createRecipe: Expected a string userid, but received a ${typeof(userid)}`;
         }
@@ -189,6 +197,9 @@ const exported_methods = {
         if ( typeof ( steps ) !== 'object' ) {
             throw `createRecipe: Expected an array steps, but received a ${typeof(steps)}`;
         }
+        if ( typeof ( imgpath ) !== 'string' ) {
+            throw `createRecipe: Expected a string imgpath, but received a ${typeof ( imgpath )}`;
+        }
 
         ret = {};
         ret._id = uuidv1();
@@ -201,6 +212,7 @@ const exported_methods = {
         ret.tags = tags;
         ret.ingredients = ingredients;
         ret.steps = steps;
+        ret.imgpath = imgpath;
 
         const recipeCollection = await recipes();
         const data = await recipeCollection.insertOne ( ret );
