@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -21,6 +21,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-modal.component';
 import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
 
+import {DataService} from './data.service';
 
 
 @NgModule({
@@ -56,10 +57,11 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
