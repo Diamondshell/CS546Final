@@ -4,8 +4,9 @@ const uuidv1 = require ( "uuid/v1" );
 
 const exported_methods = {
     /**
-    * @param {string} id The comment id
-    */
+     * gets the comment with the given id
+     * @param {string} id The comment id
+     */
     async getCommentById ( id ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `getCommentById: Expected a string but received a ${typeof ( id )}`;
@@ -15,9 +16,10 @@ const exported_methods = {
         return data;
     },
     /**
-    * @param {string} id The comment id
-    * @param {string} comment The comment itself
-    */
+     * Updates a given comment with a new comment body
+     * @param {string} id The comment id
+     * @param {string} comment The comment itself
+     */
     async updateCommentById ( id, comment ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `updateCommentById: Expected a string id but received a ${typeof ( id )}`;
@@ -34,8 +36,9 @@ const exported_methods = {
         
     },
     /**
-    * @param {string} id The comment id
-    */
+     * Removes the specified comment
+     * @param {string} id The comment id
+     */
     async removeCommentById ( id ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `removeCommentById: Expected a string but received a ${typeof(id)}`;
@@ -45,8 +48,9 @@ const exported_methods = {
         return data;
     },
     /**
-    * @param {string} userId The id of the user who made the comment
-    */
+     * Gets all comments made by a given user
+     * @param {string} userId The username of the user who made the comment
+     */
     async getCommentsByUserId ( userId ) {
         if ( typeof ( userId ) !== 'string' ) {
             throw `getCommentsByUserId: Expected a string but received a ${typeof ( userId )}`;
@@ -56,8 +60,9 @@ const exported_methods = {
         return data;
     },
     /**
-    * @param {string} userId The id of the user who made the comment
-    */
+     * Removes all comments made by a user
+     * @param {string} userId The username of the user who made the comment
+     */
     async removeCommentsByUserId ( userId ) {
         if ( typeof ( userId ) !== 'string' ) {
             throw `removeCommentsByUserId: Expected a string but received a ${typeof(userId)}`;
@@ -67,8 +72,9 @@ const exported_methods = {
         return data;
     },
     /**
-    * @param {string} recipeId The id of the recipe the comment is on
-    */
+     * Returns all comments on a given recipe
+     * @param {string} recipeId The id of the recipe the comment is on
+     */
     async getCommentsByRecipeId ( recipeId ) {
         if ( typeof ( recipeId ) !== 'string' ) {
             throw `getCommentsByRecipeId: Expected a string but received a ${typeof ( recipeId )}`;
@@ -77,6 +83,10 @@ const exported_methods = {
         const data = await commentCollection.find ( { recipeId: recipeId } ).toArray();
         return data;
     },
+    /**
+     * Removes all comments for a given recipe
+     * @param {string} recipeId The id of the recipe
+     */
     async removeCommentsByRecipeId ( recipeId ) {
         if ( typeof ( recipeId ) !== 'string' ) {
             throw `removeCommenstByRecipeId: Expected a string but received a ${typeof(recipeId)}`;
@@ -85,6 +95,12 @@ const exported_methods = {
         let data = await commentCollection.remove ( { recipeId: recipeId } );
         return data;
     },
+    /**
+     * Creates a comment made by a user on a recipe
+     * @param {string} userId The username of the user who made the comment
+     * @param {string} recipeId The recipe the comment is on
+     * @param {string} comment The comment being made
+     */
     async createComment ( userId, recipeId, comment ) {
         if ( typeof ( userId ) !== 'string' ) {
             throw `createComment: Expected a string userId but received a ${typeof ( userId )}`;
@@ -104,6 +120,9 @@ const exported_methods = {
         const data = await commentCollection.insertOne ( comBody );
         return comBody;
     },
+    /**
+     * Empties the comment collection
+     */
     async empty () {
         const commentCollection = await comments();
         const data = await commentCollection.remove({});

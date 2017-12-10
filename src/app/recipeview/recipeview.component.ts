@@ -1,5 +1,5 @@
 import { Component, OnInit,HostListener , Input} from '@angular/core';
-
+import { ActivatedRoute } from '@angular/router';
 import { RecipeDetail } from '../recipeDetails';
 import { DataService } from '../data.service';
 
@@ -9,7 +9,7 @@ import { DataService } from '../data.service';
   styleUrls: ['./recipeview.component.css']
 })
 export class RecipeviewComponent implements OnInit {
-  @Input() id: number;
+
   recipe:RecipeDetail;
      numChecked=[];
      numUnChecked=[];
@@ -21,10 +21,12 @@ export class RecipeviewComponent implements OnInit {
     this.dataService.getRecipeById(id)
     .subscribe(recipeDetail=>this.recipe=recipeDetail);
   }
-  constructor(private dataService:DataService) { }
+  constructor( private route: ActivatedRoute, 
+    private dataService:DataService) { }
 
   ngOnInit() {
-    this.getRecipeById(this.id);
+    const id = +this.route.snapshot.paramMap.get('id');
+    this.getRecipeById(id);
 
     this.numChecked = new Array(this.recipe.Rating);
     this.numUnChecked = new Array(5-this.recipe.Rating);
