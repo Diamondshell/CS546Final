@@ -23,6 +23,7 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
 
 import {DataService} from './data.service';
 import { AppRoutingModule } from './/app-routing.module';
+import { RateModalComponent } from './rate-modal/rate-modal.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { AppRoutingModule } from './/app-routing.module';
     UserRecipesComponent,
     SavedRecipesComponent,
     CreateRecipeModalComponent,
-    ProfileLayoutComponent
+    ProfileLayoutComponent,
+    RateModalComponent
 
   ],
   imports: [
@@ -62,7 +64,7 @@ import { AppRoutingModule } from './/app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
