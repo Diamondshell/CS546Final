@@ -13,3 +13,8 @@
     background-color:  #c7d3dd;
    
 }
+app-card-layout{
+  display:block;
+  float:left;
+  width: calc(100% - 210px);
+}
