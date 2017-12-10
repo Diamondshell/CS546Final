@@ -40,7 +40,7 @@ const exported_methods = {
      * @param {Array<string>|undefined} steps A new list of steps
      * @param {string|undefined} imgpath A new imagepath
      */
-    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, step, imgpath ) {
+    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `updateRecipeById: Expected a string id, received a ${typeof(id)}`;
         }
