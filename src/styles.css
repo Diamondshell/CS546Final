@@ -1,15 +1,28 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 html{
     height: 100%;
-    overflow:visible;
+    box-sizing: border-box;
 }
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body{
     min-height: 100%;
     padding:0px;
     margin:0px;
     background-color: #f0f6fa;
     font-family: Palanquin;
-    
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-content: stretch;
+    align-items: stretch;
+    height: 100%;
 }
 app-filterpane{
     display: block;
@@ -22,21 +35,37 @@ app-filterpane{
    border-radius: 10px 0px 10px 0px;
   
    
-}app-card-layout{
-    display:block;
-    float:left;
-    width: calc(100% - 210px);
 }
-
 
 @font-face {
   font-family: Palanquin;
   src: url(assets/palanquin/palanquin-thin.ttf);
 }
-
 app-root{
+ 
+    position:relative;
+    display:block;
+    min-height:100%;
     height:100%;
-    width: 100%;
-  position: absolute;
+    min-width: 100%;
   text-align: center !important;
+  order: 0;
+  flex: 1 1 auto;
+  align-self: auto;
+  display: block;
+}
+app-user-nav {
+    position: absolute;
+    text-align: left;
+    display: block;
+    height: 100%;
+    background-size: contain;
+    left: 0;
+}
+app-browse {
+    position: relative;
+}
+app-home{
+    display:block;
+    overflow:hidden;
 }
