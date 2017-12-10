@@ -22,6 +22,7 @@ createUser(string:password,string:username,string:email,string:description)
 Recipes will keep track of all if the information for a given recipe
 Sample Recipe:
 {_id: “jad9wjasod92ii0”,
+ userid: “Food Eater 9000”,
  name: “Ketchup Fudge”,
  price: 6.57,
  cookTime: 25,
@@ -52,7 +53,7 @@ getRecipesByUserId(string:userId)
 removeRecipesByUserId(string:userId)
     Removes all recipes made by a given user
 
-createRecipe(string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
+createRecipe(string:userid,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
     Creates a recipe with the given information
 
 //////////////////////// Rating Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
