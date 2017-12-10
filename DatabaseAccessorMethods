@@ -32,6 +32,9 @@ Sample Recipe:
  ingredients: [“White Chocolate Chips”, “Ketchup”, “Maple Syrup”],
  steps: [“Lose all sense of self”, “Make this”]}
 
+getAllRecipes()
+    Returns all recipes
+
 getRecipeById(string:id)
     Returns a Recipe with the given id
 updateRecipeById(string:id,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
@@ -42,13 +45,13 @@ removeRecipeById(string:id)
 getRecipesByFilter(Object:filter)
     Returns all recipes matching on the given filter
 
+Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
+If you don't like that, let me know.
+
 getRecipesByUserId(string:userId)
     Returns recipes made by a given user
 removeRecipesByUserId(string:userId)
     Removes all recipes made by a given user
-
-Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
-If you don't like that, let me know.
 
 createRecipe(string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
     Creates a recipe with the given information
