@@ -22,6 +22,7 @@ import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-
 import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
 
 import {DataService} from './data.service';
+import { AppRoutingModule } from './/app-routing.module';
 
 
 @NgModule({
@@ -58,7 +59,8 @@ import {DataService} from './data.service';
     BrowserAnimationsModule,
     MatFormFieldModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AppRoutingModule
   ],
   entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
   providers: [DataService],
