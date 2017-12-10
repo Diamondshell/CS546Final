@@ -20,6 +20,11 @@ function isArrayType ( arr, type ) {
 }
 
 const exported_methods = {
+    async getAllRecipes ( ) {
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find ( {} ).toArray();
+        return data;
+    },
     async getRecipeById ( id ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `getRecipeById: Expected a string but received a ${typeof(id)}`;

@@ -8,17 +8,20 @@ const ratingData = data.ratings;
 const favoriteData = data.favorites;
 
 const exported_methods = {
-    async getUserById ( id ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `getUserById: Expected as string, received a ${typeof(id)}`;
+    /**
+    * @param {string} username The username of the user
+    */
+    async getUserById ( username ) {
+        if ( typeof ( username ) !== 'string' ) {
+            throw `getUserById: Expected as string, received a ${typeof(username)}`;
         }
         const userCollection = await users();
-        const data = userCollection.findOne ( { _id: id } );
+        const data = userCollection.findOne ( { _id: username } );
         return data;
     },
-    async updateUserById ( id, password, username, email, description ) {
-        if ( typeof ( id ) !== 'string' ) {
-            throw `updateUserById: Expected a string id, but received a ${typeof(id)}`;
+    async updateUserById ( username, password, email, description ) {
+        if ( typeof ( username ) !== 'string' ) {
+            throw `updateUserById: Expected a string id, but received a ${typeof(username)}`;
         }
         
         updateInfo = {};
@@ -27,12 +30,6 @@ const exported_methods = {
                 throw `updateUserById: Expected a string password, but received a ${typeof(password)}`;
             }
             updateInfo.password = password;
-        }
-        if ( username ) {
-            if ( typeof ( username ) !== 'string' ) {
-                throw `updateUserById: Expected a string username, but received a ${typeof(username)}`;
-            }
-            updateInfo.username = username;
         }
         if ( email ) {
             if ( typeof ( email ) !== 'string' ) {
@@ -48,20 +45,20 @@ const exported_methods = {
         }
 
         const userCollection = await users();
-        const data = userCollection.updateOne ( { _id: id }, { $set: updateInfo } );
+        const data = userCollection.updateOne ( { _id: username }, { $set: updateInfo } );
 
-        return await exported_methods.getUserById ( id );
+        return await exported_methods.getUserById ( username );
     },
-    async removeUserById ( id ) {
-        if ( typeof ( id ) ) {
-            throw `removeUserById: Expected a string, but received a ${typeof(id)}`;
+    async removeUserById ( username ) {
+        if ( typeof ( username ) ) {
+            throw `removeUserById: Expected a string, but received a ${typeof(username)}`;
         }
         const userCollection = await users();
-        await commentData.removeCommentsByUserId ( id );
-        await ratingData.removeRatingsByUserId ( id );
-        await favoriteData.removeFavoritesByUserId ( id );
-        await recipeData.removeRecipesByUserId ( id );
-        return await userCollection.removeOne ( { _id: id } );
+        await commentData.removeCommentsByUserId ( username );
+        await ratingData.removeRatingsByUserId ( username );
+        await favoriteData.removeFavoritesByUserId ( username );
+        await recipeData.removeRecipesByUserId ( username );
+        return await userCollection.removeOne ( { _id: username } );
     },
     async createUser ( password, username, email, description ) {
         if ( typeof ( password ) !== 'string' ) {
@@ -78,9 +75,8 @@ const exported_methods = {
         }
 
         ret = {};
-        ret._id = uuidv1();
+        ret._id = username;
         ret.password = password;
-        ret.username = username;
         ret.email = email;
         ret.description = description;
 

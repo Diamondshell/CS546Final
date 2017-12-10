@@ -79,16 +79,16 @@ async function main() {
     rating.push({userID: us[1]._id, recipeId: rs[7]._id, rating: 8});
     rating.push({userID: us[1]._id, recipeId: rs[8]._id, rating: 7});
     rating.push({userID: us[1]._id, recipeId: rs[9]._id, rating: 6});
-    rating.push({userID: us[3]._id, recipeId: rs[10]._id, rating: 10});
-    rating.push({userID: us[3]._id, recipeId: rs[11]._id, rating: 9});
-    rating.push({userID: us[3]._id, recipeId: rs[12]._id, rating: 8});
-    rating.push({userID: us[3]._id, recipeId: rs[13]._id, rating: 7});
-    rating.push({userID: us[3]._id, recipeId: rs[14]._id, rating: 6});
-    rating.push({userID: us[4]._id, recipeId: rs[15]._id, rating: 10});
-    rating.push({userID: us[4]._id, recipeId: rs[16]._id, rating: 9});
-    rating.push({userID: us[4]._id, recipeId: rs[17]._id, rating: 8});
-    rating.push({userID: us[4]._id, recipeId: rs[18]._id, rating: 7});
-    rating.push({userID: us[4]._id, recipeId: rs[19]._id, rating: 6});
+    rating.push({userID: us[2]._id, recipeId: rs[10]._id, rating: 10});
+    rating.push({userID: us[2]._id, recipeId: rs[11]._id, rating: 9});
+    rating.push({userID: us[2]._id, recipeId: rs[12]._id, rating: 8});
+    rating.push({userID: us[2]._id, recipeId: rs[13]._id, rating: 7});
+    rating.push({userID: us[2]._id, recipeId: rs[14]._id, rating: 6});
+    rating.push({userID: us[3]._id, recipeId: rs[15]._id, rating: 10});
+    rating.push({userID: us[3]._id, recipeId: rs[16]._id, rating: 9});
+    rating.push({userID: us[3]._id, recipeId: rs[17]._id, rating: 8});
+    rating.push({userID: us[3]._id, recipeId: rs[18]._id, rating: 7});
+    rating.push({userID: us[3]._id, recipeId: rs[19]._id, rating: 6});
     
     console.log("Pushing Ratings to DB");
     let rts = [];
@@ -99,10 +99,64 @@ async function main() {
     }
 
     //Create Favorites
+    let favorite = [];
+    favorite.push ( { userID: us[0]._id, recipeId: rs[0]._id } );
+    favorite.push ( { userID: us[0]._id, recipeId: rs[2]._id } );
+    favorite.push ( { userID: us[0]._id, recipeId: rs[4]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[6]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[8]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[10]._id } );
+    favorite.push ( { userID: us[0]._id, recipeId: rs[12]._id } );
+    favorite.push ( { userID: us[0]._id, recipeId: rs[14]._id } );
+    favorite.push ( { userID: us[0]._id, recipeId: rs[16]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[18]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[3]._id } );
+    favorite.push ( { userID: us[1]._id, recipeId: rs[15]._id } );
+    
+    console.log ( "Pushing Favorites to DB" );
+    let fs = [];
+    while ( f = favorite.pop() ) {
+        let data = await favorites.createFavorite ( f.userID, f.recipeId );
+        fs.push ( data );
+    }
 
     //Create Comments
+    let comment = [];
+    comment.push ( { userId: us[0]._id, recipeId: rs[0]._id, comment: "I love this!"});
+    comment.push ( { userId: us[1]._id, recipeId: rs[1]._id, comment: "Cool!"});
+    comment.push ( { userId: us[2]._id, recipeId: rs[2]._id, comment: "This sucks!"});
+    comment.push ( { userId: us[3]._id, recipeId: rs[3]._id, comment: "I recommend adding butter!"});
+    comment.push ( { userId: us[0]._id, recipeId: rs[4]._id, comment: "How do I make this using a toaster?"});
+    comment.push ( { userId: us[1]._id, recipeId: rs[5]._id, comment: "I don't have any of the ingredients. What should I do?"});
+    comment.push ( { userId: us[2]._id, recipeId: rs[6]._id, comment: "I don't know about this."});
+    comment.push ( { userId: us[3]._id, recipeId: rs[7]._id, comment: "Meh."});
+    comment.push ( { userId: us[0]._id, recipeId: rs[8]._id, comment: "BOO!"});
+    comment.push ( { userId: us[1]._id, recipeId: rs[9]._id, comment: "This was way 3spoopy5me."});
+    comment.push ( { userId: us[2]._id, recipeId: rs[10]._id, comment: "Has Anyone Really Been Far Even as Decided to Use Even Go Want to do Look More Like?"});
+    comment.push ( { userId: us[3]._id, recipeId: rs[11]._id, comment: "People shouldn't eat this."});
+    comment.push ( { userId: us[0]._id, recipeId: rs[12]._id, comment: "My dog loves this!"});
+    comment.push ( { userId: us[1]._id, recipeId: rs[13]._id, comment: "What?!?!?"});
+    comment.push ( { userId: us[2]._id, recipeId: rs[14]._id, comment: "People are strange. Who came up with this?"});
+    comment.push ( { userId: us[3]._id, recipeId: rs[15]._id, comment: "Use More Butter Next time"});
+    comment.push ( { userId: us[0]._id, recipeId: rs[16]._id, comment: "All your soul are belong to us."});
+    comment.push ( { userId: us[1]._id, recipeId: rs[17]._id, comment: "This is fantastic when eaten alongside the cow level."});
+    comment.push ( { userId: us[2]._id, recipeId: rs[18]._id, comment: "I'm not really a fan"});
+    comment.push ( { userId: us[3]._id, recipeId: rs[19]._id, comment: "Fantastic!"});
+    comment.push ( { userId: us[1]._id, recipeId: rs[1]._id, comment: "I've seen more appetising cow patties."});
+    comment.push ( { userId: us[2]._id, recipeId: rs[2]._id, comment: "Perfect Meal. 5/7"});
+    comment.push ( { userId: us[3]._id, recipeId: rs[3]._id, comment: "But what are we supposed to use here? I don't understand."});
+    comment.push ( { userId: us[0]._id, recipeId: rs[4]._id, comment: "Can I use a cat instead"});
+
+    console.log ( "Pushing Comments to DB" );
+    let cs = [];
+    while ( c = comment.pop() ) {
+        let data = await comments.createComment ( c.userId, c.recipeId, c.comment );
+        cs.push ( data );
+    }
 
     closeDB();
 }
 
-main();
+main().catch(function (e) {
+    console.error(e);
+});

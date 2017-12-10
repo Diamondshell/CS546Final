@@ -2,9 +2,8 @@
 
 Users contain relevant information for each user
 Sample User:
-{_id: “asjkd8sad9as9”
+{_id: “Food Eater 9000”
  password: “sjaf9i2lcj09aic;szk39j2”,
- username: “Food Eater 9000”,
  email: “foo9000@eater.com”,
  description: “I like to eat food. 9000 food.”}
 
@@ -23,6 +22,7 @@ createUser(string:password,string:username,string:email,string:description)
 Recipes will keep track of all if the information for a given recipe
 Sample Recipe:
 {_id: “jad9wjasod92ii0”,
+ userid: “Food Eater 9000”,
  name: “Ketchup Fudge”,
  price: 6.57,
  cookTime: 25,
@@ -31,6 +31,9 @@ Sample Recipe:
  tags: [“What”, “Fudge”, “Unusual”],
  ingredients: [“White Chocolate Chips”, “Ketchup”, “Maple Syrup”],
  steps: [“Lose all sense of self”, “Make this”]}
+
+getAllRecipes()
+    Returns all recipes
 
 getRecipeById(string:id)
     Returns a Recipe with the given id
@@ -42,15 +45,15 @@ removeRecipeById(string:id)
 getRecipesByFilter(Object:filter)
     Returns all recipes matching on the given filter
 
+Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
+If you don't like that, let me know.
+
 getRecipesByUserId(string:userId)
     Returns recipes made by a given user
 removeRecipesByUserId(string:userId)
     Removes all recipes made by a given user
 
-Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
-If you don't like that, let me know.
-
-createRecipe(string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
+createRecipe(string:userid,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps)
     Creates a recipe with the given information
 
 //////////////////////// Rating Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\

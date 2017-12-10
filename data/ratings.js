@@ -13,8 +13,11 @@ const exported_methods = {
     },
     async updateRatingById ( id, rating ) {
         if ( typeof ( id ) !== 'string' ) {
-            throw `updateRatingById: Expected a string but received a ${typeof ( id )}`;
-        } 
+            throw `updateRatingById: Expected a string id but received a ${typeof ( id )}`;
+        }
+        if ( typeof ( rating ) !== 'number' ) {
+            throw `updateRatingById: Expected a number rating but received a ${typeof(rating)}`;
+        }
         update = {};
         update.rating = rating;
         const ratingCollection = await ratings();
@@ -70,8 +73,8 @@ const exported_methods = {
         if ( typeof ( recipeId ) !== 'string' ) {
             throw `createRating: Expected a string recipeId but received a ${typeof ( recipeId )}`;
         }
-        if ( typeof ( rating ) !== 'string' ) {
-            throw `createRating: Expected a string rating but received a ${typeof ( rating )}`;
+        if ( typeof ( rating ) !== 'number' ) {
+            throw `createRating: Expected a number rating but received a ${typeof ( rating )}`;
         }
         ratBody = {};
         ratBody._id = uuidv1();
