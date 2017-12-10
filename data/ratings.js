@@ -13,8 +13,11 @@ const exported_methods = {
     },
     async updateRatingById ( id, rating ) {
         if ( typeof ( id ) !== 'string' ) {
-            throw `updateRatingById: Expected a string but received a ${typeof ( id )}`;
-        } 
+            throw `updateRatingById: Expected a string id but received a ${typeof ( id )}`;
+        }
+        if ( typeof ( rating ) !== 'number' ) {
+            throw `updateRatingById: Expected a number rating but received a ${typeof(rating)}`;
+        }
         update = {};
         update.rating = rating;
         const ratingCollection = await ratings();
