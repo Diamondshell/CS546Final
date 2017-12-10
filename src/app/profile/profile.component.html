@@ -1,3 +1,21 @@
-<p>
-  profile works!
-</p>
+<div class="profile" id="userProfileWrapper">
+	<h1 id="username">
+		{{user.username}}
+	</h1>
+
+	<div id="email">
+		<label id="userEmail" class="pull-left">Email:</label>
+		<span id="emailObj">{{user.email}}</span>
+		<input matInput type="text" [(ngModel)]="user.email" placeholder="{{user.email}}" id="editEmail">
+		<button title = "Edit email" (click)="editEmail()" id= "editEmailButton"><i class="fa fa-pencil"></i></button>
+		<button title="Save" (click)="saveEmail()" id="saveEmail"><i class="fa fa-check"></i></button>
+	</div>
+
+	<div id="description">
+		<label id="userDescr" class="pull-left">Description:</label>
+		<span id="descrObj">{{user.description}}</span>
+		<input type="text" [(ngModel)]="user.description" placeholder="{{user.description}}" id="editDescr">
+		<button title = "Edit description" (click)="editDescription()" id = "edit"><i class="fa fa-pencil" id="editDescrButton"></i></button>
+		<button title="Save" (click)="saveDescription()" id="saveDescr"><i class="fa fa-check"></i></button>
+	</div>
+</div>

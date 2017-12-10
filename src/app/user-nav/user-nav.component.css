@@ -35,3 +35,16 @@
   opacity: 0;
   transition: 1s;
 }
+
+.open{
+    margin-top: 50px;
+    margin-left: 10px;
+    font-size: 14pt;
+    color: #e8eef2;
+}
+
+.sideDiv {
+	width:100% !important;
+	left: 10px;
+	position: relative;
+}

@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CardComponent } from './card/card.component';
@@ -18,6 +19,7 @@ import { ProfileComponent } from './profile/profile.component';
 import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-modal.component';
+import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
 
 
 
@@ -37,7 +39,8 @@ import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-
     ProfileComponent,
     UserRecipesComponent,
     SavedRecipesComponent,
-    CreateRecipeModalComponent
+    CreateRecipeModalComponent,
+    ProfileLayoutComponent
 
   ],
   imports: [
@@ -52,7 +55,8 @@ import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-
     MatSelectModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    FormsModule
   ],
   entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
   providers: [],
