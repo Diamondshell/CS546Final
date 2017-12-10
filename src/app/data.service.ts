@@ -20,7 +20,8 @@ export class DataService {
   }
   updateUserInfo(changed){
     //send changed data to server
-    return of("hello");
+    console.log(changed);
+    return of("");
   }
 
   constructor() { }
