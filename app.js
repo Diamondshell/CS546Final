@@ -35,6 +35,24 @@ app.use('/static', express.static(__dirname + '/static'));
 
 //Middleware
 // add authentication here
+app.post('/login', async function(req, res) {
+    username = req.body.username;
+    password = req.body.password;
+    userData = await users.getUserById(username);
+
+    const validated = await bcrypt.compare(password, userData.password).then(function(res) {
+        return res;
+    });
+
+    if (validated) {
+        //If valid, create a validated cookie that holds the username also for use in displaying data later
+        res.cookie('validated', user.username, {maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
+        //Send something back when validated
+    }
+    else {
+        //Send something back when the user isn't validated
+    }
+});
 
 //server routes
 
