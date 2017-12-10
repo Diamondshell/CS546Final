@@ -1,0 +1,83 @@
+<section>
+  <div id = "top">
+  <article id = "left-pane">
+      <h1>{{recipe.Name}}</h1>
+     
+   
+    <div class = "rating" title ="{{recipe.Rating}} Star(s)">
+        <ul>
+          <li  *ngFor="let i of numChecked"> <i class="fa fa-star checked" ></i></li>
+          <li  *ngFor="let i of numUnChecked"> <i class="fa fa-star"></i></li>   
+        </ul>
+      </div>
+      <div class = "float-clear"></div>
+      <div class = "recipe-details">
+          <p title="Total Cost"><i class="fa fa-dollar" title="Total Cost"></i> {{recipe.Price}}</p>
+          <p title="Total Time"><i class="fa fa-clock-o" ></i> {{recipe.Cooking_Time}}</p>
+          <p title="Popularity"><i class="fa fa-fire" ></i> {{recipe.Popularity}}</p>
+        </div>
+      <div class = "float-clear"></div>
+      <p>Posted By: {{recipe.poster}}</p>
+    <p id = "des">{{recipe.Description}}</p>
+    
+    <div class = "float-clear"></div>
+    <div class = "ratings">
+      <ul>
+        <div (click)="rate()"><li title = "Rate this Recipe" id="rate" >Rate This Recipe</li></div>
+        <div (click)="print()"><li  title = "Print this Recipe" id="print">Print</li>  </div>
+        <div (click)="save()"><li  title = "Save this Recipe as a Favorite" id="save" >Save To Favorites</li></div>
+        
+      </ul>
+      <div class = "float-clear"></div>
+    </div>
+    <div class = "float-clear"></div>
+    
+  </article>
+ <article id = "right-pane">
+  <img src= "assets/fudge.jpg" width=200 height=300 alt = "Picture of Recipe" title = "Picture of Recipe">
+  <div class = "tags">
+      <p><strong>Tags:</strong></p>
+      <ul >
+        <li *ngFor="let t of recipe.Tags">{{t}}</li>
+      </ul>
+  </div>
+  <div class = "float-clear"></div>  
+</article>
+  <div class = "float-clear"></div>
+  <hr>
+</div>
+<div class="lower">
+  <article class = "bottom-left">
+      <div class = "ingredients">
+          <h2>Ingredients:</h2>
+          <ul >
+            <li *ngFor="let i of recipe.Ingredients">{{i}}</li>
+          </ul>
+        </div>
+  </article>
+ 
+
+  <article class = "bottom-right">
+      <div class = "appliances">
+          <h2>Appliances:</h2>
+          <ul class="appliances">
+              <li *ngFor="let a of recipe.Appliance">{{a}}</li>
+          </ul>
+        </div>
+  </article>
+  <div class = "float-clear"></div>
+  <hr>
+</div>
+ <article class="bottom-center">
+    
+    <div class = "steps">
+      <h2>Steps:</h2>
+      <ol>
+          <li *ngFor="let s of recipe.Steps">{{s}}</li>
+      </ol>
+      </div>
+      <div class = "float-clear"></div>
+  </article>
+  <div class = "float-clear"></div>
+</section>
+<div class = "float-clear"></div>

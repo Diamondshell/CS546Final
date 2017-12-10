@@ -24,6 +24,7 @@ app-filterpane{
     width: calc(100% - 210px);
 }
 
+
 @font-face {
   font-family: Palanquin;
   src: url(assets/palanquin/palanquin-thin.ttf);
