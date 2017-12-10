@@ -12,18 +12,22 @@ const closeDB = mongoCollections.end;
 
 async function main() {
 
+    //Clear DB
+    console.log("Emptying all Collections")
     await users.empty();
     await recipes.empty();
     await ratings.empty();
     await favorites.empty();
     await comments.empty();
 
+    //Create Users
     let user = [];
     user.push({username:"Bobby", password:"Coolio", email:"bobby@dank.me", description:"I'm a cool dude I guess"});
     user.push({username:"DankMeister", password:"memelord278", email:"dank@meist.er", description:"Memes are the greatest of all of God's creations. Hail Memes."});
-    user.push({username:"supergenius", password:"myintelligenceisbeyondhumanunderstanding", email:"patrickstar@bottom.net", description:"The inner machinations of my mind are an engima"});
+    user.push({username:"supergenius", password:"myintelligenceisbeyondhumanunderstanding", email:"patrickstar@bikinibottom.net", description:"The inner machinations of my mind are an engima"});
     user.push({username:"thedarklord", password:"Iwillhavetheonering", email:"sauron@kitty.us", description:"The Powers of the Ring are MINE for the taking - these recipes will be the implements of my revenge!"});
 
+    console.log("Pushing Users to DB");
     let us = [];
     for ( let i = 0; i < user.length; i++ ) {
         let user2 = user[i];
@@ -32,6 +36,7 @@ async function main() {
         us.push(data);
     }
 
+    //Create Recipes
     let recipe = [];
     recipe.push({name:"Ketchup Fudge", price: 0.67, cookTime: 25, appliances: ["Blender", "Microwave"], popularity: -5, ingredients:["White Chocolate", "Ketchup", "Maple Syrup"], tags:["What","Unnatural"],steps: ["Lose all sense of self", "Make this"], userid: us[0]._id});
     recipe.push({name:"Turger", price: 6, cookTime: 70, appliances: ["Oven", "Grill"], popularity: 100, ingredients:["Turkey", "Ground Beef", "Cheese", "Tomato", "Lettuce", "BBQ Sauce"], tags:["Burger","Fun", "Independence Day"],steps: ["Cook Turkey", "Cook Beef", "Stack in Buns", "Burger is Made!"], userid: us[1]._id});
@@ -54,12 +59,48 @@ async function main() {
     recipe.push({name:"Sour Dwarf Ale", price: 2.56, cookTime: 128, appliances: ["Blender", "Microwave"], popularity: -5, ingredients:["White Chocolate", "Ketchup", "Maple Syrup"], tags:["What","Unnatural"],steps: ["Lose all sense of self", "Make this"], userid: us[2]._id});
     recipe.push({name:"The Empire Supreme", price: 24.56, cookTime: 54, appliances: ["Blender", "Microwave"], popularity: -5, ingredients:["White Chocolate", "Ketchup", "Maple Syrup"], tags:["What","Unnatural"],steps: ["Lose all sense of self", "Make this"], userid: us[3]._id});
     
+    console.log("Pushing Recipes to DB");
     let rs = [];
-    for ( let i = 0; i < user.length; i++ ) {
+    for ( let i = 0; i < recipe.length; i++ ) {
         let r = recipe[i];
         let data = await recipes.createRecipe(r.userid, r.name, r.price, r.cookTime, r.appliances, r.popularity, r.tags, r.ingredients, r.steps);
         rs.push(data);
     }
+
+    //Create Ratings
+    let rating = [];
+    rating.push({userID: us[0]._id, recipeId: rs[0]._id, rating: 10});
+    rating.push({userID: us[0]._id, recipeId: rs[1]._id, rating: 9});
+    rating.push({userID: us[0]._id, recipeId: rs[2]._id, rating: 8});
+    rating.push({userID: us[0]._id, recipeId: rs[3]._id, rating: 7});
+    rating.push({userID: us[0]._id, recipeId: rs[4]._id, rating: 6});
+    rating.push({userID: us[1]._id, recipeId: rs[5]._id, rating: 10});
+    rating.push({userID: us[1]._id, recipeId: rs[6]._id, rating: 9});
+    rating.push({userID: us[1]._id, recipeId: rs[7]._id, rating: 8});
+    rating.push({userID: us[1]._id, recipeId: rs[8]._id, rating: 7});
+    rating.push({userID: us[1]._id, recipeId: rs[9]._id, rating: 6});
+    rating.push({userID: us[3]._id, recipeId: rs[10]._id, rating: 10});
+    rating.push({userID: us[3]._id, recipeId: rs[11]._id, rating: 9});
+    rating.push({userID: us[3]._id, recipeId: rs[12]._id, rating: 8});
+    rating.push({userID: us[3]._id, recipeId: rs[13]._id, rating: 7});
+    rating.push({userID: us[3]._id, recipeId: rs[14]._id, rating: 6});
+    rating.push({userID: us[4]._id, recipeId: rs[15]._id, rating: 10});
+    rating.push({userID: us[4]._id, recipeId: rs[16]._id, rating: 9});
+    rating.push({userID: us[4]._id, recipeId: rs[17]._id, rating: 8});
+    rating.push({userID: us[4]._id, recipeId: rs[18]._id, rating: 7});
+    rating.push({userID: us[4]._id, recipeId: rs[19]._id, rating: 6});
+    
+    console.log("Pushing Ratings to DB");
+    let rts = [];
+    for ( let i = 0; i < rating.length; i++ ) {
+        let r = rating[i];
+        let data = await ratings.createRating ( r.userID, r.recipeId, r.rating );
+        rts.push(data);
+    }
+
+    //Create Favorites
+
+    //Create Comments
 
     closeDB();
 }
