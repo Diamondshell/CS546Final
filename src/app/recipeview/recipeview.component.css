@@ -152,7 +152,7 @@ ol{
     width: auto;
     background-color: #e8eef2;
     overflow: hidden;
-    height:60px;
+    height:auto;
 }
 .ratings ul > div{
     display:inline-block;
@@ -204,6 +204,40 @@ img{
        width: 100%;
        clear:both;
     }
+    .comments{
+        display:none;
+    }
+    
 
 
+}
+.comments header{
+    height: 44px;
+}
+.comments h2{
+    display: block;
+    width: 110px;
+    float: left;
+    padding:0px;
+    margin: 0px;
+}
+.comments .newcomment{
+    display:block;
+    width: 110px;
+    float: right;
+}
+.comments ul{
+    list-style: none;
+    text-align: left;
+}
+.comments h3 {
+    margin: 3px;
+}
+.comments ul div {
+   
+    display: block;
+    border-bottom: 1px solid gray;
+}
+.comments li{
+    padding: 20px;
 }

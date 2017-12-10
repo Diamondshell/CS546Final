@@ -29,5 +29,8 @@ export const recipes: Recipe[] = [
         Popularity: -5,
         Tags: ["What", "Fudge", "Unusual"],
         Ingredients: ["White Chocolate Chips", "Ketchup", "Maple Syrup"],
-        Steps: ["Lose all sense of self", "Make this"]
+        Steps: ["Lose all sense of self", "Make this"],
+        Comments: [{recID:"ert", username:"Jim", Comment: "this thing sucks"},
+        {recID:"ert", username:"Jim", Comment: "this thing sucks"},
+        {recID:"ert", username:"Jim", Comment: "this thing sucks"}]
         };
