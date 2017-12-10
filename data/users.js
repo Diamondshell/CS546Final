@@ -3,6 +3,7 @@ const users = mongoCollections.userItems;
 const uuidv1 = require ( "uuid/v1" );
 let data = require ( "../data" );
 const commentData = data.comments;
+const recipeData = data.recipes;
 const ratingData = data.ratings;
 const favoriteData = data.favorites;
 
@@ -59,6 +60,7 @@ const exported_methods = {
         await commentData.removeCommentsByUserId ( id );
         await ratingData.removeRatingsByUserId ( id );
         await favoriteData.removeFavoritesByUserId ( id );
+        await recipeData.removeRecipesByUserId ( id );
         return await userCollection.removeOne ( { _id: id } );
     },
     async createUser ( password, username, email, description ) {

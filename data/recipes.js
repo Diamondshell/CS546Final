@@ -106,7 +106,26 @@ const exported_methods = {
         const data = await recipeCollection.find ( filter ).toArray();
         return data;
     },
-    async createRecipe ( name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+    async getRecipesByUserId ( userid ) {
+        if ( typeof ( userid ) !== 'string' ) {
+            throw `getRecipesByUserId: Expected a string userid, but received a ${typeof(userid)}`;
+        }
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find ( { userid: userid } ).toArray();
+        return data;
+    },
+    async removeRecipesByUserId ( userid ) {
+        if ( typeof ( userid ) !== 'string' ) {
+            throw `removeRecipesByUserId: Expected a string userid, but received a ${typeof(userid)}`;
+        }
+        const recipeCollection = await recipes();
+        let data = await recipeCollection.remove ( { userid: userid } );
+        return data;
+    },
+    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps ) {
+        if ( typeof ( userid ) !== 'string' ) {
+            throw `createRecipe: Expected a string userid, but received a ${typeof(userid)}`;
+        }
         if ( typeof ( name ) !== 'string' ) {
             throw `createRecipe: Expected a string name, but received a ${typeof(name)}`;
         }
@@ -134,6 +153,7 @@ const exported_methods = {
 
         ret = {};
         ret._id = uuidv1();
+        ret.userid = userid;
         ret.name = name;
         ret.price = price;
         ret.cookTime = cookTime;

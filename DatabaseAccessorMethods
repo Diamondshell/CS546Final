@@ -13,7 +13,7 @@ getUserById(string:id)
 updateUserById(string:id,string:password,string:username,string:email,string:description)
     Updates the user with the given information
 removeUserById(string:id)
-    Removes user and all ratings/favorites/comments made by that user
+    Removes user and all ratings/favorites/comments/recipes made by that user
 
 createUser(string:password,string:username,string:email,string:description)
     Creates a user with the given id
@@ -41,6 +41,11 @@ removeRecipeById(string:id)
 
 getRecipesByFilter(Object:filter)
     Returns all recipes matching on the given filter
+
+getRecipesByUserId(string:userId)
+    Returns recipes made by a given user
+removeRecipesByUserId(string:userId)
+    Removes all recipes made by a given user
 
 Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
 If you don't like that, let me know.
