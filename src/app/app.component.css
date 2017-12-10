@@ -107,6 +107,9 @@ li.browse{
     outline: none;
     float: right;
     margin-top: 5px;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 0px;
 }
 .user{
     color: rgb(0, 0, 0);
