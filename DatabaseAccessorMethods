@@ -2,9 +2,8 @@
 
 Users contain relevant information for each user
 Sample User:
-{_id: “asjkd8sad9as9”
+{_id: “Food Eater 9000”
  password: “sjaf9i2lcj09aic;szk39j2”,
- username: “Food Eater 9000”,
  email: “foo9000@eater.com”,
  description: “I like to eat food. 9000 food.”}
 
