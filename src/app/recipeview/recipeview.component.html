@@ -78,6 +78,23 @@
       </div>
       <div class = "float-clear"></div>
   </article>
-  <div class = "float-clear"></div>
+ 
+ <div class = "float-clear"></div>
+  <hr>
+  <article class = "comments">
+    <header>
+        <h2>Comments:</h2>
+        <button class="newcomment" (click)="show()">Add Comment</button>    
+    </header>
+    <div class = "float-clear"></div>
+    <ul>
+      <li *ngFor="let c of recipe.Comments">
+        <div>
+          <h3>{{c.username}}</h3>  
+          <p>{{c.Comment}}</p>
+        </div>
+      </li>
+    </ul>
+  </article>
 </section>
 <div class = "float-clear"></div>
