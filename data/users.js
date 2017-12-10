@@ -9,8 +9,9 @@ const favoriteData = data.favorites;
 
 const exported_methods = {
     /**
-    * @param {string} username The username of the user
-    */
+     * Gets the user by the given username
+     * @param {string} username The username of the user
+     */
     async getUserById ( username ) {
         if ( typeof ( username ) !== 'string' ) {
             throw `getUserById: Expected as string, received a ${typeof(username)}`;
@@ -19,6 +20,13 @@ const exported_methods = {
         const data = userCollection.findOne ( { _id: username } );
         return data;
     },
+    /**
+     * Updates the user with the given values (they can be undefined, but all must be present)
+     * @param {string} username The user to update
+     * @param {string|undefined} password A new password
+     * @param {string|undefined} email A new email
+     * @param {string|undefined} description A new description
+     */
     async updateUserById ( username, password, email, description ) {
         if ( typeof ( username ) !== 'string' ) {
             throw `updateUserById: Expected a string id, but received a ${typeof(username)}`;
@@ -49,6 +57,10 @@ const exported_methods = {
 
         return await exported_methods.getUserById ( username );
     },
+    /**
+     * Removes a specified user, also deletes all recipes, ratings, comments, and favorites made by the user
+     * @param {string} username The user to delete
+     */
     async removeUserById ( username ) {
         if ( typeof ( username ) ) {
             throw `removeUserById: Expected a string, but received a ${typeof(username)}`;
@@ -60,6 +72,13 @@ const exported_methods = {
         await recipeData.removeRecipesByUserId ( username );
         return await userCollection.removeOne ( { _id: username } );
     },
+    /**
+     * Creates a user with the specified parameters
+     * @param {string} password The password for the user (should be hashed)
+     * @param {string} username The username for the user
+     * @param {string} email The email for the user
+     * @param {string|undefined} description The description for the user
+     */
     async createUser ( password, username, email, description ) {
         if ( typeof ( password ) !== 'string' ) {
             throw `createUser: Expected a string password, but received a ${typeof(password)}`;
@@ -70,8 +89,8 @@ const exported_methods = {
         if ( typeof ( email ) !== 'string' ) {
             throw `createUser: Expected a string email, but received a ${typeof(email)}`;
         }
-        if ( typeof ( description ) !== 'string' ) {
-            throw `createUser: Expected a string description, but received a ${typeof(description)}`;
+        if ( typeof ( description ) !== 'string' && typeof ( description ) !== 'undefined' ) {
+            throw `createUser: Expected a string or undefined description, but received a ${typeof(description)}`;
         }
 
         ret = {};
@@ -84,6 +103,9 @@ const exported_methods = {
         const data = await userCollection.insertOne ( ret );
         return ret;
     },
+    /**
+     * Empties the user collection (does not ensure deletion cascade)
+     */
     async empty() {
         const userCollection = await users();
         const data = await userCollection.remove({});
