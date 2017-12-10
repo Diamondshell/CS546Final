@@ -129,26 +129,26 @@ const exported_methods = {
         if ( typeof ( name ) !== 'string' ) {
             throw `createRecipe: Expected a string name, but received a ${typeof(name)}`;
         }
-        if ( typeof ( price ) !== 'string' ) {
-            throw `createRecipe: Expected a string price, but received a ${typeof(price)}`;
+        if ( typeof ( price ) !== 'number' ) {
+            throw `createRecipe: Expected a number price, but received a ${typeof(price)}`;
         }
-        if ( typeof ( cookTime ) !== 'string' ) {
-            throw `createRecipe: Expected a string cookTime, but received a ${typeof(cookTime)}`;
+        if ( typeof ( cookTime ) !== 'number' ) {
+            throw `createRecipe: Expected a number cookTime, but received a ${typeof(cookTime)}`;
         }
-        if ( typeof ( appliances ) !== 'string' ) {
-            throw `createRecipe: Expected a string appliances, but received a ${typeof(appliances)}`;
+        if ( typeof ( appliances ) !== 'object' ) {
+            throw `createRecipe: Expected an array appliances, but received a ${typeof(appliances)}`;
         }
-        if ( typeof ( popularity ) !== 'string' ) {
-            throw `createRecipe: Expected a string popularity, but received a ${typeof(popularity)}`;
+        if ( typeof ( popularity ) !== 'number' ) {
+            throw `createRecipe: Expected a number popularity, but received a ${typeof(popularity)}`;
         }
-        if ( typeof ( tags ) !== 'string' ) {
-            throw `createRecipe: Expected a string tags, but received a ${typeof(tags)}`;
+        if ( typeof ( tags ) !== 'object' ) {
+            throw `createRecipe: Expected an array tags, but received a ${typeof(tags)}`;
         }
-        if ( typeof ( ingredients ) !== 'string' ) {
-            throw `createRecipe: Expected a string ingredients, but received a ${typeof(ingredients)}`;
+        if ( typeof ( ingredients ) !== 'object' ) {
+            throw `createRecipe: Expected an array ingredients, but received a ${typeof(ingredients)}`;
         }
-        if ( typeof ( steps ) !== 'string' ) {
-            throw `createRecipe: Expected a string steps, but received a ${typeof(steps)}`;
+        if ( typeof ( steps ) !== 'object' ) {
+            throw `createRecipe: Expected an array steps, but received a ${typeof(steps)}`;
         }
 
         ret = {};
