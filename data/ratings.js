@@ -70,8 +70,8 @@ const exported_methods = {
         if ( typeof ( recipeId ) !== 'string' ) {
             throw `createRating: Expected a string recipeId but received a ${typeof ( recipeId )}`;
         }
-        if ( typeof ( rating ) !== 'string' ) {
-            throw `createRating: Expected a string rating but received a ${typeof ( rating )}`;
+        if ( typeof ( rating ) !== 'number' ) {
+            throw `createRating: Expected a number rating but received a ${typeof ( rating )}`;
         }
         ratBody = {};
         ratBody._id = uuidv1();
