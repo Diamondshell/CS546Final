@@ -1,0 +1,27 @@
+<div id="createRecipeForm">
+	<h1 mat-dialog-title>Rate This Recipe!</h1>
+	<form>
+		<table>
+			<tr>
+			  <mat-form-field title="Rating" class="input">
+			    <mat-select placeholder="Rating" value="">
+			    	<mat-option value="1">1</mat-option>
+			    	<mat-option value="2">2</mat-option>
+			    	<mat-option value="3">3</mat-option>
+			    	<mat-option value="4">4</mat-option>
+			    	<mat-option value="5">5</mat-option>
+			    </mat-select>
+			  </mat-form-field>
+			</tr>
+			<tr>
+			  <mat-form-field title="Review" class="input">
+			  	<textarea matInput matTextAreaAutosize placeholder="Review" type="text"></textarea>
+			  </mat-form-field>
+			</tr>
+	  	<button mat-raised-button class="submit" type="submit" value="Rate">Submit!</button>
+		</table>
+	</form>
+</div>
+
+
+<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->

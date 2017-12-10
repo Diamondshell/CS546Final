@@ -21,7 +21,7 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
-  {path:'home', component: HomeComponent}
+  {path:'home', component: HomeComponent},
   { path: 'userprofile', component: ProfileLayoutComponent ,pathMatch: 'full'  },
   { path: 'savedrecipes', component: SavedRecipesComponent,pathMatch: 'full' },
   { path: 'userrecipes', component: UserRecipesComponent ,pathMatch: 'full'},
