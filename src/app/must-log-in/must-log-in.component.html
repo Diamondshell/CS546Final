@@ -1,0 +1,29 @@
+<section>
+  <h1>You must be logged in to view this content.</h1>
+  <article>
+      <div id="sign-in">
+          <form ngNoForm>
+            <mat-form-field title="Username" class="input">
+              <input matInput placeholder="Username" value="">
+            </mat-form-field>
+            <br>
+            <mat-form-field title="Password" class="input">
+              <input matInput placeholder="Password" type="password">
+            </mat-form-field>
+            <br>
+           <!-- <button mat-raised-button class="back" (click)="goBack()" value="Return">Return</button>-->
+            
+            <button mat-raised-button class="submit" type="submit" value="Sign-In">Sign-In</button>
+                 
+          </form>
+    
+          <footer class="footer">
+            <p class="change_link">
+              Not a member yet?
+              <span (click)="register()" id="to_register">Join us</span>
+            </p>
+          </footer>
+        </div>
+  </article>
+ 
+</section>
