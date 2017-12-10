@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user'
 
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
@@ -11,7 +12,7 @@ export class ProfileComponent implements OnInit {
 
   @Input() user: User;
   @Input() editting: Boolean;
-  constructor() { }
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
   }
@@ -28,13 +29,16 @@ export class ProfileComponent implements OnInit {
   	document.getElementById('editDescr').style.display = "inline-block";
   	document.getElementById('editDescrButton').style.display = "none";
   	document.getElementById('saveDescr').style.display = "inline-block";
+    this.dataService.updateUserInfo({description: this.user.description});
   }
 
   saveEmail(){
   	document.getElementById('editEmail').style.display = "none";
   	document.getElementById('emailObj').style.display = "inline-block";
   	document.getElementById('saveEmail').style.display = "none";
-  	document.getElementById('editEmailButton').style.display = "inline-block";
+    document.getElementById('editEmailButton').style.display = "inline-block";
+    this.dataService.updateUserInfo({email: this.user.email});
+    
   }
 
   saveDescription() {

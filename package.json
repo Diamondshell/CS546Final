@@ -24,10 +24,8 @@
   "homepage": "https://github.com/Diamondshell/CS546Final#readme",
   "private": true,
   "dependencies": {
-
     "@angular/animations": "^5.0.5",
     "@angular/cdk": "^5.0.0-rc.3",
-
     "@angular/common": "^5.0.0",
     "@angular/compiler": "^5.0.0",
     "@angular/core": "^5.0.0",

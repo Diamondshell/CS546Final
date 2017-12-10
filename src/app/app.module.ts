@@ -21,6 +21,7 @@ import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-modal.component';
 import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
 
+import {DataService} from './data.service';
 
 
 @NgModule({
@@ -59,7 +60,7 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
     FormsModule
   ],
   entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

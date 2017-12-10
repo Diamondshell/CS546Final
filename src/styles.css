@@ -1,6 +1,10 @@
 @import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
-
+html{
+    height: 100%;
+    overflow:visible;
+}
 body{
+    min-height: 100%;
     padding:0px;
     margin:0px;
     background-color: #f0f6fa;
@@ -31,5 +35,8 @@ app-filterpane{
 }
 
 app-root{
-  position: relative;
+    height:100%;
+    width: 100%;
+  position: absolute;
+  text-align: center !important;
 }
