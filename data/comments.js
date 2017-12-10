@@ -13,8 +13,11 @@ const exported_methods = {
     },
     async updateCommentById ( id, comment ) {
         if ( typeof ( id ) !== 'string' ) {
-            throw `updateCommentById: Expected a string but received a ${typeof ( id )}`;
+            throw `updateCommentById: Expected a string id but received a ${typeof ( id )}`;
         } 
+        if ( typeof ( comment ) !== 'string' ) {
+            throw `updateCommentById: Expected a string comment but received a ${typeof ( comment )}`;
+        }
         update = {};
         update.comment = comment;
         const commentCollection = await comments();
