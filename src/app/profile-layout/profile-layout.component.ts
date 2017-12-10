@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { User } from '../user';
 
+import { DataService } from '../data.service';
 @Component({
   selector: 'app-profile-layout',
   templateUrl: './profile-layout.component.html',
@@ -8,15 +9,19 @@ import { User } from '../user';
 })
 export class ProfileLayoutComponent implements OnInit {
 
-	@Input() editting: Boolean;
-  constructor() { }
+  @Input() editting: Boolean;
+  profileInfo:User;
+  getCurrentUser():void{
+    this.dataService.getCurrentUser()
+    .subscribe(profileInfo=>this.profileInfo=profileInfo);
+  }
+  constructor(private dataService:DataService) { }
 
   ngOnInit() {
+    this.getCurrentUser();
   }
 
 
-  profileInfo = [
-   {username: "Food Eater 9000", email: "foo9000@eater.com", description: "I like to eat food. 9000 food."}   
- ]
+  
 
 }
