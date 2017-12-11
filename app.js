@@ -57,12 +57,18 @@ app.post('/login', async function(req, res) {
     }
 });
 
+app.get('/login', async function(req, res) {
+    res.redirect('/forbidden');
+
+});
+
 //server routes 
 
 //get / route, does blank
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
     //do stuff
-    res.sendFile(path.join(__dirname, 'src/index.html'));
+    console.log("Path: " + req.path);
+    res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 
