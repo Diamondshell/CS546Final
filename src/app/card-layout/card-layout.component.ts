@@ -9,6 +9,7 @@ import { DataService } from '../data.service';
 export class CardLayoutComponent implements OnInit {
 
  @Input() editting: Boolean;
+ @Input() deleting: Boolean;
   recipes: Recipe[];
 
   getAllRecipes(): void{

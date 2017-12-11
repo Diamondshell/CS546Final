@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { CreateRecipeModalComponent } from '../create-recipe-modal/create-recipe-modal.component';
+import { RecipeDetail } from '../recipeDetails';
 
 @Component({
   selector: 'app-user-recipes',
@@ -11,6 +12,7 @@ export class UserRecipesComponent implements OnInit {
 	dialogRef: MatDialogRef<CreateRecipeModalComponent>;
   constructor(public dialog: MatDialog) { }
 
+  recipe:RecipeDetail;
   ngOnInit() {
   }
 
