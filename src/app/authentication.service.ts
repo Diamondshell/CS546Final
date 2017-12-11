@@ -16,12 +16,15 @@ export class AuthenticationService {
   result: Boolean;
   response: any;
 
+  validated: any;
+
   authenticateUser(username, password){
-  	this.result = false;
   	return this._http.post("/login", {"username":username, "password":password})
   	.map(result => this.response = result.json().data);
-  	// if (this.response == "TADA")
-  	// 	this.result = true;
-  	// return of(this.result);
+  }
+
+  checkAuthenticated(){
+  	return this._http.get('/loginstatus')
+  		.map(result => this.validted = result.json());
   }
 }
