@@ -26,6 +26,8 @@ import { AppRoutingModule } from './/app-routing.module';
 import { RateModalComponent } from './rate-modal/rate-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MustLogInComponent } from './must-log-in/must-log-in.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 
 
 @NgModule({
@@ -48,7 +50,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProfileLayoutComponent,
     RateModalComponent,
     RandomRecipeModalComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MustLogInComponent,
+    RegisterModalComponent
 
   ],
   imports: [
@@ -69,7 +73,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent, RegisterModalComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })
