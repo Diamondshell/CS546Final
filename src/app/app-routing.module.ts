@@ -30,7 +30,7 @@ const routes: Routes = [
   { path: 'userrecipes', component: UserRecipesComponent ,pathMatch: 'full'},
   {path: 'browse', component: BrowseComponent,pathMatch: 'full'},
   {path: 'recipe/:id', component: RecipeviewComponent,pathMatch: 'full'},
-  {path: 'forbidden', component:MustLogInComponent}
+  {path: 'forbidden', component:MustLogInComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
 
