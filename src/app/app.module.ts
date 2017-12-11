@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
+import { MatDialogModule, MatInputModule, MatIconModule, MatButtonModule, MatListModule, MatFormFieldModule, MatToolbarModule, MatCardModule, MatSelectModule, MatOptionModule, MatButtonToggleModule } from '@angular/material/';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 
@@ -23,6 +23,11 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
 
 import {DataService} from './data.service';
 import { AppRoutingModule } from './/app-routing.module';
+import { RateModalComponent } from './rate-modal/rate-modal.component';
+import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MustLogInComponent } from './must-log-in/must-log-in.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 
 
 @NgModule({
@@ -42,7 +47,12 @@ import { AppRoutingModule } from './/app-routing.module';
     UserRecipesComponent,
     SavedRecipesComponent,
     CreateRecipeModalComponent,
-    ProfileLayoutComponent
+    ProfileLayoutComponent,
+    RateModalComponent,
+    RandomRecipeModalComponent,
+    PageNotFoundComponent,
+    MustLogInComponent,
+    RegisterModalComponent
 
   ],
   imports: [
@@ -55,6 +65,7 @@ import { AppRoutingModule } from './/app-routing.module';
     MatIconModule,
     MatOptionModule,
     MatSelectModule,
+    MatListModule,
     MatButtonToggleModule,
     BrowserAnimationsModule,
     MatFormFieldModule,
@@ -62,7 +73,7 @@ import { AppRoutingModule } from './/app-routing.module';
     ReactiveFormsModule,
     AppRoutingModule
   ],
-  entryComponents: [SigninModalComponent, CreateRecipeModalComponent],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent, RegisterModalComponent],
   providers: [DataService],
   bootstrap: [AppComponent]
 })

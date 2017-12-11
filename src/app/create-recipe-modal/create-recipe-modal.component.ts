@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewEncapsulation } from '@angular/core';
-
+import { DataService } from '../data.service';
+import { ActivatedRoute } from '@angular/router';
+import { RecipeDetail } from '../recipeDetails';
 @Component({
   selector: 'app-create-recipe-modal',
   templateUrl: './create-recipe-modal.component.html',
@@ -9,9 +11,27 @@ import { ViewEncapsulation } from '@angular/core';
 })
 export class CreateRecipeModalComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<CreateRecipeModalComponent>) { }
+	recipe:RecipeDetail;
+
+  constructor(private route: ActivatedRoute, private dataService:DataService, public dialogRef: MatDialogRef<CreateRecipeModalComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  getRecipeById(id):void{
+  	this.dataService.getRecipeById(id).subscribe(recipeDetail=>this.recipe=recipeDetail);
+  }
 
   ngOnInit() {
+  	if(this.data){
+  		this.getRecipeById(this.data.id);
+  	}else{
+  		this.recipe = new RecipeDetail();
+  		this.recipe.Name = "";
+	  	this.recipe.Appliance = [];
+	  	this.recipe.Cooking_Time = 0;
+	  	this.recipe.Description = "";
+	  	this.recipe.Ingredients = [];
+	  	this.recipe.Price = 0;
+  	}
   }
+
 
 }
