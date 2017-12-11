@@ -38,6 +38,14 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Middleware
 // add authentication here
+app.get('/loginstatus', async funciton(req, res) {
+    if (req.cookies.validated) {
+        res.json({validated:true, username:req.cookies.validated});
+    }else {
+        res.json({validated:false});
+    }
+});
+
 app.post('/login', async function(req, res) {
     console.log("Post Path: " + req.path);
     console.log(req.body);
