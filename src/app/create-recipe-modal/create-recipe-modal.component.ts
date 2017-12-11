@@ -22,6 +22,8 @@ export class CreateRecipeModalComponent implements OnInit {
   ngOnInit() {
   	if(this.data){
   		this.getRecipeById(this.data.id);
+  		document.getElementById('heading').innerHTML = "Edit Recipe";
+  		document.getElementById('finishButton').innerHTML = "Save Recipe!";
   	}else{
   		this.recipe = new RecipeDetail();
   		this.recipe.Name = "";
@@ -30,6 +32,9 @@ export class CreateRecipeModalComponent implements OnInit {
 	  	this.recipe.Description = "";
 	  	this.recipe.Ingredients = [];
 	  	this.recipe.Price = 0;
+
+	  	document.getElementById('heading').innerHTML = "Create Recipe";
+	  	document.getElementById('finishButton').innerHTML = "Create Recipe!";
   	}
   }
 

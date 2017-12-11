@@ -26,7 +26,7 @@ export class CardComponent implements OnInit {
   }
 
   editRecipe(){
-    this.dialogRef = this.dialog.open(CreateRecipeModalComponent, {data: {id: this.recipe.id}});
+    this.dialogRef = this.dialog.open(CreateRecipeModalComponent, {data: {id: this.recipe.id, edit: true}});
     this.dialogRef.afterClosed().subscribe((result) => {
       console.log(result);
     })
