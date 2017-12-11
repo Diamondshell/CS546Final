@@ -2,6 +2,7 @@ import { Component, TemplateRef } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SigninModalComponent } from './signin-modal/signin-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
+import {AuthenticationService } from './authentication.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -12,7 +13,7 @@ export class AppComponent {
   dialogRef: MatDialogRef<SigninModalComponent>;
   otherDialogRef: MatDialogRef<RandomRecipeModalComponent>;
 
-  constructor(public dialog: MatDialog){
+  constructor(public dialog: MatDialog, private authenticationService: AuthenticationService ){
   }
 
   signIn(){
@@ -28,4 +29,21 @@ export class AppComponent {
       console.log(result);
     })
   }
+
+    checkIfLoggedIn(): void{
+      var results;
+
+      var success = this.authenticationService.checkAuthenticated().subscribe(response => this.updateScreen(response));
+    
+
+    }
+    updateScreen(result):void{
+      if(result.validated){
+        document.getElementById('si').style.display="none";
+        document.getElementById('so').style.display="inline-block";
+        document.getElementById('user').innerHTML=`Hello ${result.username}`;
+        document.getElementById('user').style.display="inline-block";
+      }
+    }
+  
 }
