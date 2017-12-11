@@ -28,6 +28,30 @@ const exported_methods = {
         return data;
     },
     /**
+     * Finds recipes that match name along %name%.
+     * @param {string} name The name of the recipe to search for.
+     */
+    async getRecipesByLikeName ( name ) {
+        if ( typeof ( name ) !== 'string' ) {
+            throw `getRecipesByLikeName: Expected a string name but received a ${typeof(name)}`;
+        }
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find ( { name: {$regex: ".*" + name + ".*"} } ).toArray();
+        return data;
+    },
+    /**
+     * Retrieves the top X recipes by popularity value.
+     * @param {number} X The number of recipes to get with this popularity.
+     */
+    async topXTrendingRecipes ( X ) {
+        if ( typeof ( X ) !== 'number' ) {
+            throw `topXTrendingRecipes: Expected a number X, but received a ${typeof(name)}`;
+        }
+        const recipeCollection = await recipes();
+        const data = await recipeCollection.find().sort( { popularity: -1 } ).limit(X).toArray();
+        return data;
+    },
+    /**
      * Updates the given recipe with any number of values
      * @param {string} id The id of the recipe
      * @param {string|undefined} name A new recipe name
