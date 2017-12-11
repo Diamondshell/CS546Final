@@ -24,7 +24,7 @@ header {
     position: relative;
     vertical-align: middle;
 }
-.edit-options{
+#options{
     width: 10%;
     float:right;
     vertical-align: middle;
@@ -43,7 +43,11 @@ button{
     font-size: 1.25em;
     display: none;
 }
-.card:hover .edit-options button{
+.card:hover .edit-options{
+    display: block;
+}
+
+.card:hover .delete-options{
     display: block;
 }
 .card:hover{
