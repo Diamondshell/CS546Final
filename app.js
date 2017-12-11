@@ -39,27 +39,40 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //Middleware
 // add authentication here
 app.post('/login', async function(req, res) {
+    console.log("Post Path: " + req.path);
+    console.log(req.body);
+    //res.json({data:"FUCK"});
+    //return; 
     username = req.body.username;
     password = req.body.password;
     userData = await users.getUserById(username);
+    console.log(userData);
 
-    const validated = await bcrypt.compare(password, userData.password).then(function(res) {
-        return res;
-    });
+    var validated;
+
+    if (userData){
+        validated = await bcrypt.compare(password, userData.password).then(function(res) {
+            return res;
+        });
+    }else {
+        validated = false;
+    }
+    console.log(validated);
 
     if (validated) {
         //If valid, create a validated cookie that holds the username also for use in displaying data later
-        res.cookie('validated', user.username, {maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
+        res.cookie('validated', userData.username, {maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
         //Send something back when validated
+        res.json({data:true});
     }
     else {
         //Send something back when the user isn't validated
+        res.json({data:false});
     }
 });
 
 app.get('/login', async function(req, res) {
     res.redirect('/forbidden');
-
 });
 
 //server routes 
@@ -67,8 +80,13 @@ app.get('/login', async function(req, res) {
 //get / route, does blank
 app.get('*', function(req, res) {
     //do stuff
-    console.log("Path: " + req.path);
+    console.log("Get Path: " + req.path);
     res.sendFile(path.join(__dirname, './dist/index.html'));
+});
+
+app.post('*', function(req, res) {
+    console.log("Post Path: " + req.path);
+    //res.json({data:"TADA"});
 });
 
 

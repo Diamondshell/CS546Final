@@ -31,12 +31,14 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__saved_recipes_saved_recipes_component__ = __webpack_require__("../../../../../src/app/saved-recipes/saved-recipes.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__profile_layout_profile_layout_component__ = __webpack_require__("../../../../../src/app/profile-layout/profile-layout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__must_log_in_must_log_in_component__ = __webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -54,6 +56,7 @@ var routes = [
     { path: 'userrecipes', component: __WEBPACK_IMPORTED_MODULE_5__user_recipes_user_recipes_component__["a" /* UserRecipesComponent */], pathMatch: 'full' },
     { path: 'browse', component: __WEBPACK_IMPORTED_MODULE_3__browse_browse_component__["a" /* BrowseComponent */], pathMatch: 'full' },
     { path: 'recipe/:id', component: __WEBPACK_IMPORTED_MODULE_4__recipeview_recipeview_component__["a" /* RecipeviewComponent */], pathMatch: 'full' },
+    { path: 'forbidden', component: __WEBPACK_IMPORTED_MODULE_9__must_log_in_must_log_in_component__["a" /* MustLogInComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_8__page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
 ];
 var AppRoutingModule = (function () {
@@ -61,8 +64,8 @@ var AppRoutingModule = (function () {
     }
     AppRoutingModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["K" /* NgModule */])({
-            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */].forRoot(routes)],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* RouterModule */]]
+            imports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */].forRoot(routes)],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__angular_router__["c" /* RouterModule */]]
         })
     ], AppRoutingModule);
     return AppRoutingModule;
@@ -80,7 +83,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 300px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n}\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nnav{\r\n    padding:0px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media (max-width: 575px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(90% - 60px) !important;\r\n    }\r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n.so{\r\n    display: none;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.user{\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 27px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
+exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 440px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n}\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nnav{\r\n    padding:10px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    height:90px;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media(max-width: 900px){\r\n    li.searchText{\r\n        width: calc(100% - 400px) !important;\r\n    }\r\n    li.browse{\r\n        margin-left: 325px !important;\r\n    }\r\n  \r\n}\r\n@media (max-width: 730px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(100% - 60px) !important;\r\n        display:block;\r\n        \r\n    }\r\n    li.search{\r\n        clear: right;\r\n    }\r\n    li.browse{\r\n        margin-left: 25px !important;\r\n        float:left;\r\n    }\r\n    li.random{\r\n        float: right;\r\n    }\r\n  \r\n  \r\n    \r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n    padding-right:0px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n  height:100%;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n.so{\r\n    display: none;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.user{\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 27px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
 
 // exports
 
@@ -142,7 +145,7 @@ var AppComponent = (function () {
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -176,16 +179,24 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__create_recipe_modal_create_recipe_modal_component__ = __webpack_require__("../../../../../src/app/create-recipe-modal/create-recipe-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__profile_layout_profile_layout_component__ = __webpack_require__("../../../../../src/app/profile-layout/profile-layout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__rate_modal_rate_modal_component__ = __webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__random_recipe_modal_random_recipe_modal_component__ = __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__app_routing_module__ = __webpack_require__("../../../../../src/app/app-routing.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__rate_modal_rate_modal_component__ = __webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__random_recipe_modal_random_recipe_modal_component__ = __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/page-not-found/page-not-found.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__must_log_in_must_log_in_component__ = __webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__ = __webpack_require__("../../../../../src/app/register-modal/register-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
+
+
+
 
 
 
@@ -230,34 +241,81 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_16__saved_recipes_saved_recipes_component__["a" /* SavedRecipesComponent */],
                 __WEBPACK_IMPORTED_MODULE_17__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_18__profile_layout_profile_layout_component__["a" /* ProfileLayoutComponent */],
-                __WEBPACK_IMPORTED_MODULE_21__rate_modal_rate_modal_component__["a" /* RateModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_22__random_recipe_modal_random_recipe_modal_component__["a" /* RandomRecipeModalComponent */],
-                __WEBPACK_IMPORTED_MODULE_23__page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */]
+                __WEBPACK_IMPORTED_MODULE_22__rate_modal_rate_modal_component__["a" /* RateModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_23__random_recipe_modal_random_recipe_modal_component__["a" /* RandomRecipeModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_24__page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
+                __WEBPACK_IMPORTED_MODULE_25__must_log_in_must_log_in_component__["a" /* MustLogInComponent */],
+                __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__["a" /* RegisterModalComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["e" /* MatDialogModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["i" /* MatInputModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["a" /* MatButtonModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["c" /* MatCardModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["m" /* MatToolbarModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["h" /* MatIconModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["k" /* MatOptionModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["l" /* MatSelectModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["j" /* MatListModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["b" /* MatButtonToggleModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["f" /* MatDialogModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["j" /* MatInputModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["b" /* MatButtonModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["d" /* MatCardModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["n" /* MatToolbarModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["i" /* MatIconModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["l" /* MatOptionModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["m" /* MatSelectModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["k" /* MatListModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["c" /* MatButtonToggleModule */],
                 __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser_animations__["a" /* BrowserAnimationsModule */],
-                __WEBPACK_IMPORTED_MODULE_2__angular_material___["g" /* MatFormFieldModule */],
+                __WEBPACK_IMPORTED_MODULE_2__angular_material___["h" /* MatFormFieldModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["c" /* FormsModule */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_forms__["h" /* ReactiveFormsModule */],
-                __WEBPACK_IMPORTED_MODULE_20__app_routing_module__["a" /* AppRoutingModule */]
+                __WEBPACK_IMPORTED_MODULE_21__app_routing_module__["a" /* AppRoutingModule */],
+                __WEBPACK_IMPORTED_MODULE_27__angular_http__["b" /* HttpModule */]
             ],
-            entryComponents: [__WEBPACK_IMPORTED_MODULE_12__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], __WEBPACK_IMPORTED_MODULE_17__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], __WEBPACK_IMPORTED_MODULE_21__rate_modal_rate_modal_component__["a" /* RateModalComponent */], __WEBPACK_IMPORTED_MODULE_22__random_recipe_modal_random_recipe_modal_component__["a" /* RandomRecipeModalComponent */]],
-            providers: [__WEBPACK_IMPORTED_MODULE_19__data_service__["a" /* DataService */]],
+            entryComponents: [__WEBPACK_IMPORTED_MODULE_12__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], __WEBPACK_IMPORTED_MODULE_17__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], __WEBPACK_IMPORTED_MODULE_22__rate_modal_rate_modal_component__["a" /* RateModalComponent */], __WEBPACK_IMPORTED_MODULE_23__random_recipe_modal_random_recipe_modal_component__["a" /* RandomRecipeModalComponent */], __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__["a" /* RegisterModalComponent */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_19__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_20__authentication_service__["a" /* AuthenticationService */]],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_5__app_component__["a" /* AppComponent */]]
         })
     ], AppModule);
     return AppModule;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/authentication.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AuthenticationService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_add_operator_map__ = __webpack_require__("../../../../rxjs/_esm5/add/operator/map.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var AuthenticationService = (function () {
+    function AuthenticationService(_http) {
+        this._http = _http;
+    }
+    AuthenticationService.prototype.authenticateUser = function (username, password) {
+        var _this = this;
+        this.result = false;
+        return this._http.post("/login", { "username": username, "password": password })
+            .map(function (result) { return _this.response = result.json().data; });
+        // if (this.response == "TADA")
+        // 	this.result = true;
+        // return of(this.result);
+    };
+    AuthenticationService = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Http */]])
+    ], AuthenticationService);
+    return AuthenticationService;
 }());
 
 
@@ -285,7 +343,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/browse/browse.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"true\"></app-card-layout>"
+module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"false\"></app-card-layout>"
 
 /***/ }),
 
@@ -346,7 +404,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card-layout/card-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class = \"cards\">\r\n  <li *ngFor=\"let r of recipes\" class= \"card\">\r\n      <app-card [recipe] = \"r\" [editting]=\"editting\"></app-card>\r\n  </li>\r\n</ul>"
+module.exports = "<ul class = \"cards\">\r\n  <li *ngFor=\"let r of recipes\" class= \"card\">\r\n      <app-card [recipe] = \"r\" [editting]=\"editting\" [deleting]=\"deleting\"></app-card>\r\n  </li>\r\n</ul>"
 
 /***/ }),
 
@@ -384,6 +442,10 @@ var CardLayoutComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
         __metadata("design:type", Boolean)
     ], CardLayoutComponent.prototype, "editting", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], CardLayoutComponent.prototype, "deleting", void 0);
     CardLayoutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-card-layout',
@@ -407,7 +469,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\nheader {\r\n    color: rgb(48, 47, 47);\r\n    text-align: center;\r\n    margin-bottom: 10px;\r\n    margin-top: 0px;\r\n    padding-top: 0px;\r\n}\r\n.main-content {\r\n    width: 90%;\r\n    float: left;\r\n    position: relative;\r\n    vertical-align: middle;\r\n}\r\n.edit-options{\r\n    width: 10%;\r\n    float:right;\r\n    vertical-align: middle;\r\n}\r\nfooter {\r\n    display: inline-block;\r\n    vertical-align: bottom;\r\n}\r\nbutton{\r\n    background-color: transparent;\r\n    outline: none;\r\n    background-repeat:no-repeat;\r\n    border: none;\r\n    cursor:pointer;\r\n    overflow: hidden;\r\n    font-size: 1.25em;\r\n    display: none;\r\n}\r\n.card:hover .edit-options button{\r\n    display: block;\r\n}\r\n.card:hover{\r\n   /* background-color: rgb(230, 222, 222);*/\r\n   background-color: #c7d3dd;\r\n}\r\nbutton:hover{\r\n    border-radius: 5px;\r\n    background-color: rgb(184, 179, 179);\r\n}", ""]);
+exports.push([module.i, ".card {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}\r\na{\r\n    text-decoration: none;\r\n}\r\nheader {\r\n    color: rgb(48, 47, 47);\r\n    text-align: center;\r\n    margin-bottom: 10px;\r\n    margin-top: 0px;\r\n    padding-top: 0px;\r\n}\r\n.main-content {\r\n    width: 90%;\r\n    float: left;\r\n    position: relative;\r\n    vertical-align: middle;\r\n}\r\n#options{\r\n    width: 10%;\r\n    float:right;\r\n    vertical-align: middle;\r\n}\r\nfooter {\r\n    display: inline-block;\r\n    vertical-align: bottom;\r\n}\r\nbutton{\r\n    background-color: transparent;\r\n    outline: none;\r\n    background-repeat:no-repeat;\r\n    border: none;\r\n    cursor:pointer;\r\n    overflow: hidden;\r\n    font-size: 1.25em;\r\n    display: none;\r\n}\r\n.card:hover .edit-options{\r\n    display: block;\r\n}\r\n\r\n.card:hover .delete-options{\r\n    display: block;\r\n}\r\n.card:hover{\r\n   /* background-color: rgb(230, 222, 222);*/\r\n   background-color: #c7d3dd;\r\n}\r\nbutton:hover{\r\n    border-radius: 5px;\r\n    background-color: rgb(184, 179, 179);\r\n}", ""]);
 
 // exports
 
@@ -420,7 +482,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<a routerLink=\"/recipe/{{recipe.id}}\">\r\n    <section class=\"card\" (click)=\"onSelect()\">\r\n    <header>\r\n        <h2>{{recipe.name}}</h2>\r\n    </header>\r\n\r\n    <div class = \"main-content\">\r\n        <p>{{recipe.content}}</p>\r\n    </div>\r\n    <div [class.edit-options] = \"editting\">\r\n        <button title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n        <button title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n    </div>\r\n    <footer>\r\n        <p>Rating:</p>\r\n    </footer>\r\n    </section>\r\n</a>\r\n"
+module.exports = "\r\n<section class=\"card\" (click)=\"onSelect()\">\r\n    <a routerLink=\"/recipe/{{recipe.id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.content}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"editRecipe()\" [class.delete-options] = \"deleting\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe.id}}\">\r\n<footer>\r\n    <p>Rating:</p>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -431,6 +493,8 @@ module.exports = "\r\n<a routerLink=\"/recipe/{{recipe.id}}\">\r\n    <section c
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CardComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipe__ = __webpack_require__("../../../../../src/app/recipe.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__ = __webpack_require__("../../../../../src/app/create-recipe-modal/create-recipe-modal.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -442,13 +506,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var CardComponent = (function () {
-    function CardComponent() {
+    function CardComponent(dialog) {
+        this.dialog = dialog;
     }
     CardComponent.prototype.onSelect = function () {
         //view card
     };
     CardComponent.prototype.ngOnInit = function () {
+    };
+    CardComponent.prototype.editRecipe = function () {
+        this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], { data: { id: this.recipe.id } });
+        this.dialogRef.afterClosed().subscribe(function (result) {
+            console.log(result);
+        });
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
@@ -458,13 +531,17 @@ var CardComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
         __metadata("design:type", Boolean)
     ], CardComponent.prototype, "editting", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Boolean)
+    ], CardComponent.prototype, "deleting", void 0);
     CardComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-card',
             template: __webpack_require__("../../../../../src/app/card/card.component.html"),
             styles: [__webpack_require__("../../../../../src/app/card/card.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatDialog */]])
     ], CardComponent);
     return CardComponent;
 }());
@@ -494,7 +571,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create-recipe-modal/create-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>New Recipe</h1>\r\n\t<form>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Recipe Name\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\"></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Estimate cost to make\" type=\"number\" value=\"\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Time to make (in minutes)\" type=\"number\" value=\"\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value=\"\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr id=\"stepsTr\">\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput matTextareaAutosize placeholder=\"Put each step on its own line.\" type=\"text\" class=\"taDirections\" value=\"\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Create Recipe!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>New Recipe</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Recipe Name\" value={{recipe.Name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.Description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Appliance}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.Price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input matInput value={{recipe.Cooking_Time}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.Tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.Steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Create Recipe!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -505,6 +582,9 @@ module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>New Re
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CreateRecipeModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__recipeDetails__ = __webpack_require__("../../../../../src/app/recipeDetails.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -514,13 +594,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
+
+
 
 
 var CreateRecipeModalComponent = (function () {
-    function CreateRecipeModalComponent(dialogRef) {
+    function CreateRecipeModalComponent(route, dataService, dialogRef, data) {
+        this.route = route;
+        this.dataService = dataService;
         this.dialogRef = dialogRef;
+        this.data = data;
     }
+    CreateRecipeModalComponent.prototype.getRecipeById = function (id) {
+        var _this = this;
+        this.dataService.getRecipeById(id).subscribe(function (recipeDetail) { return _this.recipe = recipeDetail; });
+    };
     CreateRecipeModalComponent.prototype.ngOnInit = function () {
+        if (this.data) {
+            this.getRecipeById(this.data.id);
+        }
+        else {
+            this.recipe = new __WEBPACK_IMPORTED_MODULE_4__recipeDetails__["a" /* RecipeDetail */]();
+            this.recipe.Name = "";
+            this.recipe.Appliance = [];
+            this.recipe.Cooking_Time = 0;
+            this.recipe.Description = "";
+            this.recipe.Ingredients = [];
+            this.recipe.Price = 0;
+        }
     };
     CreateRecipeModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -528,7 +633,8 @@ var CreateRecipeModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/create-recipe-modal/create-recipe-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/create-recipe-modal/create-recipe-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatDialogRef */]])
+        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], Object])
     ], CreateRecipeModalComponent);
     return CreateRecipeModalComponent;
 }());
@@ -785,6 +891,85 @@ var recipeDetail = {
 
 /***/ }),
 
+/***/ "../../../../../src/app/must-log-in/must-log-in.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "#register {\r\n    display: none;\r\n  }\r\n  \r\n#to_register, #to_login {\r\n    cursor:pointer;\r\n    color:blue;\r\n    text-decoration:underline;\r\n}\r\nsection {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    margin-top: 30px;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/must-log-in/must-log-in.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<section>\r\n  <h1>You must be logged in to view this content.</h1>\r\n  <article>\r\n      <div id=\"sign-in\">\r\n          <form ngNoForm>\r\n            <mat-form-field title=\"Username\" class=\"input\">\r\n              <input matInput placeholder=\"Username\" value=\"\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field title=\"Password\" class=\"input\">\r\n              <input matInput placeholder=\"Password\" type=\"password\">\r\n            </mat-form-field>\r\n            <br>\r\n           <!-- <button mat-raised-button class=\"back\" (click)=\"goBack()\" value=\"Return\">Return</button>-->\r\n            \r\n            <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Sign-In</button>\r\n                 \r\n          </form>\r\n    \r\n          <footer class=\"footer\">\r\n            <p class=\"change_link\">\r\n              Not a member yet?\r\n              <span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n            </p>\r\n          </footer>\r\n        </div>\r\n  </article>\r\n \r\n</section>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/must-log-in/must-log-in.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MustLogInComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_modal_register_modal_component__ = __webpack_require__("../../../../../src/app/register-modal/register-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+var MustLogInComponent = (function () {
+    function MustLogInComponent(dialog, location) {
+        this.dialog = dialog;
+        this.location = location;
+    }
+    MustLogInComponent.prototype.ngOnInit = function () {
+    };
+    MustLogInComponent.prototype.goBack = function () {
+        this.location.back();
+    };
+    MustLogInComponent.prototype.register = function () {
+        this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__register_modal_register_modal_component__["a" /* RegisterModalComponent */]);
+        this.dialogRef.afterClosed().subscribe(function (result) {
+            console.log(result);
+        });
+    };
+    MustLogInComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-must-log-in',
+            template: __webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */]])
+    ], MustLogInComponent);
+    return MustLogInComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/page-not-found/page-not-found.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1028,7 +1213,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\nli {\r\n    list-style: none;\r\n}\r\n\r\nul {\r\n    padding-left: 3px;\r\n}\r\n\r\n\r\nh2, h3{\r\n    font-size: 1.1em;\r\n    text-align: center;\r\n}\r\n\r\n.filter-group{\r\n   border-radius: 10px;\r\n    margin: 5px 2px;\r\n    padding:5px;\r\n    background-color: #e8eef2c0;\r\n    text-align: left;\r\n    overflow:auto;\r\n    height:140px;\r\n    font-size:.8em;\r\n}\r\n.filter-group {\r\n    width:calc(50% - 10px);\r\n    float:left;\r\n    z-index: 1;\r\n}\r\n\r\n#randomRecipeModalWrapper {\r\n    margin: auto;\r\n    float: center;\r\n}\r\n.submit {\r\n    box-shadow: 3px 4px 0px 0px #1564ad;\r\n    box-sizing: border-box;\r\n    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n    background-color:#77b6ea;\r\n    border-radius:5px;\r\n    border:1px solid #337bc4;\r\n    display:inline-block;\r\n    cursor:pointer;\r\n    color:#ffffff;\r\n    font-family:Palanquin;\r\n    font-size:17px;\r\n    font-weight:bold;\r\n    padding:12px 44px;\r\n    text-decoration:none;\r\n    text-shadow:0px 1px 0px #000000;\r\n    text-align: center;\r\n    line-height: 0px;\r\n    width: 100%;\r\n    height: 2em;\r\n  }\r\n  .submit:hover {\r\n    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n    background-color:#378de5;\r\n  }\r\n  \r\n  .submit:active {\r\n    position:relative;\r\n    top:1px;\r\n  }", ""]);
+exports.push([module.i, "\r\nli {\r\n    list-style: none;\r\n}\r\n\r\nul {\r\n    padding-left: 3px;\r\n}\r\n\r\n\r\nh2, h3{\r\n    font-size: 1.1em;\r\n    text-align: center;\r\n}\r\n\r\n.filter-group{\r\n   border-radius: 10px;\r\n    margin: 5px 2px;\r\n    padding:5px;\r\n    background-color: #e8eef2c0;\r\n    text-align: left;\r\n    overflow:auto;\r\n    height:140px;\r\n    font-size:.8em;\r\n}\r\n.filter-group {\r\n    width:calc(50% - 10px);\r\n    float:left;\r\n    z-index: 1;\r\n}\r\n\r\n#randomRecipeModalWrapper {\r\n    margin: auto;\r\n    float: center;\r\n}\r\n.submit {\r\n    box-shadow: 3px 4px 0px 0px #1564ad;\r\n    box-sizing: border-box;\r\n    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n    background-color:#007eb6;\r\n    border-radius:5px;\r\n    border:1px solid #337bc4;\r\n    display:inline-block;\r\n    cursor:pointer;\r\n    color:#ffffff;\r\n    font-family:Palanquin;\r\n    font-size:17px;\r\n    font-weight:bold;\r\n    padding:12px 44px;\r\n    text-decoration:none;\r\n    text-shadow:0px 1px 0px #000000;\r\n    text-align: center;\r\n    line-height: 0px;\r\n    width: 100%;\r\n    height: 2em;\r\n  }\r\n  .submit:hover {\r\n    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n    background-color:#378de5;\r\n  }\r\n  \r\n  .submit:active {\r\n    position:relative;\r\n    top:1px;\r\n  }", ""]);
 
 // exports
 
@@ -1041,7 +1226,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/random-recipe-modal/random-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"randomRecipeModalWrapper\">\r\n  <form>\r\n    <h2 mat-dialog-title id=\"RandomLabel\">Random Recipe</h2>\r\n    <h3 mat-dialog-title a>*Choose any or none*</h3>\r\n      <ul> \r\n          <li *ngFor=\"let f of filters\" class = \"filter-group\">\r\n            <h3>{{f.section_text}}</h3>\r\n            <ul>\r\n                <li *ngFor=\"let fi of f.values\" class = \"filters\">\r\n                  <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\r\n                  <label for={{fi.name}}>{{fi.text}}</label>\r\n                </li>\r\n            </ul>\r\n          </li>\r\n        </ul>\r\n      <button class=\"submit\" type=\"submit\" value=\"submit\">Randomize!</button>\r\n  </form>\r\n</div>"
+module.exports = "<div id=\"randomRecipeModalWrapper\">\r\n  <form ngNoForm>\r\n    <h2 mat-dialog-title id=\"RandomLabel\">Random Recipe</h2>\r\n    <h3 mat-dialog-title a>*Choose any or none*</h3>\r\n      <ul> \r\n          <li *ngFor=\"let f of filters\" class = \"filter-group\">\r\n            <h3>{{f.section_text}}</h3>\r\n            <ul>\r\n                <li *ngFor=\"let fi of f.values\" class = \"filters\">\r\n                  <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\r\n                  <label for={{fi.name}}>{{fi.text}}</label>\r\n                </li>\r\n            </ul>\r\n          </li>\r\n        </ul>\r\n      <button  mat-raised-button class=\"submit\" type=\"submit\" value=\"submit\">Randomize!</button>\r\n  </form>\r\n</div>"
 
 /***/ }),
 
@@ -1101,7 +1286,7 @@ var RandomRecipeModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatDialogRef */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */]])
     ], RandomRecipeModalComponent);
     return RandomRecipeModalComponent;
 }());
@@ -1118,7 +1303,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  width: 100%;\r\n}\r\n\r\n.directions {\r\n  width: 100%;\r\n  height: 100px;\r\n}\r\n\r\n.taDirections {\r\n  resize: none;\r\n  height: 100px;\r\n  max-height: 100px;\r\n}\r\n\r\n.submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#77b6ea;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}", ""]);
+exports.push([module.i, "table {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  width: 100%;\r\n}\r\n\r\n.directions {\r\n  width: 100%;\r\n  height: 100px;\r\n}\r\n\r\n.taDirections {\r\n  resize: none;\r\n  height: 100px;\r\n  max-height: 100px;\r\n}\r\n\r\n.submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#007eb6;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}", ""]);
 
 // exports
 
@@ -1165,7 +1350,7 @@ var RateModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatDialogRef */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */]])
     ], RateModalComponent);
     return RateModalComponent;
 }());
@@ -1189,6 +1374,22 @@ var Recipe = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/recipeDetails.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecipeDetail; });
+var RecipeDetail = (function () {
+    function RecipeDetail() {
+    }
+    return RecipeDetail;
+}());
+
+;
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/recipeview/recipeview.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1197,7 +1398,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "section{\r\n    background-color:rgb(255, 249, 249);\r\n    width:90%;\r\n    margin: 10px auto;\r\n    border-radius: 10px 0px 10px 0px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: hidden;\r\n    box-shadow: 5px 10px 50px grey;\r\n}\r\nsection{\r\n    position: relative;\r\n}\r\nh1{\r\n    font-size: 2em;\r\n}\r\nh2{\r\n    text-align: left;\r\n}\r\narticle{\r\n    padding:10px;\r\n}\r\n#top ul{\r\n    list-style: none;\r\n}\r\n.lower ul{\r\n  text-align: left;\r\n}\r\n#des{\r\n    text-align: left;\r\n}\r\n#left-pane{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(65% - 20px);\r\n    \r\n}\r\n#left-pane > p {\r\n    text-align: center;\r\n    float: none;\r\n    margin-top: 20px;\r\n}\r\n.bottom-right {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(50% - 20px);\r\n}\r\n.bottom-left{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(50% - 20px);\r\n    \r\n}\r\n#right-pane {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(35% - 20px);\r\n}\r\n\r\n.bottom-center{\r\n    clear:both;\r\n    position: relative;\r\n    display:block;\r\n    width:100%;\r\n\r\n}\r\n.recipe-details p{\r\n    float:left;\r\n    display:block;\r\n    margin:0px 5px;\r\n    text-align:center;\r\n    width: calc(33% - 15px);\r\n    border-right: 1px solid gray;\r\n   \r\n    \r\n}\r\n.recipe-details p:last-child{\r\n    border-right: none;\r\n}\r\n.recipe-details{\r\n  \r\n    text-align: center;\r\n    width: 100%;\r\n   \r\n}\r\n.recipe-details{\r\n    margin-top: 20px;\r\n}\r\n#left-pane ul{\r\n    clear:both;\r\n    width:100%;\r\n    display:block;\r\n    padding:0px;\r\n\r\n}\r\n.float-clear{\r\n    clear:both;\r\n}\r\n.rating li {\r\n    float:left;\r\n\r\n}\r\n.rating i{\r\n    font-size: 22px;\r\n    color: gray;\r\n}\r\n.rating{\r\n    width:120px;;    \r\n    display:block;\r\n    text-align: center;\r\n    margin: 0 auto;\r\n}\r\n\r\n\r\n.rating i.checked {\r\n    float:left;\r\n    color: orange;\r\n}\r\nol{\r\n    text-align: left;\r\n}\r\n.tags ul{\r\n    list-style: none;\r\n}\r\n.tags li{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px 0px 0px 10px;\r\n}\r\n.tags p{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px;\r\n}\r\n.ratings ul{\r\n    list-style: none;\r\n    height: 100%;\r\n    padding: 0px;\r\n}\r\n.ratings{\r\n    cursor: default;\r\n    padding:0px;\r\n    margin: 0 auto;\r\n    height: auto;\r\n    display: block;\r\n}\r\n.ratings ul{\r\n    width: auto;\r\n    background-color: #e8eef2;\r\n    overflow: hidden;\r\n    height:auto;\r\n}\r\n.ratings ul > div{\r\n    display:inline-block;\r\n    width: calc( 33% - 10px);\r\n    height:100%;\r\n}\r\n.ratings li{\r\n    display: block ;\r\n    text-align: center ;\r\n    margin: 0px 5px;\r\n    background-color:none;\r\n    padding: 10px;\r\n\r\n \r\n \r\n\r\n}\r\n\r\n.ratings div:hover {\r\n    background-color: #c7d3dd;\r\n}\r\n@media (max-width: 700px) {\r\n   article{\r\n       display: none;\r\n      width: 100% !important;\r\n      float: none;\r\n   }\r\n}\r\nimg{\r\n    width:100%;\r\n    height:auto;\r\n}\r\n@media print{\r\n    section{\r\n        position: absolute;\r\n        background-color:rgb(255, 255, 255);\r\n        width:90%;\r\n        margin: 10px auto;\r\n        border-radius:  0px;\r\n        padding: 10px;\r\n        position: relative;\r\n        overflow: hidden;\r\n        box-shadow:none;\r\n    }\r\n    .ratings{\r\n        display:none;\r\n    }\r\n    article{\r\n       width: 100%;\r\n       clear:both;\r\n    }\r\n    .comments{\r\n        display:none;\r\n    }\r\n    \r\n\r\n\r\n}\r\n.comments header{\r\n    height: 44px;\r\n}\r\n.comments h2{\r\n    display: block;\r\n    width: 110px;\r\n    float: left;\r\n    padding:0px;\r\n    margin: 0px;\r\n}\r\n.comments .newcomment{\r\n    display:block;\r\n    width: 110px;\r\n    float: right;\r\n}\r\n.comments ul{\r\n    list-style: none;\r\n    text-align: left;\r\n}\r\n.comments h3 {\r\n    margin: 3px;\r\n}\r\n.comments ul div {\r\n   \r\n    display: block;\r\n    border-bottom: 1px solid gray;\r\n}\r\n.comments li{\r\n    padding: 20px;\r\n}", ""]);
+exports.push([module.i, "section{\r\n    background-color:rgb(255, 249, 249);\r\n    width:90%;\r\n    margin: 10px auto;\r\n    border-radius: 10px 0px 10px 0px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: hidden;\r\n    box-shadow: 5px 10px 50px grey;\r\n}\r\nsection{\r\n    position: relative;\r\n}\r\nh1{\r\n    font-size: 2em;\r\n}\r\nh2{\r\n    text-align: left;\r\n}\r\narticle{\r\n    padding:10px;\r\n}\r\n#top ul{\r\n    list-style: none;\r\n}\r\n.lower ul{\r\n  text-align: left;\r\n}\r\n#des{\r\n    text-align: left;\r\n}\r\n#left-pane{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(65% - 20px);\r\n    \r\n}\r\n#left-pane > p {\r\n    text-align: center;\r\n    float: none;\r\n    margin-top: 20px;\r\n}\r\n.bottom-right {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(50% - 20px);\r\n}\r\n.bottom-left{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(50% - 20px);\r\n    \r\n}\r\n#right-pane {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(35% - 20px);\r\n}\r\n\r\n.bottom-center{\r\n    clear:both;\r\n    position: relative;\r\n    display:block;\r\n    width:100%;\r\n\r\n}\r\n.recipe-details p{\r\n    float:left;\r\n    display:block;\r\n    margin:0px 5px;\r\n    text-align:center;\r\n    width: calc(33% - 15px);\r\n    border-right: 1px solid gray;\r\n   \r\n    \r\n}\r\n.recipe-details p:last-child{\r\n    border-right: none;\r\n}\r\n.recipe-details{\r\n  \r\n    text-align: center;\r\n    width: 100%;\r\n   \r\n}\r\n.recipe-details{\r\n    margin-top: 20px;\r\n}\r\n#left-pane ul{\r\n    clear:both;\r\n    width:100%;\r\n    display:block;\r\n    padding:0px;\r\n\r\n}\r\n.float-clear{\r\n    clear:both;\r\n}\r\n.rating li {\r\n    float:left;\r\n\r\n}\r\n.rating i{\r\n    font-size: 22px;\r\n    color: gray;\r\n}\r\n.rating{\r\n    width:120px;;    \r\n    display:block;\r\n    text-align: center;\r\n    margin: 0 auto;\r\n}\r\n\r\n\r\n.rating i.checked {\r\n    float:left;\r\n    color: orange;\r\n}\r\nol{\r\n    text-align: left;\r\n}\r\n.tags ul{\r\n    list-style: none;\r\n}\r\n.tags li{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px 0px 0px 10px;\r\n}\r\n.tags p{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px;\r\n}\r\n.ratings ul{\r\n    list-style: none;\r\n    height: 100%;\r\n    padding: 0px;\r\n}\r\n.ratings{\r\n    cursor: default;\r\n    padding:0px;\r\n    margin: 0 auto;\r\n    height: auto;\r\n    display: block;\r\n}\r\n.ratings ul{\r\n    width: auto;\r\n    background-color: #e8eef2;\r\n    overflow: hidden;\r\n    height:auto;\r\n}\r\n.ratings ul > div{\r\n    display:inline-block;\r\n    width: calc( 33% - 10px);\r\n    height:100%;\r\n}\r\n.ratings li{\r\n    display: block ;\r\n    text-align: center ;\r\n    margin: 0px 5px;\r\n    background-color:none;\r\n    padding: 10px;\r\n\r\n \r\n \r\n\r\n}\r\n\r\n.ratings div:hover {\r\n    background-color: #c7d3dd;\r\n}\r\n@media (max-width: 700px) {\r\n   article{\r\n       \r\n      width: 100% !important;\r\n      float: none;\r\n   }\r\n}\r\nimg{\r\n    width:100%;\r\n    height:auto;\r\n}\r\n@media print{\r\n    section{\r\n        position: absolute;\r\n        background-color:rgb(255, 255, 255);\r\n        width:90%;\r\n        margin: 10px auto;\r\n        border-radius:  0px;\r\n        padding: 10px;\r\n        position: relative;\r\n        overflow: hidden;\r\n        box-shadow:none;\r\n    }\r\n    .ratings{\r\n        display:none;\r\n    }\r\n    article{\r\n       width: 100%;\r\n       clear:both;\r\n    }\r\n    .comments{\r\n        display:none;\r\n    }\r\n}\r\n.comments header{\r\n    height: 44px;\r\n}\r\n.comments h2{\r\n    display: block;\r\n    width: 110px;\r\n    float: left;\r\n    padding:0px;\r\n    margin: 0px;\r\n}\r\n.comments .newcomment{\r\n    display:block;\r\n    width: 110px;\r\n    float: right;\r\n}\r\n.comments ul{\r\n    list-style: none;\r\n    text-align: left;\r\n}\r\n.comments h3 {\r\n    margin: 3px;\r\n}\r\n.comments ul div {\r\n   \r\n    display: block;\r\n    border-bottom: 1px solid gray;\r\n}\r\n.comments li{\r\n    padding: 20px;\r\n}", ""]);
 
 // exports
 
@@ -1273,9 +1474,70 @@ var RecipeviewComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/recipeview/recipeview.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["d" /* MatDialog */]])
+            __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatDialog */]])
     ], RecipeviewComponent);
     return RecipeviewComponent;
+}());
+
+
+
+/***/ }),
+
+/***/ "../../../../../src/app/register-modal/register-modal.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".submit {\r\n    box-shadow: 3px 4px 0px 0px #1564ad;\r\n    box-sizing: border-box;\r\n    background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n    background-color:#007eb6;\r\n    border-radius:5px;\r\n    border:1px solid #337bc4;\r\n    display:inline-block;\r\n    cursor:pointer;\r\n    color:#ffffff;\r\n    font-family:Palanquin;\r\n    font-size:17px;\r\n    font-weight:bold;\r\n    padding:12px 44px;\r\n    text-decoration:none;\r\n    text-shadow:0px 1px 0px #000000;\r\n    text-align: center;\r\n    line-height: 0px;\r\n    width: 100%;\r\n    height: 2em;\r\n  }\r\n  .submit:hover {\r\n    background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n    filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n    background-color:#378de5;\r\n  }\r\n  \r\n  .submit:active {\r\n    position:relative;\r\n    top:1px;\r\n  }", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/register-modal/register-modal.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div id=\"register\">\r\n  <form ngNoForm>\r\n    <mat-form-field>\r\n      <input matInput required=\"required\" placeholder=\"Username\">\r\n    </mat-form-field>\r\n    <p>\r\n      <mat-form-field>\r\n        <input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n      </mat-form-field>\r\n    </p>\r\n    <p>\r\n      <mat-form-field class=\"demo-full-width\">\r\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"password\">\r\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n      </mat-form-field>\r\n    </p>\r\n    <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n  </form>\r\n</div>"
+
+/***/ }),
+
+/***/ "../../../../../src/app/register-modal/register-modal.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterModalComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var RegisterModalComponent = (function () {
+    function RegisterModalComponent() {
+    }
+    RegisterModalComponent.prototype.ngOnInit = function () {
+    };
+    RegisterModalComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-register-modal',
+            template: __webpack_require__("../../../../../src/app/register-modal/register-modal.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/register-modal/register-modal.component.css")]
+        }),
+        __metadata("design:paramtypes", [])
+    ], RegisterModalComponent);
+    return RegisterModalComponent;
 }());
 
 
@@ -1303,7 +1565,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/saved-recipes/saved-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Saved Recipes</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"false\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Saved Recipes</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"false\" [deleting]=\"true\"></app-card-layout>"
 
 /***/ }),
 
@@ -1351,7 +1613,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#77b6ea;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}\r\n\r\n#register {\r\n  display: none;\r\n}\r\n\r\n#to_register, #to_login {\r\n     cursor:pointer;\r\n     color:blue;\r\n     text-decoration:underline;\r\n}\r\n\r\n#to_register:hover, #to_login:hover {\r\n  text-decoration: none;\r\n  text-shadow: 1px 1px 1px #555;\r\n}", ""]);
+exports.push([module.i, ".submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#007eb6;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}\r\n\r\n#register {\r\n  display: none;\r\n}\r\n\r\n#to_register, #to_login {\r\n     cursor:pointer;\r\n     color:blue;\r\n     text-decoration:underline;\r\n}\r\n\r\n#to_register:hover, #to_login:hover {\r\n  text-decoration: none;\r\n  text-shadow: 1px 1px 1px #555;\r\n}\r\n\r\n#error {\r\n  color: red;\r\n  display: none;\r\n  margin: 0;\r\n}\r\n\r\n#sign-in {\r\n  width: 200px;\r\n}\r\n\r\ninput {\r\n  width: 100%;\r\n}", ""]);
 
 // exports
 
@@ -1364,7 +1626,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form ngNoForm>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"username\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"password\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button mat-raised-button data-dismiss=\"modal\" class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -1375,6 +1637,8 @@ module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div i
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SigninModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1386,9 +1650,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var SigninModalComponent = (function () {
-    function SigninModalComponent(dialogRef) {
+    function SigninModalComponent(dialogRef, authenticationService, router) {
         this.dialogRef = dialogRef;
+        this.authenticationService = authenticationService;
+        this.router = router;
     }
     SigninModalComponent.prototype.register = function () {
         document.getElementById('sign-in').style.display = 'none';
@@ -1398,13 +1666,30 @@ var SigninModalComponent = (function () {
         document.getElementById('register').style.display = 'none';
         document.getElementById('sign-in').style.display = 'inline-block';
     };
+    SigninModalComponent.prototype.authenticateUser = function () {
+        var _this = this;
+        var results;
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var success = this.authenticationService.authenticateUser(username, password).subscribe(function (response) { return _this.updateLoginStatus(response); });
+    };
+    SigninModalComponent.prototype.updateLoginStatus = function (status) {
+        if (status == true) {
+            this.dialogRef.close('');
+            this.router.navigate(['./home']);
+        }
+        else {
+            var error = document.getElementById("error");
+            error.style.display = "block";
+        }
+    };
     SigninModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-signin-modal',
             template: __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["f" /* MatDialogRef */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], SigninModalComponent);
     return SigninModalComponent;
 }());
@@ -1506,7 +1791,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-recipes/user-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Recipes</h1>\r\n<div class=\"buttonWrapper\">\r\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\r\n</div>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"false\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Recipes</h1>\r\n<div class=\"buttonWrapper\">\r\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\r\n</div>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [editting]=\"true\" [deleting] =\"true\"></app-card-layout>"
 
 /***/ }),
 
@@ -1548,7 +1833,7 @@ var UserRecipesComponent = (function () {
             template: __webpack_require__("../../../../../src/app/user-recipes/user-recipes.component.html"),
             styles: [__webpack_require__("../../../../../src/app/user-recipes/user-recipes.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["d" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */]])
     ], UserRecipesComponent);
     return UserRecipesComponent;
 }());
