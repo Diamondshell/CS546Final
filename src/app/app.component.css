@@ -18,7 +18,10 @@
 #logo{
     width: 300px;
     height: 50px;
+   margin-top:20px;
+
 }
+
 header{
     overflow: hidden;
     width:100%;
@@ -126,6 +129,9 @@ li.browse{
     margin-right: 10px;
     
 }
+
+
+
 .so{
     display: none;
 
@@ -268,10 +274,13 @@ footer.footerInfo {
         display:none !important;
     }
     .searchText, .search, .browse, .random{
-        display: none;
+        display: none !important;
     }
     footer{
         display:none;
+    }
+    #wrapper{
+        position:absolute;
     }
 }
 
