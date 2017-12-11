@@ -17,6 +17,9 @@ import { UserRecipesComponent } from './user-recipes/user-recipes.component';
 import { SavedRecipesComponent } from './saved-recipes/saved-recipes.component';
 import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-modal.component';
 import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MustLogInComponent } from './must-log-in/must-log-in.component';
+
 
 
 const routes: Routes = [
@@ -26,7 +29,9 @@ const routes: Routes = [
   { path: 'savedrecipes', component: SavedRecipesComponent,pathMatch: 'full' },
   { path: 'userrecipes', component: UserRecipesComponent ,pathMatch: 'full'},
   {path: 'browse', component: BrowseComponent,pathMatch: 'full'},
-  {path: 'recipe/:id', component: RecipeviewComponent,pathMatch: 'full'}
+  {path: 'recipe/:id', component: RecipeviewComponent,pathMatch: 'full'},
+  {path: 'forbidden', component:MustLogInComponent},
+  {path: '**', component:PageNotFoundComponent}
 ];
 
 

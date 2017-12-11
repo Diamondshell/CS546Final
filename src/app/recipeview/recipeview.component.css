@@ -176,7 +176,7 @@ ol{
 }
 @media (max-width: 700px) {
    article{
-       display: none;
+       
       width: 100% !important;
       float: none;
    }
@@ -207,9 +207,6 @@ img{
     .comments{
         display:none;
     }
-    
-
-
 }
 .comments header{
     height: 44px;

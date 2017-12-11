@@ -1,0 +1,20 @@
+#register {
+    display: none;
+  }
+  
+#to_register, #to_login {
+    cursor:pointer;
+    color:blue;
+    text-decoration:underline;
+}
+section {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 450px;
+    margin: auto;
+    margin-top: 30px;
+    text-align: center;
+    background-color: rgb(255, 249, 249);
+    padding: 5px;
+    border-radius: 10px 0px 10px 0px;
+    font-family: Palanquin;
+}
