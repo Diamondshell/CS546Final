@@ -23,6 +23,6 @@ ul{
  @media (max-width: 650px) {
     li { 
        float: none;
-       width: 100%;
+       width: calc(100% - 30px);
     }
  }
