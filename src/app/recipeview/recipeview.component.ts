@@ -4,6 +4,8 @@ import { RecipeDetail } from '../recipeDetails';
 import { DataService } from '../data.service';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { RateModalComponent } from '../rate-modal/rate-modal.component';
+import { AuthenticationService } from '../authentication.service';
+import { SigninModalComponent } from '../signin-modal/signin-modal.component';
 
 @Component({
   selector: 'app-recipeview',
@@ -13,6 +15,7 @@ import { RateModalComponent } from '../rate-modal/rate-modal.component';
 export class RecipeviewComponent implements OnInit {
 
   dialogRef: MatDialogRef<RateModalComponent>;
+  dialogRefSignin: MatDialogRef<SigninModalComponent>;
 
   recipe:RecipeDetail;
      numChecked=[];
@@ -26,7 +29,7 @@ export class RecipeviewComponent implements OnInit {
     .subscribe(recipeDetail=>this.recipe=recipeDetail);
   }
   constructor( private route: ActivatedRoute, 
-    private dataService:DataService, public dialog: MatDialog) { }
+    private dataService:DataService, public dialog: MatDialog, private authenticationService: AuthenticationService ) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -37,11 +40,38 @@ export class RecipeviewComponent implements OnInit {
   
   }
 
-  displayRateModal(){
-    this.dialogRef = this.dialog.open(RateModalComponent, {width: '600px'});
-    this.dialogRef.afterClosed().subscribe((result) => {
-      console.log(result);
-    });
+  save() {
+    var success = this.authenticationService.checkAuthenticated().subscribe(response => this.doSave(response));
   }
+
+  doSave(response){
+    if (response.validated){
+      alert("TO IMPLEMENT SAVING");
+    }else {
+      this.dialogRefSignin = this.dialog.open(SigninModalComponent);
+      this.dialogRefSignin.afterClosed().subscribe((result) => {
+        console.log(result);
+      });
+    }
+  }
+
+  displayRateModal(){
+    var success = this.authenticationService.checkAuthenticated().subscribe(response => this.displayScreen(response));
+  }
+
+  displayScreen(response){
+    if (response.validated){
+      this.dialogRef = this.dialog.open(RateModalComponent, {width: '600px'});
+      this.dialogRef.afterClosed().subscribe((result) => {
+        console.log(result);
+      });
+    }else {
+      this.dialogRefSignin = this.dialog.open(SigninModalComponent);
+      this.dialogRefSignin.afterClosed().subscribe((result) => {
+        console.log(result);
+      });
+    }
+  }
+
  
 }
