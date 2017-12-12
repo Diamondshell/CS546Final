@@ -37,7 +37,7 @@ export class RecipeviewComponent implements OnInit {
 
     this.numChecked = new Array(this.recipe.Rating);
     this.numUnChecked = new Array(5-this.recipe.Rating);
-  
+    window.scrollTo(0, 0);
   }
 
   save() {

@@ -39,6 +39,10 @@ app-filterpane{
   font-family: Palanquin;
   src: url(assets/palanquin/palanquin-thin.ttf);
 }
+app-profile-layout{
+    display:block;
+    height:100%;
+}
 app-root{
  
     position:relative;
@@ -56,7 +60,7 @@ app-user-nav {
     position: absolute;
     text-align: left;
     display: block;
-    height: 100%;
+    height: calc(100% - 155px);
     background-size: contain;
     left: 0;
 }

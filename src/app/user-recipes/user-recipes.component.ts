@@ -14,6 +14,7 @@ export class UserRecipesComponent implements OnInit {
 
   recipe:RecipeDetail;
   ngOnInit() {
+    window.scrollTo(0, 0);
   }
 
   createRecipe(){
