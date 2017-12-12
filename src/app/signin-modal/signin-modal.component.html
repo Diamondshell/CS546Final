@@ -1,16 +1,18 @@
 <div id="container">
 	<div id="wrapper">
 		<div id="sign-in">
-			<form ngNoForm>
+			<form>
 			  <mat-form-field title="Username" class="input">
-			    <input matInput placeholder="Username" value="">
+			    <input id="username" matInput placeholder="Username" value="">
 			  </mat-form-field>
 			  <br>
 			  <mat-form-field title="Password" class="input">
-			  	<input matInput placeholder="Password" type="password">
+			  	<input id="password" matInput placeholder="Password" type="password">
 			  </mat-form-field>
 			  <br>
-			  <button mat-raised-button class="submit" type="submit" value="Sign-In">Sign-In</button>
+			  <p id="error">Invalid username or password.</p>
+			  <br>
+			  <button mat-raised-button data-dismiss="modal" class="submit" (click)="authenticateUser()" value="Sign-In">Sign-In</button>
 			</form>
 
 			<footer class="footer">

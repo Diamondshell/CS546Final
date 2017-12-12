@@ -12,6 +12,7 @@ export class ProfileComponent implements OnInit {
 
   @Input() user: User;
   @Input() editting: Boolean;
+  oldEmail:string;
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
@@ -25,19 +26,29 @@ export class ProfileComponent implements OnInit {
   }
 
   editDescription(){
-		document.getElementById('descrObj').style.display = "none";
-  	document.getElementById('editDescr').style.display = "inline-block";
-  	document.getElementById('editDescrButton').style.display = "none";
-  	document.getElementById('saveDescr').style.display = "inline-block";
-    this.dataService.updateUserInfo({description: this.user.description});
+   
+      document.getElementById('descrObj').style.display = "none";
+      document.getElementById('editDescr').style.display = "inline-block";
+      document.getElementById('editDescrButton').style.display = "none";
+      document.getElementById('saveDescr').style.display = "inline-block";
+      this.dataService.updateUserInfo({description: this.user.description});
+    
+  
   }
 
   saveEmail(){
+    let pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
+    if(pattern.test(this.user.email)){
   	document.getElementById('editEmail').style.display = "none";
   	document.getElementById('emailObj').style.display = "inline-block";
   	document.getElementById('saveEmail').style.display = "none";
     document.getElementById('editEmailButton').style.display = "inline-block";
+
+    document.getElementById('error').style.display="none";
     this.dataService.updateUserInfo({email: this.user.email});
+  }else{
+    document.getElementById('error').style.display="block";
+  }
     
   }
 

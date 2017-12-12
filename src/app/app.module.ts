@@ -22,11 +22,15 @@ import { CreateRecipeModalComponent } from './create-recipe-modal/create-recipe-
 import { ProfileLayoutComponent } from './profile-layout/profile-layout.component';
 
 import {DataService} from './data.service';
+import {AuthenticationService} from './authentication.service';
 import { AppRoutingModule } from './/app-routing.module';
 import { RateModalComponent } from './rate-modal/rate-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { MustLogInComponent } from './must-log-in/must-log-in.component';
+import { RegisterModalComponent } from './register-modal/register-modal.component';
 
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,9 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     ProfileLayoutComponent,
     RateModalComponent,
     RandomRecipeModalComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    MustLogInComponent,
+    RegisterModalComponent
 
   ],
   imports: [
@@ -67,10 +73,11 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     MatFormFieldModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpModule
   ],
-  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent],
-  providers: [DataService],
+  entryComponents: [SigninModalComponent, CreateRecipeModalComponent, RateModalComponent, RandomRecipeModalComponent, RegisterModalComponent],
+  providers: [DataService,AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

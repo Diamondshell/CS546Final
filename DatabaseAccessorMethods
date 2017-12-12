@@ -35,6 +35,11 @@ Sample Recipe:
 getAllRecipes()
     Returns all recipes
 
+getRecipesByLikeName(string:name)
+    Returns all recipes matching name along %name%
+topXTrendingRecipes(int:X)
+    Returns the top X recipes by popularity
+
 getRecipeById(string:id)
     Returns a Recipe with the given id
 updateRecipeById(string:id,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps,string:imgpath)

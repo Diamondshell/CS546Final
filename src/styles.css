@@ -3,12 +3,12 @@ html{
     height: 100%;
     box-sizing: border-box;
 }
-
 *,
 *:before,
 *:after {
   box-sizing: inherit;
 }
+
 
 body{
     min-height: 100%;
@@ -33,8 +33,6 @@ app-filterpane{
    margin-top:30px; 
    margin-left: 10px;
    border-radius: 10px 0px 10px 0px;
-  
-   
 }
 
 @font-face {
@@ -68,4 +66,7 @@ app-browse {
 app-home{
     display:block;
     overflow:hidden;
+}
+app-profile{
+    display:block;
 }
