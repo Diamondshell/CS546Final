@@ -1,9 +1,15 @@
 <div id = "wrapper">
+  <div id="bar">
+
+    <button title="Sign In" (click)="signIn()" class="signIn" id="si">Sign In <i class = "fa fa-sign-in"></i></button>
+      <a routerLink = "/userprofile" class="user" id="user">hello</a>
+      <button title = "Sign Out" (click)="signOut()" class = "so" id="so">Sign Out <i class = "fa fa-sign-out"></i></button>
+
+    </div>
+<div class = "float-clear"></div>
 <header>
     <nav>
-      <button title="Sign In" (click)="signIn()" class="signIn">Sign In <i class = "fa fa-sign-in"></i></button>
-      <a routerLink = "/userprofile" class="user">hello</a>
-      <button title = "Sign Out" (click)="signOut()" class = "so">Sign Out <i class = "fa fa-sign-out"></i></button>
+      
       <ul>
       <li class= "logo"><img routerLink="/" id= "logo" src = "assets/Bonappetelli.png" alt = "logo" ></li>
         

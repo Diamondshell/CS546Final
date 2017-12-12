@@ -38,7 +38,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Middleware
 // add authentication here
-app.get('/loginstatus', async funciton(req, res) {
+app.get('/loginstatus', async function(req, res) {
     if (req.cookies.validated) {
         res.json({validated:true, username:req.cookies.validated});
     }else {
@@ -47,7 +47,6 @@ app.get('/loginstatus', async funciton(req, res) {
 });
 
 app.post('/login', async function(req, res) {
-    console.log("Post Path: " + req.path);
     console.log(req.body);
     //res.json({data:"FUCK"});
     //return; 
@@ -69,13 +68,28 @@ app.post('/login', async function(req, res) {
 
     if (validated) {
         //If valid, create a validated cookie that holds the username also for use in displaying data later
-        res.cookie('validated', userData.username, {maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
+        res.cookie('validated', userData._id, {path: '/', maxAge: 1000 * 60 * 5 /* cookies expires in 5 minutes after login */, httpOnly: true});
         //Send something back when validated
         res.json({data:true});
     }
     else {
         //Send something back when the user isn't validated
         res.json({data:false});
+    }
+});
+
+app.post('/logout', async function(req, res) {
+
+    res.cookie('validated', '', {path: '/', maxAge: 1000 * 60 * 5, httpOnly:true});
+    res.clearCookie('validated', req.cookies.validated, {path: '/', httpOnly: true});
+    res.json({"status":"ok"});
+});
+
+app.get('/userprofile', async function (req, res) {
+    if (req.cookies.validated) {
+        res.json({validated:true, username:req.cookies.validated});
+    }else {
+        res.redirect('/forbidden');
     }
 });
 

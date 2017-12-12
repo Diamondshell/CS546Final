@@ -25,6 +25,11 @@ export class AuthenticationService {
 
   checkAuthenticated(){
   	return this._http.get('/loginstatus')
-  		.map(result => this.validted = result.json());
+  		.map(result => this.validated = result.json());
+  }
+
+  logoutUser(){
+    return this._http.post('/logout', {})
+      .map(result => this.response = result.json().data);
   }
 }

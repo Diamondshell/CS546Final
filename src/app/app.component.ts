@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, OnInit } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 import { SigninModalComponent } from './signin-modal/signin-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
@@ -16,6 +16,18 @@ export class AppComponent {
   constructor(public dialog: MatDialog, private authenticationService: AuthenticationService ){
   }
 
+  ngOnInit() {
+    this.checkIfLoggedIn();
+  }
+
+  signOut(){
+    var serverRes;
+    this.authenticationService.logoutUser().subscribe(response => serverRes = response);
+    document.getElementById('si').style.display="block";
+    document.getElementById('so').style.display="none";
+    document.getElementById('user').style.display="none";
+  }
+
   signIn(){
   	this.dialogRef = this.dialog.open(SigninModalComponent);
   	this.dialogRef.afterClosed().subscribe((result) => {
@@ -30,20 +42,18 @@ export class AppComponent {
     })
   }
 
-    checkIfLoggedIn(): void{
-      var results;
+  checkIfLoggedIn(): void{
+    var results;
+    var success = this.authenticationService.checkAuthenticated().subscribe(response => this.updateScreen(response));
+  }
 
-      var success = this.authenticationService.checkAuthenticated().subscribe(response => this.updateScreen(response));
-    
-
+  updateScreen(result):void{
+    if(result.validated){
+      document.getElementById('si').style.display="none";
+      document.getElementById('so').style.display="block";
+      document.getElementById('user').innerHTML=`Hello ${result.username}`;
+      document.getElementById('user').style.display="block";
     }
-    updateScreen(result):void{
-      if(result.validated){
-        document.getElementById('si').style.display="none";
-        document.getElementById('so').style.display="inline-block";
-        document.getElementById('user').innerHTML=`Hello ${result.username}`;
-        document.getElementById('user').style.display="inline-block";
-      }
-    }
+  }
   
 }
