@@ -223,6 +223,13 @@ img{
     display:block;
     width: 110px;
     float: right;
+    background-color:#e8eef2;
+    outline:none;
+    border:none;
+    padding:10px;
+}
+.comments .newcomment:hover{
+   background-color: #c7d3dd;
 }
 .comments ul{
     list-style: none;

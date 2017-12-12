@@ -58,3 +58,12 @@ button:hover{
     border-radius: 5px;
     background-color: rgb(184, 179, 179);
 }
+a:active{
+  color:rgb(48, 47, 47);  
+}
+a{
+    color:rgb(48, 47, 47);  
+}
+a:visited{
+    color:rgb(48, 47, 47);  
+}
