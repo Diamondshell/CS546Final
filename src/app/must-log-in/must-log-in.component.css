@@ -18,3 +18,9 @@ section {
     border-radius: 10px 0px 10px 0px;
     font-family: Palanquin;
 }
+
+#error {
+  color: red;
+  display: none;
+  margin: 0;
+}

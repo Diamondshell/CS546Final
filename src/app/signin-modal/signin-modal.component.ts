@@ -23,7 +23,10 @@ export class SigninModalComponent {
   	document.getElementById('sign-in').style.display = 'inline-block';
   }
 
-  authenticateUser(): void {
+  authenticateUser(): void {/*
+    var att = document.createAttribute("disabled");
+    document.getElementById("sign-in").setAttributeNode(att);
+    (<HTMLButtonElement>document.getElementById("sign-in")).value="Loading";*/
     var results;
     var username = (<HTMLInputElement>document.getElementById("username")).value;
     var password = (<HTMLInputElement>document.getElementById("password")).value;
@@ -34,11 +37,26 @@ export class SigninModalComponent {
   updateLoginStatus(status) {
     if (status == true){
       this.dialogRef.close('');
-      this.router.navigate(['./home']);
+      this.checkIfLoggedIn();
+      // this.router.navigate(['./home']);
     }
     else {
       var error = document.getElementById("error");
       error.style.display="block";
+    }
+  }
+
+  checkIfLoggedIn(): void{
+      var results;
+      var success = this.authenticationService.checkAuthenticated().subscribe(response => this.updateScreen(response));
+    }
+    
+  updateScreen(result):void{
+    if(result.validated){
+      document.getElementById('si').style.display="none";
+      document.getElementById('so').style.display="inline-block";
+      document.getElementById('user').innerHTML=`Hello ${result.username}`;
+      document.getElementById('user').style.display="inline-block";
     }
   }
 }

@@ -2,18 +2,20 @@
   <h1>You must be logged in to view this content.</h1>
   <article>
       <div id="sign-in">
-          <form ngNoForm>
+          <form>
             <mat-form-field title="Username" class="input">
-              <input matInput placeholder="Username" value="">
+              <input matInput placeholder="Username" value="" id="username">
             </mat-form-field>
             <br>
             <mat-form-field title="Password" class="input">
-              <input matInput placeholder="Password" type="password">
+              <input matInput placeholder="Password" type="password" id="password">
             </mat-form-field>
+            <br>
+            <p id="error">Invalid username or password.</p>
             <br>
            <!-- <button mat-raised-button class="back" (click)="goBack()" value="Return">Return</button>-->
             
-            <button mat-raised-button class="submit" type="submit" value="Sign-In">Sign-In</button>
+            <button mat-raised-button class="submit" (click)="authenticateUser()" value="Sign-In">Sign-In</button>
                  
           </form>
     

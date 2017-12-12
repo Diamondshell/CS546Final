@@ -83,7 +83,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 440px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n}\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nnav{\r\n    padding:10px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    height:90px;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media(max-width: 900px){\r\n    li.searchText{\r\n        width: calc(100% - 400px) !important;\r\n    }\r\n    li.browse{\r\n        margin-left: 325px !important;\r\n    }\r\n  \r\n}\r\n@media (max-width: 730px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(100% - 60px) !important;\r\n        display:block;\r\n        \r\n    }\r\n    li.search{\r\n        clear: right;\r\n    }\r\n    li.browse{\r\n        margin-left: 25px !important;\r\n        float:left;\r\n    }\r\n    li.random{\r\n        float: right;\r\n    }\r\n  \r\n  \r\n    \r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n    padding-right:0px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n  height:100%;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n.so{\r\n    display: none;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n.user{\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 27px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
+exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 440px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n   margin-top:20px;\r\n   outline:none;\r\n\r\n}\r\n\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nli.logo{\r\n    cursor:pointer;\r\n}\r\nnav{\r\n    padding:10px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    height:90px;\r\n    outline:none;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media(max-width: 900px){\r\n    li.searchText{\r\n        width: calc(100% - 400px) !important;\r\n    }\r\n    li.browse{\r\n        margin-left: 325px !important;\r\n    }\r\n  \r\n}\r\n@media (max-width: 730px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(100% - 60px) !important;\r\n        display:block;\r\n        \r\n    }\r\n    li.search{\r\n        clear: right;\r\n    }\r\n    li.browse{\r\n        margin-left: 25px !important;\r\n        float:left;\r\n    }\r\n    li.random{\r\n        float: right;\r\n    }\r\n  \r\n  \r\n    \r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n    padding-right:0px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n  height:100%;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n\r\n\r\n.so{\r\n    display: none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n#bar{\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    padding: 5px 15px;\r\n    height: 45px;\r\n}\r\n\r\n\r\n.user{\r\n    float:right;\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 27px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none !important;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n    #wrapper{\r\n        position:absolute;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
 
 // exports
 
@@ -96,7 +96,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id = \"wrapper\">\r\n<header>\r\n    <nav>\r\n      <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\">Sign In <i class = \"fa fa-sign-in\"></i></button>\r\n      <a href=\"#\" class=\"user\">hello</a>\r\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\r\n      <ul>\r\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\r\n        \r\n      <li class = \"searchText\"><input title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\r\n      <li class = \"search\"><p title = \"Search\" ><i class = \"fa fa-search\"></i></p></li>\r\n      <li class = \"browse\" routerLink=\"/browse\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\r\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\r\n       </ul>\r\n    </nav>\r\n</header>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n  <div class = \"float-clear\"></div>\r\n  <div class = \"spacer\"></div>\r\n  <footer>\r\n      <div class = \"footerInfo\">\r\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\r\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\r\n      \r\n        <div id = \"socialMedia\">\r\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\r\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\r\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n\r\n</div>\r\n<div class = \"float-clear\"></div>\r\n"
+module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\" id=\"si\">Sign In <i class = \"fa fa-sign-in\"></i></button>\r\n      <a routerLink = \"/userprofile\" class=\"user\" id=\"user\">hello</a>\r\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\" id=\"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\r\n\r\n    </div>\r\n<div class = \"float-clear\"></div>\r\n<header>\r\n    <nav>\r\n      \r\n      <ul>\r\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\r\n        \r\n      <li class = \"searchText\"><input title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\r\n      <li class = \"search\"><p title = \"Search\" ><i class = \"fa fa-search\"></i></p></li>\r\n      <li class = \"browse\" routerLink=\"/browse\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\r\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\r\n       </ul>\r\n    </nav>\r\n</header>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n  <div class = \"float-clear\"></div>\r\n  <div class = \"spacer\"></div>\r\n  <footer>\r\n      <div class = \"footerInfo\">\r\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\r\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\r\n      \r\n        <div id = \"socialMedia\">\r\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\r\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\r\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n\r\n</div>\r\n<div class = \"float-clear\"></div>\r\n"
 
 /***/ }),
 
@@ -109,6 +109,7 @@ module.exports = "<div id = \"wrapper\">\r\n<header>\r\n    <nav>\r\n      <butt
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_modal_signin_modal_component__ = __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__random_recipe_modal_random_recipe_modal_component__ = __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -122,11 +123,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(dialog) {
+    function AppComponent(dialog, authenticationService) {
         this.dialog = dialog;
+        this.authenticationService = authenticationService;
         this.title = 'app';
     }
+    AppComponent.prototype.ngOnInit = function () {
+        this.checkIfLoggedIn();
+    };
+    AppComponent.prototype.signOut = function () {
+        var serverRes;
+        this.authenticationService.logoutUser().subscribe(function (response) { return serverRes = response; });
+        document.getElementById('si').style.display = "block";
+        document.getElementById('so').style.display = "none";
+        document.getElementById('user').style.display = "none";
+    };
     AppComponent.prototype.signIn = function () {
         this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
         this.dialogRef.afterClosed().subscribe(function (result) {
@@ -139,13 +152,26 @@ var AppComponent = (function () {
             console.log(result);
         });
     };
+    AppComponent.prototype.checkIfLoggedIn = function () {
+        var _this = this;
+        var results;
+        var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.updateScreen(response); });
+    };
+    AppComponent.prototype.updateScreen = function (result) {
+        if (result.validated) {
+            document.getElementById('si').style.display = "none";
+            document.getElementById('so').style.display = "block";
+            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').style.display = "block";
+        }
+    };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-root',
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -304,12 +330,18 @@ var AuthenticationService = (function () {
     }
     AuthenticationService.prototype.authenticateUser = function (username, password) {
         var _this = this;
-        this.result = false;
         return this._http.post("/login", { "username": username, "password": password })
             .map(function (result) { return _this.response = result.json().data; });
-        // if (this.response == "TADA")
-        // 	this.result = true;
-        // return of(this.result);
+    };
+    AuthenticationService.prototype.checkAuthenticated = function () {
+        var _this = this;
+        return this._http.get('/loginstatus')
+            .map(function (result) { return _this.validated = result.json(); });
+    };
+    AuthenticationService.prototype.logoutUser = function () {
+        var _this = this;
+        return this._http.post('/logout', {})
+            .map(function (result) { return _this.response = result.json().data; });
     };
     AuthenticationService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
@@ -899,7 +931,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#register {\r\n    display: none;\r\n  }\r\n  \r\n#to_register, #to_login {\r\n    cursor:pointer;\r\n    color:blue;\r\n    text-decoration:underline;\r\n}\r\nsection {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    margin-top: 30px;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}", ""]);
+exports.push([module.i, "#register {\r\n    display: none;\r\n  }\r\n  \r\n#to_register, #to_login {\r\n    cursor:pointer;\r\n    color:blue;\r\n    text-decoration:underline;\r\n}\r\nsection {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    margin-top: 30px;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}\r\n\r\n#error {\r\n  color: red;\r\n  display: none;\r\n  margin: 0;\r\n}\r\n", ""]);
 
 // exports
 
@@ -912,7 +944,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/must-log-in/must-log-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\r\n  <h1>You must be logged in to view this content.</h1>\r\n  <article>\r\n      <div id=\"sign-in\">\r\n          <form ngNoForm>\r\n            <mat-form-field title=\"Username\" class=\"input\">\r\n              <input matInput placeholder=\"Username\" value=\"\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field title=\"Password\" class=\"input\">\r\n              <input matInput placeholder=\"Password\" type=\"password\">\r\n            </mat-form-field>\r\n            <br>\r\n           <!-- <button mat-raised-button class=\"back\" (click)=\"goBack()\" value=\"Return\">Return</button>-->\r\n            \r\n            <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Sign-In</button>\r\n                 \r\n          </form>\r\n    \r\n          <footer class=\"footer\">\r\n            <p class=\"change_link\">\r\n              Not a member yet?\r\n              <span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n            </p>\r\n          </footer>\r\n        </div>\r\n  </article>\r\n \r\n</section>"
+module.exports = "<section>\r\n  <h1>You must be logged in to view this content.</h1>\r\n  <article>\r\n      <div id=\"sign-in\">\r\n          <form>\r\n            <mat-form-field title=\"Username\" class=\"input\">\r\n              <input matInput placeholder=\"Username\" value=\"\" id=\"username\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field title=\"Password\" class=\"input\">\r\n              <input matInput placeholder=\"Password\" type=\"password\" id=\"password\">\r\n            </mat-form-field>\r\n            <br>\r\n            <p id=\"error\">Invalid username or password.</p>\r\n            <br>\r\n           <!-- <button mat-raised-button class=\"back\" (click)=\"goBack()\" value=\"Return\">Return</button>-->\r\n            \r\n            <button mat-raised-button class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\">Sign-In</button>\r\n                 \r\n          </form>\r\n    \r\n          <footer class=\"footer\">\r\n            <p class=\"change_link\">\r\n              Not a member yet?\r\n              <span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n            </p>\r\n          </footer>\r\n        </div>\r\n  </article>\r\n \r\n</section>"
 
 /***/ }),
 
@@ -925,6 +957,8 @@ module.exports = "<section>\r\n  <h1>You must be logged in to view this content.
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__register_modal_register_modal_component__ = __webpack_require__("../../../../../src/app/register-modal/register-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -938,10 +972,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var MustLogInComponent = (function () {
-    function MustLogInComponent(dialog, location) {
+    function MustLogInComponent(dialog, location, authenticationService, router) {
         this.dialog = dialog;
         this.location = location;
+        this.authenticationService = authenticationService;
+        this.router = router;
     }
     MustLogInComponent.prototype.ngOnInit = function () {
     };
@@ -954,6 +992,37 @@ var MustLogInComponent = (function () {
             console.log(result);
         });
     };
+    MustLogInComponent.prototype.authenticateUser = function () {
+        var _this = this;
+        var results;
+        var username = document.getElementById("username").value;
+        var password = document.getElementById("password").value;
+        var success = this.authenticationService.authenticateUser(username, password).subscribe(function (response) { return _this.updateLoginStatus(response); });
+    };
+    MustLogInComponent.prototype.updateLoginStatus = function (status) {
+        if (status == true) {
+            // this.dialogRef.close('');
+            this.checkIfLoggedIn();
+            this.router.navigate(['./home']);
+        }
+        else {
+            var error = document.getElementById("error");
+            error.style.display = "block";
+        }
+    };
+    MustLogInComponent.prototype.checkIfLoggedIn = function () {
+        var _this = this;
+        var results;
+        var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.updateScreen(response); });
+    };
+    MustLogInComponent.prototype.updateScreen = function (result) {
+        if (result.validated) {
+            document.getElementById('si').style.display = "none";
+            document.getElementById('so').style.display = "inline-block";
+            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').style.display = "inline-block";
+        }
+    };
     MustLogInComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-must-log-in',
@@ -961,7 +1030,9 @@ var MustLogInComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */]])
+            __WEBPACK_IMPORTED_MODULE_3__angular_common__["f" /* Location */],
+            __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */],
+            __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]])
     ], MustLogInComponent);
     return MustLogInComponent;
 }());
@@ -1113,7 +1184,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#userProfileWrapper {\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    margin-top: 30px;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n    padding: 5px;\r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n}\r\n\r\ndiv {\r\n\tpadding-bottom: 5px;\r\n}\r\n\r\n#userEmail {\r\n\tmargin-left: 5px;\r\n}\r\n\r\n#userDescr {\r\n\tmargin-left: 5px;\r\n}\r\n\r\nbutton{\r\n    background-color: transparent;\r\n    outline: none;\r\n    background-repeat:no-repeat;\r\n    border: none;\r\n    cursor:pointer;\r\n    overflow: hidden;\r\n    font-size: 1.25em;\r\n}\r\nbutton:hover{\r\n    border-radius: 5px;\r\n    background-color: rgb(184, 179, 179);\r\n}\r\n\r\ninput {\r\n\tdisplay: none;\r\n}\r\n\r\nbutton[title=\"Save\"] {\r\n\tdisplay: none;\r\n}", ""]);
+exports.push([module.i, "#userProfileWrapper {\r\n    clear:both;\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n    margin-top: 30px;\r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n   \r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n    padding:30px 10px;\r\n}\r\n\r\n.profile div {\r\n    padding-bottom: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n#userEmail {\r\n\tmargin-left: 5px;\r\n}\r\n\r\n#userDescr {\r\n\tmargin-left: 5px;\r\n}\r\n\r\nbutton{\r\n    background-color: transparent;\r\n    outline: none;\r\n    background-repeat:no-repeat;\r\n    border: none;\r\n    cursor:pointer;\r\n    overflow: hidden;\r\n    font-size: 1.25em;\r\n}\r\nbutton:hover{\r\n    border-radius: 5px;\r\n    background-color: rgb(184, 179, 179);\r\n}\r\n\r\ninput {\r\n\tdisplay: none;\r\n}\r\n\r\nbutton[title=\"Save\"] {\r\n\tdisplay: none;\r\n}\r\n#error{\r\n    display:none;\r\n    color:red;\r\n    margin-top: 3px;\r\n}", ""]);
 
 // exports
 
@@ -1126,7 +1197,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"profile\" id=\"userProfileWrapper\">\r\n\t<h1 id=\"username\">\r\n\t\t{{user.username}}\r\n\t</h1>\r\n\r\n\t<div id=\"email\">\r\n\t\t<label id=\"userEmail\" class=\"pull-left\">Email:</label>\r\n\t\t<span id=\"emailObj\">{{user.email}}</span>\r\n\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\r\n\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\r\n\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\r\n\t</div>\r\n\r\n\t<div id=\"description\">\r\n\t\t<label id=\"userDescr\" class=\"pull-left\">Description:</label>\r\n\t\t<span id=\"descrObj\">{{user.description}}</span>\r\n\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\">\r\n\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\r\n\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\r\n\t</div>\r\n</div>"
+module.exports = "\r\n<div class=\"profile\" id=\"userProfileWrapper\">\r\n\t<h1 id=\"username\">\r\n\t\t{{user.username}}\r\n\t</h1>\r\n\r\n\t<div id=\"email\">\r\n\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\r\n\t\t<span id=\"emailObj\">{{user.email}}</span>\r\n\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\r\n\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\r\n\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\r\n\t\t<p id=\"error\">Must give a valid email</p>\r\n\t</div>\r\n\r\n\t<div id=\"description\">\r\n\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\r\n\t\t<span id=\"descrObj\">{{user.description}}</span>\r\n\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\r\n\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\r\n\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\r\n\t</div>\r\n</div>"
 
 /***/ }),
 
@@ -1170,11 +1241,18 @@ var ProfileComponent = (function () {
         this.dataService.updateUserInfo({ description: this.user.description });
     };
     ProfileComponent.prototype.saveEmail = function () {
-        document.getElementById('editEmail').style.display = "none";
-        document.getElementById('emailObj').style.display = "inline-block";
-        document.getElementById('saveEmail').style.display = "none";
-        document.getElementById('editEmailButton').style.display = "inline-block";
-        this.dataService.updateUserInfo({ email: this.user.email });
+        var pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
+        if (pattern.test(this.user.email)) {
+            document.getElementById('editEmail').style.display = "none";
+            document.getElementById('emailObj').style.display = "inline-block";
+            document.getElementById('saveEmail').style.display = "none";
+            document.getElementById('editEmailButton').style.display = "inline-block";
+            document.getElementById('error').style.display = "none";
+            this.dataService.updateUserInfo({ email: this.user.email });
+        }
+        else {
+            document.getElementById('error').style.display = "block";
+        }
     };
     ProfileComponent.prototype.saveDescription = function () {
         document.getElementById('descrObj').style.display = "inline-block";
@@ -1398,7 +1476,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "section{\r\n    background-color:rgb(255, 249, 249);\r\n    width:90%;\r\n    margin: 10px auto;\r\n    border-radius: 10px 0px 10px 0px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: hidden;\r\n    box-shadow: 5px 10px 50px grey;\r\n}\r\nsection{\r\n    position: relative;\r\n}\r\nh1{\r\n    font-size: 2em;\r\n}\r\nh2{\r\n    text-align: left;\r\n}\r\narticle{\r\n    padding:10px;\r\n}\r\n#top ul{\r\n    list-style: none;\r\n}\r\n.lower ul{\r\n  text-align: left;\r\n}\r\n#des{\r\n    text-align: left;\r\n}\r\n#left-pane{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(65% - 20px);\r\n    \r\n}\r\n#left-pane > p {\r\n    text-align: center;\r\n    float: none;\r\n    margin-top: 20px;\r\n}\r\n.bottom-right {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(50% - 20px);\r\n}\r\n.bottom-left{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(50% - 20px);\r\n    \r\n}\r\n#right-pane {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(35% - 20px);\r\n}\r\n\r\n.bottom-center{\r\n    clear:both;\r\n    position: relative;\r\n    display:block;\r\n    width:100%;\r\n\r\n}\r\n.recipe-details p{\r\n    float:left;\r\n    display:block;\r\n    margin:0px 5px;\r\n    text-align:center;\r\n    width: calc(33% - 15px);\r\n    border-right: 1px solid gray;\r\n   \r\n    \r\n}\r\n.recipe-details p:last-child{\r\n    border-right: none;\r\n}\r\n.recipe-details{\r\n  \r\n    text-align: center;\r\n    width: 100%;\r\n   \r\n}\r\n.recipe-details{\r\n    margin-top: 20px;\r\n}\r\n#left-pane ul{\r\n    clear:both;\r\n    width:100%;\r\n    display:block;\r\n    padding:0px;\r\n\r\n}\r\n.float-clear{\r\n    clear:both;\r\n}\r\n.rating li {\r\n    float:left;\r\n\r\n}\r\n.rating i{\r\n    font-size: 22px;\r\n    color: gray;\r\n}\r\n.rating{\r\n    width:120px;;    \r\n    display:block;\r\n    text-align: center;\r\n    margin: 0 auto;\r\n}\r\n\r\n\r\n.rating i.checked {\r\n    float:left;\r\n    color: orange;\r\n}\r\nol{\r\n    text-align: left;\r\n}\r\n.tags ul{\r\n    list-style: none;\r\n}\r\n.tags li{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px 0px 0px 10px;\r\n}\r\n.tags p{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px;\r\n}\r\n.ratings ul{\r\n    list-style: none;\r\n    height: 100%;\r\n    padding: 0px;\r\n}\r\n.ratings{\r\n    cursor: default;\r\n    padding:0px;\r\n    margin: 0 auto;\r\n    height: auto;\r\n    display: block;\r\n}\r\n.ratings ul{\r\n    width: auto;\r\n    background-color: #e8eef2;\r\n    overflow: hidden;\r\n    height:auto;\r\n}\r\n.ratings ul > div{\r\n    display:inline-block;\r\n    width: calc( 33% - 10px);\r\n    height:100%;\r\n}\r\n.ratings li{\r\n    display: block ;\r\n    text-align: center ;\r\n    margin: 0px 5px;\r\n    background-color:none;\r\n    padding: 10px;\r\n\r\n \r\n \r\n\r\n}\r\n\r\n.ratings div:hover {\r\n    background-color: #c7d3dd;\r\n}\r\n@media (max-width: 700px) {\r\n   article{\r\n       \r\n      width: 100% !important;\r\n      float: none;\r\n   }\r\n}\r\nimg{\r\n    width:100%;\r\n    height:auto;\r\n}\r\n@media print{\r\n    section{\r\n        position: absolute;\r\n        background-color:rgb(255, 255, 255);\r\n        width:90%;\r\n        margin: 10px auto;\r\n        border-radius:  0px;\r\n        padding: 10px;\r\n        position: relative;\r\n        overflow: hidden;\r\n        box-shadow:none;\r\n    }\r\n    .ratings{\r\n        display:none;\r\n    }\r\n    article{\r\n       width: 100%;\r\n       clear:both;\r\n    }\r\n    .comments{\r\n        display:none;\r\n    }\r\n}\r\n.comments header{\r\n    height: 44px;\r\n}\r\n.comments h2{\r\n    display: block;\r\n    width: 110px;\r\n    float: left;\r\n    padding:0px;\r\n    margin: 0px;\r\n}\r\n.comments .newcomment{\r\n    display:block;\r\n    width: 110px;\r\n    float: right;\r\n}\r\n.comments ul{\r\n    list-style: none;\r\n    text-align: left;\r\n}\r\n.comments h3 {\r\n    margin: 3px;\r\n}\r\n.comments ul div {\r\n   \r\n    display: block;\r\n    border-bottom: 1px solid gray;\r\n}\r\n.comments li{\r\n    padding: 20px;\r\n}", ""]);
+exports.push([module.i, "section{\r\n    background-color:rgb(255, 249, 249);\r\n    width:90%;\r\n    margin: 10px auto;\r\n    border-radius: 10px 0px 10px 0px;\r\n    padding: 10px;\r\n    position: relative;\r\n    overflow: hidden;\r\n    box-shadow: 5px 10px 50px grey;\r\n}\r\nsection{\r\n    position: relative;\r\n}\r\nh1{\r\n    font-size: 2em;\r\n}\r\nh2{\r\n    text-align: left;\r\n}\r\narticle{\r\n    padding:10px;\r\n}\r\n#top ul{\r\n    list-style: none;\r\n}\r\n.lower ul{\r\n  text-align: left;\r\n}\r\n#des{\r\n    text-align: left;\r\n}\r\n#left-pane{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(65% - 20px);\r\n    \r\n}\r\n#left-pane > p {\r\n    text-align: center;\r\n    float: none;\r\n    margin-top: 20px;\r\n}\r\n.bottom-right {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(50% - 20px);\r\n}\r\n.bottom-left{\r\n    position: relative;\r\n    display:block;\r\n    float: left;\r\n    width:calc(50% - 20px);\r\n    \r\n}\r\n#right-pane {\r\n    position: relative;\r\n    display:block;\r\n    float:left;\r\n    width:calc(35% - 20px);\r\n}\r\n\r\n.bottom-center{\r\n    clear:both;\r\n    position: relative;\r\n    display:block;\r\n    width:100%;\r\n\r\n}\r\n.recipe-details p{\r\n    float:left;\r\n    display:block;\r\n    margin:0px 5px;\r\n    text-align:center;\r\n    width: calc(33% - 15px);\r\n    border-right: 1px solid gray;\r\n   \r\n    \r\n}\r\n.recipe-details p:last-child{\r\n    border-right: none;\r\n}\r\n.recipe-details{\r\n  \r\n    text-align: center;\r\n    width: 100%;\r\n   \r\n}\r\n.recipe-details{\r\n    margin-top: 20px;\r\n}\r\n#left-pane ul{\r\n    clear:both;\r\n    width:100%;\r\n    display:block;\r\n    padding:0px;\r\n\r\n}\r\n.float-clear{\r\n    clear:both;\r\n}\r\n.rating li {\r\n    float:left;\r\n\r\n}\r\n.rating i{\r\n    font-size: 22px;\r\n    color: gray;\r\n}\r\n.rating{\r\n    width:120px;;    \r\n    display:block;\r\n    text-align: center;\r\n    margin: 0 auto;\r\n}\r\n\r\n\r\n.rating i.checked {\r\n    float:left;\r\n    color: orange;\r\n}\r\nol{\r\n    text-align: left;\r\n}\r\n.tags ul{\r\n    list-style: none;\r\n}\r\n.tags li{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px 0px 0px 10px;\r\n}\r\n.tags p{\r\n    float: left;\r\n    display: block;\r\n    margin: 0px;\r\n}\r\n.ratings ul{\r\n    list-style: none;\r\n    height: 100%;\r\n    padding: 0px;\r\n}\r\n.ratings{\r\n    cursor: default;\r\n    padding:0px;\r\n    margin: 0 auto;\r\n    height: auto;\r\n    display: block;\r\n}\r\n.ratings ul{\r\n    width: auto;\r\n    background-color: #e8eef2;\r\n    overflow: hidden;\r\n    height:auto;\r\n}\r\n.ratings ul > div{\r\n    display:inline-block;\r\n    width: calc( 33% - 10px);\r\n    height:100%;\r\n}\r\n.ratings li{\r\n    display: block ;\r\n    text-align: center ;\r\n    margin: 0px 5px;\r\n    background-color:none;\r\n    padding: 10px;\r\n\r\n \r\n \r\n\r\n}\r\n\r\n.ratings div:hover {\r\n    background-color: #c7d3dd;\r\n}\r\n@media (max-width: 700px) {\r\n   article{\r\n       \r\n      width: 100% !important;\r\n      float: none;\r\n   }\r\n}\r\nimg{\r\n    width:100%;\r\n    height:auto;\r\n}\r\n@media print{\r\n    section{\r\n        position: absolute;\r\n        background-color:rgb(255, 255, 255);\r\n        width:90%;\r\n        margin: 10px auto;\r\n        border-radius:  0px;\r\n        padding: 10px;\r\n        position: relative;\r\n        overflow: hidden;\r\n        box-shadow:none;\r\n    }\r\n    .ratings{\r\n        display:none;\r\n    }\r\n    article{\r\n       width: 100%;\r\n       clear:both;\r\n    }\r\n    .comments{\r\n        display:none;\r\n    }\r\n \r\n}\r\n.comments header{\r\n    height: 44px;\r\n}\r\n.comments h2{\r\n    display: block;\r\n    width: 110px;\r\n    float: left;\r\n    padding:0px;\r\n    margin: 0px;\r\n}\r\n.comments .newcomment{\r\n    display:block;\r\n    width: 110px;\r\n    float: right;\r\n}\r\n.comments ul{\r\n    list-style: none;\r\n    text-align: left;\r\n}\r\n.comments h3 {\r\n    margin: 3px;\r\n}\r\n.comments ul div {\r\n   \r\n    display: block;\r\n    border-bottom: 1px solid gray;\r\n}\r\n.comments li{\r\n    padding: 20px;\r\n}", ""]);
 
 // exports
 
@@ -1425,6 +1503,8 @@ module.exports = "<section>\r\n  <div id = \"top\">\r\n  <article id = \"left-pa
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rate_modal_rate_modal_component__ = __webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__ = __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1439,11 +1519,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 var RecipeviewComponent = (function () {
-    function RecipeviewComponent(route, dataService, dialog) {
+    function RecipeviewComponent(route, dataService, dialog, authenticationService) {
         this.route = route;
         this.dataService = dataService;
         this.dialog = dialog;
+        this.authenticationService = authenticationService;
         this.numChecked = [];
         this.numUnChecked = [];
     }
@@ -1461,11 +1544,38 @@ var RecipeviewComponent = (function () {
         this.numChecked = new Array(this.recipe.Rating);
         this.numUnChecked = new Array(5 - this.recipe.Rating);
     };
+    RecipeviewComponent.prototype.save = function () {
+        var _this = this;
+        var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.doSave(response); });
+    };
+    RecipeviewComponent.prototype.doSave = function (response) {
+        if (response.validated) {
+            alert("TO IMPLEMENT SAVING");
+        }
+        else {
+            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
+            this.dialogRefSignin.afterClosed().subscribe(function (result) {
+                console.log(result);
+            });
+        }
+    };
     RecipeviewComponent.prototype.displayRateModal = function () {
-        this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__rate_modal_rate_modal_component__["a" /* RateModalComponent */], { width: '600px' });
-        this.dialogRef.afterClosed().subscribe(function (result) {
-            console.log(result);
-        });
+        var _this = this;
+        var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.displayScreen(response); });
+    };
+    RecipeviewComponent.prototype.displayScreen = function (response) {
+        if (response.validated) {
+            this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__rate_modal_rate_modal_component__["a" /* RateModalComponent */], { width: '600px' });
+            this.dialogRef.afterClosed().subscribe(function (result) {
+                console.log(result);
+            });
+        }
+        else {
+            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
+            this.dialogRefSignin.afterClosed().subscribe(function (result) {
+                console.log(result);
+            });
+        }
     };
     RecipeviewComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -1474,7 +1584,7 @@ var RecipeviewComponent = (function () {
             styles: [__webpack_require__("../../../../../src/app/recipeview/recipeview.component.css")]
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */],
-            __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatDialog */]])
+            __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_5__authentication_service__["a" /* AuthenticationService */]])
     ], RecipeviewComponent);
     return RecipeviewComponent;
 }());
@@ -1626,7 +1736,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"username\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"password\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button mat-raised-button data-dismiss=\"modal\" class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"username\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"password\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button mat-raised-button data-dismiss=\"modal\" class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -1676,11 +1786,25 @@ var SigninModalComponent = (function () {
     SigninModalComponent.prototype.updateLoginStatus = function (status) {
         if (status == true) {
             this.dialogRef.close('');
-            this.router.navigate(['./home']);
+            this.checkIfLoggedIn();
+            // this.router.navigate(['./home']);
         }
         else {
             var error = document.getElementById("error");
             error.style.display = "block";
+        }
+    };
+    SigninModalComponent.prototype.checkIfLoggedIn = function () {
+        var _this = this;
+        var results;
+        var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.updateScreen(response); });
+    };
+    SigninModalComponent.prototype.updateScreen = function (result) {
+        if (result.validated) {
+            document.getElementById('si').style.display = "none";
+            document.getElementById('so').style.display = "inline-block";
+            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').style.display = "inline-block";
         }
     };
     SigninModalComponent = __decorate([
