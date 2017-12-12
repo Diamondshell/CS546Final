@@ -31,7 +31,7 @@ export class SigninModalComponent {
     this.isDisabled = true;
     var results;
     var username = (<HTMLInputElement>document.getElementById("login_id")).value;
-    alert(username);
+
     var password = (<HTMLInputElement>document.getElementById("login_pass")).value;
     var success = this.authenticationService.authenticateUser(username, password).subscribe(response => this.updateLoginStatus(response));
   }
