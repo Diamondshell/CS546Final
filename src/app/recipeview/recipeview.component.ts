@@ -48,7 +48,7 @@ export class RecipeviewComponent implements OnInit {
     if (response.validated){
       alert("TO IMPLEMENT SAVING");
     }else {
-      this.dialogRefSignin = this.dialog.open(SigninModalComponent);
+      this.dialogRefSignin = this.dialog.open(SigninModalComponent, {data: {loggedIn: true}});
       this.dialogRefSignin.afterClosed().subscribe((result) => {
         console.log(result);
       });
@@ -66,7 +66,7 @@ export class RecipeviewComponent implements OnInit {
         console.log(result);
       });
     }else {
-      this.dialogRefSignin = this.dialog.open(SigninModalComponent);
+      this.dialogRefSignin = this.dialog.open(SigninModalComponent, {data: {loggedIn: true}});
       this.dialogRefSignin.afterClosed().subscribe((result) => {
         console.log(result);
       });

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material';
 import { SigninModalComponent } from './signin-modal/signin-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
 import {AuthenticationService } from './authentication.service';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,7 +14,7 @@ export class AppComponent {
   dialogRef: MatDialogRef<SigninModalComponent>;
   otherDialogRef: MatDialogRef<RandomRecipeModalComponent>;
 
-  constructor(public dialog: MatDialog, private authenticationService: AuthenticationService ){
+  constructor(public dialog: MatDialog, private authenticationService: AuthenticationService, private router: Router){
   }
 
   ngOnInit() {
@@ -26,6 +27,8 @@ export class AppComponent {
     document.getElementById('si').style.display="block";
     document.getElementById('so').style.display="none";
     document.getElementById('user').style.display="none";
+    this.router.navigate(['./home']);
+
   }
 
   signIn(){
