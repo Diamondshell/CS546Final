@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material';
+import { Component, OnInit, Inject } from '@angular/core';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewEncapsulation } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
 import { Router } from '@angular/router';
@@ -11,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class SigninModalComponent {
 
-  constructor(public dialogRef: MatDialogRef<SigninModalComponent>, private authenticationService: AuthenticationService, private router: Router) {}
+  isDisabled = false;
+  constructor(public dialogRef: MatDialogRef<SigninModalComponent>, private authenticationService: AuthenticationService, private router: Router,  @Inject(MAT_DIALOG_DATA) public loggedIn: any) {}
 
   register(){
   	document.getElementById('sign-in').style.display = 'none';
@@ -27,9 +28,11 @@ export class SigninModalComponent {
     var att = document.createAttribute("disabled");
     document.getElementById("sign-in").setAttributeNode(att);
     (<HTMLButtonElement>document.getElementById("sign-in")).value="Loading";*/
+    this.isDisabled = true;
     var results;
-    var username = (<HTMLInputElement>document.getElementById("username")).value;
-    var password = (<HTMLInputElement>document.getElementById("password")).value;
+    var username = (<HTMLInputElement>document.getElementById("login_id")).value;
+    alert(username);
+    var password = (<HTMLInputElement>document.getElementById("login_pass")).value;
     var success = this.authenticationService.authenticateUser(username, password).subscribe(response => this.updateLoginStatus(response));
   }
 
@@ -41,6 +44,7 @@ export class SigninModalComponent {
       // this.router.navigate(['./home']);
     }
     else {
+      this.isDisabled = false;
       var error = document.getElementById("error");
       error.style.display="block";
     }
@@ -57,6 +61,12 @@ export class SigninModalComponent {
       document.getElementById('so').style.display="inline-block";
       document.getElementById('user').innerHTML=`Hello ${result.username}`;
       document.getElementById('user').style.display="inline-block";
+    }
+  }
+
+  ngOnInit(){
+    if(this.loggedIn){
+      document.getElementById('gotta_log').style.display = "block";
     }
   }
 }

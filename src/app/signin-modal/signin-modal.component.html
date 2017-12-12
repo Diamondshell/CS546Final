@@ -1,18 +1,19 @@
 <div id="container">
 	<div id="wrapper">
+		<span id="gotta_log">You must log in to access that!</span>
 		<div id="sign-in">
 			<form>
 			  <mat-form-field title="Username" class="input">
-			    <input id="username" matInput placeholder="Username" value="">
+			    <input id="login_id" matInput placeholder="Username" value="">
 			  </mat-form-field>
 			  <br>
 			  <mat-form-field title="Password" class="input">
-			  	<input id="password" matInput placeholder="Password" type="password">
+			  	<input id="login_pass" matInput placeholder="Password" type="password">
 			  </mat-form-field>
 			  <br>
 			  <p id="error">Invalid username or password.</p>
 			  <br>
-			  <button mat-raised-button data-dismiss="modal" class="submit" (click)="authenticateUser()" value="Sign-In" id="sign-in">Sign-In</button>
+			  <button [disabled]="isDisabled" data-dismiss="modal" class="btn btn-primary submit" (click)="authenticateUser()" value="Sign-In" id="sign-in">Sign-In</button>
 			</form>
 
 			<footer class="footer">

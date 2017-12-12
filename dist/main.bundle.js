@@ -83,7 +83,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 440px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n   margin-top:20px;\r\n   outline:none;\r\n\r\n}\r\n\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nli.logo{\r\n    cursor:pointer;\r\n}\r\nnav{\r\n    padding:10px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    height:90px;\r\n    outline:none;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media(max-width: 900px){\r\n    li.searchText{\r\n        width: calc(100% - 400px) !important;\r\n    }\r\n    li.browse{\r\n        margin-left: 325px !important;\r\n    }\r\n  \r\n}\r\n@media (max-width: 730px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(100% - 60px) !important;\r\n        display:block;\r\n        \r\n    }\r\n    li.search{\r\n        clear: right;\r\n    }\r\n    li.browse{\r\n        margin-left: 25px !important;\r\n        float:left;\r\n    }\r\n    li.random{\r\n        float: right;\r\n    }\r\n  \r\n  \r\n    \r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n    padding-right:0px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n  height:100%;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n\r\n\r\n.so{\r\n    display: none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n#bar{\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    padding: 5px 15px;\r\n    height: 45px;\r\n}\r\n\r\n\r\n.user{\r\n    float:right;\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 27px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none !important;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n    #wrapper{\r\n        position:absolute;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
+exports.push([module.i, "\r\n#wrapper {\r\n    max-width: 1300px;\r\n    min-width: 440px;\r\n    margin: 0px auto;\r\n    width:100%;\r\n    padding:0px;\r\n    border:none;\r\n    background-color: #e8eef2;\r\n    text-align: center;\r\n    position: relative;\r\n    min-height:100%;\r\n    height:auto;\r\n   \r\n    \r\n}\r\n\r\n#logo{\r\n    width: 300px;\r\n    height: 50px;\r\n   margin-top:20px;\r\n   outline:none;\r\n\r\n}\r\n\r\nheader{\r\n    overflow: hidden;\r\n    width:100%;\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    \r\n   \r\n   \r\n}\r\nli.logo{\r\n    cursor:pointer;\r\n}\r\nnav{\r\n    padding:10px  15px;\r\n}\r\n\r\n\r\nul {\r\n    list-style-type: none;\r\n    margin: 0;\r\n    padding: 0;\r\n    overflow: hidden;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nli {\r\n    float: left;\r\n    height:90px;\r\n    outline:none;\r\n    \r\n}\r\n\r\nli p {\r\n    background-color: #e8eef2;\r\n    cursor: default;\r\n    text-align: center;\r\n}\r\n\r\n\r\n\r\nli p, li input {\r\n    display: block;\r\n    color: black;\r\n  \r\n    text-decoration: none;\r\n    padding: 14px 16px;\r\n    \r\n}\r\n@media(max-width: 900px){\r\n    li.searchText{\r\n        width: calc(100% - 400px) !important;\r\n    }\r\n    li.browse{\r\n        margin-left: 325px !important;\r\n    }\r\n  \r\n}\r\n@media (max-width: 730px) {\r\n    li.logo{\r\n        width: 100%;\r\n    }\r\n    li.searchText {\r\n        width: calc(100% - 60px) !important;\r\n        display:block;\r\n        \r\n    }\r\n    li.search{\r\n        clear: right;\r\n    }\r\n    li.browse{\r\n        margin-left: 25px !important;\r\n        float:left;\r\n    }\r\n    li.random{\r\n        float: right;\r\n    }\r\n  \r\n  \r\n    \r\n}\r\n\r\n/* Change the link color to #111 (black) on hover */\r\nli p:hover {\r\n    background-color:  #c7d3dd;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width: calc(100% - 86px - 150px - 300px - 120px);\r\n    padding: 15px;\r\n    min-width:100px;\r\n    padding-right:0px;\r\n    border: 0px;\r\n}\r\nli.searchText input {\r\n  /*  width: calc(90% - 10px);*/\r\n  width: 100%;\r\n  height:57px;\r\n  margin-top: 1px;\r\n}\r\n\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n\r\n\r\n.so{\r\n    display: none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n\r\n}\r\n.signIn{\r\n    border:none;\r\n    padding: 6px 15px;\r\n    border-radius: 6px;\r\n    outline: none;\r\n    float: right;\r\n    margin-top: 5px;\r\n    margin-right: 0px;\r\n    margin-left: 0px;\r\n    margin-bottom: 0px;\r\n}\r\n#bar{\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    padding: 5px 15px;\r\n    height: 45px;\r\n}\r\n\r\n\r\n.user{\r\n    float:right;\r\n    color: rgb(0, 0, 0);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n    display:none;\r\n    margin-left: 10px;\r\n}\r\n.user:hover {\r\n    color: rgb(46, 45, 45);\r\n    text-decoration: none;\r\n    border-bottom: 1px dashed rgb(104, 103, 103);\r\n}\r\n.signIn:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\n\r\n.body_wrapper {\r\n    margin: 0;\r\n    overflow: hidden;\r\n}\r\n\r\n.searchBar {\r\n    height: 100%;\r\n    border: 0px;\r\n}\r\n/*\r\nnav{\r\n    width: 100%;\r\n    background-color: #77b6ea;\r\n}\r\n\r\nnav  ul {\r\n  \r\n    list-style-type: none;\r\n    margin-left: auto;\r\n    margin-right: auto;\r\n    position: relative;\r\n    margin-top:0px;\r\n    padding: 0;\r\n    background-color: #77b6ea;\r\n    display: inline-block;  \r\n\r\n    width: 100%;\r\n}\r\n header li {\r\n    float: left;\r\n    margin-top:5px;\r\n    margin:10px;\r\n    overflow:hidden;\r\n}\r\n\r\nli.searchText{\r\n    margin: 0px;\r\n    margin-left:10px;\r\n    width:40%;\r\n   \r\n}\r\nli.search {\r\n    margin: 0px;\r\n    text-align: left;\r\n\r\n}\r\n\r\nli.browse{\r\n    margin-left: 10px;\r\n    margin-right: 10px;\r\n    \r\n}\r\n\r\n li p , li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n    background-color:  #e8eef2;\r\n   border-color: #e8eef2;\r\n   outline:none;\r\n   border: none;\r\n   \r\n  \r\n }\r\n li p:hover{\r\n    border-radius: 5px;\r\n    background-color: black;\r\n\r\n}*/\r\n/*\r\nli p, li input{\r\n    display: block;\r\n    color: black;\r\n    text-align: center;\r\n    padding: 14px 16px;\r\n    text-decoration: none;\r\n    width: 100%;\r\n       \r\n    }\r\n  */\r\n.float-clear{\r\n    clear:both;\r\n}\r\nfooter {\r\n    background-color: #77b6ea;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    padding: 25px;\r\n    position: absolute;\r\n    width: calc(100%);\r\n    bottom: 0px;\r\n}\r\nfooter.footerInfo {\r\n\r\n    font-family: Palanquin;\r\n    display:block;\r\n    float:none;\r\n    clear:both;\r\n    width: 100%;\r\n    text-align: center;\r\n    padding: 10px;\r\n    background-color: #a2abaa;\r\n}\r\n@media print{\r\n    .signIn{\r\n        display:none !important;\r\n    }\r\n    .searchText, .search, .browse, .random{\r\n        display: none !important;\r\n    }\r\n    footer{\r\n        display:none;\r\n    }\r\n    #wrapper{\r\n        position:absolute;\r\n    }\r\n}\r\n\r\n.spacer{\r\n    display:block;\r\n    clear:both;\r\n    height:200px;\r\n}", ""]);
 
 // exports
 
@@ -110,6 +110,7 @@ module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <butto
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__signin_modal_signin_modal_component__ = __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__random_recipe_modal_random_recipe_modal_component__ = __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -124,10 +125,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(dialog, authenticationService) {
+    function AppComponent(dialog, authenticationService, router) {
         this.dialog = dialog;
         this.authenticationService = authenticationService;
+        this.router = router;
         this.title = 'app';
     }
     AppComponent.prototype.ngOnInit = function () {
@@ -139,6 +142,7 @@ var AppComponent = (function () {
         document.getElementById('si').style.display = "block";
         document.getElementById('so').style.display = "none";
         document.getElementById('user').style.display = "none";
+        this.router.navigate(['./home']);
     };
     AppComponent.prototype.signIn = function () {
         this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_2__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
@@ -171,7 +175,7 @@ var AppComponent = (function () {
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -514,7 +518,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<section class=\"card\" (click)=\"onSelect()\">\r\n    <a routerLink=\"/recipe/{{recipe.id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.content}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"editRecipe()\" [class.delete-options] = \"deleting\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe.id}}\">\r\n<footer>\r\n    <p>Rating:</p>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
+module.exports = "\r\n<section class=\"card\" (click)=\"onSelect()\">\r\n    <a routerLink=\"/recipe/{{recipe.id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.content}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"deleteRecipe()\" [class.delete-options] = \"deleting\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe.id}}\">\r\n<footer>\r\n    <p>Rating:</p>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -550,7 +554,7 @@ var CardComponent = (function () {
     CardComponent.prototype.ngOnInit = function () {
     };
     CardComponent.prototype.editRecipe = function () {
-        this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], { data: { id: this.recipe.id } });
+        this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], { data: { id: this.recipe.id, edit: true } });
         this.dialogRef.afterClosed().subscribe(function (result) {
             console.log(result);
         });
@@ -603,7 +607,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create-recipe-modal/create-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>New Recipe</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Recipe Name\" value={{recipe.Name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.Description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Appliance}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.Price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input matInput value={{recipe.Cooking_Time}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.Tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.Steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Sign-In\">Create Recipe!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title id=\"heading\">New Recipe</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Recipe Name\" value={{recipe.Name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.Description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Appliance}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.Price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input matInput value={{recipe.Cooking_Time}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.Tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.Steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" id=\"finishButton\">Create Recipe!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -648,6 +652,8 @@ var CreateRecipeModalComponent = (function () {
     CreateRecipeModalComponent.prototype.ngOnInit = function () {
         if (this.data) {
             this.getRecipeById(this.data.id);
+            document.getElementById('heading').innerHTML = "Edit Recipe";
+            document.getElementById('finishButton').innerHTML = "Save Recipe!";
         }
         else {
             this.recipe = new __WEBPACK_IMPORTED_MODULE_4__recipeDetails__["a" /* RecipeDetail */]();
@@ -657,6 +663,8 @@ var CreateRecipeModalComponent = (function () {
             this.recipe.Description = "";
             this.recipe.Ingredients = [];
             this.recipe.Price = 0;
+            document.getElementById('heading').innerHTML = "Create Recipe";
+            document.getElementById('finishButton').innerHTML = "Create Recipe!";
         }
     };
     CreateRecipeModalComponent = __decorate([
@@ -1394,7 +1402,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/rate-modal/rate-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\r\n\t<form>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\r\n\t\t\t    <mat-select placeholder=\"Rating\" value=\"\">\r\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\r\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\r\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\r\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\r\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\r\n\t\t\t    </mat-select>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Rate\">Submit!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div id=\"createRecipeForm\">\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\n\t<form>\n\t\t<table>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\n\t\t\t    <mat-select placeholder=\"Rating\" value=\"\">\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\n\t\t\t    </mat-select>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Rate\">Submit!</button>\n\t\t</table>\n\t</form>\n</div>\n\n\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -1553,7 +1561,7 @@ var RecipeviewComponent = (function () {
             alert("TO IMPLEMENT SAVING");
         }
         else {
-            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
+            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], { data: { loggedIn: true } });
             this.dialogRefSignin.afterClosed().subscribe(function (result) {
                 console.log(result);
             });
@@ -1571,7 +1579,7 @@ var RecipeviewComponent = (function () {
             });
         }
         else {
-            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */]);
+            this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], { data: { loggedIn: true } });
             this.dialogRefSignin.afterClosed().subscribe(function (result) {
                 console.log(result);
             });
@@ -1723,7 +1731,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#007eb6;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}\r\n\r\n#register {\r\n  display: none;\r\n}\r\n\r\n#to_register, #to_login {\r\n     cursor:pointer;\r\n     color:blue;\r\n     text-decoration:underline;\r\n}\r\n\r\n#to_register:hover, #to_login:hover {\r\n  text-decoration: none;\r\n  text-shadow: 1px 1px 1px #555;\r\n}\r\n\r\n#error {\r\n  color: red;\r\n  display: none;\r\n  margin: 0;\r\n}\r\n\r\n#sign-in {\r\n  width: 200px;\r\n}\r\n\r\ninput {\r\n  width: 100%;\r\n}", ""]);
+exports.push([module.i, ".submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#007eb6;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}\r\n\r\n#register {\r\n  display: none;\r\n}\r\n\r\n#to_register, #to_login {\r\n     cursor:pointer;\r\n     color:blue;\r\n     text-decoration:underline;\r\n}\r\n\r\n#to_register:hover, #to_login:hover {\r\n  text-decoration: none;\r\n  text-shadow: 1px 1px 1px #555;\r\n}\r\n\r\n#error {\r\n  color: red;\r\n  display: none;\r\n  margin: 0;\r\n}\r\n\r\n#sign-in {\r\n  width: 200px;\r\n}\r\n\r\ninput {\r\n  width: 100%;\r\n}\r\n\r\nbutton:disabled,\r\nbutton[disabled]{\r\n  opacti: 0.65;\r\n  cursor: not-allowed;\r\n}\r\n\r\n.btn {\r\n  display: inline-block;\r\n  margin-bottom: 0;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  vertical-align: middle;\r\n  cursor: pointer;\r\n  background-image: none;\r\n  whitespace: nowrap;\r\n  padding: 6px 12px;\r\n  font-size: 1.4rem;\r\n  border-radius: 3px;\r\n  border: 1px solid transparent;\r\n  text-decoration: none;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n}\r\n.btn-primary {\r\n  color: #e3f2fd;\r\n  border-color: #1e88e5;\r\n  background: linear-gradient(to bottom, #64b5f6 0%, #42a5f5 100%);\r\n  box-shadow: inset 0 1px #bbdefb, 0 1px 2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.btn:hover, .btn:focus, .btn.focus {\r\n    text-decoration: none;\r\n    color: #fff;\r\n}\r\n\r\n.btn-primary:hover, .btn-primary:focus, .btn-primary.focus {\r\n    border-color: #42a5f5;\r\n    background: linear-gradient(to bottom, #90caf9 0%, #64b5f6 100%);\r\n    box-shadow: inset 0 1px #e3f2fd, 0 2px 3px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.btn-primary:active, .btn-primary.active {\r\n    border-color: #1976d2;\r\n    color: #bbdefb;\r\n    background: linear-gradient(to bottom, #42a5f5 0%, #1e88e5 100%);\r\n    box-shadow: inset 0 2px 2px #1976d2;\r\n}\r\n\r\n.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary {\r\n    background: #90caf9;\r\n    border-color: #64b5f6;\r\n}\r\n\r\n.btn.disabled, .btn[disabled], fieldset[disabled] .btn {\r\n    cursor: not-allowed;\r\n    pointer-events: none;\r\n    box-shadow: none;\r\n}\r\n\r\n#gotta_log{\r\n  display: none;\r\n  padding-bottom: 10px;\r\n  color: #B20F0F;\r\n  text-decoration: bold;\r\n}", ""]);
 
 // exports
 
@@ -1736,7 +1744,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"username\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"password\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button mat-raised-button data-dismiss=\"modal\" class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -1758,15 +1766,20 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 
 
 
 
 var SigninModalComponent = (function () {
-    function SigninModalComponent(dialogRef, authenticationService, router) {
+    function SigninModalComponent(dialogRef, authenticationService, router, loggedIn) {
         this.dialogRef = dialogRef;
         this.authenticationService = authenticationService;
         this.router = router;
+        this.loggedIn = loggedIn;
+        this.isDisabled = false;
     }
     SigninModalComponent.prototype.register = function () {
         document.getElementById('sign-in').style.display = 'none';
@@ -1778,9 +1791,11 @@ var SigninModalComponent = (function () {
     };
     SigninModalComponent.prototype.authenticateUser = function () {
         var _this = this;
+        this.isDisabled = true;
         var results;
-        var username = document.getElementById("username").value;
-        var password = document.getElementById("password").value;
+        var username = document.getElementById("login_id").value;
+        alert(username);
+        var password = document.getElementById("login_pass").value;
         var success = this.authenticationService.authenticateUser(username, password).subscribe(function (response) { return _this.updateLoginStatus(response); });
     };
     SigninModalComponent.prototype.updateLoginStatus = function (status) {
@@ -1790,6 +1805,7 @@ var SigninModalComponent = (function () {
             // this.router.navigate(['./home']);
         }
         else {
+            this.isDisabled = false;
             var error = document.getElementById("error");
             error.style.display = "block";
         }
@@ -1807,13 +1823,19 @@ var SigninModalComponent = (function () {
             document.getElementById('user').style.display = "inline-block";
         }
     };
+    SigninModalComponent.prototype.ngOnInit = function () {
+        if (this.loggedIn) {
+            document.getElementById('gotta_log').style.display = "block";
+        }
+    };
     SigninModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-signin-modal',
             template: __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
+        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], Object])
     ], SigninModalComponent);
     return SigninModalComponent;
 }());

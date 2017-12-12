@@ -1,5 +1,5 @@
 <div id="createRecipeForm">
-	<h1 mat-dialog-title>New Recipe</h1>
+	<h1 mat-dialog-title id="heading">New Recipe</h1>
 	<form ngNoForm>
 		<table>
 			<tr>
@@ -43,7 +43,7 @@
 					<textarea matInput matTextareaAutosize placeholder="(comma separated list)" type="text" class="taDirections" value={{recipe.Steps}}></textarea>
 				</mat-form-field>
 			</tr>
-	  	<button mat-raised-button class="submit" type="submit" value="Sign-In">Create Recipe!</button>
+	  	<button mat-raised-button class="submit" type="submit" id="finishButton">Create Recipe!</button>
 		</table>
 	</form>
 </div>
