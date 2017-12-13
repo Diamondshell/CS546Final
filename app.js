@@ -216,7 +216,9 @@ app.post('/user', async function(req, res) {
                 res.status(500).json({error: "Failed to add user with username: " + username});
             }
         }
-    }
+    }catch(error) {
+		res.status(500).json({error: "Failed to add user"});
+	}
 });
 
 //PUT user/:userId route, updates the specified user with only the supplied changes, returns updated user information 
@@ -302,11 +304,37 @@ app.get('/recipes', async function(req, res) {
     console.log("Attempting to get all recipes");
     //try to get recipes
     try {
-        let getAll = await index.recipes.getAllRecipes();
+        let allRecipes = await index.recipes.getAllRecipes();
         console.log(getAll);
+		
+		//variable to hold return value
+      	let retVal = [];
+		
+        for each (let rec in allRecipes) {
+			let tmp = rec;
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let total = 0;
+			let cnt = 0;
+			for each (rat in recRatings) {
+				cnt++;
+				total = total + rat.rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+
+			//add average rating and comments to return value
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+        
+      
         //send status and response
         res.status(200);
-        res.send(getAll);
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(500).json({error: "Can't retrieve recipes"});
@@ -397,11 +425,35 @@ app.get('/recipe/simplified/:recipeId', async function(req, res) {
 app.get('/recipes/user/:userId', async function(req, res) {
     //try to get recipes with specified userId
     try{
-        let getRecipe = await index.recipes.getRecipeByUserId(req.params.userId);
+        let allRecipes = await index.recipes.getRecipeByUserId(req.params.userId);
         
+		//variable to hold return value
+      	let retVal = [];
+		
+        for each (rec in allRecipes) {
+			let tmp = rec;
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let total = 0;
+			let cnt = 0;
+			for each (rat in recRatings) {
+				cnt++;
+				total = total + rat.rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+
+			//add average rating and comments to return value
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+		
         //send status and response
         res.status(200);
-        res.send(getRecipe);
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(404).json({error: "No recipes found for specified user"});
@@ -428,11 +480,35 @@ app.get('/recipes/filter', async function(req, res) {
 
     //try to get recipes with specified filter
     try{
-        let getRecipe = await index.recipes.getRecipesByFilter(filter);
+        let allRecipes = await index.recipes.getRecipesByFilter(filter);
         
-        //send status and response
+		//variable to hold return value
+      	let retVal = [];
+		
+        for each (rec in allRecipes) {
+			let tmp = rec;
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let total = 0;
+			let cnt = 0;
+			for each (rat in recRatings) {
+				cnt++;
+				total = total + rat.rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+
+			//add average rating and comments to return value
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+			
+		//send status and response
         res.status(200);
-        res.send(getRecipe);
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(404).json({error: "Recipe not found"});
@@ -443,11 +519,35 @@ app.get('/recipes/filter', async function(req, res) {
 app.get('/recipes/byname/:name', async function(req, res) {
     //try to get recipes that match name
     try{
-        let getRecipes = await index.recipes.getRecipesByLikeName(req.params.name);
+        let allRecipes = await index.recipes.getRecipesByLikeName(req.params.name);
         
+		//variable to hold return value
+      	let retVal = [];
+		
+        for each (rec in allRecipes) {
+			let tmp = rec;
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let total = 0;
+			let cnt = 0;
+			for each (rat in recRatings) {
+				cnt++;
+				total = total + rat.rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+
+			//add average rating and comments to return value
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+		
         //send status and response
         res.status(200);
-        res.send(getRecipes);
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(404).json({error: "No recipes found for search word: " + req.params.name});
@@ -458,11 +558,35 @@ app.get('/recipes/byname/:name', async function(req, res) {
 app.get('/recipes/topx/:x', async function(req, res) {
     //try to get top x recipes by popularity
     try{
-        let getRecipes = await index.recipes.topXTrendingRecipes(req.params.x);
+        let allRecipes = await index.recipes.topXTrendingRecipes(req.params.x);
         
+		//variable to hold return value
+      	let retVal = [];
+		
+        for each (rec in allRecipes) {
+			let tmp = rec;
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let total = 0;
+			let cnt = 0;
+			for each (rat in recRatings) {
+				cnt++;
+				total = total + rat.rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+
+			//add average rating and comments to return value
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+		
         //send status and response
         res.status(200);
-        res.send(getRecipes);
+        res.send(retVal;
     }catch(error) {
         //handle error
         res.status(404).json({error: "Could not retrieve top " + req.params.x + " recipes"});
@@ -474,6 +598,7 @@ app.post('/recipe', async function(req, res) {
     //check and get parameters
     let userid = "";
     let name = "";
+	let description = "";
     let price = 0;
     let cookTime = 0;
     let appliances = [];
@@ -492,7 +617,7 @@ app.post('/recipe', async function(req, res) {
             return;
         }
     }else {
-        res.status(400).json({error: "Bad Request: requires a tuserid"});
+        res.status(400).json({error: "Bad Request: requires a userid"});
         return;
     }
 
@@ -506,7 +631,21 @@ app.post('/recipe', async function(req, res) {
             return;
         }
     }else {
-        res.status(400).json({error: "Bad Request: requires a title"});
+        res.status(400).json({error: "Bad Request: requires a name"});
+        return;
+    }
+	
+	//check for description
+    if(req.body.hasOwnProperty("description")) {
+        //check if description is a string
+        if(typeof req.body.description == 'string') {
+            description = req.body.description;
+        }else {
+            res.status(400).json({error: "Bad Request: requires description to be a string"});
+            return;
+        }
+    }else {
+        res.status(400).json({error: "Bad Request: requires a description"});
         return;
     }
 
@@ -610,7 +749,7 @@ app.post('/recipe', async function(req, res) {
     
     //try to add recipe to database
     try {
-        let newRecipe = await index.recipes.createRecipe(userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps);
+        let newRecipe = await index.recipes.createRecipe(userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps);
         
         //send status and response
         res.status(200);
@@ -626,6 +765,7 @@ app.put('/recipe/:recipeId', async function(req, res) {
     //check for and get parameters
     let userid = "";
     let name = "";
+	let description = "";
     let price = 0;
     let cookTime = 0;
     let appliances = [];
@@ -658,6 +798,19 @@ app.put('/recipe/:recipeId', async function(req, res) {
         }
     }else {
 	   name = undefined;
+    }
+	
+	//check for description
+    if(req.body.hasOwnProperty("description")) {
+        //check if description is a string
+        if(typeof req.body.description == 'string') {
+            description = req.body.description;
+        }else {
+            res.status(400).json({error: "Bad Request: requires description to be a string"});
+            return;
+        }
+    }else {
+        description = undefined;
     }
 
     //check for price
@@ -753,7 +906,7 @@ app.put('/recipe/:recipeId', async function(req, res) {
     
     //try to update recipe
     try {
-        let updRecipe = await index.recipes.updateRecipeById(req.params.recipeId, userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps);
+        let updRecipe = await index.recipes.updateRecipeById(req.params.recipeId, userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps);
     
         //send status and response
         res.status(200);
