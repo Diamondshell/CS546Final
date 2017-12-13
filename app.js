@@ -1,3 +1,48 @@
+
+Conversation opened. 1 unread message.
+
+Skip to content
+Using Stevens Institute of Technology Mail with screen readers
+Search
+
+
+
+Mail
+COMPOSE
+Labels
+Inbox (4,524)
+Starred
+Sent Mail
+Drafts
+Federal Aid
+More 
+Hangouts
+
+ 
+ 
+ 
+  More 
+1 of 7,648  
+ 
+Print all In new window
+asdf 
+Inbox
+x 
+
+Jack Kraszewski <jkraszew@stevens.edu>
+Attachments5:42 PM (12 minutes ago)
+
+to me 
+Attachments area
+	
+Click here to Reply or Forward
+Using 1.94 GB
+Manage
+Program Policies
+Powered by Google
+Last account activity: 12 minutes ago
+Details
+
 /*
  *
  *
@@ -197,15 +242,25 @@ app.post('/user', async function(req, res) {
         return;
     }
     
-    //try to add user to database
+    //check if username is already in database
     try {
-        let newUser = await index.users.createUser(password, username, email, description);
+        let userInfo = await index.users.getUserById(username);
         
-        //send status and response
-        res.status(200);
-        res.send(newUser);
-    }catch(error) {
-        res.status(500).json({error: "Failed to add user with username: " + username});
+        if(userInfo.hasOwnProperty("password")) {
+            //username already in use
+            res.status(500).json({error: "Username " + username + " already in use"});
+        }else {
+            //username not in use, try to add user to database
+            try {
+                let newUser = await index.users.createUser(password, username, email, description);
+
+                //send status and response
+                res.status(200);
+                res.send(newUser);
+            }catch(error) {
+                res.status(500).json({error: "Failed to add user with username: " + username});
+            }
+        }
     }
 });
 
@@ -213,7 +268,6 @@ app.post('/user', async function(req, res) {
 app.put('/user/:userId', async function(req, res) {
     //check and get parameters
     let password = "";
-    let username = "";
     let email = "";
     let description = "";
     
@@ -228,19 +282,6 @@ app.put('/user/:userId', async function(req, res) {
         }
     }else {
         password = undefined;
-    }
-    
-    //check for username
-    if(req.body.hasOwnProperty("username")) {
-        //check if username is a string
-        if(typeof req.body.username == 'string') {
-            username = req.body.username;
-        }else {
-            res.status(400).json({error: "Bad Request: requires username to be a string"});
-            return;
-        }
-    }else {
-        username = undefined;
     }
     
     //check for email 
@@ -271,7 +312,7 @@ app.put('/user/:userId', async function(req, res) {
     
     //try to update user info
     try {
-        let userInfo = await index.users.updateUserById(req.params.userId, password, username, email, description);
+        let userInfo = await index.users.updateUserById(req.params.userId, password, email, description);
         
         //send status and response
         res.status(200);
@@ -325,15 +366,72 @@ app.get('*', function(req, res) {
 });
 
 
-//GET recipe/:id route, responds with full content of specified recipe
+//GET recipe/:recipeId route, responds with full content of specified recipe
 app.get('/recipe/:recipeId', async function(req, res) {
     //try to get recipe with specified recipeId
-    try{
+    try {
         let getRecipe = await index.recipes.getRecipeById(req.params.recipeId);
+        
+        //get average rating
+        let recRatings = await index.ratings.getRatingsByRecipeId(req.params.recipeId);
+        let total = 0;
+        let cnt = 0;
+        for each (rat in recRatings) {
+            cnt++;
+            total = total + rat.rating;
+        }
+        let average = total / cnt;
+        
+        //get comments
+        let commentList = await index.comments.getCommentsByRecipeId(req.params.recipeId);
+        
+        //add average rating and comments to return value
+        getRecipe["avgRating"] = average;
+        getRecipe["comments"] = commentList;
         
         //send status and response
         res.status(200);
         res.send(getRecipe);
+    }catch(error) {
+        //handle error
+        res.status(404).json({error: "Recipe not found with id: " + req.params.recipeId});
+    }
+});
+
+//GET recipe/simplified/:recipeId, responds with the id, name, description, avg rating , and comments to entire recipe
+app.get('/recipe/simplified/:recipeId', async function(req, res) {
+    //try to get recipe with specified recipeId
+    try {
+        let getRecipe = await index.recipes.getRecipeById(req.params.recipeId);
+        
+        //variable to hold return value
+        let retVal = {};
+        
+        //get average rating
+        let recRatings = await index.ratings.getRatingsByRecipeId(req.params.recipeId);
+        let total = 0;
+        let cnt = 0;
+        for each (rat in recRatings) {
+            cnt++;
+            total = total + rat.rating;
+        }
+        let average = total / cnt;
+        
+        //get comments
+        let commentList = await index.comments.getCommentsByRecipeId(req.params.recipeId);
+        
+        
+        //add necessary values to return value
+        retVal["id"] = getRecipe._id;
+        retVal["name"] = getRecipe.name;
+        retVal["description"] = getRecipe.description;
+        retVal["avgRating"] = average;
+        retVal["comments"] = commentList;
+        
+        
+        //send status and response
+        res.status(200);
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(404).json({error: "Recipe not found with id: " + req.params.recipeId});
@@ -1324,3 +1422,6 @@ app.post('*', function(req, res) {
 let server = app.listen(3000, function() {
     console.log("Server running at http://127.0.0.1:3000");
 });
+app - Copy.txt
+Open with
+Displaying app - Copy.txt.
