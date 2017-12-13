@@ -32,6 +32,7 @@ header {
 footer {
     display: inline-block;
     vertical-align: bottom;
+    width: 100%;
 }
 button{
     background-color: transparent;
@@ -66,4 +67,34 @@ a{
 }
 a:visited{
     color:rgb(48, 47, 47);  
+}
+
+.rating li {
+    float:left;
+
+}
+.rating i{
+    font-size: 22px;
+    color: gray;
+}
+.rating{
+    width:200px;;    
+    display:block;
+    text-align: center;
+    margin: 0 auto;
+}
+
+
+.rating i.checked {
+    float:left;
+    color: orange;
+}
+.float-clear{
+    clear:both;
+}
+ul{
+    list-style: none;
+}
+h2{
+    margin-bottom: 5px;
 }

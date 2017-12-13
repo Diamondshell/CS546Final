@@ -13,16 +13,17 @@ export class CardComponent implements OnInit {
   @Input() recipe: Recipe;
   @Input() editting: Boolean;
   @Input() deleting: Boolean;
-
+  numChecked=[];
+  numUnChecked=[];
   data:any;
 
   dialogRef: MatDialogRef<CreateRecipeModalComponent>;
 
   constructor(public dialog: MatDialog) { }
-  onSelect():void {
-    //view card
-  }
+  
   ngOnInit() {
+    this.numChecked = new Array(Math.ceil(this.recipe.rating));
+    this.numUnChecked = new Array(Math.floor(5-this.recipe.rating));
   }
 
   editRecipe(){
