@@ -310,20 +310,22 @@ app.get('/recipes', async function(req, res) {
 		//variable to hold return value
       	let retVal = [];
 		
-        for each (let rec in allRecipes) {
-			let tmp = rec;
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = allRecipes[i];
 			//get average rating
-			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
 			let cnt = 0;
-			for each (rat in recRatings) {
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
 				cnt++;
-				total = total + rat.rating;
+				total = total + recRatings[j].rating;
 			}
 			let average = total / cnt;
 
 			//get comments
-			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
 			tmp["avgRating"] = average;
@@ -359,9 +361,10 @@ app.get('/recipe/:recipeId', async function(req, res) {
         let recRatings = await index.ratings.getRatingsByRecipeId(req.params.recipeId);
         let total = 0;
         let cnt = 0;
-        for each (rat in recRatings) {
+		let len = recRatings.length;
+        for (let i = 0; i < len; i++) {
             cnt++;
-            total = total + rat.rating;
+            total = total + recRatings[i].rating;
         }
         let average = total / cnt;
         
@@ -394,9 +397,9 @@ app.get('/recipe/simplified/:recipeId', async function(req, res) {
         let recRatings = await index.ratings.getRatingsByRecipeId(req.params.recipeId);
         let total = 0;
         let cnt = 0;
-        for each (rat in recRatings) {
+        for (let i = 0; i < len; i++) {
             cnt++;
-            total = total + rat.rating;
+            total = total + recRatings[i].rating;
         }
         let average = total / cnt;
         
@@ -430,20 +433,22 @@ app.get('/recipes/user/:userId', async function(req, res) {
 		//variable to hold return value
       	let retVal = [];
 		
-        for each (rec in allRecipes) {
-			let tmp = rec;
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = allRecipes[i];
 			//get average rating
-			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
 			let cnt = 0;
-			for each (rat in recRatings) {
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
 				cnt++;
-				total = total + rat.rating;
+				total = total + recRatings[j].rating;
 			}
 			let average = total / cnt;
 
 			//get comments
-			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
 			tmp["avgRating"] = average;
@@ -485,20 +490,22 @@ app.get('/recipes/filter', async function(req, res) {
 		//variable to hold return value
       	let retVal = [];
 		
-        for each (rec in allRecipes) {
-			let tmp = rec;
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = allRecipes[i];
 			//get average rating
-			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
 			let cnt = 0;
-			for each (rat in recRatings) {
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
 				cnt++;
-				total = total + rat.rating;
+				total = total + recRatings[j].rating;
 			}
 			let average = total / cnt;
 
 			//get comments
-			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
 			tmp["avgRating"] = average;
@@ -524,20 +531,22 @@ app.get('/recipes/byname/:name', async function(req, res) {
 		//variable to hold return value
       	let retVal = [];
 		
-        for each (rec in allRecipes) {
-			let tmp = rec;
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = allRecipes[i];
 			//get average rating
-			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
 			let cnt = 0;
-			for each (rat in recRatings) {
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
 				cnt++;
-				total = total + rat.rating;
+				total = total + recRatings[j].rating;
 			}
 			let average = total / cnt;
 
 			//get comments
-			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
 			tmp["avgRating"] = average;
@@ -563,20 +572,22 @@ app.get('/recipes/topx/:x', async function(req, res) {
 		//variable to hold return value
       	let retVal = [];
 		
-        for each (rec in allRecipes) {
-			let tmp = rec;
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = allRecipes[i];
 			//get average rating
-			let recRatings = await index.ratings.getRatingsByRecipeId(rec._id);
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
 			let cnt = 0;
-			for each (rat in recRatings) {
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
 				cnt++;
-				total = total + rat.rating;
+				total = total + recRatings[j].rating;
 			}
 			let average = total / cnt;
 
 			//get comments
-			let commentList = await index.comments.getCommentsByRecipeId(rec._id);
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
 			tmp["avgRating"] = average;
@@ -586,7 +597,7 @@ app.get('/recipes/topx/:x', async function(req, res) {
 		
         //send status and response
         res.status(200);
-        res.send(retVal;
+        res.send(retVal);
     }catch(error) {
         //handle error
         res.status(404).json({error: "Could not retrieve top " + req.params.x + " recipes"});
