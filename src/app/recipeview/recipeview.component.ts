@@ -35,8 +35,8 @@ export class RecipeviewComponent implements OnInit {
     const id = +this.route.snapshot.paramMap.get('id');
     this.getRecipeById(id);
 
-    this.numChecked = new Array(this.recipe.Rating);
-    this.numUnChecked = new Array(5-this.recipe.Rating);
+    this.numChecked = new Array(Math.ceil(this.recipe.Rating));
+    this.numUnChecked = new Array(Math.floor(5-this.recipe.Rating));
     window.scrollTo(0, 0);
   }
 

@@ -1,5 +1,5 @@
 
-<section class="card" (click)="onSelect()">
+<section class="card">
     <a routerLink="/recipe/{{recipe.id}}">
 <header>
     <h2>{{recipe.name}}</h2>
@@ -14,7 +14,13 @@
 </div>
 <a routerLink="/recipe/{{recipe.id}}">
 <footer>
-    <p>Rating:</p>
+    <div class = "rating" title ="{{recipe.rating}} Star(s)">
+        <ul>
+          <li  *ngFor="let i of numChecked"> <i class="fa fa-star checked" ></i></li>
+          <li  *ngFor="let i of numUnChecked"> <i class="fa fa-star"></i></li>   
+        </ul>
+    </div>
+    <div class = "float-clear"></div>
 </footer>
   </a>
 </section>

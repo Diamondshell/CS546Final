@@ -2,17 +2,17 @@ import {Recipe } from './recipe';
 import {User } from './user';
 import {RecipeDetail } from './recipeDetails';
 export const recipes: Recipe[] = [
-    {name: "bread", content: "How To Make", id: "1"},
-    {name: "Eggs", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
-    {name: "Salads", content: "How To Make", id: "1"},
+    {name: "bread", content: "This is a very good bread recipe", id: "1", rating: 4},
+    {name: "Eggs", content: "This is a very good scrambled eggs recipe", id: "1", rating: 3},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 2},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 5},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 1},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 3.5},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4},
+    {name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4},
   ];
 
   export const  profileInfo: User= 
