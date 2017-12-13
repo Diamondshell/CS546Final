@@ -1,10 +1,42 @@
 const mongoCollections = require ( "../config/mongoCollections" );
 const recipes = mongoCollections.recipeItems;
 const uuidv1 = require ( "uuid/v1" );
-let data = require ( "../data" );
-const commentData = data.comments;
-const ratingData = data.ratings;
-const favoriteData = data.favorites;
+const commentData = require("./comments");
+const ratingData = require("./ratings");
+const favoriteData = require("./favorites");
+
+/**
+ * Retrieves the average rating for a recipe body and attaches it to the object and returns it.
+ * @param {object} recipe The recipe to modify.
+ */
+async function getAvgRating ( recipe ) {
+    const ratings = await ratingData.getRatingsByRecipeId ( recipe._id );
+
+    let sum = 0;
+    let n = ratings.length;
+
+    while ( r = ratings.pop() ) {
+        sum += r.rating;
+    }
+
+    recipe.rating = (sum / n);
+    return recipe;
+
+}
+
+/**
+ * Returns the average rating attached to each object in recipeList
+ * @param {Array<object>} recipeList A list of recipes to find ratings for
+ */
+async function getAvgRatingList ( recipeList ) {
+    ret = [];
+
+    while ( r = recipeList.pop() ) {
+        ret.push ( await getAvgRating ( r ) );
+    }
+
+    return ret;
+}
 
 const exported_methods = {
     /**
@@ -25,7 +57,7 @@ const exported_methods = {
         }
         const recipeCollection = await recipes();
         const data = await recipeCollection.findOne ( { _id: id } );
-        return data;
+        return await getAvgRating ( data );
     },
     /**
      * Finds recipes that match name along %name%.
@@ -37,7 +69,7 @@ const exported_methods = {
         }
         const recipeCollection = await recipes();
         const data = await recipeCollection.find ( { name: {$regex: ".*" + name + ".*"} } ).toArray();
-        return data;
+        return await getAvgRatingList ( data );
     },
     /**
      * Retrieves the top X recipes by popularity value.
@@ -49,7 +81,7 @@ const exported_methods = {
         }
         const recipeCollection = await recipes();
         const data = await recipeCollection.find().sort( { popularity: -1 } ).limit(X).toArray();
-        return data;
+        return await getAvgRatingList ( data );
     },
     /**
      * Updates the given recipe with any number of values
@@ -145,9 +177,9 @@ const exported_methods = {
             throw `removeRecipeById: Expected a string but received a ${typeof(id)}`;
         }
         const recipeCollection = await recipes();
-        await commentData.removeCommentsByUserId ( id );
-        await ratingData.removeRatingsByUserId ( id );
-        await favoriteData.removeFavoritesByUserId ( id );
+        await commentData.removeCommentsByRecipeId ( id );
+        await ratingData.removeRatingsByRecipeId ( id );
+        await favoriteData.removeFavoritesByRecipeId ( id );
         const data = await recipeCollection.removeOne ( { _id: id } );
         return data;
     },
@@ -161,7 +193,7 @@ const exported_methods = {
         }
         const recipeCollection = await recipes();
         const data = await recipeCollection.find ( filter ).toArray();
-        return data;
+        return await getAvgRatingList ( data );
     },
     /**
      * Gets all recipes made by a given user
@@ -173,7 +205,7 @@ const exported_methods = {
         }
         const recipeCollection = await recipes();
         const data = await recipeCollection.find ( { userid: userid } ).toArray();
-        return data;
+        return await getAvgRatingList ( data );
     },
     /**
      * Removes all users by a given username

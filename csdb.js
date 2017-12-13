@@ -89,6 +89,9 @@ async function main() {
     rating.push({userID: us[3]._id, recipeId: rs[17]._id, rating: 8});
     rating.push({userID: us[3]._id, recipeId: rs[18]._id, rating: 7});
     rating.push({userID: us[3]._id, recipeId: rs[19]._id, rating: 6});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 2});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 4});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 0});
     
     console.log("Pushing Ratings to DB");
     let rts = [];

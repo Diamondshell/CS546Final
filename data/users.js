@@ -1,11 +1,10 @@
 const mongoCollections = require ( "../config/mongoCollections" );
 const users = mongoCollections.userItems;
 const uuidv1 = require ( "uuid/v1" );
-let data = require ( "../data" );
-const commentData = data.comments;
-const recipeData = data.recipes;
-const ratingData = data.ratings;
-const favoriteData = data.favorites;
+const recipeData = require("./recipes");
+const commentData = require("./comments");
+const ratingData = require("./ratings");
+const favoriteData = require("./favorites");
 
 const exported_methods = {
     /**
