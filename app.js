@@ -74,7 +74,6 @@ app.post('/login', async function(req, res) {
 });
 
 app.post('/logout', async function(req, res) {
-
     res.cookie('validated', '', {path: '/', maxAge: 1000 * 60 * 5, httpOnly:true});
     res.clearCookie('validated', req.cookies.validated, {path: '/', httpOnly: true});
     res.json({"status":"ok"});
@@ -91,7 +90,6 @@ app.get('/userprofile', async function (req, res) {
 app.get('/login', async function(req, res) {
     res.redirect('/forbidden');
 });
-
 
 
 //Server Routes 
@@ -297,9 +295,11 @@ app.delete('/user/:userId', async function(req, res) {
 
 //GET recipes route, responds with a list of all recipes in the form {_id: RECIPE_ID, title: RECIPE_TITLE}
 app.get('/recipes', async function(req, res) {
+    console.log("Attempting to get all recipes");
     //try to get recipes
     try {
         let getAll = await index.recipes.getAllRecipes();
+      console.log(getAll);
 
         //send status and response
         res.status(200);
@@ -308,6 +308,13 @@ app.get('/recipes', async function(req, res) {
         //handle error
         res.status(500).json({error: "Can't retrieve recipes"});
     }
+});
+
+//get / route, does blank
+app.get('*', function(req, res) {
+    //do stuff
+    console.log("Get Path: " + req.path);
+    res.sendFile(path.join(__dirname, './dist/index.html'));
 });
 
 

@@ -5,17 +5,20 @@ import { RecipeDetail } from './recipeDetails';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 import {recipes, profileInfo, recipeDetail } from './mock-data';
-// import { Http, Headers, RequestOptions } from '@angular/http';
-// import 'rxjs/add/operator/map';
+import { Http, Headers, RequestOptions } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class DataService {
 
-  constructor(/*private _http: Http*/) { }
+  constructor(private _http: Http) { }
 
-  getAllRecipes():Observable<Recipe[]>{
-    //return this._http.get("/").map(result => this.result = result.json().data);
-     return of(recipes);
+  response: any;
+
+  getAllRecipes()/*:Observable<Recipe[]>*/{
+    return this._http.get('/recipes')
+      .map(result => this.response = result.json());
+    //return of(recipes);
   }
 
   getCurrentUser():Observable<User>{
