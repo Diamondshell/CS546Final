@@ -13,15 +13,15 @@ export class ProfileLayoutComponent implements OnInit {
   profileInfo:User;
   getCurrentUser():void{
     this.dataService.getCurrentUser()
-    .subscribe(profileInfo=>this.profileInfo=profileInfo);
+    .subscribe(profileInfo=>this.updateUser(profileInfo));
+  }
+  updateUser(info):void{
+    this.profileInfo = info;
   }
   constructor(private dataService:DataService) { }
 
   ngOnInit() {
     this.getCurrentUser();
   }
-
-
-  
 
 }

@@ -15,15 +15,16 @@ export class DataService {
 
   response: any;
 
-  getAllRecipes()/*:Observable<Recipe[]>*/{
-    return this._http.get('/recipes')
-      .map(result => this.response = result.json());
-    //return of(recipes);
+  getAllRecipes():Observable<Recipe[]>{
+    // return this._http.get('/recipes')
+      // .map(result => this.response = result.json());
+    return of(recipes);
   }
 
   getCurrentUser():Observable<User>{
-    //return this._http.get("/").map(result => this.result = result.json().data);
-    return of(profileInfo);
+    return this._http.get('/getUserFromCookies')
+      .map(result => this.response = result.json());
+    //return of(profileInfo);
   }
   getRecipeById(id):Observable<RecipeDetail>{
     //return this._http.get("/", id).map(result => this.result = result.json().data);

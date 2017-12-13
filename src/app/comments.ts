@@ -1,5 +1,5 @@
 export class Comment {
-    username: string;
+    _id: string;
     recID: string;
     Comment: string;
  }

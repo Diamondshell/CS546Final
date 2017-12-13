@@ -35,7 +35,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // add authentication here
 app.get('/loginstatus', async function(req, res) {
     if (req.cookies.validated) {
-        res.json({validated:true, username:req.cookies.validated});
+        res.json({validated:true, _id:req.cookies.validated});
     }else {
         res.json({validated:false});
     }
@@ -47,7 +47,7 @@ app.post('/login', async function(req, res) {
     //return; 
     username = req.body.username;
     password = req.body.password;
-    userData = await users.getUserById(username);
+    userData = await index.users.getUserById(username);
     console.log(userData);
 
     var validated;
@@ -81,7 +81,8 @@ app.post('/logout', async function(req, res) {
 
 app.get('/userprofile', async function (req, res) {
     if (req.cookies.validated) {
-        res.json({validated:true, username:req.cookies.validated});
+        // res.json({validated:true, username:req.cookies.validated});  
+        res.sendFile(path.join(__dirname, './dist/index.html'));
     }else {
         res.redirect('/forbidden');
     }
@@ -91,21 +92,28 @@ app.get('/login', async function(req, res) {
     res.redirect('/forbidden');
 });
 
+app.get('/getUserFromCookies', async function(req, res) {
+    console.log('ATTEMPT MADE');
+    if (req.cookies.validated) {
+        try {
+            let userInfo = await index.users.getUserById(req.cookies.validated);
+            console.log(userInfo);
+            //res.status(200);
+            res.json(userInfo);
+        }catch(error) {
+            //handle error
+            res.status(500).json({error: "Can't retrieve information for user with id: " + req.params.userId});
+        }
+    }else {
+        res.json({error:"No cookie found, user not logged in"});
+    }
+})
 
 //Server Routes 
 
 //Specific Routes
 
-app.get('*', function(req, res) {
-    //do stuff
-    console.log("Get Path: " + req.path);
-    res.sendFile(path.join(__dirname, './dist/index.html'));
-});
 
-app.post('*', function(req, res) {
-    console.log("Post Path: " + req.path);
-    //res.json({data:"TADA"});
-});
 
 
 //Users Database Routes
@@ -299,8 +307,7 @@ app.get('/recipes', async function(req, res) {
     //try to get recipes
     try {
         let getAll = await index.recipes.getAllRecipes();
-      console.log(getAll);
-
+        console.log(getAll);
         //send status and response
         res.status(200);
         res.send(getAll);
@@ -1298,6 +1305,18 @@ app.delete('/comments/recipe/:recipeId', async function(req, res) {
     }catch(error) {
         res.status(500).json({error: "Failed to delete comments for specified recipe"});
     }
+});
+
+
+app.get('*', function(req, res) {
+    //do stuff
+    console.log("Get Path: " + req.path);
+    res.sendFile(path.join(__dirname, './dist/index.html'));
+});
+
+app.post('*', function(req, res) {
+    console.log("Post Path: " + req.path);
+    //res.json({data:"TADA"});
 });
 
 
