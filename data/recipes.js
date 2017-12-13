@@ -55,7 +55,8 @@ const exported_methods = {
      * Updates the given recipe with any number of values
      * @param {string} id The id of the recipe
      * @param {string|undefined} name A new recipe name
-     * @param {number|undefined} price A new price name
+     * @param {string|undefined} description A new description
+     * @param {number|undefined} price A new price
      * @param {number|undefined} cookTime A new cooktime
      * @param {Array<string>|undefined} appliances A new list of appliances
      * @param {number|undefined} popularity A new popularity
@@ -64,7 +65,7 @@ const exported_methods = {
      * @param {Array<string>|undefined} steps A new list of steps
      * @param {string|undefined} imgpath A new imagepath
      */
-    async updateRecipeById ( id, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
+    async updateRecipeById ( id, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( id ) !== 'string' ) {
             throw `updateRecipeById: Expected a string id, received a ${typeof(id)}`;
         }
@@ -75,6 +76,12 @@ const exported_methods = {
                 throw `updateRecipeById: Expected a string name, but received a ${typeof(name)}`;
             }
             update.name = name;
+        }
+        if ( description ) {
+            if ( typeof ( description ) !== 'string' ) {
+                throw `updateRecipeById: Expected a string description, but received a ${typeof(name)}`;
+            }
+            update.description = description;
         }
         if ( price ) {
             if ( typeof ( price ) !== 'number' ) {
@@ -192,13 +199,17 @@ const exported_methods = {
      * @param {Array<string>} ingredients The ingredients needed to make the recipe
      * @param {Array<string>} steps The steps to make the recipe
      * @param {string} imgpath The Path for the image associated with this recipe
+     * @param {string} description The description for the recipe
      */
-    async createRecipe ( userid, name, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
+    async createRecipe ( userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps, imgpath ) {
         if ( typeof ( userid ) !== 'string' ) {
             throw `createRecipe: Expected a string userid, but received a ${typeof(userid)}`;
         }
         if ( typeof ( name ) !== 'string' ) {
             throw `createRecipe: Expected a string name, but received a ${typeof(name)}`;
+        }
+        if ( typeof ( description ) !== 'string' ) {
+            throw `createRecipe: Expected a string description but received a ${typeof(description)}`;
         }
         if ( typeof ( price ) !== 'number' ) {
             throw `createRecipe: Expected a number price, but received a ${typeof(price)}`;
@@ -229,6 +240,7 @@ const exported_methods = {
         ret._id = uuidv1();
         ret.userid = userid;
         ret.name = name;
+        ret.description = description;
         ret.price = price;
         ret.cookTime = cookTime;
         ret.appliances = appliances;

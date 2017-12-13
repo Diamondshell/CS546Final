@@ -42,7 +42,7 @@ topXTrendingRecipes(int:X)
 
 getRecipeById(string:id)
     Returns a Recipe with the given id
-updateRecipeById(string:id,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps,string:imgpath)
+updateRecipeById(string:id,string:name,string:description,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps,string:imgpath)
     Updates a recipe with the given information
 removeRecipeById(string:id)
     Removes the recipe with the given id, will also remove all comments/ratings/favorites for that recipe
@@ -58,7 +58,7 @@ getRecipesByUserId(string:userId)
 removeRecipesByUserId(string:userId)
     Removes all recipes made by a given user
 
-createRecipe(string:userid,string:name,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps,string:imgpath)
+createRecipe(string:userid,string:name,string:description,real:price,real:cookTime,[String]:appliances,int:popularity,[String]:tags,[String]:ingredients,[String]:steps,string:imgpath)
     Creates a recipe with the given information
 
 //////////////////////// Rating Collection Methods \\\\\\\\\\\\\\\\\\\\\\\\
