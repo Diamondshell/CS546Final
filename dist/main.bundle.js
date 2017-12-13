@@ -165,7 +165,7 @@ var AppComponent = (function () {
         if (result.validated) {
             document.getElementById('si').style.display = "none";
             document.getElementById('so').style.display = "block";
-            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').innerHTML = "Hello " + result._id;
             document.getElementById('user').style.display = "block";
         }
     };
@@ -714,18 +714,19 @@ var DataService = (function () {
         this._http = _http;
     }
     DataService.prototype.getAllRecipes = function () {
-        var _this = this;
-        return this._http.get("/recipes")
-            .map(function (result) { return _this.response = result.json(); });
-        //return of(recipes);
+        // return this._http.get('/recipes')
+        // .map(result => this.response = result.json());
+        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_2__mock_data__["b" /* recipes */]);
     };
     DataService.prototype.getCurrentUser = function () {
-        //return this._http.get("/").map(result => this.result = result.json().data);
-        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_2__mock_data__["a" /* profileInfo */]);
+        var _this = this;
+        return this._http.get('/getUserFromCookies')
+            .map(function (result) { return _this.response = result.json(); });
+        //return of(profileInfo);
     };
     DataService.prototype.getRecipeById = function (id) {
         //return this._http.get("/", id).map(result => this.result = result.json().data);
-        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_2__mock_data__["b" /* recipeDetail */]);
+        return Object(__WEBPACK_IMPORTED_MODULE_1_rxjs_observable_of__["a" /* of */])(__WEBPACK_IMPORTED_MODULE_2__mock_data__["a" /* recipeDetail */]);
     };
     DataService.prototype.updateUserInfo = function (changed) {
         //send changed data to server
@@ -902,9 +903,9 @@ var HomeComponent = (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* unused harmony export recipes */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return profileInfo; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return recipeDetail; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return recipes; });
+/* unused harmony export profileInfo */
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return recipeDetail; });
 var recipes = [
     { name: "bread", content: "This is a very good bread recipe", id: "1", rating: 4 },
     { name: "Eggs", content: "This is a very good scrambled eggs recipe", id: "1", rating: 3 },
@@ -918,7 +919,7 @@ var recipes = [
     { name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4 },
     { name: "Salads", content: "This is a very good salad recipe", id: "1", rating: 4 },
 ];
-var profileInfo = { username: "Food Eater 9000", email: "foo9000@eater.com", description: "I like to eat food. 9000 food." };
+var profileInfo = { _id: "Food Eater 9000", password: "NOOO", email: "foo9000@eater.com", description: "I like to eat food. 9000 food." };
 var recipeDetail = {
     Name: "Ketchup Fudge",
     Description: "A Horrific Fudge Recipe, just like your mom never used to made",
@@ -931,9 +932,9 @@ var recipeDetail = {
     Tags: ["What", "Fudge", "Unusual"],
     Ingredients: ["White Chocolate Chips", "Ketchup", "Maple Syrup"],
     Steps: ["Lose all sense of self", "Make this"],
-    Comments: [{ recID: "ert", username: "Jim", Comment: "this thing sucks" },
-        { recID: "ert", username: "Jim", Comment: "this thing sucks" },
-        { recID: "ert", username: "Jim", Comment: "this thing sucks" }]
+    Comments: [{ recID: "ert", _id: "Jim", Comment: "this thing sucks" },
+        { recID: "ert", _id: "Jim", Comment: "this thing sucks" },
+        { recID: "ert", _id: "Jim", Comment: "this thing sucks" }]
 };
 
 
@@ -1035,7 +1036,7 @@ var MustLogInComponent = (function () {
         if (result.validated) {
             document.getElementById('si').style.display = "none";
             document.getElementById('so').style.display = "inline-block";
-            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').innerHTML = "Hello " + result._id;
             document.getElementById('user').style.display = "inline-block";
         }
     };
@@ -1139,7 +1140,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile-layout/profile-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<div  class= \"profile\">\r\n    <app-profile [user] = \"profileInfo\" [editting]=\"editting\"></app-profile>\r\n</div>"
+module.exports = "<app-user-nav></app-user-nav>\r\n<div *ngIf=\"profileInfo\" class= \"profile\">\r\n    <app-profile [user]=\"profileInfo\" [editting]=\"editting\"></app-profile>\r\n</div>"
 
 /***/ }),
 
@@ -1168,7 +1169,10 @@ var ProfileLayoutComponent = (function () {
     ProfileLayoutComponent.prototype.getCurrentUser = function () {
         var _this = this;
         this.dataService.getCurrentUser()
-            .subscribe(function (profileInfo) { return _this.profileInfo = profileInfo; });
+            .subscribe(function (profileInfo) { return _this.updateUser(profileInfo); });
+    };
+    ProfileLayoutComponent.prototype.updateUser = function (info) {
+        this.profileInfo = info;
     };
     ProfileLayoutComponent.prototype.ngOnInit = function () {
         this.getCurrentUser();
@@ -1213,7 +1217,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"profile\" id=\"userProfileWrapper\">\r\n\t<div id=\"innerwrapper\">\r\n\t\t<h1 id=\"username\">\r\n\t\t\t{{user.username}}\r\n\t\t</h1>\r\n\r\n\t\t<div id=\"email\">\r\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\r\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\r\n\t\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\r\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\r\n\t\t\t<p id=\"error\">Must give a valid email</p>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"description\">\r\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\r\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\r\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\r\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\r\n\t\t</div>\r\n\t</div>\t\r\n</div>"
+module.exports = "\r\n<div class=\"profile\" id=\"userProfileWrapper\">\r\n\t<div id=\"innerwrapper\">\r\n\t\t<h1 id=\"username\">\r\n\t\t\t{{user._id}}\r\n\t\t</h1>\r\n\r\n\t\t<div id=\"email\">\r\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\r\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\r\n\t\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\r\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\r\n\t\t\t<p id=\"error\">Must give a valid email</p>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"description\">\r\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\r\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\r\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\r\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\r\n\t\t</div>\r\n\t</div>\t\r\n</div>"
 
 /***/ }),
 
@@ -1505,7 +1509,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/recipeview/recipeview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\r\n  <div id = \"top\">\r\n  <article id = \"left-pane\">\r\n      <h1>{{recipe.Name}}</h1>\r\n     \r\n   \r\n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n      <div class = \"float-clear\"></div>\r\n      <div class = \"recipe-details\">\r\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.Price}}</p>\r\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.Cooking_Time}}</p>\r\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.Popularity}}</p>\r\n        </div>\r\n      <div class = \"float-clear\"></div>\r\n      <p>Posted By: {{recipe.poster}}</p>\r\n    <p id = \"des\">{{recipe.Description}}</p>\r\n    \r\n    <div class = \"float-clear\"></div>\r\n    <div class = \"ratings\">\r\n      <ul>\r\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\r\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\r\n        <div (click)=\"save()\"><li  title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\r\n        \r\n      </ul>\r\n      <div class = \"float-clear\"></div>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n    \r\n  </article>\r\n <article id = \"right-pane\">\r\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\r\n  <div class = \"tags\">\r\n      <p><strong>Tags:</strong></p>\r\n      <ul >\r\n        <li *ngFor=\"let t of recipe.Tags\">{{t}}</li>\r\n      </ul>\r\n  </div>\r\n  <div class = \"float-clear\"></div>  \r\n</article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n<div class=\"lower\">\r\n  <article class = \"bottom-left\">\r\n      <div class = \"ingredients\">\r\n          <h2>Ingredients:</h2>\r\n          <ul >\r\n            <li *ngFor=\"let i of recipe.Ingredients\">{{i}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n \r\n\r\n  <article class = \"bottom-right\">\r\n      <div class = \"appliances\">\r\n          <h2>Appliances:</h2>\r\n          <ul class=\"appliances\">\r\n              <li *ngFor=\"let a of recipe.Appliance\">{{a}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n <article class=\"bottom-center\">\r\n    \r\n    <div class = \"steps\">\r\n      <h2>Steps:</h2>\r\n      <ol>\r\n          <li *ngFor=\"let s of recipe.Steps\">{{s}}</li>\r\n      </ol>\r\n      </div>\r\n      <div class = \"float-clear\"></div>\r\n  </article>\r\n \r\n <div class = \"float-clear\"></div>\r\n  <hr>\r\n  <article class = \"comments\">\r\n    <header>\r\n        <h2>Comments:</h2>\r\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \r\n    </header>\r\n    <div class = \"float-clear\"></div>\r\n    <ul>\r\n      <li *ngFor=\"let c of recipe.Comments\">\r\n        <div>\r\n          <h3>{{c.username}}</h3>  \r\n          <p>{{c.Comment}}</p>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </article>\r\n</section>\r\n<div class = \"float-clear\"></div>\r\n"
+module.exports = "<section>\r\n  <div id = \"top\">\r\n  <article id = \"left-pane\">\r\n      <h1>{{recipe.Name}}</h1>\r\n     \r\n   \r\n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n      <div class = \"float-clear\"></div>\r\n      <div class = \"recipe-details\">\r\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.Price}}</p>\r\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.Cooking_Time}}</p>\r\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.Popularity}}</p>\r\n        </div>\r\n      <div class = \"float-clear\"></div>\r\n      <p>Posted By: {{recipe.poster}}</p>\r\n    <p id = \"des\">{{recipe.Description}}</p>\r\n    \r\n    <div class = \"float-clear\"></div>\r\n    <div class = \"ratings\">\r\n      <ul>\r\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\r\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\r\n        <div (click)=\"save()\"><li  title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\r\n        \r\n      </ul>\r\n      <div class = \"float-clear\"></div>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n    \r\n  </article>\r\n <article id = \"right-pane\">\r\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\r\n  <div class = \"tags\">\r\n      <p><strong>Tags:</strong></p>\r\n      <ul >\r\n        <li *ngFor=\"let t of recipe.Tags\">{{t}}</li>\r\n      </ul>\r\n  </div>\r\n  <div class = \"float-clear\"></div>  \r\n</article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n<div class=\"lower\">\r\n  <article class = \"bottom-left\">\r\n      <div class = \"ingredients\">\r\n          <h2>Ingredients:</h2>\r\n          <ul >\r\n            <li *ngFor=\"let i of recipe.Ingredients\">{{i}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n \r\n\r\n  <article class = \"bottom-right\">\r\n      <div class = \"appliances\">\r\n          <h2>Appliances:</h2>\r\n          <ul class=\"appliances\">\r\n              <li *ngFor=\"let a of recipe.Appliance\">{{a}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n <article class=\"bottom-center\">\r\n    \r\n    <div class = \"steps\">\r\n      <h2>Steps:</h2>\r\n      <ol>\r\n          <li *ngFor=\"let s of recipe.Steps\">{{s}}</li>\r\n      </ol>\r\n      </div>\r\n      <div class = \"float-clear\"></div>\r\n  </article>\r\n \r\n <div class = \"float-clear\"></div>\r\n  <hr>\r\n  <article class = \"comments\">\r\n    <header>\r\n        <h2>Comments:</h2>\r\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \r\n    </header>\r\n    <div class = \"float-clear\"></div>\r\n    <ul>\r\n      <li *ngFor=\"let c of recipe.Comments\">\r\n        <div>\r\n          <h3>{{c._id}}</h3>  \r\n          <p>{{c.Comment}}</p>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </article>\r\n</section>\r\n<div class = \"float-clear\"></div>\r\n"
 
 /***/ }),
 
@@ -1828,7 +1832,7 @@ var SigninModalComponent = (function () {
         if (result.validated) {
             document.getElementById('si').style.display = "none";
             document.getElementById('so').style.display = "inline-block";
-            document.getElementById('user').innerHTML = "Hello " + result.username;
+            document.getElementById('user').innerHTML = "Hello " + result._id;
             document.getElementById('user').style.display = "inline-block";
         }
     };

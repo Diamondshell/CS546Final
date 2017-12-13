@@ -16,7 +16,7 @@ export const recipes: Recipe[] = [
   ];
 
   export const  profileInfo: User= 
-    {username: "Food Eater 9000", email: "foo9000@eater.com", description: "I like to eat food. 9000 food."};
+    {_id: "Food Eater 9000", password:"NOOO", email: "foo9000@eater.com", description: "I like to eat food. 9000 food."};
   
     export const recipeDetail:RecipeDetail = {
         Name: "Ketchup Fudge",
@@ -30,7 +30,7 @@ export const recipes: Recipe[] = [
         Tags: ["What", "Fudge", "Unusual"],
         Ingredients: ["White Chocolate Chips", "Ketchup", "Maple Syrup"],
         Steps: ["Lose all sense of self", "Make this"],
-        Comments: [{recID:"ert", username:"Jim", Comment: "this thing sucks"},
-        {recID:"ert", username:"Jim", Comment: "this thing sucks"},
-        {recID:"ert", username:"Jim", Comment: "this thing sucks"}]
+        Comments: [{recID:"ert", _id:"Jim", Comment: "this thing sucks"},
+        {recID:"ert", _id:"Jim", Comment: "this thing sucks"},
+        {recID:"ert", _id:"Jim", Comment: "this thing sucks"}]
         };

@@ -54,7 +54,7 @@ export class AppComponent {
     if(result.validated){
       document.getElementById('si').style.display="none";
       document.getElementById('so').style.display="block";
-      document.getElementById('user').innerHTML=`Hello ${result.username}`;
+      document.getElementById('user').innerHTML=`Hello ${result._id}`;
       document.getElementById('user').style.display="block";
     }
   }

@@ -59,7 +59,7 @@ export class SigninModalComponent {
     if(result.validated){
       document.getElementById('si').style.display="none";
       document.getElementById('so').style.display="inline-block";
-      document.getElementById('user').innerHTML=`Hello ${result.username}`;
+      document.getElementById('user').innerHTML=`Hello ${result._id}`;
       document.getElementById('user').style.display="inline-block";
     }
   }

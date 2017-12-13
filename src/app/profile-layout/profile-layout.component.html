@@ -1,4 +1,4 @@
 <app-user-nav></app-user-nav>
-<div  class= "profile">
-    <app-profile [user] = "profileInfo" [editting]="editting"></app-profile>
+<div *ngIf="profileInfo" class= "profile">
+    <app-profile [user]="profileInfo" [editting]="editting"></app-profile>
 </div>
