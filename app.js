@@ -13,13 +13,8 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
-const connection = require('./config/mongoConnection.js');
-const comments = require('./data/comments.js');
-const favorites = require('./data/favorites.js');
-const index = require('./data/index.js');
-const ratings = require('./data/ratings.js');
-const recipe = require('./data/recipes.js');
-const users = require('./data/users.js');
+const connection = require(__dirname + '/config/mongoConnection.js');
+const index = require(__dirname + '/data/index.js');
 const uuid = require('uuid4');
 const bcrypt = require('bcrypt');
 
