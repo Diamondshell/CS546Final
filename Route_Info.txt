@@ -1,0 +1,104 @@
+Route: GET /user/:userId
+Use: responds with user information for user with specified userId
+Needs: userId provided in url
+Error: Can't retrieve information for user with id: [userId]
+
+Route: POST /user
+Use: creates a user with the supplied data in the body of the request, returns information for new user
+Needs: password, username, email, and description in json object in body
+Errors: Bad Request: requires a [user attribute] to be a [type]
+Bad Request: requires a [user attribute]
+Failed to add user with username: [username]
+
+Route: PUT /user/:userId
+Use: updates the specified user with only the supplied changes, returns the users updated information
+Needs: userId provided in url, and any attributes that need to be changed: password, username, email, or description
+Errors: Bad Request: requires a [user attribute] to be a [type]
+Failed to update user with id: [userId]
+
+Route: DELETE /user/:userId
+Use:
+Needs:
+Error:
+
+Route: GET /recipes
+
+Route: GET /recipe/:recipeId
+
+Route: GET /recipes/user/:userId
+
+Route: GET /recipes/filter
+
+Route: GET /recipes/byname/:name
+
+Route: GET /recipes/topX/:X
+
+Route: POST /recipe
+
+Route: PUT /recipe/:recipeId
+
+Route: DELETE /recipe/:recipeId
+
+Route: DELETE /recipes/user/:userId
+
+Route: GET /rating/:ratingId
+
+Route: GET /ratings/user/:userId
+
+Route: GET /ratings/recipe/:recipeId
+
+Route: POST /rating
+
+Route: PUT /rating/:ratingId
+
+Route: DELETE /rating/:ratingId
+
+Route: DELETE /ratings/user/:userId
+
+Route: DELETE /ratings/recipe/:recipeId
+
+Route: GET /favorite/:favoriteId
+
+Route: GET /favorites/user/:userId
+
+Route: GET /favorites/recipe/:recipeId
+
+Route: POST /favorite
+
+Route: DELETE /favorite/:favoriteId
+
+Route: DELETE /favorites/user/:userId
+
+Route: DELETE /favorites/recipe/:recipeId
+
+Route: GET /comment/:commentId
+
+Route: GET /comments/user/:userId
+
+Route: GET /comments/recipe/:recipeId
+
+Route: POST /comment
+
+Route: PUT /comment/:commentId
+
+Route: DELETE /comment/:commentId
+
+Route: DELETE /comments/user/:userId
+
+Route: DELETE /comments/recipe/:recipeId
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
