@@ -92,9 +92,12 @@ app.get('/login', async function(req, res) {
 });
 
 
+<<<<<<< HEAD
 
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> 4466c8c18940e55611ec0d778cef32b8582bdcca
 //Server Routes 
 
 //Specific Routes
@@ -104,7 +107,10 @@ app.get('*', function(req, res) {
     console.log("Get Path: " + req.path);
     res.sendFile(path.join(__dirname, './dist/index.html'));
 });
+<<<<<<< HEAD
 >>>>>>> 8165710d47d76b85b269c80554abe2cfa11515cd
+=======
+>>>>>>> 4466c8c18940e55611ec0d778cef32b8582bdcca
 
 app.post('*', function(req, res) {
     console.log("Post Path: " + req.path);
@@ -303,11 +309,16 @@ app.get('/recipes', async function(req, res) {
     //try to get recipes
     try {
 <<<<<<< HEAD
+<<<<<<< HEAD
 	let getAll = await recipe.getAllRecipes();
     console.log(getAll);
 =======
         let getAll = await index.recipes.getAllRecipes();
 >>>>>>> 8165710d47d76b85b269c80554abe2cfa11515cd
+=======
+        let getAll = await index.recipes.getAllRecipes();
+      console.log(getAll);
+>>>>>>> 4466c8c18940e55611ec0d778cef32b8582bdcca
 
         //send status and response
         res.status(200);
