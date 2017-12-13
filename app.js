@@ -317,12 +317,6 @@ app.get('/recipes', async function(req, res) {
     }
 });
 
-//get / route, does blank
-app.get('*', function(req, res) {
-    //do stuff
-    console.log("Get Path: " + req.path);
-    res.sendFile(path.join(__dirname, './dist/index.html'));
-});
 
 
 //GET recipe/:id route, responds with full content of specified recipe
