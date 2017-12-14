@@ -1199,9 +1199,15 @@ app.get('/favorites/user/:userId', async function(req, res) {
     try {
         let favoritesInfo = await index.favorites.getFavoritesByUserId(req.params.userId);
         
+        results = [];
+        for (var i = 0; i < favoritesInfo.length; i++){
+            let recipeInfo = await index.recipes.getRecipeById(favoritesInfo[i].recipeId);
+            recipeInfo["avgRating"] = recipeInfo["rating"];
+            results.push(recipeInfo);
+        }
         //send status and response 
         res.status(200);
-        res.send(favoritesInfo);
+        res.send(results);
     }catch(error) {
         //handle error
         res.status(500).json({error: "Can't retrieve favorites for specified user"});

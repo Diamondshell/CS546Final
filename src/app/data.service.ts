@@ -26,6 +26,11 @@ export class DataService {
       .map(result => this.response = result.json());
   }
 
+  getUserFavorites(id):Observable<RecipeDetail[]>{
+    return this._http.get(`/favorites/user/${id}`)
+      .map(result => this.response = result.json());
+  }
+
   getCurrentUser():Observable<User>{
     return this._http.get('/getUserFromCookies')
       .map(result => this.response = result.json());

@@ -36,7 +36,7 @@ const exported_methods = {
             throw `getFavoritesByUserId: Expected a string, but received a ${typeof(userId)}`;
         }
         const favoriteData = await favorites();
-        const data = await favoriteData.find ( { userid: userId } ).toArray();
+        const data = await favoriteData.find ( { userId: userId } ).toArray();
         return data;
     },
     /**
