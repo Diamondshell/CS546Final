@@ -24,6 +24,12 @@ export class CardLayoutComponent implements OnInit {
       .subscribe(id =>  this.dataService.getUserRecipes(id)
                         .subscribe(recipes => this.recipes = recipes));
   }
+
+  getUserFavorites(): void{
+    this.authenticationService.getUserId()
+      .subscribe(id =>  this.dataService.getUserFavorites(id)
+                        .subscribe(recipes => this.recipes = recipes));
+  }
   constructor(private dataService: DataService, private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
@@ -32,6 +38,8 @@ export class CardLayoutComponent implements OnInit {
       this.getAllRecipes();
     } else if(this.type == 'user') {
       this.getUserRecipes();
+    } else if(this.type == 'saved') {
+      this.getUserFavorites();
     }
   }
 
