@@ -26,12 +26,12 @@ export class CreateRecipeModalComponent implements OnInit {
   		document.getElementById('finishButton').innerHTML = "Save Recipe!";
   	}else{
   		this.recipe = new RecipeDetail();
-  		this.recipe.Name = "";
-	  	this.recipe.Appliance = [];
-	  	this.recipe.Cooking_Time = 0;
-	  	this.recipe.Description = "";
-	  	this.recipe.Ingredients = [];
-	  	this.recipe.Price = 0;
+  		this.recipe.name = "";
+	  	this.recipe.appliances = [];
+	  	this.recipe.cookTime = 0;
+	  	this.recipe.description = "";
+	  	this.recipe.ingredients = [];
+	  	this.recipe.price = 0;
 
 	  	document.getElementById('heading').innerHTML = "Create Recipe";
 	  	document.getElementById('finishButton').innerHTML = "Create Recipe!";

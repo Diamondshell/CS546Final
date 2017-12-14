@@ -15,7 +15,7 @@ export class DataService {
 
   response: any;
 
-  getAllRecipes():Observable<Recipe[]>{
+  getAllRecipes():Observable<RecipeDetail[]>{
     return this._http.get('/recipes')
       .map(result => this.response = result.json());
     // return of(recipes);
@@ -29,7 +29,7 @@ export class DataService {
 
   getRecipeById(id):Observable<RecipeDetail>{
     return this._http.get('/recipe/' + id)
-      .map(result => this.result = result.json());
+      .map(result => this.response = result.json());
     //return of(recipeDetail);
   }
 

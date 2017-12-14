@@ -22,8 +22,8 @@ async function main() {
 
     //Create Users
     let user = [];
-    user.push({username:"Bobby", password:"Coolio", email:"bobby@dank.me", description:"I'm a cool dude I guess"});
-    user.push({username:"DankMeister", password:"memelord278", email:"dank@meist.er", description:"Memes are the greatest of all of God's creations. Hail Memes."});
+    user.push({username:"Bobby", password:"Coolio", email:"bobby@dank.com", description:"I'm a cool dude I guess"});
+    user.push({username:"DankMeister", password:"memelord278", email:"dank@meist.com", description:"Memes are the greatest of all of God's creations. Hail Memes."});
     user.push({username:"supergenius", password:"myintelligenceisbeyondhumanunderstanding", email:"patrickstar@bikinibottom.net", description:"The inner machinations of my mind are an engima"});
     user.push({username:"thedarklord", password:"Iwillhavetheonering", email:"sauron@kitty.us", description:"The Powers of the Ring are MINE for the taking - these recipes will be the implements of my revenge!"});
 
@@ -69,29 +69,29 @@ async function main() {
 
     //Create Ratings
     let rating = [];
-    rating.push({userID: us[0]._id, recipeId: rs[0]._id, rating: 10});
-    rating.push({userID: us[0]._id, recipeId: rs[1]._id, rating: 9});
-    rating.push({userID: us[0]._id, recipeId: rs[2]._id, rating: 8});
-    rating.push({userID: us[0]._id, recipeId: rs[3]._id, rating: 7});
-    rating.push({userID: us[0]._id, recipeId: rs[4]._id, rating: 6});
-    rating.push({userID: us[1]._id, recipeId: rs[5]._id, rating: 10});
-    rating.push({userID: us[1]._id, recipeId: rs[6]._id, rating: 9});
-    rating.push({userID: us[1]._id, recipeId: rs[7]._id, rating: 8});
-    rating.push({userID: us[1]._id, recipeId: rs[8]._id, rating: 7});
-    rating.push({userID: us[1]._id, recipeId: rs[9]._id, rating: 6});
-    rating.push({userID: us[2]._id, recipeId: rs[10]._id, rating: 10});
-    rating.push({userID: us[2]._id, recipeId: rs[11]._id, rating: 9});
-    rating.push({userID: us[2]._id, recipeId: rs[12]._id, rating: 8});
-    rating.push({userID: us[2]._id, recipeId: rs[13]._id, rating: 7});
-    rating.push({userID: us[2]._id, recipeId: rs[14]._id, rating: 6});
-    rating.push({userID: us[3]._id, recipeId: rs[15]._id, rating: 10});
-    rating.push({userID: us[3]._id, recipeId: rs[16]._id, rating: 9});
-    rating.push({userID: us[3]._id, recipeId: rs[17]._id, rating: 8});
-    rating.push({userID: us[3]._id, recipeId: rs[18]._id, rating: 7});
-    rating.push({userID: us[3]._id, recipeId: rs[19]._id, rating: 6});
-    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 2});
-    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 4});
-    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 0});
+    rating.push({userID: us[0]._id, recipeId: rs[0]._id, rating: 5});
+    rating.push({userID: us[0]._id, recipeId: rs[1]._id, rating: 5});
+    rating.push({userID: us[0]._id, recipeId: rs[2]._id, rating: 5});
+    rating.push({userID: us[0]._id, recipeId: rs[3]._id, rating: 5});
+    rating.push({userID: us[0]._id, recipeId: rs[4]._id, rating: 5});
+    rating.push({userID: us[1]._id, recipeId: rs[5]._id, rating: 5});
+    rating.push({userID: us[1]._id, recipeId: rs[6]._id, rating: 5});
+    rating.push({userID: us[1]._id, recipeId: rs[7]._id, rating: 5});
+    rating.push({userID: us[1]._id, recipeId: rs[8]._id, rating: 5});
+    rating.push({userID: us[1]._id, recipeId: rs[9]._id, rating: 5});
+    rating.push({userID: us[2]._id, recipeId: rs[10]._id, rating: 5});
+    rating.push({userID: us[2]._id, recipeId: rs[11]._id, rating: 5});
+    rating.push({userID: us[2]._id, recipeId: rs[12]._id, rating: 5});
+    rating.push({userID: us[2]._id, recipeId: rs[13]._id, rating: 5});
+    rating.push({userID: us[2]._id, recipeId: rs[14]._id, rating: 5});
+    rating.push({userID: us[3]._id, recipeId: rs[15]._id, rating: 5});
+    rating.push({userID: us[3]._id, recipeId: rs[16]._id, rating: 2});
+    rating.push({userID: us[3]._id, recipeId: rs[17]._id, rating: 2});
+    rating.push({userID: us[3]._id, recipeId: rs[18]._id, rating: 2});
+    rating.push({userID: us[3]._id, recipeId: rs[19]._id, rating: 2});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 3});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 3});
+    rating.push({userID: us[3]._id, recipeId: rs[0]._id, rating: 3});
     
     console.log("Pushing Ratings to DB");
     let rts = [];

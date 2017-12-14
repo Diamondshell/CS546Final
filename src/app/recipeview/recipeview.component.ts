@@ -26,18 +26,21 @@ export class RecipeviewComponent implements OnInit {
   }
   getRecipeById(id):void{
     this.dataService.getRecipeById(id)
-    .subscribe(recipeDetail=>this.recipe=recipeDetail);
+    .subscribe(recipeDetail=>this.finishLoad(recipeDetail));
+  }
+  finishLoad(recipeInfo):void{
+    this.recipe=recipeInfo;
+    this.numChecked = new Array(Math.ceil(this.recipe.avgRating));
+    this.numUnChecked = new Array(Math.floor(5-this.recipe.avgRating));
+    window.scrollTo(0, 0);
   }
   constructor( private route: ActivatedRoute, 
     private dataService:DataService, public dialog: MatDialog, private authenticationService: AuthenticationService ) { }
 
   ngOnInit() {
-    const id = +this.route.snapshot.paramMap.get('id');
+    const id = this.route.snapshot.paramMap.get('id');
+    console.log(id);
     this.getRecipeById(id);
-
-    this.numChecked = new Array(Math.ceil(this.recipe.Rating));
-    this.numUnChecked = new Array(Math.floor(5-this.recipe.Rating));
-    window.scrollTo(0, 0);
   }
 
   save() {
