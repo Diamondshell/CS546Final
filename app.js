@@ -536,6 +536,50 @@ app.get('/recipes/filter', async function(req, res) {
     }
 });
 
+
+//GET recipes/simplified/byname/:name, responds with summary of recipes that match along %name%
+app.get('/recipes/simplified/byname/:name', async function(req, res) {
+	//try to get recipes that match name
+    try{
+        let allRecipes = await index.recipes.getRecipesByLikeName(req.params.name);
+        
+		//variable to hold return value
+      	let retVal = [];
+		
+		let len = allRecipes.length;
+		for(let i = 0; i < len; i++) {
+			let tmp = {};
+			//get average rating
+			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
+			let total = 0;
+			let cnt = 0;
+			let len2 = recRatings.length;
+			for (let j = 0; j < len2; j++) {
+				cnt++;
+				total = total + recRatings[j].rating;
+			}
+			let average = total / cnt;
+
+			//get comments
+			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
+
+			//add average rating and comments to return value
+			tmp["name"] = allRecipes[i].name;
+			tmp["description"] = allRecipes[i].description;
+			tmp["avgRating"] = average;
+			tmp["comments"] = commentList;
+			retVal.push(tmp);
+        }
+		
+        //send status and response
+        res.status(200);
+        res.send(retVal);
+    }catch(error) {
+        //handle error
+        res.status(404).json({error: "No recipes found for search word: " + req.params.name});
+    }
+});
+
 //GET recipes/byname/:name, responds with all recipes match9ing name along %name%
 app.get('/recipes/byname/:name', async function(req, res) {
     //try to get recipes that match name
@@ -582,6 +626,7 @@ app.get('/recipes/top', async function(req, res) {
     //try to get top 15 recipes by popularity
     try{
         let allRecipes = await index.recipes.topXTrendingRecipes(15);
+		
 		//variable to hold return value
       	let retVal = [];
 		
