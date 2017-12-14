@@ -670,6 +670,51 @@ app.get('/recipes/top', async function(req, res) {
     }
 });
 
+//GET recipe/random route, responds with the details of a random recipe
+app.get('/recipe/random', async function(req, res) {
+    //try to get recipes
+    try {
+        let allRecipes = await index.recipes.getAllRecipes();
+		
+		//choose a random recipe
+		let chosenRec = allRecipes[Math.random(0, allRecipes.length)];
+		
+		
+		//variable to hold return value
+      	let retVal = {};
+		let tmp = chosenRec;
+		
+		//get average rating
+		let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
+		let total = 0;
+		let cnt = 0;
+		let len2 = recRatings.length;
+		for (let j = 0; j < len2; j++) {
+			cnt++;
+			total = total + recRatings[j].rating;
+		}
+		let average = total / cnt;
+
+		//get comments
+		let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
+
+		//add average rating and comments to return value
+		tmp["avgRating"] = average;
+		tmp["comments"] = commentList;
+		retVal.push(tmp);
+        
+        
+      
+        //send status and response
+        res.status(200);
+        res.send(retVal);
+    }catch(error) {
+        //handle error
+        console.log(error);
+        res.status(500).json({error: "Can't retrieve recipes"});
+    }
+});
+
 //POST recipe route, creates a recipe with the supplied data in the request body, returns new recipe
 app.post('/recipe', async function(req, res) {
     console.log(req.body);
