@@ -10,7 +10,7 @@
 </a>
 <div id="options">
     <button [class.edit-options] = "editting" (click)="editRecipe()" title = "Edit recipe" id = "edit"><i class="fa fa-pencil"></i></button>
-    <button (click)="deleteRecipe()" [class.delete-options] = "deleting" title = "Delete recipe" id = "edit"><i class="fa fa-trash-o"></i></button>
+    <button (click)="deleteRecipe()" [class.delete-options] = "deleting" (click)="deleteRecipe()" title = "Delete recipe" id = "edit"><i class="fa fa-trash-o"></i></button>
 </div>
 <a routerLink="/recipe/{{recipe._id}}">
 <footer>
