@@ -32,24 +32,21 @@ export class ProfileComponent implements OnInit {
       document.getElementById('editDescr').style.display = "inline-block";
       document.getElementById('editDescrButton').style.display = "none";
       document.getElementById('saveDescr').style.display = "inline-block";
-      this.dataService.updateUserInfo({description: this.user.description});
-    
-  
   }
 
   saveEmail(){
     let pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+(?:[A-Z]{2}|com|org|net|gov|mil|biz|info|mobi|name|aero|jobs|museum)\b/;
     if(pattern.test(this.user.email)){
-  	document.getElementById('editEmail').style.display = "none";
-  	document.getElementById('emailObj').style.display = "inline-block";
-  	document.getElementById('saveEmail').style.display = "none";
-    document.getElementById('editEmailButton').style.display = "inline-block";
+    	document.getElementById('editEmail').style.display = "none";
+    	document.getElementById('emailObj').style.display = "inline-block";
+    	document.getElementById('saveEmail').style.display = "none";
+      document.getElementById('editEmailButton').style.display = "inline-block";
 
-    document.getElementById('error').style.display="none";
-    this.dataService.updateUserInfo({email: this.user.email});
-  }else{
-    document.getElementById('error').style.display="block";
-  }
+      document.getElementById('error').style.display="none";
+      this.dataService.updateUserInfo(this.user._id, {email: this.user.email}).subscribe(result=>result);
+    }else{
+      document.getElementById('error').style.display="block";
+    }
     
   }
 
@@ -58,6 +55,7 @@ export class ProfileComponent implements OnInit {
   	document.getElementById('editDescr').style.display = "none";
   	document.getElementById('editDescrButton').style.display = "inline-block";
   	document.getElementById('saveDescr').style.display = "none";
+      this.dataService.updateUserInfo(this.user._id, {description: this.user.description}).subscribe(result=>result);
   }
 
 }

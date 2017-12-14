@@ -223,6 +223,7 @@ app.post('/user', async function(req, res) {
 
 //PUT user/:userId route, updates the specified user with only the supplied changes, returns updated user information 
 app.put('/user/:userId', async function(req, res) {
+    console.log('put received');
     //check and get parameters
     let password = "";
     let email = "";
@@ -301,11 +302,9 @@ app.delete('/user/:userId', async function(req, res) {
 
 //GET recipes route, responds with a list of all recipes in the form {_id: RECIPE_ID, title: RECIPE_TITLE}
 app.get('/recipes', async function(req, res) {
-    console.log("Attempting to get all recipes");
     //try to get recipes
     try {
         let allRecipes = await index.recipes.getAllRecipes();
-        console.log(allRecipes);
 		
 		//variable to hold return value
       	let retVal = [];
