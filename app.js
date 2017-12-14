@@ -377,10 +377,21 @@ app.get('/recipe/:recipeId', async function(req, res) {
         //add average rating and comments to return value
         getRecipe["avgRating"] = average;
         getRecipe["comments"] = commentList;
-        
-        //send status and response
-        res.status(200);
-        res.send(getRecipe);
+		
+		//get current popularity
+		let pop = getRecipe["popularity"] + 1;
+		
+		//try to update popularity
+		try {
+			let updRecipe = index.recipes.updateRecipeById(req.params.recipeId, undefined, undefined, undefined, undefined, undefined, pop, undefined, undefined, undefined, undefined);
+			
+			//send status and response
+			res.status(200);
+        	res.send(getRecipe);
+		}catch(error) {
+			//handle error
+			res.status(404).json({error: "Could not update popularity of recipe"});
+		}
     }catch(error) {
         //handle error
         res.status(404).json({error: "Recipe not found with id: " + req.params.recipeId});
