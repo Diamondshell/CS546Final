@@ -305,7 +305,7 @@ app.get('/recipes', async function(req, res) {
     //try to get recipes
     try {
         let allRecipes = await index.recipes.getAllRecipes();
-        console.log(allRecipes);
+        //console.log(allRecipes);
 		
 		//variable to hold return value
       	let retVal = [];
