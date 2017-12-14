@@ -476,13 +476,19 @@ var CardLayoutComponent = (function () {
     }
     CardLayoutComponent.prototype.getAllRecipes = function () {
         var _this = this;
-        this.dataService.getAllRecipes()
+        this.dataService.getTopRecipes()
             .subscribe(function (recipes) { return _this.recipes = recipes; });
     };
     CardLayoutComponent.prototype.getUserRecipes = function () {
         var _this = this;
         this.authenticationService.getUserId()
             .subscribe(function (id) { return _this.dataService.getUserRecipes(id)
+            .subscribe(function (recipes) { return _this.recipes = recipes; }); });
+    };
+    CardLayoutComponent.prototype.getUserFavorites = function () {
+        var _this = this;
+        this.authenticationService.getUserId()
+            .subscribe(function (id) { return _this.dataService.getUserFavorites(id)
             .subscribe(function (recipes) { return _this.recipes = recipes; }); });
     };
     CardLayoutComponent.prototype.ngOnInit = function () {
@@ -492,6 +498,9 @@ var CardLayoutComponent = (function () {
         }
         else if (this.type == 'user') {
             this.getUserRecipes();
+        }
+        else if (this.type == 'saved') {
+            this.getUserFavorites();
         }
     };
     __decorate([
@@ -542,7 +551,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<section class=\"card\">\r\n    <a routerLink=\"/recipe/{{recipe._id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.description}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"deleteRecipe()\" [class.delete-options] = \"deleting\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe._id}}\">\r\n<footer>\r\n    <div class = \"rating\" title =\"{{recipe.avgRating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
+module.exports = "\r\n<section class=\"card\">\r\n    <a routerLink=\"/recipe/{{recipe._id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.description}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"deleteRecipe()\" [class.delete-options] = \"deleting\" (click)=\"deleteRecipe()\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe._id}}\">\r\n<footer>\r\n    <div class = \"rating\" title =\"{{recipe.avgRating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
 
 /***/ }),
 
@@ -555,6 +564,7 @@ module.exports = "\r\n<section class=\"card\">\r\n    <a routerLink=\"/recipe/{{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__recipeDetails__ = __webpack_require__("../../../../../src/app/recipeDetails.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__ = __webpack_require__("../../../../../src/app/create-recipe-modal/create-recipe-modal.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -568,8 +578,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var CardComponent = (function () {
-    function CardComponent(dialog) {
+    function CardComponent(dataService, dialog) {
+        this.dataService = dataService;
         this.dialog = dialog;
         this.numChecked = [];
         this.numUnChecked = [];
@@ -583,6 +595,27 @@ var CardComponent = (function () {
         this.dialogRef.afterClosed().subscribe(function (result) {
             console.log(result);
         });
+    };
+    CardComponent.prototype.deleteRecipe = function () {
+        var _this = this;
+        if (this.editting) {
+            //Means they can edit, wihch means they're on their recipes page.
+            //So they're deleting the recipe from existance, not their favorites.
+            this.dataService.deleteRecipe(this.recipe._id).subscribe(function (result) { return window.location.reload(); });
+        }
+        else {
+            //Deleting from favorites
+            this.dataService.getCurrentUser().subscribe(function (user) { return _this.dataService.getUserFavoritesReal(user._id)
+                .subscribe(function (favorites) { return _this.deleteFavorite(favorites); }); });
+        }
+    };
+    CardComponent.prototype.deleteFavorite = function (favorites) {
+        for (var i = 0; i < favorites.length; i++) {
+            console.log(favorites[i]);
+            if (favorites[i].recipeId == this.recipe._id) {
+                this.dataService.deleteFavorite(favorites[i]._id).subscribe(function (result) { return window.location.reload(); });
+            }
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
@@ -602,7 +635,7 @@ var CardComponent = (function () {
             template: __webpack_require__("../../../../../src/app/card/card.component.html"),
             styles: [__webpack_require__("../../../../../src/app/card/card.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatDialog */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__angular_material__["e" /* MatDialog */]])
     ], CardComponent);
     return CardComponent;
 }());
@@ -632,7 +665,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create-recipe-modal/create-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title id=\"heading\">New Recipe</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input matInput placeholder=\"Recipe Name\" value={{recipe.Name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.Description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea matInput matTextAreaAutosize value={{recipe.Appliance}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.Price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input matInput value={{recipe.Cooking_Time}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.Tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.Steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" id=\"finishButton\">Create Recipe!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div *ngIf=\"recipe\" id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title id=\"heading\">{{headingStr}}</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input [(ngModel)]=\"recipe.name\" matInput placeholder=\"Recipe Name\" value={{recipe.name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea [(ngModel)]=\"recipe.description\" matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.ingredients\" matInput matTextAreaAutosize value={{recipe.ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.appliances\" matInput matTextAreaAutosize value={{recipe.appliances}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input  [(ngModel)]=\"recipe.price\" matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input [(ngModel)]=\"recipe.cookTime\" matInput value={{recipe.cookTime}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input [(ngModel)]=\"recipe.tags\" matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput [(ngModel)]=\"recipe.steps\" matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" (click)=\"submit()\" id=\"finishButton\">{{submitStr}}</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -672,13 +705,36 @@ var CreateRecipeModalComponent = (function () {
     }
     CreateRecipeModalComponent.prototype.getRecipeById = function (id) {
         var _this = this;
-        this.dataService.getRecipeById(id).subscribe(function (recipeDetail) { return _this.recipe = recipeDetail; });
+        this.dataService.getRecipeById(id).subscribe(function (recipeDetail) { return _this.doLoad(recipeDetail); });
+    };
+    CreateRecipeModalComponent.prototype.submit = function () {
+        var _this = this;
+        this.recipe.appliances = this.recipe.appliances.toString().split(',');
+        this.recipe.tags = this.recipe.tags.toString().split(',');
+        this.recipe.ingredients = this.recipe.ingredients.toString().split(',');
+        this.recipe.steps = this.recipe.steps.toString().split(',');
+        if (this.data) {
+            this.dataService.updateRecipeById(this.data.id, this.recipe).subscribe(function (result) { return result; });
+        }
+        else {
+            this.recipe.popularity = 0;
+            this.dataService.getCurrentUser().subscribe(function (result) { return _this.finishSend(result); });
+        }
+    };
+    CreateRecipeModalComponent.prototype.finishSend = function (id) {
+        this.recipe.userid = id._id;
+        this.dataService.createNewRecipe(this.recipe).subscribe(function (result) { return result; });
+    };
+    CreateRecipeModalComponent.prototype.doLoad = function (result) {
+        this.recipe = result;
+        this.headingStr = "Edit Recipe";
+        this.submitStr = "Save Recipe!";
+        // document.getElementById('heading').innerHTML = "Edit Recipe";
+        // document.getElementById('finishButton').innerHTML = "Save Recipe!";
     };
     CreateRecipeModalComponent.prototype.ngOnInit = function () {
         if (this.data) {
             this.getRecipeById(this.data.id);
-            document.getElementById('heading').innerHTML = "Edit Recipe";
-            document.getElementById('finishButton').innerHTML = "Save Recipe!";
         }
         else {
             this.recipe = new __WEBPACK_IMPORTED_MODULE_4__recipeDetails__["a" /* RecipeDetail */]();
@@ -688,8 +744,10 @@ var CreateRecipeModalComponent = (function () {
             this.recipe.description = "";
             this.recipe.ingredients = [];
             this.recipe.price = 0;
-            document.getElementById('heading').innerHTML = "Create Recipe";
-            document.getElementById('finishButton').innerHTML = "Create Recipe!";
+            this.headingStr = "Create Recipe";
+            this.submitStr = "Create Recipe!";
+            // document.getElementById('heading').innerHTML = "Create Recipe";
+            // document.getElementById('finishButton').innerHTML = "Create Recipe!";
         }
     };
     CreateRecipeModalComponent = __decorate([
@@ -738,9 +796,25 @@ var DataService = (function () {
             .map(function (result) { return _this.response = result.json(); });
         // return of(recipes);
     };
+    DataService.prototype.getTopRecipes = function () {
+        var _this = this;
+        return this._http.get('/recipes/top')
+            .map(function (result) { return _this.response = result.json(); });
+        // return of(recipes);
+    };
     DataService.prototype.getUserRecipes = function (id) {
         var _this = this;
         return this._http.get("/recipes/user/" + id)
+            .map(function (result) { return _this.response = result.json(); });
+    };
+    DataService.prototype.getUserFavorites = function (id) {
+        var _this = this;
+        return this._http.get("/favorites/user/" + id)
+            .map(function (result) { return _this.response = result.json(); });
+    };
+    DataService.prototype.getUserFavoritesReal = function (id) {
+        var _this = this;
+        return this._http.get("/favoritesreal/user/" + id)
             .map(function (result) { return _this.response = result.json(); });
     };
     DataService.prototype.getCurrentUser = function () {
@@ -751,18 +825,37 @@ var DataService = (function () {
     };
     DataService.prototype.getRecipeById = function (id) {
         var _this = this;
-        return this._http.get('/recipe/' + id)
+        return this._http.get("/recipe/" + id)
             .map(function (result) { return _this.response = result.json(); });
         //return of(recipeDetail);
     };
+    DataService.prototype.createNewRecipe = function (recipe) {
+        var _this = this;
+        return this._http.post('/recipe', recipe)
+            .map(function (result) { return _this.response = result.json(); });
+    };
+    DataService.prototype.updateRecipeById = function (id, changed) {
+        var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
+        headers.append('Content-Type', 'application/json');
+        //send changed data to server
+        return this._http.put("/recipe/" + id, changed, { headers: headers })
+            .map(function (result) { return result.json(); });
+    };
     DataService.prototype.updateUserInfo = function (username, changed) {
-        console.log(changed);
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
         //send changed data to server
         return this._http.put("/user/" + username, changed, { headers: headers })
             .map(function (result) { return result.json(); });
         //return of("");
+    };
+    DataService.prototype.deleteRecipe = function (id) {
+        return this._http.delete("/recipe/" + id)
+            .map(function (result) { return result.json(); });
+    };
+    DataService.prototype.deleteFavorite = function (id) {
+        return this._http.delete("/favorite/" + id)
+            .map(function (result) { return result.json(); });
     };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
