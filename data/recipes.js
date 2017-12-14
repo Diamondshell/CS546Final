@@ -64,11 +64,14 @@ const exported_methods = {
      * @param {string} name The name of the recipe to search for.
      */
     async getRecipesByLikeName ( name ) {
+        name = name.trim();
         if ( typeof ( name ) !== 'string' ) {
             throw `getRecipesByLikeName: Expected a string name but received a ${typeof(name)}`;
         }
         const recipeCollection = await recipes();
-        const data = await recipeCollection.find ( { name: {$regex: ".*" + name + ".*"} } ).toArray();
+        str = "^.*" + name + ".*";
+        reg = new RegExp ( str, "i" );
+        const data = await recipeCollection.find ( { name: {$regex: reg } } ).toArray();
         return await getAvgRatingList ( data );
     },
     /**
