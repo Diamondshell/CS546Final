@@ -839,6 +839,16 @@ var DataService = (function () {
         return this._http.post('/favorite', { userId: id, recipeId: recipe })
             .map(function (result) { return _this.response = result.json(); });
     };
+    DataService.prototype.addRating = function (recipe, userid, rating) {
+        var _this = this;
+        return this._http.post('/rating', { userId: userid, recipeId: recipe, rating: Number(rating) })
+            .map(function (result) { return _this.response = result.json(); });
+    };
+    DataService.prototype.addComment = function (recipe, userid, comment) {
+        var _this = this;
+        return this._http.post('/comment', { userId: userid, recipeId: recipe, comment: comment })
+            .map(function (result) { return _this.response = result.json(); });
+    };
     DataService.prototype.updateRecipeById = function (id, changed) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
@@ -1501,7 +1511,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/rate-modal/rate-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\r\n\t<form>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\r\n\t\t\t    <mat-select placeholder=\"Rating\" value=\"\">\r\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\r\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\r\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\r\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\r\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\r\n\t\t\t    </mat-select>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\r\n\t\t\t  \t<textarea matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" type=\"submit\" value=\"Rate\">Submit!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\r\n\t<form>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\r\n\t\t\t    <mat-select  id=\"rating\" placeholder=\"Rating\" value=\"\" [(value)]=\"rating\">\r\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\r\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\r\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\r\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\r\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\r\n\t\t\t    </mat-select>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\r\n\t\t\t  \t<textarea id=\"comment\" matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button   class=\"submit\" (click)=\"submit()\" value=\"Rate\">Submit!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -1512,6 +1522,7 @@ module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>Rate T
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RateModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1521,12 +1532,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
+
 
 
 var RateModalComponent = (function () {
-    function RateModalComponent(dialogRef) {
+    function RateModalComponent(dataService, dialogRef, data) {
+        this.dataService = dataService;
         this.dialogRef = dialogRef;
+        this.data = data;
+        this.rating = 1;
     }
+    RateModalComponent.prototype.submit = function () {
+        var _this = this;
+        // alert("HELLO");
+        var commentStr = document.getElementById("comment").value;
+        alert(commentStr);
+        alert(this.rating);
+        this.dataService.getCurrentUser()
+            .subscribe(function (user) { return _this.dataService.addRating(_this.data.recipeId, user._id, _this.rating)
+            .subscribe(function (res) { return res; }); });
+        this.dataService.getCurrentUser()
+            .subscribe(function (user) { return _this.dataService.addComment(_this.data.recipeId, user._id, commentStr)
+            .subscribe(function (res) { return _this.reload(); }); });
+    };
+    RateModalComponent.prototype.reload = function () {
+        this.dialogRef.close('');
+    };
+    RateModalComponent.prototype.getChangedValue = function (e) {
+        console.log(e);
+    };
     RateModalComponent.prototype.ngOnInit = function () {
     };
     RateModalComponent = __decorate([
@@ -1535,7 +1572,8 @@ var RateModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/rate-modal/rate-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */]])
+        __param(2, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], Object])
     ], RateModalComponent);
     return RateModalComponent;
 }());
@@ -1664,10 +1702,12 @@ var RecipeviewComponent = (function () {
         var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.displayScreen(response); });
     };
     RecipeviewComponent.prototype.displayScreen = function (response) {
+        var _this = this;
         if (response.validated) {
-            this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__rate_modal_rate_modal_component__["a" /* RateModalComponent */], { width: '600px' });
+            this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_4__rate_modal_rate_modal_component__["a" /* RateModalComponent */], { width: '600px', data: { recipeId: this.recipe._id } });
             this.dialogRef.afterClosed().subscribe(function (result) {
                 console.log(result);
+                _this.dataService.getRecipeById(_this.recipe._id).subscribe(function (res) { return _this.recipe = res; });
             });
         }
         else {

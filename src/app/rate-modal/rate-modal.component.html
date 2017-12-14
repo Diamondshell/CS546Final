@@ -4,7 +4,7 @@
 		<table>
 			<tr>
 			  <mat-form-field title="Rating" class="input">
-			    <mat-select placeholder="Rating" value="">
+			    <mat-select  id="rating" placeholder="Rating" value="" [(value)]="rating">
 			    	<mat-option value="1">1</mat-option>
 			    	<mat-option value="2">2</mat-option>
 			    	<mat-option value="3">3</mat-option>
@@ -15,10 +15,10 @@
 			</tr>
 			<tr>
 			  <mat-form-field title="Review" class="input">
-			  	<textarea matInput matTextAreaAutosize placeholder="Review" type="text"></textarea>
+			  	<textarea id="comment" matInput matTextAreaAutosize placeholder="Review" type="text"></textarea>
 			  </mat-form-field>
 			</tr>
-	  	<button mat-raised-button class="submit" type="submit" value="Rate">Submit!</button>
+	  	<button mat-raised-button   class="submit" (click)="submit()" value="Rate">Submit!</button>
 		</table>
 	</form>
 </div>

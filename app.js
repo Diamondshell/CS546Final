@@ -1033,6 +1033,8 @@ app.post('/rating', async function(req, res) {
     let userId = "";
     let recipeId = "";
     let rating = 0;
+
+    console.log(req.body);
     
     //check for userId
     if(req.body.hasOwnProperty("userId")) {
@@ -1065,10 +1067,10 @@ app.post('/rating', async function(req, res) {
     //check for rating
     if(req.body.hasOwnProperty("rating")) {
         //check if rating is a string
-        if(typeof req.body.rating == 'string') {
+        if(typeof req.body.rating == 'number') {
             rating = req.body.rating;
         }else {
-            res.status(400).json({error: "Bad Request: requires rating to be a string"});
+            res.status(400).json({error: "Bad Request: requires rating to be a number"});
             return;
         }
     }else {
@@ -1081,9 +1083,10 @@ app.post('/rating', async function(req, res) {
         let newRating = await index.ratings.createRating(userId, recipeId, rating);
         
         //send status and response
-        res.status(200);
+        res.status(200);    
         res.send(newRating);
     }catch(error) {
+        console.log(error);
         res.status(500).json({error: "Failed to add rating"});
     }
 });
