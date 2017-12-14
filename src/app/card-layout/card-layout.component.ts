@@ -41,7 +41,9 @@ export class CardLayoutComponent implements OnInit {
     } else if(this.type == 'saved') {
       this.getUserFavorites();
     } else if(this.type == 'browse') {
-      
+      if(this.recipes.length <1){
+        document.getElementById('no-results').style.display = "block";
+      }
     }
   }
 

@@ -1,12 +1,7 @@
 .card {
     margin:15px;
 }
-.cards {
-   /* display:block;
-    float:none;
-    clear:both;
-    */
-}
+
 li{
     list-style: none;
     display: flex !important;
@@ -23,6 +18,10 @@ li{
    /* width: calc(30% - 30px);*/
 
    
+}
+
+p{
+    display:none;
 }
 ul{
     width: 90%;

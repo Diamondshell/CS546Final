@@ -20,6 +20,7 @@ import { ProfileLayoutComponent } from './profile-layout/profile-layout.componen
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { MustLogInComponent } from './must-log-in/must-log-in.component';
 
+import { RedirectComponent } from './redirect/redirect.component';
 
 
 const routes: Routes = [
@@ -28,8 +29,9 @@ const routes: Routes = [
   { path: 'userprofile', component: ProfileLayoutComponent ,pathMatch: 'full'  },
   { path: 'savedrecipes', component: SavedRecipesComponent,pathMatch: 'full' },
   { path: 'userrecipes', component: UserRecipesComponent ,pathMatch: 'full'},
-  {path: 'browse', component: BrowseComponent,pathMatch: 'full'},
+  {path: 'browse/:id', component: BrowseComponent,pathMatch: 'full'},
   {path: 'recipe/:id', component: RecipeviewComponent,pathMatch: 'full'},
+  {path: 'redirect/:id', component: RedirectComponent,pathMatch: 'full'},
   {path: 'forbidden', component:MustLogInComponent},
   {path: '**', component:PageNotFoundComponent}
 ];
