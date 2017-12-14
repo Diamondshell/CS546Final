@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {RecipeDetail} from '../recipeDetails';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-browse',
@@ -7,10 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrowseComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
+  recipes: RecipeDetail[];
 
   ngOnInit() {
     window.scrollTo(0, 0);
+
+    var searchStr = (<HTMLInputElement>document.getElementById("search")).value;
+    if (searchStr && searchStr != ""){    	
+    	this.dataService.getRecipesByLikeName(searchStr)
+    		.subscribe(res=>this.recipes = res);
+    }
   }
 
 }

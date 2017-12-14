@@ -54,6 +54,11 @@ export class DataService {
     //return of(recipeDetail);
   }
 
+  getRecipesByLikeName(str):Observable<RecipeDetail[]>{
+    return this._http.get(`/recipes/byname/${str}`)
+      .map(result => this.response = result.json());
+  }
+
   createNewRecipe(recipe):Observable<RecipeDetail>{
     return this._http.post('/recipe', recipe)
       .map(result => this.response = result.json());

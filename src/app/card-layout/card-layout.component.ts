@@ -12,7 +12,7 @@ export class CardLayoutComponent implements OnInit {
  @Input() editting: Boolean;
  @Input() deleting: Boolean;
  @Input() type: String;
-  recipes: RecipeDetail[];
+ @Input() recipes: RecipeDetail[];
 
   getAllRecipes(): void{
     this.dataService.getTopRecipes()
@@ -40,6 +40,8 @@ export class CardLayoutComponent implements OnInit {
       this.getUserRecipes();
     } else if(this.type == 'saved') {
       this.getUserFavorites();
+    } else if(this.type == 'browse') {
+      
     }
   }
 

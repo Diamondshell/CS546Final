@@ -13,8 +13,8 @@
       <ul>
       <li class= "logo"><img routerLink="/" id= "logo" src = "assets/Bonappetelli.png" alt = "logo" ></li>
         
-      <li class = "searchText"><input title = "Search" type="text" placeholder="Search" class="searchBar"></li>
-      <li class = "search"><p title = "Search" ><i class = "fa fa-search"></i></p></li>
+      <li class = "searchText"><input id="search" title = "Search" type="text" placeholder="Search" class="searchBar"></li>
+      <li class = "search" routerLink="/browse"><p title = "Search" (click)="search()"><i class = "fa fa-search"></i></p></li>
       <li class = "browse" routerLink="/browse"><p title = "Browse" (click)="browse()">Browse</p></li>
       <li class = "random"><p title = "Random Recipe" (click)="displayRandomRecipeModal()">Random Recipe</p></li>
        </ul>

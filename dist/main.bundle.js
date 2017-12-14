@@ -96,7 +96,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\" id=\"si\">Sign In <i class = \"fa fa-sign-in\"></i></button>\r\n      <a routerLink = \"/userprofile\" class=\"user\" id=\"user\">hello</a>\r\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\" id=\"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\r\n\r\n    </div>\r\n<div class = \"float-clear\"></div>\r\n<header>\r\n    <nav>\r\n      \r\n      <ul>\r\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\r\n        \r\n      <li class = \"searchText\"><input title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\r\n      <li class = \"search\"><p title = \"Search\" ><i class = \"fa fa-search\"></i></p></li>\r\n      <li class = \"browse\" routerLink=\"/browse\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\r\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\r\n       </ul>\r\n    </nav>\r\n</header>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n  <div class = \"float-clear\"></div>\r\n  <div class = \"spacer\"></div>\r\n  <footer>\r\n      <div class = \"footerInfo\">\r\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\r\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\r\n      \r\n        <div id = \"socialMedia\">\r\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\r\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\r\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n\r\n</div>\r\n<div class = \"float-clear\"></div>\r\n"
+module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\" id=\"si\">Sign In <i class = \"fa fa-sign-in\"></i></button>\r\n      <a routerLink = \"/userprofile\" class=\"user\" id=\"user\">hello</a>\r\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\" id=\"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\r\n\r\n    </div>\r\n<div class = \"float-clear\"></div>\r\n<header>\r\n    <nav>\r\n      \r\n      <ul>\r\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\r\n        \r\n      <li class = \"searchText\"><input id=\"search\" title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\r\n      <li class = \"search\" routerLink=\"/browse\"><p title = \"Search\" (click)=\"search()\"><i class = \"fa fa-search\"></i></p></li>\r\n      <li class = \"browse\" routerLink=\"/browse\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\r\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\r\n       </ul>\r\n    </nav>\r\n</header>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n  <div class = \"float-clear\"></div>\r\n  <div class = \"spacer\"></div>\r\n  <footer>\r\n      <div class = \"footerInfo\">\r\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\r\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\r\n      \r\n        <div id = \"socialMedia\">\r\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\r\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\r\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n\r\n</div>\r\n<div class = \"float-clear\"></div>\r\n"
 
 /***/ }),
 
@@ -168,6 +168,8 @@ var AppComponent = (function () {
             document.getElementById('user').innerHTML = "Hello " + result._id;
             document.getElementById('user').style.display = "block";
         }
+    };
+    AppComponent.prototype.search = function () {
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -383,7 +385,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/browse/browse.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [type]=\"'browse'\" [editting]=\"false\"></app-card-layout>"
+module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout *ngIf=\"recipes\" [type]=\"'browse'\" [recipes]=\"recipes\" [editting]=\"false\"></app-card-layout>"
 
 /***/ }),
 
@@ -393,6 +395,7 @@ module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BrowseComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -403,11 +406,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
 var BrowseComponent = (function () {
-    function BrowseComponent() {
+    function BrowseComponent(dataService) {
+        this.dataService = dataService;
     }
     BrowseComponent.prototype.ngOnInit = function () {
+        var _this = this;
         window.scrollTo(0, 0);
+        var searchStr = document.getElementById("search").value;
+        if (searchStr && searchStr != "") {
+            this.dataService.getRecipesByLikeName(searchStr)
+                .subscribe(function (res) { return _this.recipes = res; });
+        }
     };
     BrowseComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -415,7 +426,7 @@ var BrowseComponent = (function () {
             template: __webpack_require__("../../../../../src/app/browse/browse.component.html"),
             styles: [__webpack_require__("../../../../../src/app/browse/browse.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], BrowseComponent);
     return BrowseComponent;
 }());
@@ -502,6 +513,8 @@ var CardLayoutComponent = (function () {
         else if (this.type == 'saved') {
             this.getUserFavorites();
         }
+        else if (this.type == 'browse') {
+        }
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
@@ -515,6 +528,10 @@ var CardLayoutComponent = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
         __metadata("design:type", String)
     ], CardLayoutComponent.prototype, "type", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["F" /* Input */])(),
+        __metadata("design:type", Array)
+    ], CardLayoutComponent.prototype, "recipes", void 0);
     CardLayoutComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'app-card-layout',
@@ -828,6 +845,11 @@ var DataService = (function () {
         return this._http.get("/recipe/" + id)
             .map(function (result) { return _this.response = result.json(); });
         //return of(recipeDetail);
+    };
+    DataService.prototype.getRecipesByLikeName = function (str) {
+        var _this = this;
+        return this._http.get("/recipes/byname/" + str)
+            .map(function (result) { return _this.response = result.json(); });
     };
     DataService.prototype.createNewRecipe = function (recipe) {
         var _this = this;
@@ -1549,8 +1571,6 @@ var RateModalComponent = (function () {
         var _this = this;
         // alert("HELLO");
         var commentStr = document.getElementById("comment").value;
-        alert(commentStr);
-        alert(this.rating);
         this.dataService.getCurrentUser()
             .subscribe(function (user) { return _this.dataService.addRating(_this.data.recipeId, user._id, _this.rating)
             .subscribe(function (res) { return res; }); });
@@ -1688,7 +1708,6 @@ var RecipeviewComponent = (function () {
         if (response.validated) {
             this.dataService.getCurrentUser().subscribe(function (id) { return _this.dataService.addToFavorites(id._id, _this.recipe._id)
                 .subscribe(function (res) { return res; }); });
-            alert("saved");
         }
         else {
             this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], { data: { loggedIn: true } });

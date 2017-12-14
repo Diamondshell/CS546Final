@@ -51,7 +51,6 @@ export class RecipeviewComponent implements OnInit {
     if (response.validated){
       this.dataService.getCurrentUser().subscribe(id=>this.dataService.addToFavorites(id._id, this.recipe._id)
                                         .subscribe(res=>res));
-      alert("saved");
     }else {
       this.dialogRefSignin = this.dialog.open(SigninModalComponent, {data: {loggedIn: true}});
       this.dialogRefSignin.afterClosed().subscribe((result) => {
