@@ -666,7 +666,7 @@ app.get('/recipes/top', async function(req, res) {
     }catch(error) {
         //handle error
         console.log(error);
-        res.status(404).json({error: "Could not retrieve top " + req.params.x + " recipes"});
+        res.status(404).json({error: "Could not retrieve top 15 recipes"});
     }
 });
 
