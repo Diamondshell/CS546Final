@@ -106,4 +106,9 @@ export class DataService {
       .map(result=>result.json());
   }
 
+  createNewUser(username, email, pass){
+    return this._http.post('/user', {password: pass, username: username, email: email, description: "I am the default description. Change me!"})
+      .map(result=>result.json());
+  }
+
 }
