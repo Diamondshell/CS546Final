@@ -8,7 +8,7 @@
 		<div id="email">
 			<label id="userEmail" class="pull-left" for="editEmail">Email:</label>
 			<span id="emailObj">{{user.email}}</span>
-			<input matInput type="text" [(ngModel)]="user.email" placeholder="{{user.email}}" id="editEmail">
+			<input type="text" [(ngModel)]="user.email" placeholder="{{user.email}}" id="editEmail">
 			<button title = "Edit email" (click)="editEmail()" id= "editEmailButton" name="editEmailButton"><i class="fa fa-pencil"></i></button>
 			<button title="Save" (click)="saveEmail()" id="saveEmail"><i class="fa fa-check"></i></button>
 			<p id="error">Must give a valid email</p>

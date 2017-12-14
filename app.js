@@ -234,6 +234,8 @@ app.post('/user', async function(req, res) {
 
 //PUT user/:userId route, updates the specified user with only the supplied changes, returns updated user information 
 app.put('/user/:userId', async function(req, res) {
+
+    let state = false;
     console.log('put received');
     //check and get parameters
     let password = "";
@@ -244,6 +246,7 @@ app.put('/user/:userId', async function(req, res) {
     if(req.body.hasOwnProperty("password")) {
         //check if password is a string
         if(typeof req.body.password == 'string') {
+            state = true;
             password = req.body.password;
         }else {
             res.status(400).json({error: "Bad Request: requires a password to be a string"});
@@ -257,6 +260,7 @@ app.put('/user/:userId', async function(req, res) {
     if(req.body.hasOwnProperty("email")) {
         //check if email is a string
         if(typeof req.body.email == 'string') {
+            state = true;
             email = req.body.email;
         }else {
             res.status(400).json({error: "Bad Request: requires email to be a string"});
@@ -270,6 +274,7 @@ app.put('/user/:userId', async function(req, res) {
     if(req.body.hasOwnProperty("description")) {
         //check if description is a string
         if(typeof req.body.description == 'string') {
+            state = true;
             description = req.body.description;
         }else {
             res.status(400).json({error: "Bad Request: requires description to be a string"});
@@ -280,14 +285,18 @@ app.put('/user/:userId', async function(req, res) {
     }
     
     //try to update user info
-    try {
-        let userInfo = await index.users.updateUserById(req.params.userId, password, email, description);
-        
-        //send status and response
-        res.status(200);
-        res.send(userInfo);
-    }catch(error) {
-        res.status(500).json({error: "Failed to update user with id: " + req.params.userId});
+    if(state){
+        try {
+            let userInfo = await index.users.updateUserById(req.params.userId, password, email, description);
+            
+            //send status and response
+            res.status(200);
+            res.send(userInfo);
+        }catch(error) {
+            res.status(500).json({error: "Failed to update user with id: " + req.params.userId});
+        }
+    }else{
+        res.status(500).json({error: "Failed to get userInfo. No update needed."});
     }
 });
 

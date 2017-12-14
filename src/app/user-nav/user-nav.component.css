@@ -1,5 +1,5 @@
 .sidenav {
-	height: calc(100% - 169px);
+	height: calc(100% - 139px);
 	width: 0;
 	position: absolute;
 	z-index: 1;
@@ -36,11 +36,12 @@
   transition: 1s;
 }
 
-.open{
-    margin-top: 50px;
+#open{
+		display: block;
+    margin-top: 15px;
     margin-left: 10px;
-    font-size: 14pt;
-    color: #e8eef2;
+    font-size: 20pt !important;
+    color: black;
 }
 
 .sideDiv {
