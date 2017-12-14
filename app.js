@@ -154,7 +154,7 @@ app.post('/user', async function(req, res) {
     if(req.body.hasOwnProperty("password")) {
         //check if password is a string
         if(typeof req.body.password == 'string') {
-            password = req.body.password;
+            password = bcrypt.hashSync(req.body.password,16);;
         }else {
             res.status(400).json({error: "Bad Request: requires password to be a string"});
             return;
@@ -210,7 +210,7 @@ app.post('/user', async function(req, res) {
     try {
         let userInfo = await index.users.getUserById(username);
         
-        if(userInfo.hasOwnProperty("password")) {
+        if(userInfo) {
             //username already in use
             res.status(500).json({error: "Username " + username + " already in use"});
         }else {
@@ -222,10 +222,12 @@ app.post('/user', async function(req, res) {
                 res.status(200);
                 res.send(newUser);
             }catch(error) {
+                console.log(error);
                 res.status(500).json({error: "Failed to add user with username: " + username});
             }
         }
     }catch(error) {
+        console.log(error);
 		res.status(500).json({error: "Failed to add user"});
 	}
 });

@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { ViewEncapsulation } from '@angular/core';
 import { AuthenticationService } from '../authentication.service';
+import { DataService } from '../data.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -11,8 +12,13 @@ import { Router } from '@angular/router';
 })
 export class SigninModalComponent {
 
+  newPass:String;
+  newPassConf:String;
+  newEmail:String
+  newUser:String;
+
   isDisabled = false;
-  constructor(public dialogRef: MatDialogRef<SigninModalComponent>, private authenticationService: AuthenticationService, private router: Router,  @Inject(MAT_DIALOG_DATA) public loggedIn: any) {}
+  constructor(public dialogRef: MatDialogRef<SigninModalComponent>, private dataService: DataService, private authenticationService: AuthenticationService, private router: Router,  @Inject(MAT_DIALOG_DATA) public loggedIn: any) {}
 
   register(){
   	document.getElementById('sign-in').style.display = 'none';
@@ -62,6 +68,15 @@ export class SigninModalComponent {
       document.getElementById('user').innerHTML=`Hello ${result._id}`;
       document.getElementById('user').style.display="inline-block";
     }
+  }
+
+  doRegister():void{
+    if (this.newPass != this.newPassConf) {
+      alert("Passwords must match!");
+      return;
+    }
+    this.dataService.createNewUser(this.newUser, this.newEmail, this.newPass).subscribe(res=>
+      this.dialogRef.close(''));
   }
 
   ngOnInit(){

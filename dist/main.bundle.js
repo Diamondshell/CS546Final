@@ -894,6 +894,10 @@ var DataService = (function () {
         return this._http.delete("/favorite/" + id)
             .map(function (result) { return result.json(); });
     };
+    DataService.prototype.createNewUser = function (username, email, pass) {
+        return this._http.post('/user', { password: pass, username: username, email: email, description: "" })
+            .map(function (result) { return result.json(); });
+    };
     DataService = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["C" /* Injectable */])(),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_http__["b" /* Http */]])
@@ -1707,7 +1711,7 @@ var RecipeviewComponent = (function () {
         var _this = this;
         if (response.validated) {
             this.dataService.getCurrentUser().subscribe(function (id) { return _this.dataService.addToFavorites(id._id, _this.recipe._id)
-                .subscribe(function (res) { return document.getElementById("save").innerHTML = "Saved to favorites"; }); });
+                .subscribe(function (res) { return document.getElementById("save").innerHTML = "Saved to favorites!"; }); });
         }
         else {
             this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], { data: { loggedIn: true } });
@@ -1896,7 +1900,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -1908,7 +1912,8 @@ module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span 
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1925,9 +1930,11 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 
 
 
+
 var SigninModalComponent = (function () {
-    function SigninModalComponent(dialogRef, authenticationService, router, loggedIn) {
+    function SigninModalComponent(dialogRef, dataService, authenticationService, router, loggedIn) {
         this.dialogRef = dialogRef;
+        this.dataService = dataService;
         this.authenticationService = authenticationService;
         this.router = router;
         this.loggedIn = loggedIn;
@@ -1974,6 +1981,16 @@ var SigninModalComponent = (function () {
             document.getElementById('user').style.display = "inline-block";
         }
     };
+    SigninModalComponent.prototype.doRegister = function () {
+        var _this = this;
+        if (this.newPass != this.newPassConf) {
+            alert("Passwords must match!");
+            return;
+        }
+        this.dataService.createNewUser(this.newUser, this.newEmail, this.newPass).subscribe(function (res) {
+            return _this.dialogRef.close('');
+        });
+    };
     SigninModalComponent.prototype.ngOnInit = function () {
         if (this.loggedIn) {
             document.getElementById('gotta_log').style.display = "block";
@@ -1985,8 +2002,8 @@ var SigninModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/signin-modal/signin-modal.component.css")]
         }),
-        __param(3, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */], Object])
+        __param(4, Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["B" /* Inject */])(__WEBPACK_IMPORTED_MODULE_1__angular_material__["a" /* MAT_DIALOG_DATA */])),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_3__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* Router */], Object])
     ], SigninModalComponent);
     return SigninModalComponent;
 }());
