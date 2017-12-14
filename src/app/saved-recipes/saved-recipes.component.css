@@ -1,5 +1,5 @@
 app-card-layout{
     display:block;
     float:left;
-    width: calc(100% - 210px);
+    width: 100%;
 }
