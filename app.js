@@ -41,6 +41,15 @@ app.get('/loginstatus', async function(req, res) {
     }
 });
 
+app.get('/getUserId', async function(req, res) {
+    if (req.cookies.validated) {
+        console.log(req.cookies.validated);
+        res.json({_id:req.cookies.validated});
+    }else {
+        res.json({});
+    }
+});
+
 app.post('/login', async function(req, res) {
     console.log(req.body);
     //res.json({data:"FUCK"});
@@ -422,7 +431,7 @@ app.get('/recipe/simplified/:recipeId', async function(req, res) {
 app.get('/recipes/user/:userId', async function(req, res) {
     //try to get recipes with specified userId
     try{
-        let allRecipes = await index.recipes.getRecipeByUserId(req.params.userId);
+        let allRecipes = await index.recipes.getRecipesByUserId(req.params.userId);
         
 		//variable to hold return value
       	let retVal = [];

@@ -32,4 +32,9 @@ export class AuthenticationService {
     return this._http.post('/logout', {})
       .map(result => this.response = result.json().data);
   }
+
+  getUserId(){
+    return this._http.get('/getUserId')
+      .map(result => result.json()._id);
+  }
 }
