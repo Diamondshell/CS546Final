@@ -38,13 +38,25 @@ export class DataService {
   }
 
   getRecipeById(id):Observable<RecipeDetail>{
-    return this._http.get('/recipe/' + id)
+    return this._http.get(`/recipe/${id}`)
       .map(result => this.response = result.json());
     //return of(recipeDetail);
   }
 
+  createNewRecipe(recipe):Observable<RecipeDetail>{
+    return this._http.post('/recipe', recipe)
+      .map(result => this.response = result.json());
+  }
+
+  updateRecipeById(id, changed) {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    //send changed data to server
+    return this._http.put(`/recipe/${id}`, changed, {headers: headers})
+      .map(result => result.json());
+  }
+
   updateUserInfo(username, changed){
-    console.log(changed);
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //send changed data to server
