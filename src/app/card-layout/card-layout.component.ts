@@ -15,7 +15,7 @@ export class CardLayoutComponent implements OnInit {
   recipes: RecipeDetail[];
 
   getAllRecipes(): void{
-    this.dataService.getAllRecipes()
+    this.dataService.getTopRecipes()
     .subscribe(recipes => this.recipes = recipes);
   }
 

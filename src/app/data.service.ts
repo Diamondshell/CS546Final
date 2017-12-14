@@ -21,6 +21,12 @@ export class DataService {
     // return of(recipes);
   }
 
+  getTopRecipes():Observable<RecipeDetail[]>{
+    return this._http.get('/recipes/top')
+      .map(result => this.response = result.json());
+    // return of(recipes);
+  }
+
   getUserRecipes(id):Observable<RecipeDetail[]>{
     return this._http.get(`/recipes/user/${id}`)
       .map(result => this.response = result.json());
