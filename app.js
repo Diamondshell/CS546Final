@@ -577,18 +577,18 @@ app.get('/recipes/byname/:name', async function(req, res) {
     }
 });
 
-//GET recipes/topx/:X route, responds with top X recipes by popularity
-app.get('/recipes/topx/:x', async function(req, res) {
-    //try to get top x recipes by popularity
+//GET recipes/topx route, responds with top X recipes by popularity
+app.get('/recipes/top', async function(req, res) {
+    //try to get top 15 recipes by popularity
     try{
-        let allRecipes = await index.recipes.topXTrendingRecipes(req.params.x);
+        let allRecipes = await index.recipes.topXTrendingRecipes(15);
         
 		//variable to hold return value
       	let retVal = [];
 		
 		let len = allRecipes.length;
 		for(let i = 0; i < len; i++) {
-			let tmp = allRecipes[i];
+			let tmp = {};
 			//get average rating
 			let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
 			let total = 0;
@@ -604,6 +604,9 @@ app.get('/recipes/topx/:x', async function(req, res) {
 			let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
 
 			//add average rating and comments to return value
+			tmp["id"] = allRecipes[i]._id;
+			tmp["name"] = allRecipes[i].name;
+			tmp["description"] = allRecipes[i].description;
 			tmp["avgRating"] = average;
 			tmp["comments"] = commentList;
 			retVal.push(tmp);
