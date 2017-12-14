@@ -59,6 +59,11 @@ export class DataService {
       .map(result => this.response = result.json());
   }
 
+  addToFavorites(id, recipe):Observable<RecipeDetail>{
+    return this._http.post('/favorite', {userId: id, recipeId: recipe})
+      .map(result => this.response = result.json());
+  }
+
   updateRecipeById(id, changed) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
