@@ -66,9 +66,10 @@ export class RecipeviewComponent implements OnInit {
 
   displayScreen(response){
     if (response.validated){
-      this.dialogRef = this.dialog.open(RateModalComponent, {width: '600px'});
+      this.dialogRef = this.dialog.open(RateModalComponent, {width: '600px', data:{recipeId: this.recipe._id}});
       this.dialogRef.afterClosed().subscribe((result) => {
         console.log(result);
+        this.dataService.getRecipeById(this.recipe._id).subscribe(res=>this.recipe = res);
       });
     }else {
       this.dialogRefSignin = this.dialog.open(SigninModalComponent, {data: {loggedIn: true}});

@@ -64,6 +64,16 @@ export class DataService {
       .map(result => this.response = result.json());
   }
 
+  addRating(recipe, userid, rating){
+    return this._http.post('/rating', {userId: userid, recipeId: recipe, rating: Number(rating)})
+      .map(result => this.response = result.json());
+  }
+
+  addComment(recipe, userid, comment){
+    return this._http.post('/comment', {userId: userid, recipeId: recipe, comment: comment})
+      .map(result => this.response = result.json());
+  }
+
   updateRecipeById(id, changed) {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
