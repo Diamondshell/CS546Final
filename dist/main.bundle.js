@@ -834,6 +834,11 @@ var DataService = (function () {
         return this._http.post('/recipe', recipe)
             .map(function (result) { return _this.response = result.json(); });
     };
+    DataService.prototype.addToFavorites = function (id, recipe) {
+        var _this = this;
+        return this._http.post('/favorite', { userId: id, recipeId: recipe })
+            .map(function (result) { return _this.response = result.json(); });
+    };
     DataService.prototype.updateRecipeById = function (id, changed) {
         var headers = new __WEBPACK_IMPORTED_MODULE_1__angular_http__["a" /* Headers */]();
         headers.append('Content-Type', 'application/json');
@@ -1641,8 +1646,11 @@ var RecipeviewComponent = (function () {
         var success = this.authenticationService.checkAuthenticated().subscribe(function (response) { return _this.doSave(response); });
     };
     RecipeviewComponent.prototype.doSave = function (response) {
+        var _this = this;
         if (response.validated) {
-            alert("TO IMPLEMENT SAVING");
+            this.dataService.getCurrentUser().subscribe(function (id) { return _this.dataService.addToFavorites(id._id, _this.recipe._id)
+                .subscribe(function (res) { return res; }); });
+            alert("saved");
         }
         else {
             this.dialogRefSignin = this.dialog.open(__WEBPACK_IMPORTED_MODULE_6__signin_modal_signin_modal_component__["a" /* SigninModalComponent */], { data: { loggedIn: true } });
