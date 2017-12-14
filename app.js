@@ -937,7 +937,7 @@ app.put('/recipe/:recipeId', async function(req, res) {
 app.delete('/recipe/:recipeId', async function(req, res) {
     //try to delete recipe
     try{
-        let delRecipe = await index.recipes.removeRecipesById(req.params.recipeId);
+        let delRecipe = await index.recipes.removeRecipeById(req.params.recipeId);
         
         //send status and response
         let retVal = { "status": "Recipe with id: " + req.params.recipeId + " deleted succesfully" };
@@ -945,6 +945,7 @@ app.delete('/recipe/:recipeId', async function(req, res) {
         res.send(retVal);
     }catch(error) {
         //handle error
+        console.log(error);
         res.status(500).json({error: "Failed to delete recipe with id: " + req.params.recipeId});
     }
 });
@@ -1195,6 +1196,19 @@ app.get('/favorite/:favoriteId', async function(req, res) {
     }
 });
 
+app.get('/favoritesreal/user/:userId', async function(req, res) {
+    //try to get favorite info
+    try {
+        let favoritesInfo = await index.favorites.getFavoritesByUserId(req.params.userId);
+        //send status and response 
+        res.status(200);
+        res.send(favoritesInfo);
+    }catch(error) {
+        //handle error
+        res.status(500).json({error: "Can't retrieve favorites for specified user"});
+    }
+});
+
 //GET favorites/user/:userId route, responds with favorites for specified user
 app.get('/favorites/user/:userId', async function(req, res) {
     //try to get favorite info
@@ -1282,12 +1296,13 @@ app.delete('/favorite/:favoriteId', async function(req, res) {
     //try to delete favorite
     try {
         let delFavorite = await index.favorites.removeFavoriteById(req.params.favoriteId);
-        
         //send status and response
         let retVal = { "status": "Favorite with id: " + req.params.favoriteId + " deleted successfully" };
+        console.log(req.params.favoriteId);
         res.status(200);
         res.send(retVal);
     }catch(error) {
+        console.log(error);
         res.status(500).json({error: "Failed to delete favorite"});
     }
 });
@@ -1297,7 +1312,6 @@ app.delete('/favorites/user/:userId', async function(req, res) {
     //try to delete favorites for user
     try {
         let delFavorites = await index.favorites.removeFavoriteById(req.params.userId);
-        
         //send status and response
         let retVal = { "status": "Favorites for user with id: " + req.params.userId + " deleted successfully" };
         res.status(200);

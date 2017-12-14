@@ -31,6 +31,11 @@ export class DataService {
       .map(result => this.response = result.json());
   }
 
+  getUserFavoritesReal(id):Observable<RecipeDetail[]>{
+    return this._http.get(`/favoritesreal/user/${id}`)
+      .map(result => this.response = result.json());
+  }
+
   getCurrentUser():Observable<User>{
     return this._http.get('/getUserFromCookies')
       .map(result => this.response = result.json());
@@ -63,6 +68,16 @@ export class DataService {
     return this._http.put(`/user/${username}`, changed, {headers: headers})
       .map(result => result.json());
     //return of("");
+  }
+
+  deleteRecipe(id){
+    return this._http.delete(`/recipe/${id}`)
+      .map(result=>result.json());
+  }
+
+  deleteFavorite(id){
+    return this._http.delete(`/favorite/${id}`)
+      .map(result=>result.json());
   }
 
 }
