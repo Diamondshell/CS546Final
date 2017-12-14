@@ -33,11 +33,14 @@ export class DataService {
     //return of(recipeDetail);
   }
 
-  updateUserInfo(changed){
-    //send changed data to server
-    this._http.put("/user/" + changed._id, changed);
+  updateUserInfo(username, changed){
     console.log(changed);
-    return of("");
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    //send changed data to server
+    return this._http.put(`/user/${username}`, changed, {headers: headers})
+      .map(result => result.json());
+    //return of("");
   }
 
 }
