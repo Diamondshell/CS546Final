@@ -1,7 +1,7 @@
-<section>
+<section *ngIf="recipe">
   <div id = "top">
   <article id = "left-pane">
-      <h1>{{recipe.Name}}</h1>
+      <h1>{{recipe.name}}</h1>
      
    
     <div class = "rating" title ="{{recipe.Rating}} Star(s)">
@@ -12,13 +12,13 @@
     </div>
       <div class = "float-clear"></div>
       <div class = "recipe-details">
-          <p title="Total Cost"><i class="fa fa-dollar" title="Total Cost"></i> {{recipe.Price}}</p>
-          <p title="Total Time"><i class="fa fa-clock-o" ></i> {{recipe.Cooking_Time}}</p>
-          <p title="Popularity"><i class="fa fa-fire" ></i> {{recipe.Popularity}}</p>
+          <p title="Total Cost"><i class="fa fa-dollar" title="Total Cost"></i> {{recipe.price}}</p>
+          <p title="Total Time"><i class="fa fa-clock-o" ></i> {{recipe.cookTime}}</p>
+          <p title="Popularity"><i class="fa fa-fire" ></i> {{recipe.popularity}}</p>
         </div>
       <div class = "float-clear"></div>
       <p>Posted By: {{recipe.poster}}</p>
-    <p id = "des">{{recipe.Description}}</p>
+    <p id = "des">{{recipe.description}}</p>
     
     <div class = "float-clear"></div>
     <div class = "ratings">
@@ -38,7 +38,7 @@
   <div class = "tags">
       <p><strong>Tags:</strong></p>
       <ul >
-        <li *ngFor="let t of recipe.Tags">{{t}}</li>
+        <li *ngFor="let t of recipe.tags">{{t}}</li>
       </ul>
   </div>
   <div class = "float-clear"></div>  
@@ -51,7 +51,7 @@
       <div class = "ingredients">
           <h2>Ingredients:</h2>
           <ul >
-            <li *ngFor="let i of recipe.Ingredients">{{i}}</li>
+            <li *ngFor="let i of recipe.ingredients">{{i}}</li>
           </ul>
         </div>
   </article>
@@ -61,7 +61,7 @@
       <div class = "appliances">
           <h2>Appliances:</h2>
           <ul class="appliances">
-              <li *ngFor="let a of recipe.Appliance">{{a}}</li>
+              <li *ngFor="let a of recipe.appliances">{{a}}</li>
           </ul>
         </div>
   </article>
@@ -73,7 +73,7 @@
     <div class = "steps">
       <h2>Steps:</h2>
       <ol>
-          <li *ngFor="let s of recipe.Steps">{{s}}</li>
+          <li *ngFor="let s of recipe.steps">{{s}}</li>
       </ol>
       </div>
       <div class = "float-clear"></div>
@@ -88,7 +88,7 @@
     </header>
     <div class = "float-clear"></div>
     <ul>
-      <li *ngFor="let c of recipe.Comments">
+      <li *ngFor="let c of recipe.comments">
         <div>
           <h3>{{c._id}}</h3>  
           <p>{{c.Comment}}</p>

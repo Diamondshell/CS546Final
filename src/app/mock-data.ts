@@ -19,18 +19,19 @@ export const recipes: Recipe[] = [
     {_id: "Food Eater 9000", password:"NOOO", email: "foo9000@eater.com", description: "I like to eat food. 9000 food."};
   
     export const recipeDetail:RecipeDetail = {
-        Name: "Ketchup Fudge",
-        Description:"A Horrific Fudge Recipe, just like your mom never used to made",
-        Rating: 1,
-        Price: 6.57,
-        Cooking_Time: 25,
-        poster: "Jack K.",
-        Appliance: ["Blender", "Microwave"],
-        Popularity: -5,
-        Tags: ["What", "Fudge", "Unusual"],
-        Ingredients: ["White Chocolate Chips", "Ketchup", "Maple Syrup"],
-        Steps: ["Lose all sense of self", "Make this"],
-        Comments: [{recID:"ert", _id:"Jim", Comment: "this thing sucks"},
-        {recID:"ert", _id:"Jim", Comment: "this thing sucks"},
-        {recID:"ert", _id:"Jim", Comment: "this thing sucks"}]
+        _id: "asdf",
+        name: "Ketchup Fudge",
+        description:"A Horrific Fudge Recipe, just like your mom never used to made",
+        avgRating: 1,
+        price: 6.57,
+        cookTime: 25,
+        userid: "Jack K.",
+        appliances: ["Blender", "Microwave"],
+        popularity: -5,
+        tags: ["What", "Fudge", "Unusual"],
+        ingredients: ["White Chocolate Chips", "Ketchup", "Maple Syrup"],
+        steps: ["Lose all sense of self", "Make this"],
+        comments: [{recipeId:"ert", _id:"Jim", userId:"Jim", comment: "this thing sucks"},
+        {recipeId:"ert", _id:"Jim", userId:"Jim", comment: "this thing sucks"},
+        {recipeId:"ert", _id:"Jim", userId:"Jim", comment: "this thing sucks"}]
         };

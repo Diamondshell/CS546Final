@@ -339,16 +339,11 @@ app.get('/recipes', async function(req, res) {
         res.send(retVal);
     }catch(error) {
         //handle error
+        console.log(error);
         res.status(500).json({error: "Can't retrieve recipes"});
     }
 });
 
-//get / route, does blank
-app.get('*', function(req, res) {
-    //do stuff
-    console.log("Get Path: " + req.path);
-    res.sendFile(path.join(__dirname, './dist/index.html'));
-});
 
 
 //GET recipe/:recipeId route, responds with full content of specified recipe

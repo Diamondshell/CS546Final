@@ -1,5 +1,7 @@
 <ul class = "cards">
-  <li *ngFor="let r of recipes" class= "card">
-      <app-card [recipe] = "r" [editting]="editting" [deleting]="deleting"></app-card>
-  </li>
+	<ng-container *ngIf="recipes && recipes.length">
+	  <li *ngFor="let r of recipes"  class= "card">
+	    <app-card [recipe] = "r" [editting]="editting" [deleting]="deleting"></app-card>
+	  </li>
+	</ng-container>
 </ul>

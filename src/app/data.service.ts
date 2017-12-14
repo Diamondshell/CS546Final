@@ -15,10 +15,10 @@ export class DataService {
 
   response: any;
 
-  getAllRecipes():Observable<Recipe[]>{
-    // return this._http.get('/recipes')
-      // .map(result => this.response = result.json());
-    return of(recipes);
+  getAllRecipes():Observable<RecipeDetail[]>{
+    return this._http.get('/recipes')
+      .map(result => this.response = result.json());
+    // return of(recipes);
   }
 
   getCurrentUser():Observable<User>{
@@ -26,13 +26,16 @@ export class DataService {
       .map(result => this.response = result.json());
     //return of(profileInfo);
   }
+
   getRecipeById(id):Observable<RecipeDetail>{
-    //return this._http.get("/", id).map(result => this.result = result.json().data);
-    return of(recipeDetail);
+    return this._http.get('/recipe/' + id)
+      .map(result => this.response = result.json());
+    //return of(recipeDetail);
   }
+
   updateUserInfo(changed){
     //send changed data to server
-    // this._http.post("/", changed);
+    this._http.put("/user/" + changed._id, changed);
     console.log(changed);
     return of("");
   }

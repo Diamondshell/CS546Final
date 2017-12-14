@@ -1,20 +1,20 @@
 
 <section class="card">
-    <a routerLink="/recipe/{{recipe.id}}">
+    <a routerLink="/recipe/{{recipe._id}}">
 <header>
     <h2>{{recipe.name}}</h2>
 </header>
 <div class = "main-content">
-    <p>{{recipe.content}}</p>
+    <p>{{recipe.description}}</p>
 </div>
 </a>
 <div id="options">
     <button [class.edit-options] = "editting" (click)="editRecipe()" title = "Edit recipe" id = "edit"><i class="fa fa-pencil"></i></button>
     <button (click)="deleteRecipe()" [class.delete-options] = "deleting" title = "Delete recipe" id = "edit"><i class="fa fa-trash-o"></i></button>
 </div>
-<a routerLink="/recipe/{{recipe.id}}">
+<a routerLink="/recipe/{{recipe._id}}">
 <footer>
-    <div class = "rating" title ="{{recipe.rating}} Star(s)">
+    <div class = "rating" title ="{{recipe.avgRating}} Star(s)">
         <ul>
           <li  *ngFor="let i of numChecked"> <i class="fa fa-star checked" ></i></li>
           <li  *ngFor="let i of numUnChecked"> <i class="fa fa-star"></i></li>   

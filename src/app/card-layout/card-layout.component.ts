@@ -1,5 +1,5 @@
 import { Component, OnInit,Input  } from '@angular/core';
-import {Recipe} from '../recipe';
+import {RecipeDetail} from '../recipeDetails';
 import { DataService } from '../data.service';
 @Component({
   selector: 'app-card-layout',
@@ -10,7 +10,7 @@ export class CardLayoutComponent implements OnInit {
 
  @Input() editting: Boolean;
  @Input() deleting: Boolean;
-  recipes: Recipe[];
+  recipes: RecipeDetail[];
 
   getAllRecipes(): void{
     this.dataService.getAllRecipes()
