@@ -4,6 +4,7 @@ import { SigninModalComponent } from './signin-modal/signin-modal.component';
 import { RandomRecipeModalComponent } from './random-recipe-modal/random-recipe-modal.component';
 import {AuthenticationService } from './authentication.service';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -13,8 +14,8 @@ export class AppComponent {
   title = 'app';
   dialogRef: MatDialogRef<SigninModalComponent>;
   otherDialogRef: MatDialogRef<RandomRecipeModalComponent>;
-
-  constructor(public dialog: MatDialog, private authenticationService: AuthenticationService, private router: Router){
+  text: string;
+  constructor(private location: Location,public dialog: MatDialog, private authenticationService: AuthenticationService, private router: Router){
   }
 
   ngOnInit() {
@@ -60,6 +61,12 @@ export class AppComponent {
   }
 
   search():void{
+    if(!(this.text)){
+      this.router.navigate(["./redirect/all"]);
+    }else{
+
+    this.router.navigate([`./redirect/${this.text}`]);
+    }
   }
   
 }

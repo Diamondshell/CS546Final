@@ -31,6 +31,7 @@ import { MustLogInComponent } from './must-log-in/must-log-in.component';
 import { RegisterModalComponent } from './register-modal/register-modal.component';
 
 import { HttpModule } from '@angular/http';
+import { RedirectComponent } from './redirect/redirect.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { HttpModule } from '@angular/http';
     RandomRecipeModalComponent,
     PageNotFoundComponent,
     MustLogInComponent,
-    RegisterModalComponent
+    RegisterModalComponent,
+    RedirectComponent
 
   ],
   imports: [

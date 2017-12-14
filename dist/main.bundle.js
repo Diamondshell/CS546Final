@@ -32,6 +32,7 @@ webpackEmptyAsyncContext.id = "../../../../../src/$$_lazy_route_resource lazy re
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__profile_layout_profile_layout_component__ = __webpack_require__("../../../../../src/app/profile-layout/profile-layout.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__page_not_found_page_not_found_component__ = __webpack_require__("../../../../../src/app/page-not-found/page-not-found.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__must_log_in_must_log_in_component__ = __webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__redirect_redirect_component__ = __webpack_require__("../../../../../src/app/redirect/redirect.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -48,14 +49,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
     { path: 'home', component: __WEBPACK_IMPORTED_MODULE_2__home_home_component__["a" /* HomeComponent */] },
     { path: 'userprofile', component: __WEBPACK_IMPORTED_MODULE_7__profile_layout_profile_layout_component__["a" /* ProfileLayoutComponent */], pathMatch: 'full' },
     { path: 'savedrecipes', component: __WEBPACK_IMPORTED_MODULE_6__saved_recipes_saved_recipes_component__["a" /* SavedRecipesComponent */], pathMatch: 'full' },
     { path: 'userrecipes', component: __WEBPACK_IMPORTED_MODULE_5__user_recipes_user_recipes_component__["a" /* UserRecipesComponent */], pathMatch: 'full' },
-    { path: 'browse', component: __WEBPACK_IMPORTED_MODULE_3__browse_browse_component__["a" /* BrowseComponent */], pathMatch: 'full' },
+    { path: 'browse/:id', component: __WEBPACK_IMPORTED_MODULE_3__browse_browse_component__["a" /* BrowseComponent */], pathMatch: 'full' },
     { path: 'recipe/:id', component: __WEBPACK_IMPORTED_MODULE_4__recipeview_recipeview_component__["a" /* RecipeviewComponent */], pathMatch: 'full' },
+    { path: 'redirect/:id', component: __WEBPACK_IMPORTED_MODULE_10__redirect_redirect_component__["a" /* RedirectComponent */], pathMatch: 'full' },
     { path: 'forbidden', component: __WEBPACK_IMPORTED_MODULE_9__must_log_in_must_log_in_component__["a" /* MustLogInComponent */] },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_8__page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */] }
 ];
@@ -96,7 +99,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/app.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\" id=\"si\">Sign In <i class = \"fa fa-sign-in\"></i></button>\r\n      <a routerLink = \"/userprofile\" class=\"user\" id=\"user\">hello</a>\r\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\" id=\"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\r\n\r\n    </div>\r\n<div class = \"float-clear\"></div>\r\n<header>\r\n    <nav>\r\n      \r\n      <ul>\r\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\r\n        \r\n      <li class = \"searchText\"><input id=\"search\" title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\r\n      <li class = \"search\" routerLink=\"/browse\"><p title = \"Search\" (click)=\"search()\"><i class = \"fa fa-search\"></i></p></li>\r\n      <li class = \"browse\" routerLink=\"/browse\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\r\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\r\n       </ul>\r\n    </nav>\r\n</header>\r\n\r\n\r\n<router-outlet></router-outlet>\r\n\r\n  <div class = \"float-clear\"></div>\r\n  <div class = \"spacer\"></div>\r\n  <footer>\r\n      <div class = \"footerInfo\">\r\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\r\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\r\n      \r\n        <div id = \"socialMedia\">\r\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\r\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\r\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\r\n        </div>\r\n      </div>\r\n    </footer>\r\n\r\n</div>\r\n<div class = \"float-clear\"></div>\r\n"
+module.exports = "<div id = \"wrapper\">\n  <div id=\"bar\">\n\n    <button title=\"Sign In\" (click)=\"signIn()\" class=\"signIn\" id=\"si\">Sign In <i class = \"fa fa-sign-in\"></i></button>\n      <a routerLink = \"/userprofile\" class=\"user\" id=\"user\">hello</a>\n      <button title = \"Sign Out\" (click)=\"signOut()\" class = \"so\" id=\"so\">Sign Out <i class = \"fa fa-sign-out\"></i></button>\n\n    </div>\n<div class = \"float-clear\"></div>\n<header>\n    <nav>\n      \n      <ul>\n      <li class= \"logo\"><img routerLink=\"/\" id= \"logo\" src = \"assets/Bonappetelli.png\" alt = \"logo\" ></li>\n        \n      <li class = \"searchText\"><input id=\"search\"  [(ngModel)]=\"text\" title = \"Search\" type=\"text\" placeholder=\"Search\" class=\"searchBar\"></li>\n      <li (click)=\"search()\" class = \"search\" ><p title = \"Search\"><i class = \"fa fa-search\"></i></p></li>\n      <li class = \"browse\" routerLink=\"/browse/all\"><p title = \"Browse\" (click)=\"browse()\">Browse</p></li>\n      <li class = \"random\"><p title = \"Random Recipe\" (click)=\"displayRandomRecipeModal()\">Random Recipe</p></li>\n       </ul>\n    </nav>\n</header>\n\n\n<router-outlet></router-outlet>\n\n  <div class = \"float-clear\"></div>\n  <div class = \"spacer\"></div>\n  <footer>\n      <div class = \"footerInfo\">\n        <i class = \"fa fa-copyright\"></i> 2017 Bon Appetelli\n        <p>Justin Barish, Zach Hackett, Mark Knapp, Jack Kraszewski, Thomas Pyle</p>\n      \n        <div id = \"socialMedia\">\n          <a href=\"https://www.facebook.com\" title=\"facebook\"><i class = \"fa fa-facebook-square\"></i></a>\n          <a href=\"https://www.twitter.com\" title= \"twitter\"><i class = \"fa fa-twitter-square\"></i></a>\n          <a href=\"https://www.instagram.com\" title=\"instagram\"><i class = \"fa fa-instagram\"></i></a>\n        </div>\n      </div>\n    </footer>\n\n</div>\n<div class = \"float-clear\"></div>\n"
 
 /***/ }),
 
@@ -111,6 +114,7 @@ module.exports = "<div id = \"wrapper\">\r\n  <div id=\"bar\">\r\n\r\n    <butto
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__random_recipe_modal_random_recipe_modal_component__ = __webpack_require__("../../../../../src/app/random-recipe-modal/random-recipe-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__authentication_service__ = __webpack_require__("../../../../../src/app/authentication.service.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__("../../../common/esm5/common.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -126,8 +130,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 var AppComponent = (function () {
-    function AppComponent(dialog, authenticationService, router) {
+    function AppComponent(location, dialog, authenticationService, router) {
+        this.location = location;
         this.dialog = dialog;
         this.authenticationService = authenticationService;
         this.router = router;
@@ -170,6 +176,12 @@ var AppComponent = (function () {
         }
     };
     AppComponent.prototype.search = function () {
+        if (!(this.text)) {
+            this.router.navigate(["./redirect/all"]);
+        }
+        else {
+            this.router.navigate(["./redirect/" + this.text]);
+        }
     };
     AppComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -177,7 +189,7 @@ var AppComponent = (function () {
             template: __webpack_require__("../../../../../src/app/app.component.html"),
             styles: [__webpack_require__("../../../../../src/app/app.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__angular_common__["f" /* Location */], __WEBPACK_IMPORTED_MODULE_1__angular_material__["e" /* MatDialog */], __WEBPACK_IMPORTED_MODULE_4__authentication_service__["a" /* AuthenticationService */], __WEBPACK_IMPORTED_MODULE_5__angular_router__["b" /* Router */]])
     ], AppComponent);
     return AppComponent;
 }());
@@ -219,12 +231,14 @@ var AppComponent = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__must_log_in_must_log_in_component__ = __webpack_require__("../../../../../src/app/must-log-in/must-log-in.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__ = __webpack_require__("../../../../../src/app/register-modal/register-modal.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__angular_http__ = __webpack_require__("../../../http/esm5/http.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_28__redirect_redirect_component__ = __webpack_require__("../../../../../src/app/redirect/redirect.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -277,7 +291,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_23__random_recipe_modal_random_recipe_modal_component__["a" /* RandomRecipeModalComponent */],
                 __WEBPACK_IMPORTED_MODULE_24__page_not_found_page_not_found_component__["a" /* PageNotFoundComponent */],
                 __WEBPACK_IMPORTED_MODULE_25__must_log_in_must_log_in_component__["a" /* MustLogInComponent */],
-                __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__["a" /* RegisterModalComponent */]
+                __WEBPACK_IMPORTED_MODULE_26__register_modal_register_modal_component__["a" /* RegisterModalComponent */],
+                __WEBPACK_IMPORTED_MODULE_28__redirect_redirect_component__["a" /* RedirectComponent */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -385,7 +400,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/browse/browse.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout *ngIf=\"recipes\" [type]=\"'browse'\" [recipes]=\"recipes\" [editting]=\"false\"></app-card-layout>"
+module.exports = "<h1>{{title}}</h1>\n<app-filterpane></app-filterpane>\n<app-card-layout *ngIf=\"recipes\" [type]=\"'browse'\" [recipes]=\"recipes\" [editting]=\"false\"></app-card-layout>"
 
 /***/ }),
 
@@ -396,6 +411,7 @@ module.exports = "<h1>Search Results</h1>\r\n<app-filterpane></app-filterpane>\r
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BrowseComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -407,18 +423,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var BrowseComponent = (function () {
-    function BrowseComponent(dataService) {
+    function BrowseComponent(route, dataService) {
+        this.route = route;
         this.dataService = dataService;
     }
     BrowseComponent.prototype.ngOnInit = function () {
         var _this = this;
         window.scrollTo(0, 0);
-        var searchStr = document.getElementById("search").value;
-        if (searchStr && searchStr != "") {
-            this.dataService.getRecipesByLikeName(searchStr)
+        var id = this.route.snapshot.paramMap.get('id');
+        console.log("here");
+        console.log(id);
+        if (id && id != "" && id != "all") {
+            this.title = "Results for " + id + ":";
+            this.dataService.getRecipesByLikeName(id)
                 .subscribe(function (res) { return _this.recipes = res; });
         }
+        else {
+            this.title = "Recipes";
+            this.dataService.getAllRecipes()
+                .subscribe(function (res) { return _this.recipes = res; });
+        }
+        //var searchStr = (<HTMLInputElement>document.getElementById("search")).value;
     };
     BrowseComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -426,7 +453,7 @@ var BrowseComponent = (function () {
             template: __webpack_require__("../../../../../src/app/browse/browse.component.html"),
             styles: [__webpack_require__("../../../../../src/app/browse/browse.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], BrowseComponent);
     return BrowseComponent;
 }());
@@ -443,7 +470,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".card {\r\n    margin:15px;\r\n}\r\n.cards {\r\n   /* display:block;\r\n    float:none;\r\n    clear:both;\r\n    */\r\n}\r\nli{\r\n    list-style: none;\r\n    display: -webkit-box !important;\r\n    display: -ms-flexbox !important;\r\n    display: flex !important;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-height: 100%;\r\n    height:100%;\r\n    position: relative;\r\n  /*\r\n    \r\n    flex: 0 1  calc(33% - 30px);\r\n    box-sizing: border-box;\r\n    */\r\n    /*float: left;*/\r\n   /* width: calc(30% - 30px);*/\r\n\r\n   \r\n}\r\nul{\r\n    width: 90%;\r\n    max-width: 1240px;\r\n    margin: 0 auto;\r\n    display: -ms-grid !important;\r\n    display: grid !important;\r\n    \r\n   -ms-grid-columns: 1fr;\r\n    \r\n       grid-template-columns: 1fr;\r\n   -ms-grid-rows: auto;\r\n       grid-template-rows: auto;\r\n   grid-gap: 20px;\r\n    padding: 0px;\r\n}\r\n/*\r\n@media (max-width: 900px) {\r\n    li { \r\n       max-width:  calc(50% - 30px);\r\n    }\r\n }\r\n \r\n @media (max-width: 650px) {\r\n    li { \r\n       float: none;\r\n       max-width:  calc(100% - 30px);\r\n    }\r\n }*/\r\n @media only screen and (min-width: 750px) {\r\n    ul {\r\n      -ms-grid-columns: 1fr 1fr;\r\n          grid-template-columns: 1fr 1fr;\r\n    }  \r\n  }\r\n\r\n  @media only screen and (min-width: 1000px) {\r\n    ul {\r\n      -ms-grid-columns: 1fr 1fr 1fr;\r\n          grid-template-columns: 1fr 1fr 1fr;\r\n    }\r\n  }", ""]);
+exports.push([module.i, ".card {\r\n    margin:15px;\r\n}\r\n\r\nli{\r\n    list-style: none;\r\n    display: -webkit-box !important;\r\n    display: -ms-flexbox !important;\r\n    display: flex !important;\r\n    -webkit-box-orient: vertical;\r\n    -webkit-box-direction: normal;\r\n        -ms-flex-direction: column;\r\n            flex-direction: column;\r\n    min-height: 100%;\r\n    height:100%;\r\n    position: relative;\r\n  /*\r\n    \r\n    flex: 0 1  calc(33% - 30px);\r\n    box-sizing: border-box;\r\n    */\r\n    /*float: left;*/\r\n   /* width: calc(30% - 30px);*/\r\n\r\n   \r\n}\r\n\r\np{\r\n    display:none;\r\n}\r\nul{\r\n    width: 90%;\r\n    max-width: 1240px;\r\n    margin: 0 auto;\r\n    display: -ms-grid !important;\r\n    display: grid !important;\r\n    \r\n   -ms-grid-columns: 1fr;\r\n    \r\n       grid-template-columns: 1fr;\r\n   -ms-grid-rows: auto;\r\n       grid-template-rows: auto;\r\n   grid-gap: 20px;\r\n    padding: 0px;\r\n}\r\n/*\r\n@media (max-width: 900px) {\r\n    li { \r\n       max-width:  calc(50% - 30px);\r\n    }\r\n }\r\n \r\n @media (max-width: 650px) {\r\n    li { \r\n       float: none;\r\n       max-width:  calc(100% - 30px);\r\n    }\r\n }*/\r\n @media only screen and (min-width: 750px) {\r\n    ul {\r\n      -ms-grid-columns: 1fr 1fr;\r\n          grid-template-columns: 1fr 1fr;\r\n    }  \r\n  }\r\n\r\n  @media only screen and (min-width: 1000px) {\r\n    ul {\r\n      -ms-grid-columns: 1fr 1fr 1fr;\r\n          grid-template-columns: 1fr 1fr 1fr;\r\n    }\r\n  }", ""]);
 
 // exports
 
@@ -456,7 +483,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card-layout/card-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<ul class = \"cards\">\r\n\t<ng-container *ngIf=\"recipes && recipes.length\">\r\n\t  <li *ngFor=\"let r of recipes\"  class= \"card\">\r\n\t    <app-card [recipe] = \"r\" [editting]=\"editting\" [deleting]=\"deleting\"></app-card>\r\n\t  </li>\r\n\t</ng-container>\r\n</ul>"
+module.exports = "<p id = \"no-results\">No Search Results Found</p>\n<ul class = \"cards\">\n\t<ng-container *ngIf=\"recipes && recipes.length\">\n\t  <li *ngFor=\"let r of recipes\"  class= \"card\">\n\t    <app-card [recipe] = \"r\" [editting]=\"editting\" [deleting]=\"deleting\"></app-card>\n\t  </li>\n\t</ng-container>\n</ul>"
 
 /***/ }),
 
@@ -514,6 +541,9 @@ var CardLayoutComponent = (function () {
             this.getUserFavorites();
         }
         else if (this.type == 'browse') {
+            if (this.recipes.length < 1) {
+                document.getElementById('no-results').style.display = "block";
+            }
         }
     };
     __decorate([
@@ -568,7 +598,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/card/card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<section class=\"card\">\r\n    <a routerLink=\"/recipe/{{recipe._id}}\">\r\n<header>\r\n    <h2>{{recipe.name}}</h2>\r\n</header>\r\n<div class = \"main-content\">\r\n    <p>{{recipe.description}}</p>\r\n</div>\r\n</a>\r\n<div id=\"options\">\r\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\r\n    <button (click)=\"deleteRecipe()\" [class.delete-options] = \"deleting\" (click)=\"deleteRecipe()\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\r\n</div>\r\n<a routerLink=\"/recipe/{{recipe._id}}\">\r\n<footer>\r\n    <div class = \"rating\" title =\"{{recipe.avgRating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n</footer>\r\n  </a>\r\n</section>\r\n"
+module.exports = "\n<section class=\"card\">\n    <a routerLink=\"/recipe/{{recipe._id}}\">\n<header>\n    <h2>{{recipe.name}}</h2>\n</header>\n<div class = \"main-content\">\n    <p>{{recipe.description}}</p>\n</div>\n</a>\n<div id=\"options\">\n    <button [class.edit-options] = \"editting\" (click)=\"editRecipe()\" title = \"Edit recipe\" id = \"edit\"><i class=\"fa fa-pencil\"></i></button>\n    <button (click)=\"deleteRecipe()\" [class.delete-options] = \"deleting\" (click)=\"deleteRecipe()\" title = \"Delete recipe\" id = \"edit\"><i class=\"fa fa-trash-o\"></i></button>\n</div>\n<a routerLink=\"/recipe/{{recipe._id}}\">\n<footer>\n    <div class = \"rating\" title =\"{{recipe.avgRating}} Star(s)\">\n        <ul>\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \n        </ul>\n    </div>\n    <div class = \"float-clear\"></div>\n</footer>\n  </a>\n</section>\n"
 
 /***/ }),
 
@@ -669,7 +699,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  width: 100%;\r\n}\r\n\r\n.directions {\r\n  width: 100%;\r\n  height: 100px;\r\n}\r\n\r\n.taDirections {\r\n  resize: none;\r\n  height: 100px;\r\n  max-height: 100px;\r\n}\r\n\r\n.submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#77b6ea;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}", ""]);
+exports.push([module.i, "table {\n  height: 100%;\n  width: 100%;\n}\n\n.mat-form-field {\n  width: 100%;\n}\n\n.directions {\n  width: 100%;\n  height: 100px;\n}\n\n.taDirections {\n  resize: none;\n  height: 100px;\n  max-height: 100px;\n}\n\n.submit {\n  box-shadow: 3px 4px 0px 0px #1564ad;\n  box-sizing: border-box;\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\n  background-color:#77b6ea;\n  border-radius:5px;\n  border:1px solid #337bc4;\n  display:inline-block;\n  cursor:pointer;\n  color:#ffffff;\n  font-family:Palanquin;\n  font-size:17px;\n  font-weight:bold;\n  padding:12px 44px;\n  text-decoration:none;\n  text-shadow:0px 1px 0px #000000;\n  text-align: center;\n  line-height: 0px;\n  width: 100%;\n  height: 2em;\n}\n.submit:hover {\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\n  background-color:#378de5;\n}\n\n.submit:active {\n  position:relative;\n  top:1px;\n}", ""]);
 
 // exports
 
@@ -682,7 +712,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/create-recipe-modal/create-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div *ngIf=\"recipe\" id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title id=\"heading\">{{headingStr}}</h1>\r\n\t<form ngNoForm>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\r\n\t\t\t    <input [(ngModel)]=\"recipe.name\" matInput placeholder=\"Recipe Name\" value={{recipe.name}}>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\r\n\t\t\t  \t<textarea [(ngModel)]=\"recipe.description\" matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.description}}></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\r\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.ingredients\" matInput matTextAreaAutosize value={{recipe.ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\r\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.appliances\" matInput matTextAreaAutosize value={{recipe.appliances}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\r\n\t\t\t\t\t<input  [(ngModel)]=\"recipe.price\" matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.price}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\r\n\t\t\t\t\t<input [(ngModel)]=\"recipe.cookTime\" matInput value={{recipe.cookTime}} placeholder=\"Time to make (in minutes)\" type=\"number\">\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\r\n\t\t\t\t\t<input [(ngModel)]=\"recipe.tags\" matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.tags}}>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t\t<mat-label>Directions:</mat-label>\r\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\r\n\t\t\t\t\t<textarea matInput [(ngModel)]=\"recipe.steps\" matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.steps}}></textarea>\r\n\t\t\t\t</mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button class=\"submit\" (click)=\"submit()\" id=\"finishButton\">{{submitStr}}</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div *ngIf=\"recipe\" id=\"createRecipeForm\">\n\t<h1 mat-dialog-title id=\"heading\">{{headingStr}}</h1>\n\t<form ngNoForm>\n\t\t<table>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"RecipeName\" class=\"input\">\n\t\t\t    <input [(ngModel)]=\"recipe.name\" matInput placeholder=\"Recipe Name\" value={{recipe.name}}>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"Description\" class=\"input\">\n\t\t\t  \t<textarea [(ngModel)]=\"recipe.description\" matInput matTextAreaAutosize placeholder=\"Description\" type=\"password\" value={{recipe.description}}></textarea>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-form-field title=\"Ingredients\" class=\"input\">\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.ingredients\" matInput matTextAreaAutosize value={{recipe.ingredients}} placeholder=\"Ingredients (comma separated list)\"></textarea>\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-form-field title=\"Appliances\" class=\"input\">\n\t\t\t\t\t<textarea [(ngModel)]=\"recipe.appliances\" matInput matTextAreaAutosize value={{recipe.appliances}} placeholder=\"Appliances needed (comma separated list)\"></textarea>\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-form-field title=\"Cost\" class=\"input\">\n\t\t\t\t\t<input  [(ngModel)]=\"recipe.price\" matInput placeholder=\"Estimate cost to make\" type=\"number\" value={{recipe.price}}>\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-form-field title=\"Time\" class=\"input\">\n\t\t\t\t\t<input [(ngModel)]=\"recipe.cookTime\" matInput value={{recipe.cookTime}} placeholder=\"Time to make (in minutes)\" type=\"number\">\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-form-field title=\"Tags\" class=\"input\">\n\t\t\t\t\t<input [(ngModel)]=\"recipe.tags\" matInput placeholder=\"Tags (comma separated list)\" type=\"text\" value={{recipe.tags}}>\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t\t<mat-label>Directions:</mat-label>\n\t\t\t\t<mat-form-field title=\"Steps\" class=\"directions\">\n\t\t\t\t\t<textarea matInput [(ngModel)]=\"recipe.steps\" matTextareaAutosize placeholder=\"(comma separated list)\" type=\"text\" class=\"taDirections\" value={{recipe.steps}}></textarea>\n\t\t\t\t</mat-form-field>\n\t\t\t</tr>\n\t  \t<button mat-raised-button class=\"submit\" (click)=\"submit()\" id=\"finishButton\">{{submitStr}}</button>\n\t\t</table>\n\t</form>\n</div>\n\n\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -895,7 +925,7 @@ var DataService = (function () {
             .map(function (result) { return result.json(); });
     };
     DataService.prototype.createNewUser = function (username, email, pass) {
-        return this._http.post('/user', { password: pass, username: username, email: email, description: "" })
+        return this._http.post('/user', { password: pass, username: username, email: email, description: "I am the default description. Change me!" })
             .map(function (result) { return result.json(); });
     };
     DataService = __decorate([
@@ -930,7 +960,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/filterpane/filterpane.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<aside>\r\n  <div class=\"bar\">\r\n    <h2>Filters</h2>\r\n  \r\n    <ul> \r\n        <li *ngFor=\"let f of filters\" class = \"filter-group\">\r\n          <h3>{{f.section_text}}</h3>\r\n          <ul>\r\n              <li *ngFor=\"let fi of f.values\" class = \"filters\">\r\n                <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\r\n                <label for={{fi.name}}>{{fi.text}}</label>\r\n              </li>\r\n          </ul>\r\n        </li>\r\n      </ul>\r\n   \r\n  </div>\r\n</aside>\r\n\r\n"
+module.exports = "<aside>\n  <div class=\"bar\">\n    <h2>Filters</h2>\n  \n    <ul> \n        <li *ngFor=\"let f of filters\" class = \"filter-group\">\n          <h3>{{f.section_text}}</h3>\n          <ul>\n              <li *ngFor=\"let fi of f.values\" class = \"filters\">\n                <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\n                <label for={{fi.name}}>{{fi.text}}</label>\n              </li>\n          </ul>\n        </li>\n      </ul>\n   \n  </div>\n</aside>\n\n"
 
 /***/ }),
 
@@ -1022,7 +1052,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/home/home.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section class = \"card-layout\">\r\n  <h1>Trending Recipes:</h1>\r\n  <hr>\r\n   <app-card-layout [type]=\"'trending'\" [editting]=\"false\"></app-card-layout>\r\n</section>"
+module.exports = "<section class = \"card-layout\">\n  <h1>Trending Recipes:</h1>\n  <hr>\n   <app-card-layout [type]=\"'trending'\" [editting]=\"false\"></app-card-layout>\n</section>"
 
 /***/ }),
 
@@ -1084,7 +1114,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/must-log-in/must-log-in.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section>\r\n  <h1>You must be logged in to view this content.</h1>\r\n  <article>\r\n      <div id=\"sign-in\">\r\n          <form>\r\n            <mat-form-field title=\"Username\" class=\"input\">\r\n              <input matInput placeholder=\"Username\" value=\"\" id=\"username\">\r\n            </mat-form-field>\r\n            <br>\r\n            <mat-form-field title=\"Password\" class=\"input\">\r\n              <input matInput placeholder=\"Password\" type=\"password\" id=\"password\">\r\n            </mat-form-field>\r\n            <br>\r\n            <p id=\"error\">Invalid username or password.</p>\r\n            <br>\r\n           <!-- <button mat-raised-button class=\"back\" (click)=\"goBack()\" value=\"Return\">Return</button>-->\r\n            \r\n            <button mat-raised-button class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\">Sign-In</button>\r\n                 \r\n          </form>\r\n    \r\n          <footer class=\"footer\">\r\n            <p class=\"change_link\">\r\n              Not a member yet?\r\n              <span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n            </p>\r\n          </footer>\r\n        </div>\r\n  </article>\r\n \r\n</section>"
+module.exports = "<section>\n  <h1>You must be logged in to view this content.</h1>\n  <article>\n      <div id=\"sign-in\">\n          <form>\n            <mat-form-field title=\"Username\" class=\"input\">\n              <input matInput placeholder=\"Username\" value=\"\" id=\"username\">\n            </mat-form-field>\n            <br>\n            <mat-form-field title=\"Password\" class=\"input\">\n              <input matInput placeholder=\"Password\" type=\"password\" id=\"password\">\n            </mat-form-field>\n            <br>\n            <p id=\"error\">Invalid username or password.</p>\n            <br>\n           <!-- <button mat-raised-button class=\"back\" (click)=\"goBack()\" value=\"Return\">Return</button>-->\n            \n            <button mat-raised-button class=\"submit\" (click)=\"authenticateUser()\" value=\"Sign-In\">Sign-In</button>\n                 \n          </form>\n    \n          <footer class=\"footer\">\n            <p class=\"change_link\">\n              Not a member yet?\n              <span (click)=\"register()\" id=\"to_register\">Join us</span>\n            </p>\n          </footer>\n        </div>\n  </article>\n \n</section>"
 
 /***/ }),
 
@@ -1202,7 +1232,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/page-not-found/page-not-found.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<h1>\r\n  Error: Page Not Found!\r\n</h1>\r\n"
+module.exports = "<h1>\n  Error: Page Not Found!\n</h1>\n"
 
 /***/ }),
 
@@ -1263,7 +1293,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile-layout/profile-layout.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<div *ngIf=\"profileInfo\" class= \"profile\">\r\n    <app-profile [user]=\"profileInfo\" [editting]=\"editting\"></app-profile>\r\n</div>"
+module.exports = "<app-user-nav></app-user-nav>\n<div *ngIf=\"profileInfo\" class= \"profile\">\n    <app-profile [user]=\"profileInfo\" [editting]=\"editting\"></app-profile>\n</div>"
 
 /***/ }),
 
@@ -1327,7 +1357,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "#userProfileWrapper {\r\n    clear:both;\r\n    margin: auto;\r\n    padding-top:30px;\r\n      text-align: center;\r\n}\r\n#innerwrapper{\r\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\r\n    max-width: 450px;\r\n    margin: auto;\r\n  \r\n    text-align: center;\r\n    background-color: rgb(255, 249, 249);\r\n   \r\n    border-radius: 10px 0px 10px 0px;\r\n    font-family: Palanquin;\r\n    padding:30px 10px;\r\n}\r\n\r\n.profile div {\r\n    padding-bottom: 5px;\r\n    margin-bottom: 10px;\r\n}\r\n\r\n#userEmail {\r\n\tmargin-left: 5px;\r\n}\r\n\r\n#userDescr {\r\n\tmargin-left: 5px;\r\n}\r\n\r\nbutton{\r\n    background-color: transparent;\r\n    outline: none;\r\n    background-repeat:no-repeat;\r\n    border: none;\r\n    cursor:pointer;\r\n    overflow: hidden;\r\n    font-size: 1.25em;\r\n}\r\nbutton:hover{\r\n    border-radius: 5px;\r\n    background-color: rgb(184, 179, 179);\r\n}\r\n\r\ninput {\r\n\tdisplay: none;\r\n}\r\n\r\nbutton[title=\"Save\"] {\r\n\tdisplay: none;\r\n}\r\n#error{\r\n    display:none;\r\n    color:red;\r\n    margin-top: 3px;\r\n}", ""]);
+exports.push([module.i, "#userProfileWrapper {\n    clear:both;\n    margin: auto;\n    padding-top:30px;\n      text-align: center;\n}\n#innerwrapper{\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    max-width: 450px;\n    margin: auto;\n  \n    text-align: center;\n    background-color: rgb(255, 249, 249);\n   \n    border-radius: 10px 0px 10px 0px;\n    font-family: Palanquin;\n    padding:30px 10px;\n}\n\n.profile div {\n    padding-bottom: 5px;\n    margin-bottom: 10px;\n}\n\n#userEmail {\n\tmargin-left: 5px;\n}\n\n#userDescr {\n\tmargin-left: 5px;\n}\n\nbutton{\n    background-color: transparent;\n    outline: none;\n    background-repeat:no-repeat;\n    border: none;\n    cursor:pointer;\n    overflow: hidden;\n    font-size: 1.25em;\n}\nbutton:hover{\n    border-radius: 5px;\n    background-color: rgb(184, 179, 179);\n}\n\ninput {\n\tdisplay: none;\n}\n\nbutton[title=\"Save\"] {\n\tdisplay: none;\n}\n#error{\n    display:none;\n    color:red;\n    margin-top: 3px;\n}", ""]);
 
 // exports
 
@@ -1340,7 +1370,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\r\n<div class=\"profile\" id=\"userProfileWrapper\">\r\n\t<div id=\"innerwrapper\">\r\n\t\t<h1 id=\"username\">\r\n\t\t\t{{user._id}}\r\n\t\t</h1>\r\n\r\n\t\t<div id=\"email\">\r\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\r\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\r\n\t\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\r\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\r\n\t\t\t<p id=\"error\">Must give a valid email</p>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"description\">\r\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\r\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\r\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\r\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\r\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\r\n\t\t</div>\r\n\t</div>\t\r\n</div>"
+module.exports = "\n<div class=\"profile\" id=\"userProfileWrapper\">\n\t<div id=\"innerwrapper\">\n\t\t<h1 id=\"username\">\n\t\t\t{{user._id}}\n\t\t</h1>\n\n\t\t<div id=\"email\">\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\n\t\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\n\t\t\t<p id=\"error\">Must give a valid email</p>\n\t\t</div>\n\n\t\t<div id=\"description\">\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\n\t\t</div>\n\t</div>\t\n</div>"
 
 /***/ }),
 
@@ -1447,7 +1477,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/random-recipe-modal/random-recipe-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"randomRecipeModalWrapper\">\r\n  <form ngNoForm>\r\n    <h2 mat-dialog-title id=\"RandomLabel\">Random Recipe</h2>\r\n    <h3 mat-dialog-title a>*Choose any or none*</h3>\r\n      <ul> \r\n          <li *ngFor=\"let f of filters\" class = \"filter-group\">\r\n            <h3>{{f.section_text}}</h3>\r\n            <ul>\r\n                <li *ngFor=\"let fi of f.values\" class = \"filters\">\r\n                  <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\r\n                  <label for={{fi.name}}>{{fi.text}}</label>\r\n                </li>\r\n            </ul>\r\n          </li>\r\n        </ul>\r\n      <button  mat-raised-button class=\"submit\" type=\"submit\" value=\"submit\">Randomize!</button>\r\n  </form>\r\n</div>"
+module.exports = "<div id=\"randomRecipeModalWrapper\">\n  <form ngNoForm>\n    <h2 mat-dialog-title id=\"RandomLabel\">Random Recipe</h2>\n    <h3 mat-dialog-title a>*Choose any or none*</h3>\n      <ul> \n          <li *ngFor=\"let f of filters\" class = \"filter-group\">\n            <h3>{{f.section_text}}</h3>\n            <ul>\n                <li *ngFor=\"let fi of f.values\" class = \"filters\">\n                  <input type=\"checkbox\" id={{fi.name}} name={{fi.name}} (click)=\"onCheck($event, fi)\">\n                  <label for={{fi.name}}>{{fi.text}}</label>\n                </li>\n            </ul>\n          </li>\n        </ul>\n      <button  mat-raised-button class=\"submit\" type=\"submit\" value=\"submit\">Randomize!</button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1524,7 +1554,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "table {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n\r\n.mat-form-field {\r\n  width: 100%;\r\n}\r\n\r\n.directions {\r\n  width: 100%;\r\n  height: 100px;\r\n}\r\n\r\n.taDirections {\r\n  resize: none;\r\n  height: 100px;\r\n  max-height: 100px;\r\n}\r\n\r\n.submit {\r\n  box-shadow: 3px 4px 0px 0px #1564ad;\r\n  box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#007eb6;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}", ""]);
+exports.push([module.i, "table {\n  height: 100%;\n  width: 100%;\n}\n\n.mat-form-field {\n  width: 100%;\n}\n\n.directions {\n  width: 100%;\n  height: 100px;\n}\n\n.taDirections {\n  resize: none;\n  height: 100px;\n  max-height: 100px;\n}\n\n.submit {\n  box-shadow: 3px 4px 0px 0px #1564ad;\n  box-sizing: border-box;\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\n  background-color:#007eb6;\n  border-radius:5px;\n  border:1px solid #337bc4;\n  display:inline-block;\n  cursor:pointer;\n  color:#ffffff;\n  font-family:Palanquin;\n  font-size:17px;\n  font-weight:bold;\n  padding:12px 44px;\n  text-decoration:none;\n  text-shadow:0px 1px 0px #000000;\n  text-align: center;\n  line-height: 0px;\n  width: 100%;\n  height: 2em;\n}\n.submit:hover {\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\n  background-color:#378de5;\n}\n\n.submit:active {\n  position:relative;\n  top:1px;\n}", ""]);
 
 // exports
 
@@ -1537,7 +1567,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/rate-modal/rate-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"createRecipeForm\">\r\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\r\n\t<form>\r\n\t\t<table>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\r\n\t\t\t    <mat-select  id=\"rating\" placeholder=\"Rating\" value=\"\" [(value)]=\"rating\">\r\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\r\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\r\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\r\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\r\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\r\n\t\t\t    </mat-select>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t\t\t<tr>\r\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\r\n\t\t\t  \t<textarea id=\"comment\" matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\r\n\t\t\t  </mat-form-field>\r\n\t\t\t</tr>\r\n\t  \t<button mat-raised-button   class=\"submit\" (click)=\"submit()\" value=\"Rate\">Submit!</button>\r\n\t\t</table>\r\n\t</form>\r\n</div>\r\n\r\n\r\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
+module.exports = "<div id=\"createRecipeForm\">\n\t<h1 mat-dialog-title>Rate This Recipe!</h1>\n\t<form>\n\t\t<table>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"Rating\" class=\"input\">\n\t\t\t    <mat-select  id=\"rating\" placeholder=\"Rating\" value=\"\" [(value)]=\"rating\">\n\t\t\t    \t<mat-option value=\"1\">1</mat-option>\n\t\t\t    \t<mat-option value=\"2\">2</mat-option>\n\t\t\t    \t<mat-option value=\"3\">3</mat-option>\n\t\t\t    \t<mat-option value=\"4\">4</mat-option>\n\t\t\t    \t<mat-option value=\"5\">5</mat-option>\n\t\t\t    </mat-select>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t\t\t<tr>\n\t\t\t  <mat-form-field title=\"Review\" class=\"input\">\n\t\t\t  \t<textarea id=\"comment\" matInput matTextAreaAutosize placeholder=\"Review\" type=\"text\"></textarea>\n\t\t\t  </mat-form-field>\n\t\t\t</tr>\n\t  \t<button mat-raised-button   class=\"submit\" (click)=\"submit()\" value=\"Rate\">Submit!</button>\n\t\t</table>\n\t</form>\n</div>\n\n\n<!-- Ingredients, Appliances, Cost, Time, Steps, Tags -->"
 
 /***/ }),
 
@@ -1643,7 +1673,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/recipeview/recipeview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section *ngIf=\"recipe\">\r\n  <div id = \"top\">\r\n  <article id = \"left-pane\">\r\n      <h1>{{recipe.name}}</h1>\r\n     \r\n   \r\n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\r\n        <ul>\r\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\r\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \r\n        </ul>\r\n    </div>\r\n      <div class = \"float-clear\"></div>\r\n      <div class = \"recipe-details\">\r\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.price}}</p>\r\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.cookTime}}</p>\r\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.popularity}}</p>\r\n        </div>\r\n      <div class = \"float-clear\"></div>\r\n      <p>Posted By: {{recipe.poster}}</p>\r\n    <p id = \"des\">{{recipe.description}}</p>\r\n    \r\n    <div class = \"float-clear\"></div>\r\n    <div class = \"ratings\">\r\n      <ul>\r\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\r\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\r\n        <div (click)=\"save()\"><li title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\r\n        \r\n      </ul>\r\n      <div class = \"float-clear\"></div>\r\n    </div>\r\n    <div class = \"float-clear\"></div>\r\n    \r\n  </article>\r\n <article id = \"right-pane\">\r\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\r\n  <div class = \"tags\">\r\n      <p><strong>Tags:</strong></p>\r\n      <ul >\r\n        <li *ngFor=\"let t of recipe.tags\">{{t}}</li>\r\n      </ul>\r\n  </div>\r\n  <div class = \"float-clear\"></div>  \r\n</article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n<div class=\"lower\">\r\n  <article class = \"bottom-left\">\r\n      <div class = \"ingredients\">\r\n          <h2>Ingredients:</h2>\r\n          <ul >\r\n            <li *ngFor=\"let i of recipe.ingredients\">{{i}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n \r\n\r\n  <article class = \"bottom-right\">\r\n      <div class = \"appliances\">\r\n          <h2>Appliances:</h2>\r\n          <ul class=\"appliances\">\r\n              <li *ngFor=\"let a of recipe.appliances\">{{a}}</li>\r\n          </ul>\r\n        </div>\r\n  </article>\r\n  <div class = \"float-clear\"></div>\r\n  <hr>\r\n</div>\r\n <article class=\"bottom-center\">\r\n    \r\n    <div class = \"steps\">\r\n      <h2>Steps:</h2>\r\n      <ol>\r\n          <li *ngFor=\"let s of recipe.steps\">{{s}}</li>\r\n      </ol>\r\n      </div>\r\n      <div class = \"float-clear\"></div>\r\n  </article>\r\n \r\n <div class = \"float-clear\"></div>\r\n  <hr>\r\n  <article class = \"comments\">\r\n    <header>\r\n        <h2>Comments:</h2>\r\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \r\n    </header>\r\n    <div class = \"float-clear\"></div>\r\n    <ul>\r\n      <li *ngFor=\"let c of recipe.comments\">\r\n        <div>\r\n          <h3>{{c.userId}}</h3>  \r\n          <p>{{c.comment}}</p>\r\n        </div>\r\n      </li>\r\n    </ul>\r\n  </article>\r\n</section>\r\n<div class = \"float-clear\"></div>\r\n"
+module.exports = "<section *ngIf=\"recipe\">\n  <div id = \"top\">\n  <article id = \"left-pane\">\n      <h1>{{recipe.name}}</h1>\n     \n   \n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\n        <ul>\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \n        </ul>\n    </div>\n      <div class = \"float-clear\"></div>\n      <div class = \"recipe-details\">\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.price}}</p>\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.cookTime}}</p>\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.popularity}}</p>\n        </div>\n      <div class = \"float-clear\"></div>\n      <p>Posted By: {{recipe.poster}}</p>\n    <p id = \"des\">{{recipe.description}}</p>\n    \n    <div class = \"float-clear\"></div>\n    <div class = \"ratings\">\n      <ul>\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\n        <div (click)=\"save()\"><li title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\n        \n      </ul>\n      <div class = \"float-clear\"></div>\n    </div>\n    <div class = \"float-clear\"></div>\n    \n  </article>\n <article id = \"right-pane\">\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\n  <div class = \"tags\">\n      <p><strong>Tags:</strong></p>\n      <ul >\n        <li *ngFor=\"let t of recipe.tags\">{{t}}</li>\n      </ul>\n  </div>\n  <div class = \"float-clear\"></div>  \n</article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n<div class=\"lower\">\n  <article class = \"bottom-left\">\n      <div class = \"ingredients\">\n          <h2>Ingredients:</h2>\n          <ul >\n            <li *ngFor=\"let i of recipe.ingredients\">{{i}}</li>\n          </ul>\n        </div>\n  </article>\n \n\n  <article class = \"bottom-right\">\n      <div class = \"appliances\">\n          <h2>Appliances:</h2>\n          <ul class=\"appliances\">\n              <li *ngFor=\"let a of recipe.appliances\">{{a}}</li>\n          </ul>\n        </div>\n  </article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n <article class=\"bottom-center\">\n    \n    <div class = \"steps\">\n      <h2>Steps:</h2>\n      <ol>\n          <li *ngFor=\"let s of recipe.steps\">{{s}}</li>\n      </ol>\n      </div>\n      <div class = \"float-clear\"></div>\n  </article>\n \n <div class = \"float-clear\"></div>\n  <hr>\n  <article class = \"comments\">\n    <header>\n        <h2>Comments:</h2>\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \n    </header>\n    <div class = \"float-clear\"></div>\n    <ul>\n      <li *ngFor=\"let c of recipe.comments\">\n        <div>\n          <h3>{{c.userId}}</h3>  \n          <p>{{c.comment}}</p>\n        </div>\n      </li>\n    </ul>\n  </article>\n</section>\n<div class = \"float-clear\"></div>\n"
 
 /***/ }),
 
@@ -1756,6 +1786,74 @@ var RecipeviewComponent = (function () {
 
 /***/ }),
 
+/***/ "../../../../../src/app/redirect/redirect.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/redirect/redirect.component.html":
+/***/ (function(module, exports) {
+
+module.exports = ""
+
+/***/ }),
+
+/***/ "../../../../../src/app/redirect/redirect.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RedirectComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+var RedirectComponent = (function () {
+    function RedirectComponent(route, router) {
+        this.route = route;
+        this.router = router;
+    }
+    RedirectComponent.prototype.ngOnInit = function () {
+        var text = this.route.snapshot.paramMap.get('id');
+        this.router.navigate(["./browse/" + text]);
+    };
+    RedirectComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+            selector: 'app-redirect',
+            template: __webpack_require__("../../../../../src/app/redirect/redirect.component.html"),
+            styles: [__webpack_require__("../../../../../src/app/redirect/redirect.component.css")]
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_router__["a" /* ActivatedRoute */], __WEBPACK_IMPORTED_MODULE_1__angular_router__["b" /* Router */]])
+    ], RedirectComponent);
+    return RedirectComponent;
+}());
+
+
+
+/***/ }),
+
 /***/ "../../../../../src/app/register-modal/register-modal.component.css":
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1777,7 +1875,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/register-modal/register-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"register\">\r\n  <form ngNoForm>\r\n    <mat-form-field>\r\n      <input matInput required=\"required\" placeholder=\"Username\">\r\n    </mat-form-field>\r\n    <p>\r\n      <mat-form-field>\r\n        <input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n      </mat-form-field>\r\n    </p>\r\n    <p>\r\n      <mat-form-field class=\"demo-full-width\">\r\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"password\">\r\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n      </mat-form-field>\r\n    </p>\r\n    <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\r\n  </form>\r\n</div>"
+module.exports = "<div id=\"register\">\n  <form ngNoForm>\n    <mat-form-field>\n      <input matInput required=\"required\" placeholder=\"Username\">\n    </mat-form-field>\n    <p>\n      <mat-form-field>\n        <input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\n      </mat-form-field>\n    </p>\n    <p>\n      <mat-form-field class=\"demo-full-width\">\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Password\">\n      </mat-form-field>\n      <mat-form-field class=\"password\">\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\n      </mat-form-field>\n    </p>\n    <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\n  </form>\n</div>"
 
 /***/ }),
 
@@ -1838,7 +1936,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/saved-recipes/saved-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Saved Recipes</h1>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [type]=\"'saved'\" [editting]=\"false\" [deleting]=\"true\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\n<h1>My Saved Recipes</h1>\n<app-filterpane></app-filterpane>\n<app-card-layout [type]=\"'saved'\" [editting]=\"false\" [deleting]=\"true\"></app-card-layout>"
 
 /***/ }),
 
@@ -1887,7 +1985,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".submit {\r\n   box-sizing: border-box;\r\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\r\n  background-color:#507c94;\r\n  border-radius:5px;\r\n  border:1px solid #337bc4;\r\n  display:inline-block;\r\n  cursor:pointer;\r\n  color:#ffffff;\r\n  font-family:Palanquin;\r\n  font-size:17px;\r\n  font-weight:bold;\r\n  padding:12px 44px;\r\n  text-decoration:none;\r\n  text-shadow:0px 1px 0px #000000;\r\n  text-align: center;\r\n  line-height: 0px;\r\n  width: 100%;\r\n  height: 2em;\r\n}\r\n.submit:hover {\r\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\r\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\r\n  background-color:#378de5;\r\n}\r\n\r\n.submit:active {\r\n  position:relative;\r\n  top:1px;\r\n}\r\n\r\n#register {\r\n  display: none;\r\n}\r\n\r\n#to_register, #to_login {\r\n     cursor:pointer;\r\n     color:blue;\r\n     text-decoration:underline;\r\n}\r\n\r\n#to_register:hover, #to_login:hover {\r\n  text-decoration: none;\r\n  text-shadow: 1px 1px 1px #555;\r\n}\r\n\r\n#error {\r\n  color: red;\r\n  display: none;\r\n  margin: 0;\r\n}\r\n\r\n#sign-in {\r\n  width: 200px;\r\n}\r\n\r\ninput {\r\n  width: 100%;\r\n}\r\n\r\nbutton:disabled,\r\nbutton[disabled]{\r\n  opacity: 0.65;\r\n  cursor: not-allowed;\r\n}\r\n\r\n.btn {\r\n  display: inline-block;\r\n  margin-bottom: 0;\r\n  text-align: center;\r\n  text-transform: uppercase;\r\n  vertical-align: middle;\r\n  cursor: pointer;\r\n  background-image: none;\r\n  padding: 6px 12px;\r\n  font-size: 1.4rem;\r\n  border-radius: 3px;\r\n  border: 1px solid transparent;\r\n  text-decoration: none;\r\n  -webkit-user-select: none;\r\n  -moz-user-select: none;\r\n  -ms-user-select: none;\r\n  user-select: none;\r\n}\r\n.btn-primary {\r\n  color: white;\r\n  border-color: #1e88e5;\r\n  background-color:#007eb6 !important;\r\n  background: linear-gradient(to bottom, #64b5f6 0%, #42a5f5 100%);\r\n  box-shadow: inset 0 1px #bbdefb, 0 1px 2px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.btn:hover, .btn:focus, .btn.focus {\r\n    text-decoration: none;\r\n    color: #fff;\r\n}\r\n\r\n.btn-primary:hover, .btn-primary:focus, .btn-primary.focus {\r\n    border-color: #42a5f5;\r\n    background: linear-gradient(to bottom, #90caf9 0%, #64b5f6 100%);\r\n    box-shadow: inset 0 1px #e3f2fd, 0 2px 3px rgba(0, 0, 0, 0.2);\r\n}\r\n\r\n.btn-primary:active, .btn-primary.active {\r\n    border-color: #1976d2;\r\n    color: #bbdefb;\r\n    background: linear-gradient(to bottom, #42a5f5 0%, #1e88e5 100%);\r\n    box-shadow: inset 0 2px 2px #1976d2;\r\n}\r\n\r\n.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary {\r\n    background: #90caf9;\r\n    border-color: #64b5f6;\r\n}\r\n\r\n.btn.disabled, .btn[disabled], fieldset[disabled] .btn {\r\n    cursor: not-allowed;\r\n    pointer-events: none;\r\n    box-shadow: none;\r\n}\r\n\r\n#gotta_log{\r\n  display: none;\r\n  padding-bottom: 10px;\r\n  color: #B20F0F;\r\n  text-decoration: bold;\r\n}", ""]);
+exports.push([module.i, ".submit {\n   box-sizing: border-box;\n  background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5',GradientType=0);\n  background-color:#507c94;\n  border-radius:5px;\n  border:1px solid #337bc4;\n  display:inline-block;\n  cursor:pointer;\n  color:#ffffff;\n  font-family:Palanquin;\n  font-size:17px;\n  font-weight:bold;\n  padding:12px 44px;\n  text-decoration:none;\n  text-shadow:0px 1px 0px #000000;\n  text-align: center;\n  line-height: 0px;\n  width: 100%;\n  height: 2em;\n}\n.submit:hover {\n  background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);\n  filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#378de5', endColorstr='#79bbff',GradientType=0);\n  background-color:#378de5;\n}\n\n.submit:active {\n  position:relative;\n  top:1px;\n}\n\n#register {\n  display: none;\n}\n\n#to_register, #to_login {\n     cursor:pointer;\n     color:blue;\n     text-decoration:underline;\n}\n\n#to_register:hover, #to_login:hover {\n  text-decoration: none;\n  text-shadow: 1px 1px 1px #555;\n}\n\n#error {\n  color: red;\n  display: none;\n  margin: 0;\n}\n\n#sign-in {\n  width: 200px;\n}\n\ninput {\n  width: 100%;\n}\n\nbutton:disabled,\nbutton[disabled]{\n  opacity: 0.65;\n  cursor: not-allowed;\n}\n\n.btn {\n  display: inline-block;\n  margin-bottom: 0;\n  text-align: center;\n  text-transform: uppercase;\n  vertical-align: middle;\n  cursor: pointer;\n  background-image: none;\n  padding: 6px 12px;\n  font-size: 1.4rem;\n  border-radius: 3px;\n  border: 1px solid transparent;\n  text-decoration: none;\n  -webkit-user-select: none;\n  -moz-user-select: none;\n  -ms-user-select: none;\n  user-select: none;\n}\n.btn-primary {\n  color: white;\n  border-color: #1e88e5;\n  background-color:#007eb6 !important;\n  background: linear-gradient(to bottom, #64b5f6 0%, #42a5f5 100%);\n  box-shadow: inset 0 1px #bbdefb, 0 1px 2px rgba(0, 0, 0, 0.2);\n}\n\n.btn:hover, .btn:focus, .btn.focus {\n    text-decoration: none;\n    color: #fff;\n}\n\n.btn-primary:hover, .btn-primary:focus, .btn-primary.focus {\n    border-color: #42a5f5;\n    background: linear-gradient(to bottom, #90caf9 0%, #64b5f6 100%);\n    box-shadow: inset 0 1px #e3f2fd, 0 2px 3px rgba(0, 0, 0, 0.2);\n}\n\n.btn-primary:active, .btn-primary.active {\n    border-color: #1976d2;\n    color: #bbdefb;\n    background: linear-gradient(to bottom, #42a5f5 0%, #1e88e5 100%);\n    box-shadow: inset 0 2px 2px #1976d2;\n}\n\n.btn-primary.disabled, .btn-primary[disabled], fieldset[disabled] .btn-primary {\n    background: #90caf9;\n    border-color: #64b5f6;\n}\n\n.btn.disabled, .btn[disabled], fieldset[disabled] .btn {\n    cursor: not-allowed;\n    pointer-events: none;\n    box-shadow: none;\n}\n\n#gotta_log{\n  display: none;\n  padding-bottom: 10px;\n  color: #B20F0F;\n  text-decoration: bold;\n}", ""]);
 
 // exports
 
@@ -1900,7 +1998,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button mat-raised-button class=\"submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\n\t<div id=\"wrapper\">\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\n\t\t<div id=\"sign-in\">\n\t\t\t<form>\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\n\t\t\t  <br>\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\n\t\t\t</form>\n\n\t\t\t<footer class=\"footer\">\n\t\t\t\t<p class=\"change_link\">\n\t\t\t\t\tNot a member yet?\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\n\t\t\t\t</p>\n\t\t\t</footer>\n\t\t</div>\n\n\t\t<div id=\"register\">\n\t    <form ngNoForm>\n        <mat-form-field>\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\n        </mat-form-field>\n        <p>\n        \t<mat-form-field>\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\n        \t</mat-form-field>\n        </p>\n\t      <p>\n\t        <mat-form-field class=\"demo-full-width\">\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\n\t        </mat-form-field>\n\t        <mat-form-field class=\"password\">\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\n\t        </mat-form-field>\n\t      </p>\n\t      <button mat-raised-button class=\"submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\n\t    </form>\n\n\t    <footer class=\"footer\">\n\t    \t<p class=\"change_link\">\n\t    \t\tAlready a member?\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\n\t    \t</p>\n\t    </footer>\n\t\t</div>\n\t</div>\n</div>\n\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -2020,7 +2118,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".sidenav {\r\n\theight: calc(100% - 169px);\r\n\twidth: 0;\r\n\tposition: absolute;\r\n\tz-index: 1;\r\n\ttop: 0;\r\n\tleft: 0;\r\n\tbackground-color: #111;\r\n\toverflow-x: hidden;\r\n\ttransition: 0.5s;\r\n}\r\n\r\n.sidenav a {\r\n\tpadding: 8px 8px 8px 32px;\r\n\ttext-decoration: none;\r\n\tfont-size: 25px;\r\n\tcolor: #a2abaa;\r\n\tdisplay: block;\r\n\ttext-align: left;\r\n\ttransition: 0.3s;\r\n\ttext-overflow: hidden;\r\n\twhite-space: nowrap;\r\n}\r\n\r\n.sidenav a:hover {\r\n\tcolor: #f1f1f1;\r\n}\t\r\n\r\n.sidenav .closebtn {\r\n\tposition: absolute;\r\n\ttop: 0;\r\n\tright: 20px;\r\n  font-size: 24px;\r\n  display: none;\r\n  opacity: 0;\r\n  transition: 1s;\r\n}\r\n\r\n.open{\r\n    margin-top: 50px;\r\n    margin-left: 10px;\r\n    font-size: 14pt;\r\n    color: #e8eef2;\r\n}\r\n\r\n.sideDiv {\r\n\twidth:100% !important;\r\n\tleft: 10px;\r\n\tposition: relative;\r\n}\r\n\r\n", ""]);
+exports.push([module.i, ".sidenav {\n\theight: calc(100% - 169px);\n\twidth: 0;\n\tposition: absolute;\n\tz-index: 1;\n\ttop: 0;\n\tleft: 0;\n\tbackground-color: #111;\n\toverflow-x: hidden;\n\ttransition: 0.5s;\n}\n\n.sidenav a {\n\tpadding: 8px 8px 8px 32px;\n\ttext-decoration: none;\n\tfont-size: 25px;\n\tcolor: #a2abaa;\n\tdisplay: block;\n\ttext-align: left;\n\ttransition: 0.3s;\n\ttext-overflow: hidden;\n\twhite-space: nowrap;\n}\n\n.sidenav a:hover {\n\tcolor: #f1f1f1;\n}\t\n\n.sidenav .closebtn {\n\tposition: absolute;\n\ttop: 0;\n\tright: 20px;\n  font-size: 24px;\n  display: none;\n  opacity: 0;\n  transition: 1s;\n}\n\n.open{\n    margin-top: 50px;\n    margin-left: 10px;\n    font-size: 14pt;\n    color: #e8eef2;\n}\n\n.sideDiv {\n\twidth:100% !important;\n\tleft: 10px;\n\tposition: relative;\n}\n\n", ""]);
 
 // exports
 
@@ -2033,7 +2131,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-nav/user-nav.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"sideDiv\"><span id=\"open\" class=\"fa fa-bars\"(click)=\"openNav()\"></span></div>\r\n<div id=\"user_sidenav\" class=\"sidenav\">\r\n\t<a title=\"close navigation\" href=\"javascript:void(0)\" class=\"closebtn transform\" id=\"closebtn\" (click)=\"closeNav()\"><i class=\"fa fa-times closeUserNav\"></i></a>\r\n\t<a routerLink=\"/userprofile\">Profile</a>\r\n\t<a routerLink=\"/userrecipes\">My Recipes</a>\r\n\t<a routerLink=\"/savedrecipes\">My Saved Recipes</a>\r\n</div>"
+module.exports = "<div class=\"sideDiv\"><span id=\"open\" class=\"fa fa-bars\"(click)=\"openNav()\"></span></div>\n<div id=\"user_sidenav\" class=\"sidenav\">\n\t<a title=\"close navigation\" href=\"javascript:void(0)\" class=\"closebtn transform\" id=\"closebtn\" (click)=\"closeNav()\"><i class=\"fa fa-times closeUserNav\"></i></a>\n\t<a routerLink=\"/userprofile\">Profile</a>\n\t<a routerLink=\"/userrecipes\">My Recipes</a>\n\t<a routerLink=\"/savedrecipes\">My Saved Recipes</a>\n</div>"
 
 /***/ }),
 
@@ -2092,7 +2190,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".createRecipe{\r\n\tfloat: right;\r\n\tmargin-right: 10px;\r\n  border:none;\r\n  padding: 6px 15px;\r\n  border-radius: 6px;\r\n  outline: none;\r\n  float: right;\r\n  margin-top: 5px;\r\n}\r\n\r\n.createRecipe:hover {\r\n    background-color:  #c7d3dd;\r\n   \r\n}\r\napp-card-layout{\r\n  display:block;\r\n  float:left;\r\n  width: calc(100% - 210px);\r\n}", ""]);
+exports.push([module.i, ".createRecipe{\n\tfloat: right;\n\tmargin-right: 10px;\n  border:none;\n  padding: 6px 15px;\n  border-radius: 6px;\n  outline: none;\n  float: right;\n  margin-top: 5px;\n}\n\n.createRecipe:hover {\n    background-color:  #c7d3dd;\n   \n}\napp-card-layout{\n  display:block;\n  float:left;\n  width: calc(100% - 210px);\n}", ""]);
 
 // exports
 
@@ -2105,7 +2203,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-recipes/user-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\r\n<h1>My Recipes</h1>\r\n<div class=\"buttonWrapper\">\r\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\r\n</div>\r\n<app-filterpane></app-filterpane>\r\n<app-card-layout [type]=\"'user'\" [editting]=\"true\" [deleting] =\"true\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\n<h1>My Recipes</h1>\n<div class=\"buttonWrapper\">\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\n</div>\n<app-filterpane></app-filterpane>\n<app-card-layout [type]=\"'user'\" [editting]=\"true\" [deleting] =\"true\"></app-card-layout>"
 
 /***/ }),
 
