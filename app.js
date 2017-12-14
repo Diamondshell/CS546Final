@@ -609,6 +609,8 @@ app.get('/recipes/topx/:x', async function(req, res) {
 
 //POST recipe route, creates a recipe with the supplied data in the request body, returns new recipe
 app.post('/recipe', async function(req, res) {
+    console.log(req.body);
+    console.log('Got recipe post request');
     //check and get parameters
     let userid = "";
     let name = "";
@@ -763,7 +765,7 @@ app.post('/recipe', async function(req, res) {
     
     //try to add recipe to database
     try {
-        let newRecipe = await index.recipes.createRecipe(userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps);
+        let newRecipe = await index.recipes.createRecipe(userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps, "");
         
         //send status and response
         res.status(200);
@@ -920,13 +922,13 @@ app.put('/recipe/:recipeId', async function(req, res) {
     
     //try to update recipe
     try {
-        let updRecipe = await index.recipes.updateRecipeById(req.params.recipeId, userid, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps);
-    
+        let updRecipe = await index.recipes.updateRecipeById(req.params.recipeId, name, description, price, cookTime, appliances, popularity, tags, ingredients, steps, null);
         //send status and response
         res.status(200);
         res.send(updRecipe);
     }catch(error) {
         //handle error
+        console.log(error);
         res.status(500).json({error: "Failed to update recipe with id: " + req.params.recipeId});
     }
 });

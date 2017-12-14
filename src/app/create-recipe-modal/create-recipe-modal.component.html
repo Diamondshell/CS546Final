@@ -1,49 +1,49 @@
-<div id="createRecipeForm">
-	<h1 mat-dialog-title id="heading">New Recipe</h1>
+<div *ngIf="recipe" id="createRecipeForm">
+	<h1 mat-dialog-title id="heading">{{headingStr}}</h1>
 	<form ngNoForm>
 		<table>
 			<tr>
 			  <mat-form-field title="RecipeName" class="input">
-			    <input matInput placeholder="Recipe Name" value={{recipe.Name}}>
+			    <input [(ngModel)]="recipe.name" matInput placeholder="Recipe Name" value={{recipe.name}}>
 			  </mat-form-field>
 			</tr>
 			<tr>
 			  <mat-form-field title="Description" class="input">
-			  	<textarea matInput matTextAreaAutosize placeholder="Description" type="password" value={{recipe.Description}}></textarea>
+			  	<textarea [(ngModel)]="recipe.description" matInput matTextAreaAutosize placeholder="Description" type="password" value={{recipe.description}}></textarea>
 			  </mat-form-field>
 			</tr>
 			<tr>
 				<mat-form-field title="Ingredients" class="input">
-					<textarea matInput matTextAreaAutosize value={{recipe.Ingredients}} placeholder="Ingredients (comma separated list)"></textarea>
+					<textarea [(ngModel)]="recipe.ingredients" matInput matTextAreaAutosize value={{recipe.ingredients}} placeholder="Ingredients (comma separated list)"></textarea>
 				</mat-form-field>
 			</tr>
 			<tr>
 				<mat-form-field title="Appliances" class="input">
-					<textarea matInput matTextAreaAutosize value={{recipe.Appliance}} placeholder="Appliances needed (comma separated list)"></textarea>
+					<textarea [(ngModel)]="recipe.appliances" matInput matTextAreaAutosize value={{recipe.appliances}} placeholder="Appliances needed (comma separated list)"></textarea>
 				</mat-form-field>
 			</tr>
 			<tr>
 				<mat-form-field title="Cost" class="input">
-					<input matInput placeholder="Estimate cost to make" type="number" value={{recipe.Price}}>
+					<input  [(ngModel)]="recipe.price" matInput placeholder="Estimate cost to make" type="number" value={{recipe.price}}>
 				</mat-form-field>
 			</tr>
 			<tr>
 				<mat-form-field title="Time" class="input">
-					<input matInput value={{recipe.Cooking_Time}} placeholder="Time to make (in minutes)" type="number">
+					<input [(ngModel)]="recipe.cookTime" matInput value={{recipe.cookTime}} placeholder="Time to make (in minutes)" type="number">
 				</mat-form-field>
 			</tr>
 			<tr>
 				<mat-form-field title="Tags" class="input">
-					<input matInput placeholder="Tags (comma separated list)" type="text" value={{recipe.Tags}}>
+					<input [(ngModel)]="recipe.tags" matInput placeholder="Tags (comma separated list)" type="text" value={{recipe.tags}}>
 				</mat-form-field>
 			</tr>
 			<tr>
 				<mat-label>Directions:</mat-label>
 				<mat-form-field title="Steps" class="directions">
-					<textarea matInput matTextareaAutosize placeholder="(comma separated list)" type="text" class="taDirections" value={{recipe.Steps}}></textarea>
+					<textarea matInput [(ngModel)]="recipe.steps" matTextareaAutosize placeholder="(comma separated list)" type="text" class="taDirections" value={{recipe.steps}}></textarea>
 				</mat-form-field>
 			</tr>
-	  	<button mat-raised-button class="submit" type="submit" id="finishButton">Create Recipe!</button>
+	  	<button mat-raised-button class="submit" (click)="submit()" id="finishButton">{{submitStr}}</button>
 		</table>
 	</form>
 </div>

@@ -128,31 +128,31 @@ const exported_methods = {
             update.cookTime = cookTime;
         }
         if ( appliances ) {
-            if ( typeof ( appliances ) !== 'string' ) {
+            if ( typeof ( appliances ) !== 'object' ) {
                 throw `updateRecipeById: Expected a string appliances, but received a ${typeof(appliances)}`;
             }
             update.appliances = appliances;
         }
         if ( popularity ) {
-            if ( typeof ( popularity ) !== 'string' ) {
+            if ( typeof ( popularity ) !== 'number' ) {
                 throw `updateRecipeById: Expected a string popularity, but received a ${typeof(popularity)}`;
             }
             update.popularity = popularity;
         }
         if ( tags ){
-            if ( typeof ( tags ) !== 'string' ) {
+            if ( typeof ( tags ) !== 'object' ) {
                 throw `updateRecipeById: Expected a string tags, but received a ${typeof(tags)}`;
             }
             update.tags = tags;
         }
         if ( ingredients ) {
-            if ( typeof ( ingredients ) !== 'string' ) {
+            if ( typeof ( ingredients ) !== 'object' ) {
                 throw `updateRecipeById: Expected a string ingredients, but received a ${typeof(ingredients)}`;
             }
             update.ingredients = ingredients;
         }
         if ( steps ) {
-            if ( typeof ( steps ) !== 'string' ) {
+            if ( typeof ( steps ) !== 'object' ) {
                 throw `updateRecipeById: Expected a string steps, but received a ${typeof(steps)}`;
             }
             update.steps = steps;
@@ -165,7 +165,7 @@ const exported_methods = {
         }
 
         const recipeCollection = await recipes();
-        const data = await recipeCollection.updateOne ( { _id: id }, { $set: ret } );
+        const data = await recipeCollection.updateOne ( { _id: id }, { $set: update } );
         return await exported_methods.getRecipeById( id );
     },
     /**
