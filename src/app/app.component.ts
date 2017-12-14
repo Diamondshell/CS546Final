@@ -58,5 +58,8 @@ export class AppComponent {
       document.getElementById('user').style.display="block";
     }
   }
+
+  search():void{
+  }
   
 }

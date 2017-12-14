@@ -541,7 +541,7 @@ app.get('/recipes/byname/:name', async function(req, res) {
     //try to get recipes that match name
     try{
         let allRecipes = await index.recipes.getRecipesByLikeName(req.params.name);
-        
+        console.log(allRecipes);
 		//variable to hold return value
       	let retVal = [];
 		
@@ -568,11 +568,13 @@ app.get('/recipes/byname/:name', async function(req, res) {
 			retVal.push(tmp);
         }
 		
+        console.log(retVal);
         //send status and response
         res.status(200);
         res.send(retVal);
     }catch(error) {
         //handle error
+        console.log(error);
         res.status(404).json({error: "No recipes found for search word: " + req.params.name});
     }
 });
