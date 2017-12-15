@@ -7,7 +7,7 @@
           <h3>{{f.section_text}}</h3>
           <ul>
               <li *ngFor="let fi of f.values" class = "filters">
-                <input type="checkbox" id={{fi.name}} name={{fi.name}} (click)="onCheck($event, fi)">
+                <input type="checkbox" id={{fi.name}} name={{fi.name}} (click)="onCheck($event, fi, f)">
                 <label for={{fi.name}}>{{fi.text}}</label>
               </li>
           </ul>

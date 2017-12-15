@@ -491,7 +491,7 @@ app.get('/recipes/user/:userId', async function(req, res) {
 });
 
 //GET recipes/filter route, responds with recipes that match filter
-app.get('/recipes/filter', async function(req, res) {
+app.post('/recipes/filter', async function(req, res) {
     //check and get filter
     let filter = {};
    
@@ -507,6 +507,8 @@ app.get('/recipes/filter', async function(req, res) {
         res.status(400).json({error: "Bad Request: requires a filter"});
         return;
     }
+
+    console.log(filter);
 
     //try to get recipes with specified filter
     try{
@@ -543,6 +545,7 @@ app.get('/recipes/filter', async function(req, res) {
         res.send(retVal);
     }catch(error) {
         //handle error
+        console.log(error);
         res.status(404).json({error: "Recipe not found"});
     }
 });
