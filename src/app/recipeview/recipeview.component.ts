@@ -30,8 +30,8 @@ export class RecipeviewComponent implements OnInit {
   }
   finishLoad(recipeInfo):void{
     this.recipe=recipeInfo;
-    this.numChecked = new Array(Math.ceil(this.recipe.avgRating));
-    this.numUnChecked = new Array(Math.floor(5-this.recipe.avgRating));
+    this.numChecked = new Array(Math.round(this.recipe.avgRating));
+    this.numUnChecked = new Array(5 - Math.round(this.recipe.avgRating));
     window.scrollTo(0, 0);
   }
   constructor( private route: ActivatedRoute, 
