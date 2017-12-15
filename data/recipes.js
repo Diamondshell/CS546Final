@@ -236,7 +236,12 @@ const exported_methods = {
             find.push ( { $or: orb } );
         }
 
-        let data = await recipeCollection.find ( { $and: find } ).toArray();
+        let data;
+        if ( find == {} ) {
+            data = await recipeCollection.find ( {} ).toArray();
+        } else {
+            data = await recipeCollection.find ( { $and: find } ).toArray();
+        }
         let avgData = await getAvgRatingList ( data );
         
         if ( filter.rating ) {
