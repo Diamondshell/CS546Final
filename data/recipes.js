@@ -247,7 +247,7 @@ const exported_methods = {
         if ( filter.rating ) {
             let eData = [];
             for ( let i = 0; i < avgData.length; i++ ) {
-                if ( filter.rating.indexOf ( Math.floor ( avgData[i].rating ) ) > -1 ) {
+                if ( filter.rating.indexOf ( Math.round ( avgData[i].rating ) ) > -1 ) {
                     eData.push ( avgData[i] );
                 }
             }
