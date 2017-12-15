@@ -265,6 +265,9 @@ const exported_methods = {
         let obs;
         if  ( filter ) {
             obs = await getRecipesByFilter ( filter );
+            if ( obs.length == 0 ) {
+                obs = await getAllRecipes();
+            }
         } else {
             obs = await getAllRecipes();
         }
