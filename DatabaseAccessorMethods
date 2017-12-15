@@ -50,8 +50,8 @@ removeRecipeById(string:id)
 getRecipesByFilter(Object:filter)
     Returns all recipes matching on the given filter
 
-Filter is going to just be a Mongo Selector, { price: { $lt: 5 } }
-If you don't like that, let me know.
+getRandomRecipe(Object:filter)
+    Returns a random recipe matching filter. Filter may be null
 
 getRecipesByUserId(string:userId)
     Returns recipes made by a given user

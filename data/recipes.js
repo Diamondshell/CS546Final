@@ -257,6 +257,20 @@ const exported_methods = {
         return avgData;
     },
     /**
+     * Returns a random recipe matching the filter
+     * @param {object|undefined} filter Returns a recipe matching the filter
+     * @return {object} A random recipe object
+     */
+    async getRandomRecipe ( filter ) {
+        let obs;
+        if  ( filter ) {
+            obs = await getRecipesByFilter ( filter );
+        } else {
+            obs = await getAllRecipes();
+        }
+        return obs[Math.floor(Math.random()*obs.length)];
+    },
+    /**
      * Gets all recipes made by a given user
      * @param {string} userid The username to look for
      */
