@@ -42,7 +42,7 @@
 	        	<input [(ngModel)]="newPassConf" matInput required="required" type="password" placeholder="Confirm Password">
 	        </mat-form-field>
 	      </p>
-	      <button mat-raised-button class="submit" (click)="doRegister()" value="Register!">Register!</button>
+	      <button [disabled]="isDisabled" data-dismiss="modal" class="btn btn-primary submit" (click)="doRegister()" value="Register!">Register!</button>
 	    </form>
 
 	    <footer class="footer">

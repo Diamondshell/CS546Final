@@ -986,7 +986,8 @@ var FilterpaneComponent = (function () {
             { section_name: "mealType", section_text: "Meal Type", values: [
                     { name: "breakfast", text: "Breakfast" },
                     { name: "lunch", text: "Lunch" },
-                    { name: "dinner", text: "Dinner" }
+                    { name: "dinner", text: "Dinner" },
+                    { name: "dessert", text: "Desert" }
                 ] },
             { section_name: "mealStyle", section_text: "Meal Style", values: [
                     { name: "italian", text: "Italian" },
@@ -1006,6 +1007,29 @@ var FilterpaneComponent = (function () {
                     { name: "thirtyToOne", text: "30 Minutes - 1 Hour" },
                     { name: "oneToTwo", text: "1 - 2 Hours" },
                     { name: "twoplus", text: "More than 2 Hours" }
+                ] },
+            { section_name: "price", section_text: "Total Cost", values: [
+                    { name: "less5", text: "Less Than $5" },
+                    { name: "5ToTen", text: "$5 - $10" },
+                    { name: "10ToTwenty", text: "$10 - $20" },
+                    { name: "TwentyPlus", text: "More than $20" }
+                ] },
+            { section_name: "appliances", section_text: "Appliances", values: [
+                    { name: "oven", text: "Oven" },
+                    { name: "microwave", text: "Microwave" },
+                    { name: "blender", text: "Blender" },
+                    { name: "stove", text: "Stove" }
+                ] },
+            { section_name: "popularity", section_text: "popularity", values: [
+                    { name: "zeroToTen", text: "0 - 10" },
+                    { name: "tenToHundred", text: "10 - 100" },
+                    { name: "hundredPlus", text: "100+" }
+                ] },
+            { section_name: "ingredients", section_text: "Ingredients", values: [
+                    { name: "milk", text: "Milk" },
+                    { name: "butter", text: "Butter" },
+                    { name: "ketchup", text: "Ketchup" },
+                    { name: "salt", text: "Salt" }
                 ] }
         ];
     }
@@ -1370,7 +1394,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/profile/profile.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n<div class=\"profile\" id=\"userProfileWrapper\">\n\t<div id=\"innerwrapper\">\n\t\t<h1 id=\"username\">\n\t\t\t{{user._id}}\n\t\t</h1>\n\n\t\t<div id=\"email\">\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\n\t\t\t<input matInput type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\n\t\t\t<p id=\"error\">Must give a valid email</p>\n\t\t</div>\n\n\t\t<div id=\"description\">\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\n\t\t</div>\n\t</div>\t\n</div>"
+module.exports = "\n<div class=\"profile\" id=\"userProfileWrapper\">\n\t<div id=\"innerwrapper\">\n\t\t<h1 id=\"username\">\n\t\t\t{{user._id}}\n\t\t</h1>\n\n\t\t<div id=\"email\">\n\t\t\t<label id=\"userEmail\" class=\"pull-left\" for=\"editEmail\">Email:</label>\n\t\t\t<span id=\"emailObj\">{{user.email}}</span>\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.email\" placeholder=\"{{user.email}}\" id=\"editEmail\">\n\t\t\t<button title = \"Edit email\" (click)=\"editEmail()\" id= \"editEmailButton\" name=\"editEmailButton\"><i class=\"fa fa-pencil\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveEmail()\" id=\"saveEmail\"><i class=\"fa fa-check\"></i></button>\n\t\t\t<p id=\"error\">Must give a valid email</p>\n\t\t</div>\n\n\t\t<div id=\"description\">\n\t\t\t<label id=\"userDescr\" class=\"pull-left\" for=\"editDescr\">Description:</label>\n\t\t\t<span id=\"descrObj\">{{user.description}}</span>\n\t\t\t<input type=\"text\" [(ngModel)]=\"user.description\" placeholder=\"{{user.description}}\" id=\"editDescr\" name=\"editDescr\">\n\t\t\t<button title = \"Edit description\" (click)=\"editDescription()\" id = \"edit\"><i class=\"fa fa-pencil\" id=\"editDescrButton\"></i></button>\n\t\t\t<button title=\"Save\" (click)=\"saveDescription()\" id=\"saveDescr\"><i class=\"fa fa-check\"></i></button>\n\t\t</div>\n\t</div>\t\n</div>"
 
 /***/ }),
 
@@ -1673,7 +1697,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/recipeview/recipeview.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<section *ngIf=\"recipe\">\n  <div id = \"top\">\n  <article id = \"left-pane\">\n      <h1>{{recipe.name}}</h1>\n     \n   \n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\n        <ul>\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \n        </ul>\n    </div>\n      <div class = \"float-clear\"></div>\n      <div class = \"recipe-details\">\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.price}}</p>\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.cookTime}}</p>\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.popularity}}</p>\n        </div>\n      <div class = \"float-clear\"></div>\n      <p>Posted By: {{recipe.poster}}</p>\n    <p id = \"des\">{{recipe.description}}</p>\n    \n    <div class = \"float-clear\"></div>\n    <div class = \"ratings\">\n      <ul>\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\n        <div (click)=\"save()\"><li title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\n        \n      </ul>\n      <div class = \"float-clear\"></div>\n    </div>\n    <div class = \"float-clear\"></div>\n    \n  </article>\n <article id = \"right-pane\">\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\n  <div class = \"tags\">\n      <p><strong>Tags:</strong></p>\n      <ul >\n        <li *ngFor=\"let t of recipe.tags\">{{t}}</li>\n      </ul>\n  </div>\n  <div class = \"float-clear\"></div>  \n</article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n<div class=\"lower\">\n  <article class = \"bottom-left\">\n      <div class = \"ingredients\">\n          <h2>Ingredients:</h2>\n          <ul >\n            <li *ngFor=\"let i of recipe.ingredients\">{{i}}</li>\n          </ul>\n        </div>\n  </article>\n \n\n  <article class = \"bottom-right\">\n      <div class = \"appliances\">\n          <h2>Appliances:</h2>\n          <ul class=\"appliances\">\n              <li *ngFor=\"let a of recipe.appliances\">{{a}}</li>\n          </ul>\n        </div>\n  </article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n <article class=\"bottom-center\">\n    \n    <div class = \"steps\">\n      <h2>Steps:</h2>\n      <ol>\n          <li *ngFor=\"let s of recipe.steps\">{{s}}</li>\n      </ol>\n      </div>\n      <div class = \"float-clear\"></div>\n  </article>\n \n <div class = \"float-clear\"></div>\n  <hr>\n  <article class = \"comments\">\n    <header>\n        <h2>Comments:</h2>\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \n    </header>\n    <div class = \"float-clear\"></div>\n    <ul>\n      <li *ngFor=\"let c of recipe.comments\">\n        <div>\n          <h3>{{c.userId}}</h3>  \n          <p>{{c.comment}}</p>\n        </div>\n      </li>\n    </ul>\n  </article>\n</section>\n<div class = \"float-clear\"></div>\n"
+module.exports = "<section *ngIf=\"recipe\">\n  <div id = \"top\">\n  <article id = \"left-pane\">\n      <h1>{{recipe.name}}</h1>\n     \n   \n    <div class = \"rating\" title =\"{{recipe.Rating}} Star(s)\">\n        <ul>\n          <li  *ngFor=\"let i of numChecked\"> <i class=\"fa fa-star checked\" ></i></li>\n          <li  *ngFor=\"let i of numUnChecked\"> <i class=\"fa fa-star\"></i></li>   \n        </ul>\n    </div>\n      <div class = \"float-clear\"></div>\n      <div class = \"recipe-details\">\n          <p title=\"Total Cost\"><i class=\"fa fa-dollar\" title=\"Total Cost\"></i> {{recipe.price}}</p>\n          <p title=\"Total Time\"><i class=\"fa fa-clock-o\" ></i> {{recipe.cookTime}}</p>\n          <p title=\"Popularity\"><i class=\"fa fa-fire\" ></i> {{recipe.popularity}}</p>\n        </div>\n      <div class = \"float-clear\"></div>\n      <p>Posted By: {{recipe.userid}}</p>\n    <p id = \"des\">{{recipe.description}}</p>\n    \n    <div class = \"float-clear\"></div>\n    <div class = \"ratings\">\n      <ul>\n        <div (click)=\"displayRateModal()\"><li title = \"Rate this Recipe\" id=\"rate\" >Rate This Recipe</li></div>\n        <div (click)=\"print()\"><li  title = \"Print this Recipe\" id=\"print\">Print</li>  </div>\n        <div (click)=\"save()\"><li title = \"Save this Recipe as a Favorite\" id=\"save\" >Save To Favorites</li></div>\n        \n      </ul>\n      <div class = \"float-clear\"></div>\n    </div>\n    <div class = \"float-clear\"></div>\n    \n  </article>\n <article id = \"right-pane\">\n  <img src= \"assets/fudge.jpg\" width=200 height=300 alt = \"Picture of Recipe\" title = \"Picture of Recipe\">\n  <div class = \"tags\">\n      <p><strong>Tags:</strong></p>\n      <ul >\n        <li *ngFor=\"let t of recipe.tags\">{{t}}</li>\n      </ul>\n  </div>\n  <div class = \"float-clear\"></div>  \n</article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n<div class=\"lower\">\n  <article class = \"bottom-left\">\n      <div class = \"ingredients\">\n          <h2>Ingredients:</h2>\n          <ul >\n            <li *ngFor=\"let i of recipe.ingredients\">{{i}}</li>\n          </ul>\n        </div>\n  </article>\n \n\n  <article class = \"bottom-right\">\n      <div class = \"appliances\">\n          <h2>Appliances:</h2>\n          <ul class=\"appliances\">\n              <li *ngFor=\"let a of recipe.appliances\">{{a}}</li>\n          </ul>\n        </div>\n  </article>\n  <div class = \"float-clear\"></div>\n  <hr>\n</div>\n <article class=\"bottom-center\">\n    \n    <div class = \"steps\">\n      <h2>Steps:</h2>\n      <ol>\n          <li *ngFor=\"let s of recipe.steps\">{{s}}</li>\n      </ol>\n      </div>\n      <div class = \"float-clear\"></div>\n  </article>\n \n <div class = \"float-clear\"></div>\n  <hr>\n  <article class = \"comments\">\n    <header>\n        <h2>Comments:</h2>\n        <button class=\"newcomment\" (click)=\"displayRateModal()\">Add Comment</button>    \n    </header>\n    <div class = \"float-clear\"></div>\n    <ul>\n      <li *ngFor=\"let c of recipe.comments\">\n        <div>\n          <h3>{{c.userId}}</h3>  \n          <p>{{c.comment}}</p>\n        </div>\n      </li>\n    </ul>\n  </article>\n</section>\n<div class = \"float-clear\"></div>\n"
 
 /***/ }),
 
@@ -1923,7 +1947,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "app-card-layout{\r\n    display:block;\r\n    float:left;\r\n    width: calc(100% - 210px);\r\n}", ""]);
+exports.push([module.i, "app-card-layout{\r\n    display:block;\r\n    float:left;\r\n    width: 100%;\r\n}", ""]);
 
 // exports
 
@@ -1936,7 +1960,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/saved-recipes/saved-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\n<h1>My Saved Recipes</h1>\n<app-filterpane></app-filterpane>\n<app-card-layout [type]=\"'saved'\" [editting]=\"false\" [deleting]=\"true\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\n<h1>My Saved Recipes</h1>\n<app-card-layout [type]=\"'saved'\" [editting]=\"false\" [deleting]=\"true\"></app-card-layout>"
 
 /***/ }),
 
@@ -1998,7 +2022,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\n\t<div id=\"wrapper\">\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\n\t\t<div id=\"sign-in\">\n\t\t\t<form>\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\n\t\t\t  <br>\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\n\t\t\t</form>\n\n\t\t\t<footer class=\"footer\">\n\t\t\t\t<p class=\"change_link\">\n\t\t\t\t\tNot a member yet?\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\n\t\t\t\t</p>\n\t\t\t</footer>\n\t\t</div>\n\n\t\t<div id=\"register\">\n\t    <form ngNoForm>\n        <mat-form-field>\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\n        </mat-form-field>\n        <p>\n        \t<mat-form-field>\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\n        \t</mat-form-field>\n        </p>\n\t      <p>\n\t        <mat-form-field class=\"demo-full-width\">\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\n\t        </mat-form-field>\n\t        <mat-form-field class=\"password\">\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\n\t        </mat-form-field>\n\t      </p>\n\t      <button mat-raised-button class=\"submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\n\t    </form>\n\n\t    <footer class=\"footer\">\n\t    \t<p class=\"change_link\">\n\t    \t\tAlready a member?\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\n\t    \t</p>\n\t    </footer>\n\t\t</div>\n\t</div>\n</div>\n\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\n\t<div id=\"wrapper\">\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\n\t\t<div id=\"sign-in\">\n\t\t\t<form>\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\n\t\t\t  <br>\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\n\t\t\t</form>\n\n\t\t\t<footer class=\"footer\">\n\t\t\t\t<p class=\"change_link\">\n\t\t\t\t\tNot a member yet?\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\n\t\t\t\t</p>\n\t\t\t</footer>\n\t\t</div>\n\n\t\t<div id=\"register\">\n\t    <form ngNoForm>\n        <mat-form-field>\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\n        </mat-form-field>\n        <p>\n        \t<mat-form-field>\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\n        \t</mat-form-field>\n        </p>\n\t      <p>\n\t        <mat-form-field class=\"demo-full-width\">\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\n\t        </mat-form-field>\n\t        <mat-form-field class=\"password\">\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\n\t        </mat-form-field>\n\t      </p>\n\t      <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\n\t    </form>\n\n\t    <footer class=\"footer\">\n\t    \t<p class=\"change_link\">\n\t    \t\tAlready a member?\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\n\t    \t</p>\n\t    </footer>\n\t\t</div>\n\t</div>\n</div>\n\n<!-- Username, email, password, description -->"
 
 /***/ }),
 
@@ -2118,7 +2142,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".sidenav {\n\theight: calc(100% - 169px);\n\twidth: 0;\n\tposition: absolute;\n\tz-index: 1;\n\ttop: 0;\n\tleft: 0;\n\tbackground-color: #111;\n\toverflow-x: hidden;\n\ttransition: 0.5s;\n}\n\n.sidenav a {\n\tpadding: 8px 8px 8px 32px;\n\ttext-decoration: none;\n\tfont-size: 25px;\n\tcolor: #a2abaa;\n\tdisplay: block;\n\ttext-align: left;\n\ttransition: 0.3s;\n\ttext-overflow: hidden;\n\twhite-space: nowrap;\n}\n\n.sidenav a:hover {\n\tcolor: #f1f1f1;\n}\t\n\n.sidenav .closebtn {\n\tposition: absolute;\n\ttop: 0;\n\tright: 20px;\n  font-size: 24px;\n  display: none;\n  opacity: 0;\n  transition: 1s;\n}\n\n.open{\n    margin-top: 50px;\n    margin-left: 10px;\n    font-size: 14pt;\n    color: #e8eef2;\n}\n\n.sideDiv {\n\twidth:100% !important;\n\tleft: 10px;\n\tposition: relative;\n}\n\n", ""]);
+exports.push([module.i, ".sidenav {\n\theight: calc(100% - 139px);\n\twidth: 0;\n\tposition: absolute;\n\tz-index: 1;\n\ttop: 0;\n\tleft: 0;\n\tbackground-color: #111;\n\toverflow-x: hidden;\n\ttransition: 0.5s;\n}\n\n.sidenav a {\n\tpadding: 8px 8px 8px 32px;\n\ttext-decoration: none;\n\tfont-size: 25px;\n\tcolor: #a2abaa;\n\tdisplay: block;\n\ttext-align: left;\n\ttransition: 0.3s;\n\ttext-overflow: hidden;\n\twhite-space: nowrap;\n}\n\n.sidenav a:hover {\n\tcolor: #f1f1f1;\n}\t\n\n.sidenav .closebtn {\n\tposition: absolute;\n\ttop: 0;\n\tright: 20px;\n  font-size: 24px;\n  display: none;\n  opacity: 0;\n  transition: 1s;\n}\n\n#open{\n\t\tdisplay: block;\n    margin-top: 15px;\n    margin-left: 10px;\n    font-size: 20pt !important;\n    color: black;\n}\n\n.sideDiv {\n\twidth:100% !important;\n\tleft: 10px;\n\tposition: relative;\n}\n\n", ""]);
 
 // exports
 
@@ -2190,7 +2214,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, ".createRecipe{\n\tfloat: right;\n\tmargin-right: 10px;\n  border:none;\n  padding: 6px 15px;\n  border-radius: 6px;\n  outline: none;\n  float: right;\n  margin-top: 5px;\n}\n\n.createRecipe:hover {\n    background-color:  #c7d3dd;\n   \n}\napp-card-layout{\n  display:block;\n  float:left;\n  width: calc(100% - 210px);\n}", ""]);
+exports.push([module.i, ".createRecipe{\n\tfloat: right;\n\tmargin-right: 10px;\n  border:none;\n  padding: 6px 15px;\n  border-radius: 6px;\n  outline: none;\n  float: right;\n  margin-top: 5px;\n}\n\n.createRecipe:hover {\n    background-color:  #c7d3dd;\n   \n}\napp-card-layout{\n  display:block;\n  float:left;\n  width: 100%;\n}", ""]);
 
 // exports
 
@@ -2203,7 +2227,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/user-recipes/user-recipes.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<app-user-nav></app-user-nav>\n<h1>My Recipes</h1>\n<div class=\"buttonWrapper\">\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\n</div>\n<app-filterpane></app-filterpane>\n<app-card-layout [type]=\"'user'\" [editting]=\"true\" [deleting] =\"true\"></app-card-layout>"
+module.exports = "<app-user-nav></app-user-nav>\n<h1>My Recipes</h1>\n<div class=\"buttonWrapper\">\n\t<button class=\"createRecipe\" (click)=\"createRecipe()\">Create Recipe <i class=\"fa fa-plus-square-o\"></i></button>\n</div>\n<app-card-layout [type]=\"'user'\" [editting]=\"true\" [deleting] =\"true\"></app-card-layout>"
 
 /***/ }),
 
