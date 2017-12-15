@@ -264,12 +264,12 @@ const exported_methods = {
     async getRandomRecipe ( filter ) {
         let obs;
         if  ( filter ) {
-            obs = await getRecipesByFilter ( filter );
+            obs = await this.getRecipesByFilter ( filter );
             if ( obs.length == 0 ) {
-                obs = await getAllRecipes();
+                obs = await this.getAllRecipes();
             }
         } else {
-            obs = await getAllRecipes();
+            obs = await this.getAllRecipes();
         }
         return obs[Math.floor(Math.random()*obs.length)];
     },

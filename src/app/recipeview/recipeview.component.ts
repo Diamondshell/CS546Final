@@ -41,6 +41,13 @@ export class RecipeviewComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     console.log(id);
     this.getRecipeById(id);
+    this.route.params.subscribe(params => {
+        const term = params['id'];
+        if (term){
+            this.dataService.getRecipeById(term).subscribe(res=>this.recipe = res);
+        }
+        //this.service.get(term).then(result => { console.log(result); });
+      });
   }
 
   save() {

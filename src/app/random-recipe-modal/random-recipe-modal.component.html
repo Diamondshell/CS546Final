@@ -1,5 +1,5 @@
 <div id="randomRecipeModalWrapper">
-  <form ngNoForm>
+  <form>
     <h2 mat-dialog-title id="RandomLabel">Random Recipe</h2>
     <h3 mat-dialog-title a>*Choose any or none*</h3>
       <ul> 
@@ -7,12 +7,12 @@
             <h3>{{f.section_text}}</h3>
             <ul>
                 <li *ngFor="let fi of f.values" class = "filters">
-                  <input type="checkbox" id={{fi.name}} name={{fi.name}} (click)="onCheck($event, fi)">
+                  <input type="checkbox" id={{fi.name}} name={{fi.name}} (click)="onDoCheck($event, fi, f)">
                   <label for={{fi.name}}>{{fi.text}}</label>
                 </li>
             </ul>
           </li>
         </ul>
-      <button  mat-raised-button class="submit" type="submit" value="submit">Randomize!</button>
+      <button mat-raised-button class="submit" (click)="getRandom()"  value="submit">Randomize!</button>
   </form>
 </div>

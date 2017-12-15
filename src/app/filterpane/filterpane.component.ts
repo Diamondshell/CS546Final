@@ -104,7 +104,7 @@ export class FilterpaneComponent implements OnInit {
           this.popularity.push({$gte:fi.bounds[0]});
       }
       if (f.section_name == "ingredients")
-        this.rating.push(fi.name);
+        this.ingredients.push(fi.name);
     }else {
       // Handle removal of filters
       if (f.section_name == "mealType" || f.section_name == "mealStyle"){
