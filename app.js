@@ -727,6 +727,64 @@ app.get('/recipe/random', async function(req, res) {
     }
 });
 
+//GET recipe/random route, responds with the details of a random recipe
+app.post('/recipe/randomfiltered', async function(req, res) {
+    let filter = {};
+   
+    if(req.body.hasOwnProperty("filter")) {
+        //check if filter is an object
+        if(typeof req.body.filter == 'object') {
+            filter = req.body.filter;
+        }else {
+            res.status(400).json({error: "Bad Request: requires filter to be an object"});
+            return;
+        }
+    }else {
+        res.status(400).json({error: "Bad Request: requires a filter"});
+        return;
+    }
+
+    //try to get recipes
+    try {
+        let allRecipes = await index.recipes.getRandomRecipe(filter);
+        console.log(allRecipes);
+        //choose a random recipe
+        let chosenRec = allRecipes;
+        
+        
+        //variable to hold return value
+        let tmp = chosenRec;
+        
+        //get average rating
+        let recRatings = await index.ratings.getRatingsByRecipeId(tmp._id);
+        let total = 0;
+        let cnt = 0;
+        let len2 = recRatings.length;
+        for (let j = 0; j < len2; j++) {
+            cnt++;
+            total = total + recRatings[j].rating;
+        }
+        let average = total / cnt;
+
+        //get comments
+        let commentList = await index.comments.getCommentsByRecipeId(tmp._id);
+
+        //add average rating and comments to return value
+        tmp["avgRating"] = average;
+        tmp["comments"] = commentList;
+        
+        
+      
+        //send status and response
+        res.status(200);
+        res.send(tmp);
+    }catch(error) {
+        //handle error
+        console.log(error);
+        res.status(500).json({error: "Can't retrieve recipe"});
+    }
+});
+
 //POST recipe route, creates a recipe with the supplied data in the request body, returns new recipe
 app.post('/recipe', async function(req, res) {
     console.log(req.body);
