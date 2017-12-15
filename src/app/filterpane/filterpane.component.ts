@@ -16,16 +16,16 @@ import {
 export class FilterpaneComponent implements OnInit {
   filters = [
     {section_name: "mealType", section_text: "Meal Type",  values: [
-      {name: "breakfast", text: "Breakfast"},
-      {name: "lunch", text: "Lunch"},
-      {name: "dinner", text: "Dinner"},
-      {name: "dessert", text: "Desert"}
+      {name: "Breakfast", text: "Breakfast"},
+      {name: "Lunch", text: "Lunch"},
+      {name: "Dinner", text: "Dinner"},
+      {name: "Dessert", text: "Desert"}
     ]},
     {section_name: "mealStyle", section_text: "Meal Style",  values: [
-      {name: "italian", text: "Italian"},
-      {name: "chinese", text: "Chinese"},
-      {name: "mexican", text: "Mexican"},
-      {name: "american", text: "American"},
+      {name: "Italian", text: "Italian"},
+      {name: "Chinese", text: "Chinese"},
+      {name: "Mexican", text: "Mexican"},
+      {name: "American", text: "American"},
     ]},
     {section_name: "rating", section_text: "Rating",  values: [
       {name: "oneStar", text: "One Star", value: 1},
@@ -46,10 +46,10 @@ export class FilterpaneComponent implements OnInit {
       {name: "TwentyPlus", text: "More than $20", bounds: [20]}
     ]},
     {section_name: "appliances", section_text: "Appliances",  values: [
-      {name: "oven", text: "Oven"},
-      {name: "microwave", text: "Microwave"},
-      {name: "blender", text: "Blender"},
-      {name: "stove", text: "Stove"}
+      {name: "Oven", text: "Oven"},
+      {name: "Microwave", text: "Microwave"},
+      {name: "Blender", text: "Blender"},
+      {name: "Stove", text: "Stove"}
     ]},
     {section_name: "popularity", section_text: "popularity",  values: [
       {name: "zeroToTen", text: "0 - 10", bounds: [0,10]},
@@ -57,10 +57,10 @@ export class FilterpaneComponent implements OnInit {
       {name: "hundredPlus", text: "100+", bounds: [100]}
     ]},
     {section_name: "ingredients", section_text: "Ingredients",  values: [
-      {name: "milk", text: "Milk"},
-      {name: "butter", text: "Butter"},
-      {name: "ketchup", text: "Ketchup"},
-      {name: "salt", text: "Salt"}
+      {name: "Milk", text: "Milk"},
+      {name: "Butter", text: "Butter"},
+      {name: "Ketchup", text: "Ketchup"},
+      {name: "Salt", text: "Salt"}
     ]}
 
 

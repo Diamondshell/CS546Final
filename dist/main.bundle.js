@@ -646,8 +646,8 @@ var CardComponent = (function () {
         this.numUnChecked = [];
     }
     CardComponent.prototype.ngOnInit = function () {
-        this.numChecked = new Array(Math.ceil(this.recipe.avgRating));
-        this.numUnChecked = new Array(Math.floor(5 - this.recipe.avgRating));
+        this.numChecked = new Array(Math.round(this.recipe.avgRating));
+        this.numUnChecked = new Array(5 - Math.round(this.recipe.avgRating));
     };
     CardComponent.prototype.editRecipe = function () {
         this.dialogRef = this.dialog.open(__WEBPACK_IMPORTED_MODULE_3__create_recipe_modal_create_recipe_modal_component__["a" /* CreateRecipeModalComponent */], { data: { id: this.recipe._id, edit: true } });
@@ -1012,16 +1012,16 @@ var FilterpaneComponent = (function () {
         this.dataService = dataService;
         this.filters = [
             { section_name: "mealType", section_text: "Meal Type", values: [
-                    { name: "breakfast", text: "Breakfast" },
-                    { name: "lunch", text: "Lunch" },
-                    { name: "dinner", text: "Dinner" },
-                    { name: "dessert", text: "Desert" }
+                    { name: "Breakfast", text: "Breakfast" },
+                    { name: "Lunch", text: "Lunch" },
+                    { name: "Dinner", text: "Dinner" },
+                    { name: "Dessert", text: "Desert" }
                 ] },
             { section_name: "mealStyle", section_text: "Meal Style", values: [
-                    { name: "italian", text: "Italian" },
-                    { name: "chinese", text: "Chinese" },
-                    { name: "mexican", text: "Mexican" },
-                    { name: "american", text: "American" },
+                    { name: "Italian", text: "Italian" },
+                    { name: "Chinese", text: "Chinese" },
+                    { name: "Mexican", text: "Mexican" },
+                    { name: "American", text: "American" },
                 ] },
             { section_name: "rating", section_text: "Rating", values: [
                     { name: "oneStar", text: "One Star", value: 1 },
@@ -1043,10 +1043,10 @@ var FilterpaneComponent = (function () {
                     { name: "TwentyPlus", text: "More than $20", bounds: [20] }
                 ] },
             { section_name: "appliances", section_text: "Appliances", values: [
-                    { name: "oven", text: "Oven" },
-                    { name: "microwave", text: "Microwave" },
-                    { name: "blender", text: "Blender" },
-                    { name: "stove", text: "Stove" }
+                    { name: "Oven", text: "Oven" },
+                    { name: "Microwave", text: "Microwave" },
+                    { name: "Blender", text: "Blender" },
+                    { name: "Stove", text: "Stove" }
                 ] },
             { section_name: "popularity", section_text: "popularity", values: [
                     { name: "zeroToTen", text: "0 - 10", bounds: [0, 10] },
@@ -1054,10 +1054,10 @@ var FilterpaneComponent = (function () {
                     { name: "hundredPlus", text: "100+", bounds: [100] }
                 ] },
             { section_name: "ingredients", section_text: "Ingredients", values: [
-                    { name: "milk", text: "Milk" },
-                    { name: "butter", text: "Butter" },
-                    { name: "ketchup", text: "Ketchup" },
-                    { name: "salt", text: "Salt" }
+                    { name: "Milk", text: "Milk" },
+                    { name: "Butter", text: "Butter" },
+                    { name: "Ketchup", text: "Ketchup" },
+                    { name: "Salt", text: "Salt" }
                 ] }
         ];
         this.tags = [];
@@ -1946,8 +1946,8 @@ var RecipeviewComponent = (function () {
     };
     RecipeviewComponent.prototype.finishLoad = function (recipeInfo) {
         this.recipe = recipeInfo;
-        this.numChecked = new Array(Math.ceil(this.recipe.avgRating));
-        this.numUnChecked = new Array(Math.floor(5 - this.recipe.avgRating));
+        this.numChecked = new Array(Math.round(this.recipe.avgRating));
+        this.numUnChecked = new Array(5 - Math.round(this.recipe.avgRating));
         window.scrollTo(0, 0);
     };
     RecipeviewComponent.prototype.ngOnInit = function () {
@@ -1957,7 +1957,6 @@ var RecipeviewComponent = (function () {
         this.getRecipeById(id);
         this.route.params.subscribe(function (params) {
             var term = params['id'];
-            console.log(term);
             if (term) {
                 _this.dataService.getRecipeById(term).subscribe(function (res) { return _this.recipe = res; });
             }

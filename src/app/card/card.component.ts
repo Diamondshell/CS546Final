@@ -23,8 +23,8 @@ export class CardComponent implements OnInit {
   constructor(private dataService: DataService, public dialog: MatDialog) { }
   
   ngOnInit() {
-    this.numChecked = new Array(Math.ceil(this.recipe.avgRating));
-    this.numUnChecked = new Array(Math.floor(5-this.recipe.avgRating));
+    this.numChecked = new Array(Math.round(this.recipe.avgRating));
+    this.numUnChecked = new Array(5 - Math.round(this.recipe.avgRating));
   }
 
   editRecipe(){
