@@ -188,15 +188,68 @@ const exported_methods = {
     },
     /**
      * Gets all recipes matching a given filter
-     * @param {!Object} filter The filter to match on
+     * @param {!object} filter The filter to match on
      */
     async getRecipesByFilter ( filter ) {
         if ( typeof ( filter ) !== 'object' ){
-            throw `getRecipeByFilter: Not yet implemented`;
+            throw `getRecipeByFilter: Expected an object filter. Received a ${typeof ( filter )}`;
         }
         const recipeCollection = await recipes();
-        const data = await recipeCollection.find ( filter ).toArray();
-        return await getAvgRatingList ( data );
+        find = [];
+
+        if ( filter.name ) {
+            if ( typeof ( filter.name ) !== 'string' ) {
+                throw `getRecipeByFilter: Expected string name, but received ${typeof ( filter.name )}`;
+            }
+            str = "^.*" + filter.name + ".*";
+            reg = new RegExp ( str, "i" );
+            find.push( { name: { $regex: reg } } ); 
+        }
+        if ( filter.tags ) {
+            find.push (  { tags: { $all: filter.tags } } );
+        }
+        if ( filter.appliances ) {
+            find.push ( { $nor: [{ appliances: { $elemMatch: { $nin: filter.appliances } } }] } );
+        }
+        if ( filter.ingredients ) {
+            find.push ( { ingredients: { $all: filter.ingredients } } );
+        }
+        if ( filter.price ) {
+            let orb = [];
+            while ( p = filter.price.pop() ) {
+                orb.push ( { price: p } );
+            } 
+            find.push ( { $or: orb } );
+        }
+        if ( filter.time ) {
+            let orb = [];
+            while ( p = filter.time.pop() ) {
+                orb.push ( { cookTime: p } );
+            } 
+            find.push ( { $or: orb } );
+        }
+        if ( filter.popularity ) {
+            let orb = [];
+            while ( p = filter.popularity.pop() ) {
+                orb.push ( { popularity: p } );
+            } 
+            find.push ( { $or: orb } );
+        }
+
+        let data = await recipeCollection.find ( { $and: find } ).toArray();
+        let avgData = await getAvgRatingList ( data );
+        
+        if ( filter.rating ) {
+            let eData = [];
+            for ( let i = 0; i < avgData.length; i++ ) {
+                if ( filter.rating.indexOf ( Math.floor ( avgData[i].rating ) ) > -1 ) {
+                    eData.push ( avgData[i] );
+                }
+            }
+            avgData = eData;
+        }
+
+        return avgData;
     },
     /**
      * Gets all recipes made by a given user
