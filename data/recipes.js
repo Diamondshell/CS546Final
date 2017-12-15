@@ -237,7 +237,7 @@ const exported_methods = {
         }
 
         let data;
-        if ( find == {} ) {
+        if ( find.length == 0 ) {
             data = await recipeCollection.find ( {} ).toArray();
         } else {
             data = await recipeCollection.find ( { $and: find } ).toArray();

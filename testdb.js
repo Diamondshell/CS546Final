@@ -10,13 +10,13 @@ const closeDB = mongoCollections.end;
 async function main() {
     
     filter = {};
-    filter.name = "e";
+    //filter.name = "e";
     //filter.tags = [ "What", "Unnatural" ];
     //filter.appliances = [ "Oven", "Grill" ];
-    filter.price = [{$gte: 1000},{$lte: .5}];
-    filter.popularity = [{$lte: 11}];
-    filter.time = [{$lte: 120}];
-    filter.rating = [2,5];
+    //filter.price = [{$gte: 1000},{$lte: .5}];
+    //filter.popularity = [{$lte: 11}];
+    //filter.time = [{$lte: 120}];
+    //filter.rating = [2,5];
     const data = await recipes.getRecipesByFilter ( filter );
 
     console.log ( data );
