@@ -111,4 +111,14 @@ export class DataService {
       .map(result=>result.json());
   }
 
+  getFilteredRecipes(filter) {
+    // let myHeaders = new Headers();
+    // myHeaders.append('Content-Type', 'application/json');    
+    // let myParams = new URLSearchParams();
+    // myParams.append('filter', filter.filter);  
+    // let options = new RequestOptions({ headers: myHeaders, params: myParams });
+    return this._http.post('/recipes/filter', filter)
+      .map(result=>this.response = result.json());
+  }
+
 }
