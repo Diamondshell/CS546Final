@@ -56,7 +56,7 @@ var routes = [
     { path: 'userprofile', component: __WEBPACK_IMPORTED_MODULE_7__profile_layout_profile_layout_component__["a" /* ProfileLayoutComponent */], pathMatch: 'full' },
     { path: 'savedrecipes', component: __WEBPACK_IMPORTED_MODULE_6__saved_recipes_saved_recipes_component__["a" /* SavedRecipesComponent */], pathMatch: 'full' },
     { path: 'userrecipes', component: __WEBPACK_IMPORTED_MODULE_5__user_recipes_user_recipes_component__["a" /* UserRecipesComponent */], pathMatch: 'full' },
-    { path: 'browse/:id', component: __WEBPACK_IMPORTED_MODULE_3__browse_browse_component__["a" /* BrowseComponent */], pathMatch: 'full' },
+    { path: 'browse/:id', component: __WEBPACK_IMPORTED_MODULE_3__browse_browse_component__["a" /* BrowseComponent */], pathMatch: 'full', data: { recipes: "asdf" } },
     { path: 'recipe/:id', component: __WEBPACK_IMPORTED_MODULE_4__recipeview_recipeview_component__["a" /* RecipeviewComponent */], pathMatch: 'full' },
     { path: 'redirect/:id', component: __WEBPACK_IMPORTED_MODULE_10__redirect_redirect_component__["a" /* RedirectComponent */], pathMatch: 'full' },
     { path: 'forbidden', component: __WEBPACK_IMPORTED_MODULE_9__must_log_in_must_log_in_component__["a" /* MustLogInComponent */] },
@@ -435,13 +435,25 @@ var BrowseComponent = (function () {
         var id = this.route.snapshot.paramMap.get('id');
         console.log("here");
         console.log(id);
-        if (id && id != "" && id != "all") {
+        if (id && id != "" && id != "all" && id.substring(0, 6) != "filter") {
             this.title = "Results for " + id + ":";
             this.dataService.getRecipesByLikeName(id)
                 .subscribe(function (res) { return _this.recipes = res; });
         }
         else {
             this.title = "Recipes";
+            this.route.queryParams.subscribe(function (params) {
+                var term = params['ids'];
+                console.log(term);
+                if (term) {
+                    _this.recipes = [];
+                    for (var i = 0; i < term.length; i++) {
+                        _this.dataService.getRecipeById(term[i]).subscribe(function (res) { return _this.recipes.push(res); });
+                    }
+                }
+                //this.service.get(term).then(result => { console.log(result); });
+            });
+            this.route.data.subscribe(function (v) { return console.log(v); });
             this.dataService.getAllRecipes()
                 .subscribe(function (res) { return _this.recipes = res; });
         }
@@ -981,6 +993,7 @@ module.exports = "<aside>\r\n  <div class=\"bar\">\r\n    <h2>Filters</h2>\r\n  
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return FilterpaneComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -992,8 +1005,10 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 var FilterpaneComponent = (function () {
-    function FilterpaneComponent(dataService) {
+    function FilterpaneComponent(router, dataService) {
+        this.router = router;
         this.dataService = dataService;
         this.filters = [
             { section_name: "mealType", section_text: "Meal Type", values: [
@@ -1053,8 +1068,10 @@ var FilterpaneComponent = (function () {
         this.time = [];
         this.popularity = [];
         this.rating = [];
+        this.test = 0;
     }
     FilterpaneComponent.prototype.onCheck = function (e, fi, f) {
+        var _this = this;
         if (e.target.checked) {
             if (f.section_name == "mealType" || f.section_name == "mealStyle")
                 this.tags.push(fi.name);
@@ -1147,8 +1164,19 @@ var FilterpaneComponent = (function () {
             filter.popularity = this.popularity;
         if (this.rating.length)
             filter.rating = this.rating;
-        console.log(filter);
-        this.dataService.getFilteredRecipes({ filter: filter }).subscribe(function (i) { return console.log(i); });
+        this.test++;
+        this.dataService.getFilteredRecipes({ filter: filter }).subscribe(function (i) { return _this.reroute(i); });
+    };
+    FilterpaneComponent.prototype.reroute = function (recipes) {
+        var ids = [];
+        for (var i = 0; i < recipes.length; i++) {
+            ids.push(recipes[i]._id);
+        }
+        var navigationExtras = {
+            queryParams: { ids: ids },
+            replaceUrl: true
+        };
+        this.router.navigate(['./browse/filter' + this.test], navigationExtras);
     };
     FilterpaneComponent.prototype.ngOnInit = function () {
     };
@@ -1158,7 +1186,7 @@ var FilterpaneComponent = (function () {
             template: __webpack_require__("../../../../../src/app/filterpane/filterpane.component.html"),
             styles: [__webpack_require__("../../../../../src/app/filterpane/filterpane.component.css")]
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__angular_router__["b" /* Router */], __WEBPACK_IMPORTED_MODULE_1__data_service__["a" /* DataService */]])
     ], FilterpaneComponent);
     return FilterpaneComponent;
 }());

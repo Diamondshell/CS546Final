@@ -1,5 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
+import {
+  CanActivate, Router,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanActivateChild,
+  NavigationExtras
+}                           from '@angular/router';
 
 @Component({
   selector: 'app-filterpane',
@@ -67,7 +74,9 @@ export class FilterpaneComponent implements OnInit {
   popularity:any[] = [];
   rating:Number[] = [];
 
-  constructor(private dataService:DataService) { }
+  test = 0;
+
+  constructor(private router: Router, private dataService:DataService) { }
   onCheck(e, fi, f): void{
     if(e.target.checked){
       if (f.section_name == "mealType" || f.section_name == "mealStyle")
@@ -153,9 +162,21 @@ export class FilterpaneComponent implements OnInit {
     if (this.time.length) filter.time = this.time;
     if (this.popularity.length) filter.popularity = this.popularity;
     if (this.rating.length) filter.rating = this.rating;
-    console.log(filter);
-    this.dataService.getFilteredRecipes({filter: filter}).subscribe(i => console.log(i));
+    
+    this.test++;
+    this.dataService.getFilteredRecipes({filter: filter}).subscribe(i => this.reroute(i));
 
+  }
+  reroute(recipes){
+    var ids = [];
+    for (var i = 0; i < recipes.length; i++){
+      ids.push(recipes[i]._id);
+    }
+    let navigationExtras: NavigationExtras = {
+      queryParams : {ids: ids},
+      replaceUrl: true 
+    };
+    this.router.navigate(['./browse/filter' + this.test], navigationExtras)
   }
   ngOnInit() {
   }
