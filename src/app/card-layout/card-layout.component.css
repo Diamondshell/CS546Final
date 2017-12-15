@@ -28,8 +28,9 @@ ul{
     max-width: 1240px;
     margin: 0 auto;
     display: grid !important;
-    
+    -ms-grid-columns: 1fr ;
    grid-template-columns: 1fr;
+   -ms-grid-template-rows: auto;
    grid-template-rows: auto;
    grid-gap: 20px;
     padding: 0px;
@@ -49,12 +50,20 @@ ul{
  }*/
  @media only screen and (min-width: 750px) {
     ul {
+      -ms-grid-columns: 1fr 1fr;
       grid-template-columns: 1fr 1fr;
     }  
   }
 
   @media only screen and (min-width: 1000px) {
     ul {
+      -ms-grid-columns: 1fr 1fr 1fr ;
       grid-template-columns: 1fr 1fr 1fr;
     }
   }
+
+  @media screen\0 {
+    ul{
+      display: block !important;
+    }
+}
