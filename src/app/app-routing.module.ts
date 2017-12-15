@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'userprofile', component: ProfileLayoutComponent ,pathMatch: 'full'  },
   { path: 'savedrecipes', component: SavedRecipesComponent,pathMatch: 'full' },
   { path: 'userrecipes', component: UserRecipesComponent ,pathMatch: 'full'},
-  {path: 'browse/:id', component: BrowseComponent,pathMatch: 'full'},
+  {path: 'browse/:id', component: BrowseComponent,pathMatch: 'full', data:{recipes:"asdf"}},
   {path: 'recipe/:id', component: RecipeviewComponent,pathMatch: 'full'},
   {path: 'redirect/:id', component: RedirectComponent,pathMatch: 'full'},
   {path: 'forbidden', component:MustLogInComponent},

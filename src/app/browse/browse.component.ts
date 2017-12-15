@@ -18,13 +18,26 @@ export class BrowseComponent implements OnInit {
     const id = this.route.snapshot.paramMap.get('id');
     console.log("here");
     console.log(id);
-     if (id && id != "" && id != "all"){ 
+    
+    if (id && id != "" && id != "all" && id.substring(0,6) != "filter"){ 
        this.title = `Results for ${id}:`;   	
     	this.dataService.getRecipesByLikeName(id)
         .subscribe(res=>this.recipes = res);
     
     } else{
-      this.title = "Recipes";   	
+      this.title = "Recipes";
+      this.route.queryParams.subscribe(params => {
+        const term = params['ids'];
+        console.log(term);
+        if (term){
+          this.recipes = [];
+          for (var i = 0; i < term.length; i++){
+            this.dataService.getRecipeById(term[i]).subscribe(res=>this.recipes.push(res));
+          }
+        }
+        //this.service.get(term).then(result => { console.log(result); });
+      });
+      this.route.data.subscribe(v =>console.log(v));
       this.dataService.getAllRecipes()
       .subscribe(res=>this.recipes = res);
     }
