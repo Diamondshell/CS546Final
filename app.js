@@ -149,6 +149,7 @@ app.post('/user', async function(req, res) {
     let username = "";
     let email = "";
     let description = "";
+    console.log(req.body);
     
     //check for password
     if(req.body.hasOwnProperty("password")) {

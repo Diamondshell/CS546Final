@@ -1,21 +1,23 @@
 <div id="register">
-  <form ngNoForm>
+  <form>
     <mat-form-field>
-      <input matInput required="required" placeholder="Username" pattern="[^'\x22><]+" title="Username: No Special Characters">
+      <input [(ngModel)]="newUser" matInput required="required" placeholder="Username" name="user">
     </mat-form-field>
     <p>
       <mat-form-field>
-        <input matInput required="required" type="email" placeholder="Email Address"  title="Email">
+        <input [(ngModel)]="newEmail" matInput required="required" type="email" placeholder="Email Address" name="email">
+
       </mat-form-field>
     </p>
     <p>
       <mat-form-field class="demo-full-width">
-        <input matInput required="required" type="password" placeholder="Password" pattern="[^'\x22><]+" title="Password: No < '  >">
+        <input [(ngModel)]="newPass" matInput required="required" type="password" placeholder="Password" name="pass">
       </mat-form-field>
       <mat-form-field class="password">
-        <input matInput required="required" type="password" placeholder="Confirm Password" pattern="[^'\x22><]+" title="Password: No < '  >">
+        <input [(ngModel)]="newPassConf" matInput required="required" type="password" placeholder="Confirm Password" name="passconf">
+
       </mat-form-field>
     </p>
-    <button mat-raised-button class="submit" type="submit" value="Register!">Register!</button>
+    <button mat-raised-button class="submit" (click)="doRegistration()" value="Register!">Register!</button>
   </form>
 </div>

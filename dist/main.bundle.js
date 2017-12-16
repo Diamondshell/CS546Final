@@ -2123,7 +2123,8 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/register-modal/register-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"register\">\n  <form ngNoForm>\n    <mat-form-field>\n      <input matInput required=\"required\" placeholder=\"Username\" pattern=\"[^'\\x22><]+\" title=\"Username: No Special Characters\">\n    </mat-form-field>\n    <p>\n      <mat-form-field>\n        <input matInput required=\"required\" type=\"email\" placeholder=\"Email Address\"  title=\"Email\">\n      </mat-form-field>\n    </p>\n    <p>\n      <mat-form-field class=\"demo-full-width\">\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Password\" pattern=\"[^'\\x22><]+\" title=\"Password: No < '  >\">\n      </mat-form-field>\n      <mat-form-field class=\"password\">\n        <input matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\" pattern=\"[^'\\x22><]+\" title=\"Password: No < '  >\">\n      </mat-form-field>\n    </p>\n    <button mat-raised-button class=\"submit\" type=\"submit\" value=\"Register!\">Register!</button>\n  </form>\n</div>"
+module.exports = "<div id=\"register\">\r\n  <form>\r\n    <mat-form-field>\r\n      <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\" name=\"user\">\r\n    </mat-form-field>\r\n    <p>\r\n      <mat-form-field>\r\n        <input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\" name=\"email\">\r\n      </mat-form-field>\r\n    </p>\r\n    <p>\r\n      <mat-form-field class=\"demo-full-width\">\r\n        <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\" name=\"pass\">\r\n      </mat-form-field>\r\n      <mat-form-field class=\"password\">\r\n        <input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\" name=\"passconf\">\r\n      </mat-form-field>\r\n    </p>\r\n    <button mat-raised-button class=\"submit\" (click)=\"doRegistration()\" value=\"Register!\">Register!</button>\r\n  </form>\r\n</div>"
+
 
 /***/ }),
 
@@ -2133,6 +2134,9 @@ module.exports = "<div id=\"register\">\n  <form ngNoForm>\n    <mat-form-field>
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterModalComponent; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/esm5/core.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_material__ = __webpack_require__("../../../material/esm5/material.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__data_service__ = __webpack_require__("../../../../../src/app/data.service.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_router__ = __webpack_require__("../../../router/esm5/router.js");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -2143,10 +2147,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 
+
+
+
 var RegisterModalComponent = (function () {
-    function RegisterModalComponent() {
+    function RegisterModalComponent(dialogRef, dataService, router) {
+        this.dialogRef = dialogRef;
+        this.dataService = dataService;
+        this.router = router;
     }
     RegisterModalComponent.prototype.ngOnInit = function () {
+    };
+    RegisterModalComponent.prototype.doRegistration = function () {
+        var _this = this;
+        if (this.newPass != this.newPassConf) {
+            alert("Passwords must match!");
+            return;
+        }
+        this.dataService.createNewUser(this.newUser, this.newEmail, this.newPass).subscribe(function (res) {
+            return _this.dialogRef.close('');
+        });
     };
     RegisterModalComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
@@ -2154,7 +2174,7 @@ var RegisterModalComponent = (function () {
             template: __webpack_require__("../../../../../src/app/register-modal/register-modal.component.html"),
             styles: [__webpack_require__("../../../../../src/app/register-modal/register-modal.component.css")]
         }),
-        __metadata("design:paramtypes", [])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_material__["g" /* MatDialogRef */], __WEBPACK_IMPORTED_MODULE_2__data_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_3__angular_router__["b" /* Router */]])
     ], RegisterModalComponent);
     return RegisterModalComponent;
 }());
@@ -2246,7 +2266,8 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/signin-modal/signin-modal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div id=\"container\">\n\t<div id=\"wrapper\">\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\n\t\t<div id=\"sign-in\">\n\t\t\t<form>\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\n\t\t\t  </mat-form-field>\n\t\t\t  <br>\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\n\t\t\t  <br>\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\n\t\t\t</form>\n\n\t\t\t<footer class=\"footer\">\n\t\t\t\t<p class=\"change_link\">\n\t\t\t\t\tNot a member yet?\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\n\t\t\t\t</p>\n\t\t\t</footer>\n\t\t</div>\n\n\t\t<div id=\"register\">\n\t    <form ngNoForm>\n        <mat-form-field>\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\">\n        </mat-form-field>\n        <p>\n        \t<mat-form-field>\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\">\n        \t</mat-form-field>\n        </p>\n\t      <p>\n\t        <mat-form-field class=\"demo-full-width\">\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\">\n\t        </mat-form-field>\n\t        <mat-form-field class=\"password\">\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\">\n\t        </mat-form-field>\n\t      </p>\n\t      <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\n\t    </form>\n\n\t    <footer class=\"footer\">\n\t    \t<p class=\"change_link\">\n\t    \t\tAlready a member?\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\n\t    \t</p>\n\t    </footer>\n\t\t</div>\n\t</div>\n</div>\n\n<!-- Username, email, password, description -->"
+module.exports = "<div id=\"container\">\r\n\t<div id=\"wrapper\">\r\n\t\t<span id=\"gotta_log\">You must log in to access that!</span>\r\n\t\t<div id=\"sign-in\">\r\n\t\t\t<form>\r\n\t\t\t  <mat-form-field title=\"Username\" class=\"input\">\r\n\t\t\t    <input id=\"login_id\" matInput placeholder=\"Username\" value=\"\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <mat-form-field title=\"Password\" class=\"input\">\r\n\t\t\t  \t<input id=\"login_pass\" matInput placeholder=\"Password\" type=\"password\">\r\n\t\t\t  </mat-form-field>\r\n\t\t\t  <br>\r\n\t\t\t  <p id=\"error\">Invalid username or password.</p>\r\n\t\t\t  <br>\r\n\t\t\t  <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"authenticateUser()\" value=\"Sign-In\" id=\"sign-in\">Sign-In</button>\r\n\t\t\t</form>\r\n\r\n\t\t\t<footer class=\"footer\">\r\n\t\t\t\t<p class=\"change_link\">\r\n\t\t\t\t\tNot a member yet?\r\n\t\t\t\t\t<span (click)=\"register()\" id=\"to_register\">Join us</span>\r\n\t\t\t\t</p>\r\n\t\t\t</footer>\r\n\t\t</div>\r\n\r\n\t\t<div id=\"register\">\r\n\t    <form ngNoForm>\r\n        <mat-form-field>\r\n          <input [(ngModel)]=\"newUser\" matInput required=\"required\" placeholder=\"Username\" name=\"username\">\r\n        </mat-form-field>\r\n        <p>\r\n        \t<mat-form-field>\r\n        \t\t<input [(ngModel)]=\"newEmail\" matInput required=\"required\" type=\"email\" placeholder=\"Email Address\" name=\"email\">\r\n        \t</mat-form-field>\r\n        </p>\r\n\t      <p>\r\n\t        <mat-form-field class=\"demo-full-width\">\r\n\t          <input [(ngModel)]=\"newPass\" matInput required=\"required\" type=\"password\" placeholder=\"Password\" name=\"password\">\r\n\t        </mat-form-field>\r\n\t        <mat-form-field class=\"password\">\r\n\t        \t<input [(ngModel)]=\"newPassConf\" matInput required=\"required\" type=\"password\" placeholder=\"Confirm Password\" name=\"passwordConf\">\r\n\t        </mat-form-field>\r\n\t      </p>\r\n\t      <button [disabled]=\"isDisabled\" data-dismiss=\"modal\" class=\"btn btn-primary submit\" (click)=\"doRegister()\" value=\"Register!\">Register!</button>\r\n\t    </form>\r\n\r\n\t    <footer class=\"footer\">\r\n\t    \t<p class=\"change_link\">\r\n\t    \t\tAlready a member?\r\n\t    \t\t<span (click)=\"login()\" id=\"to_login\">Login</span>\r\n\t    \t</p>\r\n\t    </footer>\r\n\t\t</div>\r\n\t</div>\r\n</div>\r\n\r\n<!-- Username, email, password, description -->"
+
 
 /***/ }),
 

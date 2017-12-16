@@ -27,19 +27,19 @@
 		<div id="register">
 	    <form ngNoForm>
         <mat-form-field>
-          <input [(ngModel)]="newUser" matInput required="required" placeholder="Username">
+          <input [(ngModel)]="newUser" matInput required="required" placeholder="Username" name="username">
         </mat-form-field>
         <p>
         	<mat-form-field>
-        		<input [(ngModel)]="newEmail" matInput required="required" type="email" placeholder="Email Address">
+        		<input [(ngModel)]="newEmail" matInput required="required" type="email" placeholder="Email Address" name="email">
         	</mat-form-field>
         </p>
 	      <p>
 	        <mat-form-field class="demo-full-width">
-	          <input [(ngModel)]="newPass" matInput required="required" type="password" placeholder="Password">
+	          <input [(ngModel)]="newPass" matInput required="required" type="password" placeholder="Password" name="password">
 	        </mat-form-field>
 	        <mat-form-field class="password">
-	        	<input [(ngModel)]="newPassConf" matInput required="required" type="password" placeholder="Confirm Password">
+	        	<input [(ngModel)]="newPassConf" matInput required="required" type="password" placeholder="Confirm Password" name="passwordConf">
 	        </mat-form-field>
 	      </p>
 	      <button [disabled]="isDisabled" data-dismiss="modal" class="btn btn-primary submit" (click)="doRegister()" value="Register!">Register!</button>
