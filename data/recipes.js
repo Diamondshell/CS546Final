@@ -168,7 +168,9 @@ const exported_methods = {
         }
 
         const recipeCollection = await recipes();
-        const data = await recipeCollection.updateOne ( { _id: id }, { $set: update } );
+        if  ( Object.keys(update).length != 0 ) {
+            const data = await recipeCollection.updateOne ( { _id: id }, { $set: update } );
+        }
         return await exported_methods.getRecipeById( id );
     },
     /**
@@ -191,16 +193,16 @@ const exported_methods = {
      * @param {!object} filter The filter to match on
      */
     async getRecipesByFilter ( filter ) {
-        if ( typeof ( filter ) !== 'object' ){
+        if ( !(filter) ){
             throw `getRecipeByFilter: Expected an object filter. Received a ${typeof ( filter )}`;
+        }
+        if ( Object.keys(filter).length == 0 ) {
+            return await this.getAllRecipes();
         }
         const recipeCollection = await recipes();
         find = [];
-
+        
         if ( filter.name ) {
-            if ( typeof ( filter.name ) !== 'string' ) {
-                throw `getRecipeByFilter: Expected string name, but received ${typeof ( filter.name )}`;
-            }
             str = "^.*" + filter.name + ".*";
             reg = new RegExp ( str, "i" );
             find.push( { name: { $regex: reg } } ); 
@@ -212,7 +214,7 @@ const exported_methods = {
             find.push ( { $nor: [{ appliances: { $elemMatch: { $nin: filter.appliances } } }] } );
         }
         if ( filter.ingredients ) {
-            find.push ( { ingredients: { $all: filter.ingredients } } );
+            find.push ( { ingredients: { $in: filter.ingredients } } );
         }
         if ( filter.price ) {
             let orb = [];

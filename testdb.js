@@ -12,6 +12,7 @@ async function main() {
     filter = {};
     //filter.name = "e";
     //filter.tags = [ "What", "Unnatural" ];
+    //filter.ingredients = [ "Butter", "Ketchup" ];
     //filter.appliances = [ "Oven", "Grill" ];
     //filter.price = [{$gte: 1000},{$lte: .5}];
     //filter.popularity = [{$lte: 11}];
@@ -19,7 +20,7 @@ async function main() {
     //filter.rating = [2,5];
     const data = await recipes.getRecipesByFilter ( filter );
 
-    console.log ( data );
+    //console.log ( data );
     
     closeDB();
 
