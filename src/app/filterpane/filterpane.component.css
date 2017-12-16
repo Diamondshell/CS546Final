@@ -10,9 +10,12 @@ li {
 ul {
     padding-left: 3px;
 }
+h3{
+    margin:5px;
+}
 @media (max-width: 500px) {
     .filter-group {
-        width:calc(50% - 30px);
+        width:calc(50% - 10px);
         float:left;
         display:none;
         z-index: 1;
@@ -24,6 +27,9 @@ ul {
 h2, h3{
     font-size: 1.1em;
     text-align: center;
+}
+h3{
+    margin:5px;
 }
 .bar{
     text-align: center;
@@ -39,6 +45,6 @@ h2, h3{
     background-color: rgb(255, 241, 241);
     text-align: left;
     overflow:auto;
-    height:140px;
+    height:155px;
     font-size:.8em;
 }

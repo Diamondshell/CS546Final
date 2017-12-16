@@ -4,7 +4,7 @@
       <h1>{{recipe.name}}</h1>
      
    
-    <div class = "rating" title ="{{recipe.Rating}} Star(s)">
+    <div class = "rating" title ="{{recipe.avgRating}} Star(s)">
         <ul>
           <li  *ngFor="let i of numChecked"> <i class="fa fa-star checked" ></i></li>
           <li  *ngFor="let i of numUnChecked"> <i class="fa fa-star"></i></li>   

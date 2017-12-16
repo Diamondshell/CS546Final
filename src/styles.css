@@ -30,7 +30,7 @@ app-filterpane{
     width: 200px;
    /* background-color: rgb(255, 249, 249);*/
    background-color:#edc86a60;
-   margin-top:30px; 
+   margin-top:0px; 
    margin-left: 10px;
    border-radius: 10px 0px 10px 0px;
 }

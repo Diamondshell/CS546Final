@@ -51,7 +51,7 @@ export class FilterpaneComponent implements OnInit {
       {name: "Blender", text: "Blender"},
       {name: "Stove", text: "Stove"}
     ]},
-    {section_name: "popularity", section_text: "popularity",  values: [
+    {section_name: "popularity", section_text: "Popularity",  values: [
       {name: "zeroToTen", text: "0 - 10", bounds: [0,10]},
       {name: "tenToHundred", text: "10 - 100", bounds: [10,100]},
       {name: "hundredPlus", text: "100+", bounds: [100]}
