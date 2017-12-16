@@ -367,7 +367,7 @@ app.get('/recipes', async function(req, res) {
 
 
 //GET recipe/:recipeId route, responds with full content of specified recipe
-app.get('/recipe/:recipeId', async function(req, res) {
+app.get('/api/recipe/:recipeId', async function(req, res) {
     //try to get recipe with specified recipeId
     try {
         let getRecipe = await index.recipes.getRecipeById(req.params.recipeId);
@@ -956,7 +956,7 @@ app.post('/recipe', async function(req, res) {
 });
 
 //PUT recipe/:id route, updates the specified recipe with only the supplied changes, returns updated recipe
-app.put('/recipe/:recipeId', async function(req, res) {
+app.put('/api/recipe/:recipeId', async function(req, res) {
     //check for and get parameters
     let userid = "";
     let name = "";
@@ -1113,7 +1113,7 @@ app.put('/recipe/:recipeId', async function(req, res) {
 });
 
 //DELETE recipe/:id route, deletes the recipe with the specified id
-app.delete('/recipe/:recipeId', async function(req, res) {
+app.delete('/api/recipe/:recipeId', async function(req, res) {
     //try to delete recipe
     try{
         let delRecipe = await index.recipes.removeRecipeById(req.params.recipeId);
