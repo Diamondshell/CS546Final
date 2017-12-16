@@ -207,6 +207,11 @@ img{
     .comments{
         display:none;
     }
+    img{
+        height:300px !important; 
+        max-height:300px;
+        width:auto !important;
+    }
  
 }
 .comments header{

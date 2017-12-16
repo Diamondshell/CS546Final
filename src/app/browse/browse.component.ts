@@ -41,6 +41,7 @@ export class BrowseComponent implements OnInit {
       this.dataService.getAllRecipes()
       .subscribe(res=>this.recipes = res);
     }
+    
 
     //var searchStr = (<HTMLInputElement>document.getElementById("search")).value;
    

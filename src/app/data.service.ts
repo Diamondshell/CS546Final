@@ -49,7 +49,7 @@ export class DataService {
   }
 
   getRecipeById(id):Observable<RecipeDetail>{
-    return this._http.get(`/recipe/${id}`)
+    return this._http.get(`/api/recipe/${id}`)
       .map(result => this.response = result.json());
     //return of(recipeDetail);
   }
@@ -83,7 +83,7 @@ export class DataService {
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     //send changed data to server
-    return this._http.put(`/recipe/${id}`, changed, {headers: headers})
+    return this._http.put(`/api/recipe/${id}`, changed, {headers: headers})
       .map(result => result.json());
   }
 
@@ -97,7 +97,7 @@ export class DataService {
   }
 
   deleteRecipe(id){
-    return this._http.delete(`/recipe/${id}`)
+    return this._http.delete(`/api/recipe/${id}`)
       .map(result=>result.json());
   }
 
