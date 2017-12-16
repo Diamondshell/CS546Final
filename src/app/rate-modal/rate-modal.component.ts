@@ -15,7 +15,8 @@ export class RateModalComponent implements OnInit {
   rating: Number = 1;
   submit(){
   	// alert("HELLO");
-  	var commentStr = (<HTMLInputElement>document.getElementById("comment")).value;
+    var commentStr = (<HTMLInputElement>document.getElementById("comment")).value;
+    commentStr = commentStr.replace(/[<>]/g, '');
   	this.dataService.getCurrentUser()
   		.subscribe(user=>this.dataService.addRating(this.data.recipeId, user._id, this.rating)
   			.subscribe(res=>res));

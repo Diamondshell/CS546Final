@@ -22,6 +22,21 @@ export class CreateRecipeModalComponent implements OnInit {
   }
 
   submit(){
+    this.recipe.name = this.recipe.name.replace(/[<>]/g, '');
+    this.recipe.description = this.recipe.description.replace(/[<>]/g, '');
+    for(let i = 0; i < this.recipe.appliances.length; i++){
+      this.recipe.appliances[i] =  this.recipe.appliances[i].replace(/[<>]/g, '');
+    }
+
+    for(let i = 0; i < this.recipe.ingredients.length; i++){
+      this.recipe.ingredients[i] =  this.recipe.ingredients[i].replace(/[<>]/g, '');
+    }
+    for(let i = 0; i < this.recipe.tags.length; i++){
+      this.recipe.tags[i] =  this.recipe.tags[i].replace(/[<>]/g, '');
+    }
+    for(let i = 0; i < this.recipe.steps.length; i++){
+      this.recipe.steps[i] =  this.recipe.steps[i].replace(/[<>]/g, '');
+    }
     this.recipe.appliances = this.recipe.appliances.toString().split(',');
     this.recipe.tags = this.recipe.tags.toString().split(',');
     this.recipe.ingredients = this.recipe.ingredients.toString().split(',');

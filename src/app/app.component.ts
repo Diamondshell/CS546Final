@@ -61,11 +61,16 @@ export class AppComponent {
   }
 
   search():void{
-    if(!(this.text)){
+  if(this.text){
+    this.text = this.text.replace(/[<>]/g, '');
+  }
+    
+
+    if(!(this.text) || this.text.length<1){
       this.router.navigate(["./redirect/all"]);
     }else{
-
-    this.router.navigate([`./redirect/${this.text}`]);
+     
+      this.router.navigate([`./redirect/${this.text}`]);
     }
   }
   

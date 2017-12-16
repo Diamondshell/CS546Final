@@ -6,6 +6,7 @@
     <p>
       <mat-form-field>
         <input [(ngModel)]="newEmail" matInput required="required" type="email" placeholder="Email Address" name="email">
+
       </mat-form-field>
     </p>
     <p>
@@ -14,6 +15,7 @@
       </mat-form-field>
       <mat-form-field class="password">
         <input [(ngModel)]="newPassConf" matInput required="required" type="password" placeholder="Confirm Password" name="passconf">
+
       </mat-form-field>
     </p>
     <button mat-raised-button class="submit" (click)="doRegistration()" value="Register!">Register!</button>
