@@ -50,3 +50,17 @@
 	position: relative;
 }
 
+
+@media(max-width: 800px){
+	.sidenav {
+		height: calc(100% - 229px);
+	}
+  
+}
+@media (max-width: 645px) {
+	.sidenav {
+		height: calc(100% - 348px);
+	}
+  
+    
+}
